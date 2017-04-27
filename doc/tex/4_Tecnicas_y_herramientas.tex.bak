@@ -1,0 +1,43 @@
+\capitulo{4}{Técnicas y herramientas}
+
+Esta parte de la memoria tiene como objetivo presentar las técnicas metodológicas y las herramientas de desarrollo que se han utilizado para llevar a cabo el proyecto. Si se han estudiado diferentes alternativas de metodologías, herramientas, bibliotecas se puede hacer un resumen de los aspectos más destacados de cada alternativa, incluyendo comparativas entre las distintas opciones y una justificación de las elecciones realizadas. 
+No se pretende que este apartado se convierta en un capítulo de un libro dedicado a cada una de las alternativas, sino comentar los aspectos más destacados de cada opción, con un repaso somero a los fundamentos esenciales y referencias bibliográficas para que el lector pueda ampliar su conocimiento sobre el tema.
+
+\section{Herramientas Candidatas (Aplicación Web)}
+Este apartado detallará las herramientas que inicialmente fueron consideradas para la programación de la aplicación web de forma compatible con el uso de Python.
+
+
+Los principales criterios a tener en cuenta para quedarnos con una de las alternativas han sido: la flexibilidad que ofreciera esa herramienta para trabajar con archivos de tipo PDF, la facilidad de distribución de la propia aplicación y el hecho de que adaptarse a ella no suponga un esfuerzo excesivo al programador.
+
+\subsection{PyQt}
+Permite crear aplicaciones de escritorio de forma sencilla, pudiendo crear elementos de interfaz sencillos como botones, cuadros de texto... etc(más aún si se usa su editor de GUI propio).
+
+No obstante, las opciones gr\'aficas no eran tan atractivas como pod\'ia parecer en un primer momento, y adem\'as ao es adecuada si la intenci\'on es crear una aplicaci\'on web.
+
+\subsection{Kivy}
+Es una alternativa interesante ya que permite hacer aplicaciones de escritorio con c\'odigo Python con la ventaja de que es "Cross-platform", es decir, que las aplicaciones que se creen usando esta herramienta se pueden distribuir en distintos sistemas operativos. 
+No obstante, no se tuvo especialmente en cuenta ya que para cuando se estaba investigando esta opci\'on, la opci\'on de hacer una aplicaci\'on web en vez de una de escritorio estaba pr\ácticamente decidida.
+
+\subsection{Flask}
+Permite combinar código HTML y Python de forma simple. La carater\ística que m\ás nos interesaba es su facilidad de combinar ficheros HTML y c\'odigos escritos puramente en Python, adem\ás de poder incluir de forma sencilla librer\ías con estilos para la interfaz.
+No obstante, a la hora de practicar con la herramienta (siguiendo el mega-tutorial de miguelgrinberg.com), la estructura de ficheros daba numerosos problemas al intentar ejecutar aplicaciones, unas veces relacionadas con el int\'erprete de Python, y otras por errores al combinar los ficheros. 
+Aunque finalmente se complet\ó la gu\ía, las sensaciones finales era que con Jupyter se desarrollaban aplicaciones sencillas con m\ás rapidez.
+
+\subsection{Jupyter}
+En esta herramienta, y con ayuda de alguna librer\'ia de terceros (wand, display...) es especialmente sencillo combinar c\'odigo HTML y Python en un mismo fichero. De hecho, haciendo uso de los llamados "ipywidgets" (o dicho de otra manera, los Widgets que ofrece IPython), se puede encapsular el c\'odigo HTML de forma muy c\'omoda en un script normal de Python, especialmente el ipywidget HTML, que permite introducir una estructura HTML como si se tratara de una cadena de texto normal.
+
+Adem\'as, la curva de aprendizaje ha sido bastante sencilla y conseguir un c\'odigo inicial que muestre documentos PDF ha llevado poco tiempo. Las posibilidades de combinarlo con otros elementos, como Flask o MongoDB (PyMongo) hacen de esta herramienta una de las mejores alternativas. De hecho, fue la elegida para implementar la aplicaci\ón web.
+
+
+\bigskip
+
+\section{Herramientas candidatas (Bases de Datos de texto)}
+{De forma similar al apartado previo, en las fases iniciales del proyecto se planteaban varias opciones para elegir c\'omo almacenar los datos necesarios para que el usuario pudiera obtener noticias y a la vez poder acceder a los datos para realizar la miner\'ia de los mismos.}
+\subsection{PyLucene}
+
+\subsection{PyMongo}
+Es la extensi\'on de MongoDB para Python. Su principal caracter\'istica es que es una base de datos no relacional, o en otras palabras, no SQL. De modo que funciona con un modelo distinto al que es m\'as habitual ver en una base de datos convencional. 
+Por ejemplo, en vez de estructurarse como tablas con relaciones entre ellas, la forma de almacenar los datos se asemeja mucho m\'as a lo que se puede ver en JSON: los datos se almacenan en una estructura clave-valor similar a un diccionario. 
+No obstante, aunque no se puedan usar relaciones, estas estructuras son muy flexibles, y se puede, por ejemplo, introducir unas estructuras como campos de otras, o introducir cualquier tipo de dato como valor.
+\subsection{SQLAlchemy}
+

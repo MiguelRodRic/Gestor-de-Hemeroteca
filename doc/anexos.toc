@@ -1,0 +1,32 @@
+\select@language {spanish}
+\select@language {spanish}
+\contentsline {chapter}{\'{I}ndice general}{\es@scroman {i}}{section*.1}
+\contentsline {chapter}{\'{I}ndice de figuras}{\es@scroman {iii}}{section*.2}
+\contentsline {chapter}{\'{I}ndice de tablas}{\es@scroman {iv}}{section*.3}
+\contentsline {appendix}{\chapternumberline {A}Plan de Proyecto Software}{1}{appendix.Alph1}
+\contentsline {section}{\numberline {A.1}Introducci\IeC {\'o}n}{1}{section.Alph1.1}
+\contentsline {section}{\numberline {A.2}Planificaci\IeC {\'o}n temporal}{1}{section.Alph1.2}
+\contentsline {section}{\numberline {A.3}Estudio de viabilidad}{6}{section.Alph1.3}
+\contentsline {subsection}{Viabilidad econ\IeC {\'o}mica}{6}{section*.4}
+\contentsline {subsection}{Viabilidad legal}{6}{section*.5}
+\contentsline {appendix}{\chapternumberline {B}Especificaci\IeC {\'o}n de Requisitos}{7}{appendix.Alph2}
+\contentsline {section}{\numberline {B.1}Introducci\IeC {\'o}n}{7}{section.Alph2.1}
+\contentsline {section}{\numberline {B.2}Objetivos generales}{7}{section.Alph2.2}
+\contentsline {section}{\numberline {B.3}Catalogo de requisitos}{7}{section.Alph2.3}
+\contentsline {section}{\numberline {B.4}Especificaci\IeC {\'o}n de requisitos}{7}{section.Alph2.4}
+\contentsline {appendix}{\chapternumberline {C}Especificaci\IeC {\'o}n de dise\IeC {\~n}o}{8}{appendix.Alph3}
+\contentsline {section}{\numberline {C.1}Introducci\IeC {\'o}n}{8}{section.Alph3.1}
+\contentsline {section}{\numberline {C.2}Dise\IeC {\~n}o de datos}{8}{section.Alph3.2}
+\contentsline {section}{\numberline {C.3}Dise\IeC {\~n}o procedimental}{8}{section.Alph3.3}
+\contentsline {section}{\numberline {C.4}Dise\IeC {\~n}o arquitect\IeC {\'o}nico}{8}{section.Alph3.4}
+\contentsline {appendix}{\chapternumberline {D}Documentaci\IeC {\'o}n t\IeC {\'e}cnica de programaci\IeC {\'o}n}{9}{appendix.Alph4}
+\contentsline {section}{\numberline {D.1}Introducci\IeC {\'o}n}{9}{section.Alph4.1}
+\contentsline {section}{\numberline {D.2}Estructura de directorios}{9}{section.Alph4.2}
+\contentsline {section}{\numberline {D.3}Manual del programador}{9}{section.Alph4.3}
+\contentsline {section}{\numberline {D.4}Compilaci\IeC {\'o}n, instalaci\IeC {\'o}n y ejecuci\IeC {\'o}n del proyecto}{9}{section.Alph4.4}
+\contentsline {section}{\numberline {D.5}Pruebas del sistema}{9}{section.Alph4.5}
+\contentsline {appendix}{\chapternumberline {E}Documentaci\IeC {\'o}n de usuario}{10}{appendix.Alph5}
+\contentsline {section}{\numberline {E.1}Introducci\IeC {\'o}n}{10}{section.Alph5.1}
+\contentsline {section}{\numberline {E.2}Requisitos de usuarios}{10}{section.Alph5.2}
+\contentsline {section}{\numberline {E.3}Instalaci\IeC {\'o}n}{10}{section.Alph5.3}
+\contentsline {section}{\numberline {E.4}Manual del usuario}{10}{section.Alph5.4}

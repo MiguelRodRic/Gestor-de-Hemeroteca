@@ -1,0 +1,26 @@
+{% extends "base.html" %}
+{% block content %}
+    <h1 style="font-family: 'Arimo', sans-serif" >Lector de PDF: </h1>
+    <p> Para leer un pdf, dejar en la siguiente carpeta: </p>
+    <img src="/static/img/location.png" alt="captura" height="200" width="600">
+    <form action="/scanpdf" method="post" name="pdf">
+      <p>
+          Pulsa para escanear pdf:<br>
+      </p>
+      <p><input type="submit" value="Aceptar"></p>
+      {% if mostrar %}
+      <table>
+      <tr>
+      <th>Autor</th>
+      <th>Fecha</th>
+      </tr>
+      {% for noticia in scan.noticias %}
+      <tr>
+      <td>{{ noticia.autor}}</td>
+      <td>{{ noticia.fecha }}</td>
+      </tr>
+      {% endfor %} 
+      </table>
+      {% endif %}
+    	</form>
+{% endblock %}

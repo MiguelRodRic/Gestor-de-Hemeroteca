@@ -1,0 +1,33 @@
+{% extends "base.html" %}
+{% block content %}
+    <h1 style="font-family: 'Arimo', sans-serif">Consulta de hemeroteca: </h1>
+    <form action="/index" method="post" name="login">
+      <p>
+          por favor, introduce la palabra clave:<br>
+          {{ query.search(size=30) }}<br>
+      </p>
+      <p><input type="submit" value="Buscar"></p>
+  	</form>
+  	{% if noticiasSample %}
+    <table>
+    <tr>
+    <th>Titular</th>
+    <th>Autor</th>
+    <th>Fecha de publicación</th>
+    <th>Fuente </th>
+    <th> Etiquetas </th>
+    <th> </th>
+  	</tr>
+    {% for noticiaS in noticiasSample %}
+    <tr>
+    <td>{{ noticiaS.titular}}</td>
+    <td>{{ noticiaS.autor }}</td>
+    <td>{{ noticiaS.fecha }}</td>
+    <td>{{ noticiaS.fuente}}</td>
+    <td> </td>
+    <td><input type="button" name="clasificar" value="clasificar"> </td>
+    </tr>
+    {% endfor %} 
+    </table>
+    {% endif %}
+{% endblock %}

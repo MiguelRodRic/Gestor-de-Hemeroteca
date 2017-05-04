@@ -1,0 +1,30 @@
+{% extends "base.html" %}
+{% block content %}
+    <h1 style="font-family: 'Arimo', sans-serif">Buscador de noticias en RSS: </h1>
+    <h2 style="font-family: 'Arimo', sans-serif">Elige el medio que desees: </h2>
+    <form method="POST">
+    <select name='media-select'>
+    {% for option in options %}
+    <option value="{{option.value}}">{{option.name}} </option>
+    {% endfor %}
+    </select>
+    <p><input type="submit" value="Aceptar"></p>
+    </form>
+    {% if fuente %}
+    <table>
+    <tr>
+    <th>Autor</th>
+    <th>Título</th>
+    <th>Fecha</th>
+  	</tr>
+    {% for noticiaFila in noticias %}
+    <tr>
+    <td>{{noticiaFila.author }}</td>
+    <td>{{noticiaFila.title}}</td>
+    <td>{{noticiaFila.publishDate}}</td>
+    </tr>
+    {% endfor %} 
+    </table>
+    {% endif %}
+
+{% endblock %}

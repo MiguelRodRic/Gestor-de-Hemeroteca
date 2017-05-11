@@ -1,9 +1,127 @@
-from flask_wtf import Form
+# -*- coding: utf-8 -*-
+from flask_wtf import FlaskForm as Form
 from wtforms import StringField, BooleanField
 from wtforms.validators import DataRequired
+from wtforms import SubmitField
+from sklearn.model_selection import train_test_split
+from sklearn.model_selection import LeaveOneOut
+from sklearn.model_selection import LeavePOut
+from sklearn.model_selection import ShuffleSplit
+from sklearn.feature_extraction.text import CountVectorizer
+from sklearn.naive_bayes import MultinomialNB
+from sklearn import metrics
+from sklearn.linear_model import LogisticRegression
+import lime
+from sklearn import ensemble
+from sklearn import feature_extraction
+from lime.lime_text import LimeTextExplainer
+from sklearn.pipeline import make_pipeline
+import pandas as pd
+import numpy as np
+import re
+import pymongo
+from pymongo import MongoClient
+import sys
+from textblob.blob import TextBlob
+from textblob.classifiers import NaiveBayesClassifier
+from textblob.classifiers import PositiveNaiveBayesClassifier
+import nltk 
+from bs4 import BeautifulSoup
+import urllib2
+
+cliente = MongoClient()
+db = cliente.test_database
+noticias = db.noticias
+
+#Most of this function obtained from: http://stackoverflow.com/questions/4119070/how-to-divide-a-list-into-n-equal-parts-python
+def splitIn3(listToDivide):
+    size = len(listToDivide)
+    slice_size = size / 3
+    remain = size % 3
+    result = []
+    iterator = iter(listToDivide)
+    for i in range(3):
+        result.append([])
+        for j in range(slice_size):
+            result[i].append(iterator.next())
+        if remain:
+            result[i].append(iterator.next())
+            remain -= 1
+    return result
 
 class Query(Form):
 	search = StringField('')
+	palabras_filtrar = ['a', 'ante', 'bajo', 'cabe', 'con', 'contra', 'de', 'desde', 'durante', 'en', 'entre',
+	                 'hacia', 'hasta', 'mediante', 'para', 'por', 'según', 'sin', 'so', 'sobre', 'tras','versus', 'vía',
+	                    'el', 'El','la', 'La', 'los', 'Los', 'las', 'Las', 'un', 'uno', 'una', 'unos', 'unas', 'Instagram', 'instagram', 'Facebook', 'facebook']
+	def classification():
+		conjunto_entrenamiento = noticias.find({'source':{'$regex': "Dataset Isabel"}})
+		trainset = []
+		textoNoticias = []
+		etiquetaNoticias = []
+		for noticia in conjunto_entrenamiento:
+			textoNoticias.append(noticia['text'])
+			etiquetaNoticias.append(noticia['tag'])
+		for noticia in textoNoticias:
+			index = textoNoticias.index(noticia)
+			etiqueta = etiquetaNoticias[index]
+			for blob in splitIn3(noticia):
+				trainset.append((blob, etiqueta))
+		nb = MultinomialNB()
+		labels = ['text','opinion']
+		trainsetSK = []
+		for sentence in trainset:
+		    trainsetSK.append((str(sentence[0]).decode("utf-8"),sentence[1]))
+		tabla = pd.DataFrame.from_records(trainsetSK, columns=labels)
+		tabla['opinion_num'] = tabla.opinion.map({'aFavor':0, 'enContra':1})
+		X = tabla.text
+		Y = tabla.opinion
+		#Split the data to obtain training sentences, training labels, test sentences and test labels
+		X_train, X_test, Y_train, Y_test = train_test_split(X, Y, random_state=1)
+		vect = CountVectorizer(stop_words=palabras_filtrar)
+		ss = ShuffleSplit(n_splits=1, test_size=0.3, random_state=0)
+		X_ShuffleSplit = np.array(trainset)
+		Y_ShuffleSplit = Y_Leave1Out
+		ss.get_n_splits(X_ShuffleSplit)
+		X_train_counts = []
+		X_train_data = []
+		X_train_label = []
+		X_test_data = []
+		X_test_label = []
+		trainAux = []
+		testAux = []
+		for train_index, test_index in ss.split(X_ShuffleSplit):
+		    trainAux = train_index
+		    testAux = test_index
+		for index in trainAux:
+		    X_train_data.append(str(X_ShuffleSplit[index][0]))
+		    if X_ShuffleSplit[index][1] == 'aFavor':
+		        X_train_label.append(0)
+		    else:
+		        X_train_label.append(1)
+		for index in testAux:
+		    X_test_data.append(str(X_ShuffleSplit[index][0]))
+		    if X_ShuffleSplit[index][1] == 'aFavor':
+		        X_test_label.append(0)
+		    else:
+		        X_test_label.append(1)
+		#Training data
+		X_train_counts = vect.fit_transform(X_train_data)
+		tf_transformer = TfidfTransformer(use_idf=False).fit(X_train_counts)
+		X_train_tf = tf_transformer.transform(X_train_counts)
+		X_train_tf.shape
+		nb.fit(X_train_tf, X_train_label)
+		explainer = LimeTextExplainer(class_names=labels)
+		vectorizer = feature_extraction.text.TfidfVectorizer(lowercase=False, stop_words=palabras_filtrar)
+		rf = ensemble.RandomForestClassifier(n_estimators=500)
+		train_vectors = vectorizer.fit_transform(X_train_data)
+		test_vectors = vectorizer.transform(X_test_data)
+		rf.fit(train_vectors, X_train_label)
+		pred = rf.predict(test_vectors)
+		c = make_pipeline(vectorizer, rf)
+		explanation = explainer.explain_instance(X_train_data[10].decode('utf-8'), c.predict_proba, num_features=20)
+		return explanation.as_list()
+
 class LoginForm(Form):
     openid = StringField('openid', validators=[DataRequired()])
     remember_me = BooleanField('remember_me', default=False)
@@ -13,3 +131,4 @@ class ScanPDF(Form):
 
 class RssScrapping(Form):
 	media = StringField('')
+	noticias = []

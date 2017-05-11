@@ -8,23 +8,29 @@
     <option value="{{option.value}}">{{option.name}} </option>
     {% endfor %}
     </select>
-    <p><input type="submit" value="Aceptar"></p>
-    </form>
+    <p><input type="submit" name="submit" value="Aceptar"></p>
+    {% if mensaje %}
+    <h1> {{mensaje}}<h1>
+    {% endif %}
     {% if fuente %}
     <table>
     <tr>
     <th>Autor</th>
     <th>Título</th>
     <th>Fecha</th>
+    <th>Almacenada en BD </th>
   	</tr>
-    {% for noticiaFila in noticias %}
+    {% for noticiaFila in rssWS.noticias %}
     <tr>
     <td>{{noticiaFila.author }}</td>
     <td>{{noticiaFila.title}}</td>
     <td>{{noticiaFila.publishDate}}</td>
+    <td>{{noticiaFila.almacenada}}</td>
     </tr>
     {% endfor %} 
     </table>
+    <input type="submit" name="submit" value="Guardar Nuevas">
     {% endif %}
+    </form>
 
 {% endblock %}

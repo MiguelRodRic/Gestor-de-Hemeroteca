@@ -7,7 +7,6 @@
           {{ query.search(size=30) }}<br>
       </p>
       <p><input type="submit" value="Buscar"></p>
-  	</form>
   	{% if noticiasSample %}
     <table>
     <tr>
@@ -24,10 +23,14 @@
     <td>{{ noticiaS.autor }}</td>
     <td>{{ noticiaS.fecha }}</td>
     <td>{{ noticiaS.fuente}}</td>
-    <td> </td>
-    <td><input type="button" name="clasificar" value="clasificar"> </td>
+    <td>{{ noticiaS.tag}} </td>
+    <td><input type="button" name="{{noticiaS.titular}}" value="clasificar"> </td>
     </tr>
     {% endfor %} 
     </table>
     {% endif %}
+    {% if ejemplo %}
+    <h1> {{ejemplo}} </h1>
+    {% endif %}
+    </form>
 {% endblock %}

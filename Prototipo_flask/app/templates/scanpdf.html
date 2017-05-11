@@ -2,25 +2,30 @@
 {% block content %}
     <h1 style="font-family: 'Arimo', sans-serif" >Lector de PDF: </h1>
     <p> Para leer un pdf, dejar en la siguiente carpeta: </p>
-    <img src="/static/img/location.png" alt="captura" height="200" width="600">
+    <img src={{url_for('static', filename='img/location.png')}} alt="captura" height="200" width="600">
     <form action="/scanpdf" method="post" name="pdf">
       <p>
           Pulsa para escanear pdf:<br>
       </p>
-      <p><input type="submit" value="Aceptar"></p>
+      <p><input type="submit" name="submit" value="Aceptar"></p>
       {% if mostrar %}
       <table>
       <tr>
-      <th>Autor</th>
+      <th>Autor {{scan.noticias|length}}</th>
       <th>Fecha</th>
+      <th>Nombre Archivo </th>
+      <th>Almacenada en BD</th>
       </tr>
       {% for noticia in scan.noticias %}
       <tr>
       <td>{{ noticia.autor}}</td>
       <td>{{ noticia.fecha }}</td>
+      <td>{{ noticia.titular }}</td>
+      <td>{{noticia.almacenada}} </td>
       </tr>
       {% endfor %} 
       </table>
+      <input type="submit" name="submit" value="Guardar Nuevas">
       {% endif %}
     	</form>
 {% endblock %}

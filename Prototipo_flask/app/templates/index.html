@@ -6,8 +6,19 @@
           por favor, introduce la palabra clave:<br>
           {{ query.search(size=30) }}<br>
       </p>
-      <p><input type="submit" value="Buscar"></p>
+      <p><input type="submit" name="submit" value="Buscar"></p>  
+    {% for result in results %}
+    <p> {{result}}</p>
+    {% endfor %}
   	{% if noticiasSample %}
+    <div style="float: right; margin-right: 80px; margin-top: -50px; padding-bottom: 20px;">
+    <h4> Dataset</h4>
+    <select id="datasetSelect">
+      {% for tagS in etiqueta %}
+        <option value="{{tagS}}"> {{tagS}} </option>
+      {% endfor %}
+    </select>
+    </div>
     <table>
     <tr>
     <th>Titular</th>
@@ -23,7 +34,14 @@
     <td>{{ noticiaS.autor }}</td>
     <td>{{ noticiaS.fecha }}</td>
     <td>{{ noticiaS.fuente}}</td>
-    <td>{{ noticiaS.tag}} </td>
+    <td> 
+      
+      <ul>
+      {% for tagV in noticiaS.tagValue %}
+      <li> {{tagV}} </li>
+      {% endfor %}
+      </ul>
+    </td>
     <td><input type="button" name="{{noticiaS.titular}}" value="clasificar"> </td>
     </tr>
     {% endfor %} 
@@ -33,4 +51,28 @@
     <h1> {{ejemplo}} </h1>
     {% endif %}
     </form>
+    <script type="text/javascript">
+      document.getElementById("datasetSelect").onchange = function() {changeTag()};
+      changeTag();
+      function changeTag(){
+        var elementToDisplay;
+        if(document.getElementById("datasetSelect").selectedIndex == 0){
+          elementToDisplay = 0;
+        }else{
+          elementToDisplay = 1;
+        }
+        var allList = document.getElementsByTagName("ul");
+        for(var i = 0; i < allList.length; i++){
+          var items = allList[i].getElementsByTagName("li");
+          for(var j = 0; j < items.length; j++){
+            if(j == elementToDisplay){
+              items[j].style.display = "block";  
+            }else{
+              items[j].style.display = "none";  
+            }
+          }
+        }
+      }
+
+    </script>
 {% endblock %}

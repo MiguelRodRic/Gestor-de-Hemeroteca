@@ -29,6 +29,15 @@
       padding: 8px;
   }
 
+  ul {
+    list-style-type: none;
+    padding-left: 0;
+  }
+
+  li {
+    float: left;
+  }
+  
   tr:nth-child(even) {
       background-color: #dddddd;
   }
@@ -41,7 +50,10 @@
   {% endif %}
   </head>
   <body>
-    <div>Prototipo: <a href="/index"> Search </a>&nbsp;&nbsp;<a href="/scanpdf" > PDF Scan </a>&nbsp;&nbsp;<a href="/websearch"> RSS Scrapping </a></div>
+    <div>Prototipo: <a href="/index"> Search </a>&nbsp;
+    <a href="/scanpdf" > PDF Scan </a>&nbsp;
+    <a href="/websearch"> RSS Scrapping </a>&nbsp;
+    <a href="/newdataset"> Dataset Scan </a></div>
     <hr>
     {% with messages = get_flashed_messages() %}
       {% if messages %}

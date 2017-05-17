@@ -7,3 +7,4 @@ import sys, os
 class ConfigVars():
 	path = os.getcwd()
 	pdfpath = os.path.join(path,'pdf')
+	datasetpath = os.path.join(path,'datasets')

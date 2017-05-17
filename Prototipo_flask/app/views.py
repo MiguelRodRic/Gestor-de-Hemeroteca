@@ -3,7 +3,7 @@ from flask import render_template, flash, redirect, request
 from pymongo import MongoClient
 from app import app
 from flask_pymongo import PyMongo
-from .forms import LoginForm, ScanPDF, RssScrapping, Query
+from .forms import LoginForm, ScanPDF, RssScrapping, Query, NewDataSet
 from config import ConfigVars
 from pdfminer.pdfparser import PDFParser
 from pdfminer.pdfdocument import PDFDocument
@@ -21,20 +21,23 @@ mongo = PyMongo(app)
 cliente = MongoClient()
 db = cliente.test_database
 
-ruta = ConfigVars.pdfpath
+rutapdf = ConfigVars.pdfpath
+rutadataset = ConfigVars.datasetpath
+
 ficheros = []
 nombres = []
 listaNoticias = []
 
-def lookForPdf(path):
+def lookForFile(path, extension):
 	for filename in os.listdir(path):
-		if filename.endswith(".pdf"):
+		if filename.endswith(extension):
 			ficheros.append(os.path.join(path,filename))
 			nombres.append(filename)
 			#print filename
 		elif "." not in filename:
 			newPath = os.path.join(path,filename)
-			lookForPdf(newPath)
+			lookForFile(newPath)
+
 
 
 @app.route('/')
@@ -44,21 +47,37 @@ def index():
 	ejemplo = ''
 	noticiasSample = []
 	if request.method == 'POST':
-		result = request.form.get('search')
-		for sample in db.noticias.find({'text':{'$regex': ".*"+result+".*"}}).limit(20):
-			if 'tag' in sample.keys():
-				etiqueta = sample['tag']
-			else:
-				etiqueta = ''
-			noticiasSample.append({'titular':sample['title'], 'autor':sample['author'], 'fecha':sample['publishDate'], 'fuente':sample['source'], 'tag':etiqueta})
-		for titular in db.noticias.find( {'title':1}):
-			if request.form[titular] == "Clasificar":
-				ejemplo = titular
+		if request.form['submit'] == 'Buscar':
+			result = request.form.get('search')
+			for sample in db.noticias.find({'text':{'$regex': ".*"+result+".*"}}).limit(20):
+				if 'tag' in sample.keys():
+					etiqueta = sample['tag']
+					etiquetaValores = sample['tag'].values()
+				else:
+					etiqueta = ''
+					etiquetaValores = ''
+				noticiasSample.append({'titular':sample['title'], 'autor':sample['author'], 'fecha':sample['publishDate'], 'fuente':sample['source'], 'tag':etiqueta, 'tagValue':etiquetaValores})
+			return render_template("index.html",
+						   title='Home',
+						   query=query,
+						   noticiasSample=noticiasSample,
+						   etiqueta=etiqueta)
+		else:
+			ejemplo = 'Ha entrado aqui'
+			for titular in db.noticias.find():
+				if titular['title'] == request.form['submit']:
+					ejemplo = titular['title']
+			return render_template("index.html",
+						   title='Home',
+						   query=query,
+						   noticiasSample=noticiasSample,
+						   ejemplo=ejemplo)
 		return render_template("index.html",
 						   title='Home',
 						   query=query,
 						   noticiasSample=noticiasSample,
 						   ejemplo=ejemplo)
+	results = query.classification()
 	return render_template("index.html",
 						   title='Home',
 						   query=query,
@@ -75,7 +94,8 @@ def scanpdf():
 			del ficheros[:]
 			del nombres[:]
 			del scan.noticias[:]
-			lookForPdf(ruta)
+			del nombres[:]
+			lookForFile(rutapdf, '.pdf')
 			textos = [None]*len(ficheros)
 			autores =[None]*len(ficheros)
 			fechas = [None]*len(ficheros)
@@ -130,7 +150,7 @@ def scanpdf():
 		elif request.form['submit'] == "Guardar Nuevas":
 			for noticia in scan.noticias:
 					db.noticias.update_one( {'title':noticia['titular']},{ '$set': {'author': noticia['autor'], 'title':noticia['titular'],
-					'publishDate':noticia['fecha'], 'text':noticia['texto'], 'source':'PDF'}}, upsert=True)
+					'publishDate':noticia['fecha'], 'text':noticia['texto'], 'source':'PDF', 'tag':''}}, upsert=True)
 			return render_template("scanpdf.html", scan=scan, mostrar=mostrar)
 	return render_template("scanpdf.html",
 						   scan=scan)
@@ -226,7 +246,7 @@ def websearch():
 		if request.form['submit'] == "Guardar Nuevas":
 			for noti in rssWS.noticias:
 				db.noticias.update_one( {'title':noti['title']},{ '$set': {'author': noti['author'], 'title':noti['title'],
-						'publishDate':noti['publishDate'], 'text':noti['text'], 'source':noti['source']}}, upsert=True)
+						'publishDate':noti['publishDate'], 'text':noti['text'], 'source':noti['source'], 'tag':''}}, upsert=True)
 			mensaje = 'Se han incluido en base de datos'
 			return render_template('websearch.html', 
 								   title='Web Scrapping',
@@ -239,6 +259,57 @@ def websearch():
 						   title='Web Scrapping',
 						   rssWS = rssWS,
 						   options=options)
+
+
+@app.route('/newdataset', methods=['GET', 'POST'])
+def newdataset():
+	nds = NewDataSet()
+	if request.method == 'POST':
+		mostrar = 'Si'
+		if request.form['submit'] == "Aceptar":
+			del nombres[:]
+			del nds.noticias[:]
+			mostar = True
+			titulares = []
+			textos = []
+			fechas = []
+			autores = []
+			links = []
+			lookForFile(rutadataset,'.xml')
+			#get all the links from the xml
+			for nombre in nombres:
+				soup = BeautifulSoup(open(rutadataset + '/' + nombre,'r'),'xml')
+				for root in soup.find_all('root'):
+					for topic in root.find_all('topic'):
+						for noticiasxml in topic.find_all('noticias'):
+							for noticiaxml in noticiasxml.find_all('noticia'):
+								try:
+									requestURL = urllib2.Request(noticiaxml.link.text, headers=hdr)
+									handle = urllib2.urlopen(requestURL)
+									content = handle.read()
+									soupText = BeautifulSoup(content, 'html.parser')
+									for expendable in soup(['style', 'script', '[document]', 'head', 'title']):
+										expendable.extract()
+									texto = soupText.getText()
+									noticia = {
+										'fecha':noticiaxml.fecha.text,
+										'autor':noticiaxml.autor.text,
+										'titular':noticiaxml.titular.text,
+										'texto':texto,
+										'link':noticiaxml.link.text,
+										'tag':topic['id'] + noticiasxml['id']
+									}
+									nds.noticias.append(noticia)
+								except:
+									pass
+			return render_template('newdataset.html',mostrar = mostrar, nds = nds)
+		if request.form['submit'] == 'Guardar Nuevas':
+			for noticia in nds.noticias:
+				db.noticias.update_one( {'title':noti['title']},{ '$set': {'author': noti['author'], 'title':noti['title'],
+						'publishDate':noti['publishDate'], 'text':noti['text'], 'source':noti['source'], 'tag': ''}}, upsert=True)
+			return render_template('newdataset.html',mostrar = mostrar, nds = nds)
+	else:
+		return render_template('newdataset.html')
 
 
 

@@ -1,0 +1,31 @@
+{% extends "base.html" %}
+{% block content %}
+    <h1 style="font-family: 'Arimo', sans-serif" >Lector de Dataset: </h1>
+    <p> Para leer un dataset, dejar en la siguiente carpeta: </p>
+    <img src={{url_for('static', filename='img/datasetlocation.png')}} alt="captura" height="200" width="500">
+    <form action="/newdataset" method="post" name="newdataset">
+      <p>
+          Pulsa para leer dataset:<br>
+      </p>
+      <p><input type="submit" name="submit" value="Aceptar"></p>
+      {% if mostrar %}
+      <table>
+      <tr>
+      <th>Autor </th>
+      <th>Fecha</th>
+      <th>Nombre Archivo </th>
+      <th>etiquetas</th>
+      </tr>
+      {% for noticia in nds.noticias %}
+      <tr>
+      <td>{{ noticia.autor}}</td>
+      <td>{{ noticia.fecha }}</td>
+      <td>{{ noticia.titular }}</td>
+      <td>{{ noticia.tag }} </td>
+      </tr>
+      {% endfor %} 
+      </table>
+      <input type="submit" name="submit" value="Guardar Nuevas">
+      {% endif %}
+      </form>
+{% endblock %}

@@ -7,25 +7,6 @@
       <p>
           Pulsa para leer dataset:<br>
       </p>
-      <p><input type="submit" name="submit" value="Aceptar"></p>
-      {% if mostrar %}
-      <table>
-      <tr>
-      <th>Autor </th>
-      <th>Fecha</th>
-      <th>Nombre Archivo </th>
-      <th>etiquetas</th>
-      </tr>
-      {% for noticia in nds.noticias %}
-      <tr>
-      <td>{{ noticia.autor}}</td>
-      <td>{{ noticia.fecha }}</td>
-      <td>{{ noticia.titular }}</td>
-      <td>{{ noticia.tag }} </td>
-      </tr>
-      {% endfor %} 
-      </table>
-      <input type="submit" name="submit" value="Guardar Nuevas">
-      {% endif %}
+      <p><a href="{{url_for('savenewdataset')}}" class="button">Aceptar</a></p>
       </form>
 {% endblock %}

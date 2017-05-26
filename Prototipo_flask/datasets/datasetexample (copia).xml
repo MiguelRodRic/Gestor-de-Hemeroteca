@@ -1,0 +1,42 @@
+<root>
+	<topic id='machismo'>
+		<noticias id='aFavor'>
+			<noticia>
+				<fecha>5-12-2017</fecha>
+				<autor>Periodista Random1</autor>
+				<titular>Titular Machista Random1</titular>
+				<cuerpo>Este es el cuerpo de una noticia random</cuerpo>
+				<link>www.linkrandom.com</link>
+			</noticia>
+		</noticias>
+		<noticias id='enContra'>
+			<noticia>
+				<fecha>6-4-2016</fecha>
+				<autor>Autora Feminista</autor>
+				<titular>Titular no Machista</titular>
+				<cuerpo>Esta es una noticia un poco aleatoria</cuerpo>
+				<link>www.linkrandom2.com</link>
+			<noticia>
+		</noticias>
+	</topic>
+	<topic id='vientre Alquiler'>
+		<noticias id='aFavor'>
+			<noticia>
+				<fecha>5-12-2017</fecha>
+				<autor>Periodista Random1</autor>
+				<titular>Titular Gestacion Subrogada</titular>
+				<cuerpo>Este es el cuerpo de una noticia random</cuerpo>
+				<link>www.linkrandom.com</link>
+			</noticia>
+		</noticias>
+		<noticias id='enContra'>
+			<noticia>
+				<fecha>6-4-2016</fecha>
+				<autor>Autora Random</autor>
+				<titular>Titular vientre de alquiler</titular>
+				<cuerpo>Esta es una noticia un poco aleatoria</cuerpo>
+				<link>www.linkrandom2.com</link>
+			<noticia>
+		</noticias>
+	</topic>
+</root>

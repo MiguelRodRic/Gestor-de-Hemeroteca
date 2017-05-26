@@ -1,7 +1,7 @@
 <html>
   <head>
   <style>
-  a:link, a:visited {
+  a.link:link, a.link:visited {
     background-color: #848484;
     color: white;
     padding: 14px 25px;
@@ -10,8 +10,40 @@
     display: inline-block;
   }
 
-  a:hover, a:active {
+  a.link:hover, a.link:active {
       background-color: #424242;
+  }
+
+  a.button {
+    -webkit-appearance: button;
+    -moz-appearance: button;
+    appearance: button;
+    display: inline-block;
+    text-decoration: none;
+    color: initial;
+  }
+
+  .unselectable {
+    -webkit-touch-callout: none;
+    -webkit-user-select: none;
+    -khtml-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+    user-select: none;
+  }
+
+  progress {
+    -moz-appearance: none;
+    border: 2px solid #6E6E6E;
+    background-color: #FF8000;
+  }
+
+  ::-moz-progress-bar {
+     background-color: #4DAFFF;
+  }
+
+  ::-moz-progress-inner-element {
+    border: 2px solid black;
   }
 
   table {
@@ -50,10 +82,10 @@
   {% endif %}
   </head>
   <body>
-    <div>Prototipo: <a href="/index"> Search </a>&nbsp;
-    <a href="/scanpdf" > PDF Scan </a>&nbsp;
-    <a href="/websearch"> RSS Scrapping </a>&nbsp;
-    <a href="/newdataset"> Dataset Scan </a></div>
+    <div>Prototipo: <a class="link" href="/index"> Search </a>&nbsp;
+    <a  class="link" href="/scanpdf" > PDF Scan </a>&nbsp;
+    <a  class="link" href="/websearch"> RSS Scrapping </a>&nbsp;
+    <a  class="link" href="/newdataset"> Dataset Scan </a></div>
     <hr>
     {% with messages = get_flashed_messages() %}
       {% if messages %}

@@ -1,0 +1,29 @@
+{% extends "base.html" %}
+{% block content %}
+    <h1 style="font-family: 'Arimo', sans-serif" >Conjunto leído: </h1>
+    <form action="/savenewdataset" method="post" name="savenewdataset">
+      {% if mostrar %}
+      <table>
+      <tr>
+      <th>Autor </th>
+      <th>Fecha</th>
+      <th>Titular </th>
+      <th>etiquetas</th>
+      </tr>
+      {% for noticia in nds.noticias %}
+      <tr>
+      <td>{{ noticia.autor}}</td>
+      <td>{{ noticia.fecha }}</td>
+      <td>{{ noticia.titular }}</td>
+      <td>{{ noticia.tag }} </td>
+      </tr>
+      {% endfor %} 
+      </table>
+      <p><input type="submit" name="submit" value="Guardar Nuevas"></p>
+      <p><a href="{{url_for('newdataset')}}" class="button">Cancelar</a></p>
+      {% endif %}
+      {% if errorText %}
+      <h2> {{ errorText}} </h2>
+      {% endif %}
+      </form>
+{% endblock %}

@@ -1,0 +1,110 @@
+{% extends "base.html" %}
+{% block content %}
+    <h1 style="font-family: 'Arimo', sans-serif">Listado de noticias: </h1>
+    <form action="/queryresult" method="post" name="queryresult">
+    {% if noticiasSample %}
+    <div style="float: right; margin-right: 80px; margin-top: -50px; padding-bottom: 20px;">
+    <h4> Dataset</h4>
+    <select id="datasetSelect">
+      {% for tagS in etiqueta %}
+        <option value="{{tagS}}"> {{tagS}} </option>
+      {% endfor %}
+    </select>
+    </div>
+    <table>
+    <tr>
+    <th>Titular</th>
+    <th>Autor</th>
+    <th>Fecha de publicación</th>
+    <th>Fuente </th>
+    <th> Probabilidades (A favor/ En contra)</th>
+    <th style="width: 100px;"> Etiquetas </th>
+    <th> </th>
+  	</tr>
+    {% for noticiaS in noticiasSample %}
+    <tr>
+    <td>{{ noticiaS.titular}}</td>
+    <td>{{ noticiaS.autor }}</td>
+    <td>{{ noticiaS.fecha }}</td>
+    <td>{{ noticiaS.fuente}}</td>
+    <td><progress value=" {{ noticiaS.predict.aFavor}}" max="1">
+    </progress> </td>
+    <td> 
+      <ul>
+      {% for tagV in noticiaS.tagValue %}
+      <li> {{tagV}} </li>
+      {% endfor %}
+      </ul>
+      <div id="{{noticiaS.titular}}" style="display:none">
+        <input type="radio" name="opinion" value="aFavor">A Favor <br>
+        <input type="radio" name="opinion" value="enContra">En Contra <br>
+      </div>
+    </td>
+    <td>
+    {% for tag in etiqueta %}
+    <a id="{{tag}}" href="{{url_for('explanation',title=noticiaS.titular+'-'+tag)}}" class="button">Clasificar
+    </a> 
+    {% endfor %}
+    &nbsp; 
+    <a id="Manual" name="{{noticiaS.titular}}" onclick="show(this.name)" class="button unselectable"> Etiquetar</a>
+    </td>
+    </tr>
+    {% endfor %} 
+    </table>
+
+    <div style="padding-left: 400px; padding-top: 30px;">
+      <input type="submit" name="submit" value="Guardar Cambios">
+    </div>
+    {% endif %}
+    </form>
+    <script type="text/javascript">
+      document.getElementById("datasetSelect").onchange = function() {changeTag()};
+      changeTag();
+      function changeTag(){
+        var elementToDisplay;
+        elementToDisplay = document.getElementById("datasetSelect").selectedIndex;
+        var allList = document.getElementsByTagName("ul");
+        for(var i = 0; i < allList.length; i++){
+          var items = allList[i].getElementsByTagName("li");
+          for(var j = 0; j < items.length; j++){
+            if(j == elementToDisplay){
+              items[j].style.display = "block";  
+            }else{
+              items[j].style.display = "none";  
+            }
+          }
+        }
+        var hRefs = document.getElementsByTagName("a");
+        for(var i = 0; i < hRefs.length; i++){
+          if(hRefs[i].id != "Manual"){
+           if (hRefs[i].id == document.getElementById("datasetSelect")[elementToDisplay].value){
+            hRefs[i].style.display = "block";
+           }else{
+            hRefs[i].style.display = "none";
+           }
+         }
+        }
+      }
+
+      function show(btn){
+        var caller = btn;
+        var textTarget = document.getElementById(caller);
+        var allList = document.getElementsByTagName("ul");
+        var listToToggle;
+        for(var i = 0; i < allList.length; i++){
+          if(allList[i].closest("td") == textTarget.closest("td")){
+            listToToggle =  allList [i];
+          }
+        }
+        if (textTarget.style.display == "none"){
+          textTarget.style.display = "block";
+          listToToggle.style.display = "none";
+        }else {
+          textTarget.style.display = "none";
+          listToToggle.style.display = "block";
+        }
+
+      }
+
+    </script>
+{% endblock %}

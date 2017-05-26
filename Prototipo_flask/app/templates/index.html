@@ -1,19 +1,19 @@
 {% extends "base.html" %}
 {% block content %}
     <h1 style="font-family: 'Arimo', sans-serif">Consulta de hemeroteca: </h1>
-    <form action="/index" method="post" name="login">
+    <form action="/index" method="post" name="index">
+    {% if query %}
       <p>
           por favor, introduce la palabra clave:<br>
           {{ query.search(size=30) }}<br>
       </p>
-      <p><input type="submit" name="submit" value="Buscar"></p>  
-    {% for result in results %}
-    <p> {{result}}</p>
-    {% endfor %}
-  	{% if noticiasSample %}
+      <p><input type="submit" name="submit" value="Buscar">
+    </a> </p> 
+    {% endif %}
+    {% if noticiasSample %}
     <div style="float: right; margin-right: 80px; margin-top: -50px; padding-bottom: 20px;">
     <h4> Dataset</h4>
-    <select id="datasetSelect">
+    <select name="datasetSelect" id="datasetSelect">
       {% for tagS in etiqueta %}
         <option value="{{tagS}}"> {{tagS}} </option>
       {% endfor %}
@@ -21,34 +21,54 @@
     </div>
     <table>
     <tr>
+    <th style="display: none;"> ID </th>
     <th>Titular</th>
     <th>Autor</th>
     <th>Fecha de publicación</th>
     <th>Fuente </th>
-    <th> Etiquetas </th>
+    <th> Probabilidades (A favor/ En contra)</th>
+    <th style="width: 100px;"> Etiquetas </th>
     <th> </th>
-  	</tr>
+    </tr>
     {% for noticiaS in noticiasSample %}
     <tr>
-    <td>{{ noticiaS.titular}}</td>
+    <td style="display: none;">{{ noticiaS.id }} </td>
+    <td><a href="{{ noticiaS.link }}">{{ noticiaS.titular}}</a></td>
     <td>{{ noticiaS.autor }}</td>
     <td>{{ noticiaS.fecha }}</td>
     <td>{{ noticiaS.fuente}}</td>
+    <td><progress value=" {{ noticiaS.predict.aFavor}}" max="1">
+    </progress> </td>
     <td> 
-      
       <ul>
       {% for tagV in noticiaS.tagValue %}
       <li> {{tagV}} </li>
       {% endfor %}
       </ul>
+      <div id="{{noticiaS.titular}}" style="display:none">
+        <input type="radio" name="{{noticiaS.id}}" value="A Favor" />A Favor <br>
+        <input type="radio" name="{{noticiaS.id}}" value="En Contra" />En Contra <br>
+      </div>
     </td>
-    <td><input type="button" name="{{noticiaS.titular}}" value="clasificar"> </td>
+    <td>
+    {% for tag in etiqueta %}
+    <a id="{{tag}}" href="{{url_for('explanation',arguments=noticiaS.id+'-'+tag)}}" class="hiddenButton button">Clasificar
+    </a> 
+    {% endfor %}
+    &nbsp; 
+    <a id="Manual" class="hiddenButton button unselectable" name="{{noticiaS.titular}}" onclick="show(this.name)" > Etiquetar</a>
+    </td>
     </tr>
     {% endfor %} 
     </table>
+    <div style="padding-left: 400px; padding-top: 30px;">
+      <input type="submit" name="submit" value="Guardar Cambios">
+    </div>
     {% endif %}
-    {% if ejemplo %}
-    <h1> {{ejemplo}} </h1>
+    {% if mensaje %}
+    <h1>{{mensaje}} </h1>
+    <a  class="link" href="/index"> Volver </a>
+    <a
     {% endif %}
     </form>
     <script type="text/javascript">
@@ -56,11 +76,7 @@
       changeTag();
       function changeTag(){
         var elementToDisplay;
-        if(document.getElementById("datasetSelect").selectedIndex == 0){
-          elementToDisplay = 0;
-        }else{
-          elementToDisplay = 1;
-        }
+        elementToDisplay = document.getElementById("datasetSelect").selectedIndex;
         var allList = document.getElementsByTagName("ul");
         for(var i = 0; i < allList.length; i++){
           var items = allList[i].getElementsByTagName("li");
@@ -72,6 +88,36 @@
             }
           }
         }
+        var hRefs = document.getElementsByClassName("hiddenButton");
+        for(var i = 0; i < hRefs.length; i++){
+          if(hRefs[i].id != "Manual"){
+           if (hRefs[i].id == document.getElementById("datasetSelect")[elementToDisplay].value){
+            hRefs[i].style.display = "block";
+           }else{
+            hRefs[i].style.display = "none";
+           }
+         }
+        }
+      }
+
+      function show(btn){
+        var caller = btn;
+        var textTarget = document.getElementById(caller);
+        var allList = document.getElementsByTagName("ul");
+        var listToToggle;
+        for(var i = 0; i < allList.length; i++){
+          if(allList[i].closest("td") == textTarget.closest("td")){
+            listToToggle =  allList [i];
+          }
+        }
+        if (textTarget.style.display == "none"){
+          textTarget.style.display = "block";
+          listToToggle.style.display = "none";
+        }else {
+          textTarget.style.display = "none";
+          listToToggle.style.display = "block";
+        }
+
       }
 
     </script>

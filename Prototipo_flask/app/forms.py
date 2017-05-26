@@ -23,6 +23,7 @@ import numpy as np
 import re
 import pymongo
 from pymongo import MongoClient
+from bson.objectid import ObjectId
 import sys
 from textblob.blob import TextBlob
 from textblob.classifiers import NaiveBayesClassifier
@@ -52,11 +53,13 @@ def splitIn3(listToDivide):
 	return result
 
 class Query(Form):
+	noticiasSample = []
 	search = StringField('')
 	palabras_filtrar = stopwords.words('spanish')
-	def classification(args):
+	def classification(args,titulo):
 		palabras_filtrar = stopwords.words('spanish')
 		conjunto_entrenamiento = noticias.find({'source':{'$regex': "DataSet Isabel"}})
+		target =  noticias.find_one({'_id':ObjectId(titulo)})
 		trainset = []
 		textoNoticias = []
 		etiquetaNoticias = []
@@ -67,23 +70,25 @@ class Query(Form):
 		for noticia in textoNoticias:
 			index = textoNoticias.index(noticia)
 			etiqueta = etiquetaNoticias[index]
-			for blob in splitIn3(noticia):
-				result_test.append(blob)	
-				trainset.append((blob, etiqueta))
-		nb = MultinomialNB()
+			"""noticiablob = TextBlob(noticia)
+												result_test.append(noticiablob.sentences)
+												for blob in splitIn3(noticia):
+													trainset.append((blob, etiqueta))"""
+			trainset.append((noticia,etiqueta))
+		#nb = MultinomialNB()
 		labels = ['text','opinion']
 		trainsetSK = []
 		
 		for sentence in trainset:
-			trainsetSK.append((str(sentence[0]).decode("utf-8"),sentence[1]))
+			trainsetSK.append((sentence[0],sentence[1]))
 		tabla = pd.DataFrame.from_records(trainsetSK, columns=labels)
 		tabla['opinion_num'] = tabla.opinion.map({'aFavor':0, 'enContra':1})
 		X = tabla.text
 		Y = tabla.opinion
 		#Split the data to obtain training sentences, training labels, test sentences and test labels
 		X_train, X_test, Y_train, Y_test = train_test_split(X, Y, random_state=1)
-		vect = CountVectorizer(stop_words=palabras_filtrar)
-		ss = ShuffleSplit(n_splits=1, test_size=0.3, random_state=0)
+		#vect = CountVectorizer(stop_words=palabras_filtrar)
+		ss = ShuffleSplit(n_splits=1, test_size=0.1, random_state=0)
 		X_ShuffleSplit = np.array(trainset)
 		ss.get_n_splits(X_ShuffleSplit)
 		X_train_counts = []
@@ -97,33 +102,106 @@ class Query(Form):
 			trainAux = train_index
 			testAux = test_index
 		for index in trainAux:
-			X_train_data.append(str(X_ShuffleSplit[index][0]))
+			X_train_data.append(X_ShuffleSplit[index][0])
 			if X_ShuffleSplit[index][1] == 'A Favor':
 				X_train_label.append(0)
 			else:
 				X_train_label.append(1)
 		for index in testAux:
-			X_test_data.append(str(X_ShuffleSplit[index][0]))
+			X_test_data.append(X_ShuffleSplit[index][0])
 			if X_ShuffleSplit[index][1] == 'A Favor':
 				X_test_label.append(0)
 			else:
 				X_test_label.append(1)
 		#Training data
-		X_train_counts = vect.fit_transform(X_train_data)
-		tf_transformer = TfidfTransformer(use_idf=False).fit(X_train_counts)
-		X_train_tf = tf_transformer.transform(X_train_counts)
-		X_train_tf.shape
-		nb.fit(X_train_tf, X_train_label)
-		explainer = LimeTextExplainer(class_names=labels)
+		#X_train_counts = vect.fit_transform(X_train_data)
+		#tf_transformer = TfidfTransformer(use_idf=False).fit(X_train_counts)
+		#X_train_tf = tf_transformer.transform(X_train_counts)
+		#X_train_tf.shape
+		#nb.fit(X_train_tf, X_train_label)
+		#explainer = LimeTextExplainer(class_names=labels)
 		vectorizer = feature_extraction.text.TfidfVectorizer(lowercase=False, stop_words=palabras_filtrar)
-		rf = ensemble.RandomForestClassifier(n_estimators=500)
+		rf = ensemble.RandomForestClassifier(n_estimators=100)
 		train_vectors = vectorizer.fit_transform(X_train_data)
-		test_vectors = vectorizer.transform(X_test_data)
+		#test_vectors = vectorizer.transform(X_test_data)
 		rf.fit(train_vectors, X_train_label)
 		#pred = rf.predict(test_vectors)
 		c = make_pipeline(vectorizer, rf)
-		#explanation = explainer.explain_instance(X_train_data[1], c.predict_proba, num_features=20)
-		return result_test
+		prediction_both = c.predict_proba([target['text']])
+		prediction_for = prediction_both[0,0]
+		prediction_against = prediction_both[0,1]
+		prediction = {'aFavor':prediction_for, 'enContra':prediction_against}
+		#explanation = explainer.explain_instance(target['text'], c.predict_proba, num_features=8)
+		#result = { 'prediction': prediction, 'explanation': explanation.as_list()}
+		return prediction
+
+	def explanation(args, titulo):
+		palabras_filtrar = stopwords.words('spanish')
+		conjunto_entrenamiento = noticias.find({'source':{'$regex': "DataSet Isabel"}})
+		target =  noticias.find_one({'_id':ObjectId(titulo)})
+		trainset = []
+		textoNoticias = []
+		etiquetaNoticias = []
+		result_test = []
+		for noticia in conjunto_entrenamiento:
+			textoNoticias.append(noticia['text'])
+			etiquetaNoticias.append(noticia['tag']['VientreAlquiler'])
+		for noticia in textoNoticias:
+			index = textoNoticias.index(noticia)
+			etiqueta = etiquetaNoticias[index]
+			trainset.append((noticia,etiqueta))
+		#nb = MultinomialNB()
+		labels = ['text','opinion']
+		trainsetSK = []
+		
+		for sentence in trainset:
+			trainsetSK.append((sentence[0],sentence[1]))
+		tabla = pd.DataFrame.from_records(trainsetSK, columns=labels)
+		tabla['opinion_num'] = tabla.opinion.map({'aFavor':0, 'enContra':1})
+		X = tabla.text
+		Y = tabla.opinion
+		#Split the data to obtain training sentences, training labels, test sentences and test labels
+		X_train, X_test, Y_train, Y_test = train_test_split(X, Y, random_state=1)
+		#vect = CountVectorizer(stop_words=palabras_filtrar)
+		ss = ShuffleSplit(n_splits=1, test_size=0.1, random_state=0)
+		X_ShuffleSplit = np.array(trainset)
+		ss.get_n_splits(X_ShuffleSplit)
+		X_train_counts = []
+		X_train_data = []
+		X_train_label = []
+		X_test_data = []
+		X_test_label = []
+		trainAux = []
+		testAux = []
+		for train_index, test_index in ss.split(X_ShuffleSplit):
+			trainAux = train_index
+			testAux = test_index
+		for index in trainAux:
+			X_train_data.append(X_ShuffleSplit[index][0])
+			if X_ShuffleSplit[index][1] == 'A Favor':
+				X_train_label.append(0)
+			else:
+				X_train_label.append(1)
+		for index in testAux:
+			X_test_data.append(X_ShuffleSplit[index][0])
+			if X_ShuffleSplit[index][1] == 'A Favor':
+				X_test_label.append(0)
+			else:
+				X_test_label.append(1)
+		explainer = LimeTextExplainer(class_names=["A Favor","En Contra"])
+		vectorizer = feature_extraction.text.TfidfVectorizer(lowercase=False, stop_words=palabras_filtrar)
+		rf = ensemble.RandomForestClassifier(n_estimators=100)
+		train_vectors = vectorizer.fit_transform(X_train_data)
+		#test_vectors = vectorizer.transform(X_test_data)
+		rf.fit(train_vectors, X_train_label)
+		#pred = rf.predict(test_vectors)
+		c = make_pipeline(vectorizer, rf)
+		explanation = explainer.explain_instance(target['text'], c.predict_proba, num_features=10)
+		result_explanation = {'html':explanation.as_html(), 'list':explanation.as_list()}
+
+		return result_explanation
+
+
 
 class LoginForm(Form):
 	openid = StringField('openid', validators=[DataRequired()])

@@ -1,4 +1,5 @@
 {% extends "base.html" %}
+
 {% block content %}
     <h1 style="font-family: 'Arimo', sans-serif">Consulta de hemeroteca: </h1>
     <form action="/index" method="post" name="index">
@@ -12,14 +13,16 @@
     {% endif %}
     {% if noticiasSample %}
     <div style="float: right; margin-right: 80px; margin-top: -50px; padding-bottom: 20px;">
+    <div class="form-group">
     <h4> Dataset</h4>
-    <select name="datasetSelect" id="datasetSelect">
+    <select name="datasetSelect" id="datasetSelect" class="form-control">
       {% for tagS in etiqueta %}
         <option value="{{tagS}}"> {{tagS}} </option>
       {% endfor %}
     </select>
     </div>
-    <table>
+    </div>
+    <table id="resultTable" class="table table-hover">
     <tr>
     <th style="display: none;"> ID </th>
     <th>Titular</th>
@@ -37,26 +40,32 @@
     <td>{{ noticiaS.autor }}</td>
     <td>{{ noticiaS.fecha }}</td>
     <td>{{ noticiaS.fuente}}</td>
-    <td><progress value=" {{ noticiaS.predict.aFavor}}" max="1">
-    </progress> </td>
-    <td> 
-      <ul>
+    <td>
+    {% for prediction in noticiaS.predict %}
+    {% set outer_loop = loop %}
+    <progress id="{{ outer_loop.index-1}}" value="{{ prediction.aFavor}}" max="1">
+    </progress>
+    {% endfor %}
+    </td>
+    <td id="classes"> 
+      <ul class="{{noticiaS.id}}">
       {% for tagV in noticiaS.tagValue %}
       <li> {{tagV}} </li>
       {% endfor %}
       </ul>
-      <div id="{{noticiaS.titular}}" style="display:none">
+      <div id="{{noticiaS.titular}}" class="{{noticiaS.id}}" style="display:none">
         <input type="radio" name="{{noticiaS.id}}" value="A Favor" />A Favor <br>
         <input type="radio" name="{{noticiaS.id}}" value="En Contra" />En Contra <br>
       </div>
     </td>
     <td>
     {% for tag in etiqueta %}
-    <a id="{{tag}}" href="{{url_for('explanation',arguments=noticiaS.id+'-'+tag)}}" class="hiddenButton button">Clasificar
+    {% set aux = tag %}
+    <a id="{{tag}}" href="{{url_for('explanation',arguments=noticiaS.id+'-'+tag+'-'+noticiaS.predictTag.get(aux))}}" class="hiddenButton btn btn-primary">Clasificar <span class="glyphicon glyphicon-stats"></span>
     </a> 
     {% endfor %}
     &nbsp; 
-    <a id="Manual" class="hiddenButton button unselectable" name="{{noticiaS.titular}}" onclick="show(this.name)" > Etiquetar</a>
+    <a id="Manual" class="btn unselectable" name="{{noticiaS.id}}" > Etiquetar<span class="glyphicon glyphicon-pencil"></span></a>
     </td>
     </tr>
     {% endfor %} 
@@ -71,54 +80,47 @@
     <a
     {% endif %}
     </form>
+    <script type=text/javascript src="{{
+    url_for('static', filename='jquery-3.2.1.js') }}"></script>
     <script type="text/javascript">
-      document.getElementById("datasetSelect").onchange = function() {changeTag()};
-      changeTag();
-      function changeTag(){
-        var elementToDisplay;
-        elementToDisplay = document.getElementById("datasetSelect").selectedIndex;
-        var allList = document.getElementsByTagName("ul");
-        for(var i = 0; i < allList.length; i++){
-          var items = allList[i].getElementsByTagName("li");
-          for(var j = 0; j < items.length; j++){
-            if(j == elementToDisplay){
-              items[j].style.display = "block";  
+
+      $('a#Manual').click( function() {
+        var auxid = $(this).attr("name");
+        $("div[class=\'"+auxid+"\']").toggle();
+        $("ul[class=\'"+auxid+"\']").toggle();
+      });
+
+      $('#datasetSelect').on('change', function () {
+        var index = $(this).prop("selectedIndex");
+        var allList = $("#resultTable").find("ul");
+        var tagButtons = $("#resultTable").find("a.hiddenButton");
+        var allProgress = $("#resultTable").find("progress");
+        allList.each(function () {
+          $(this).children().each(function(){
+            if($(this).index() == index){
+              $(this).show();
             }else{
-              items[j].style.display = "none";  
+              $(this).hide();
             }
+          });
+        });
+        tagButtons.each(function () {
+          if($(this).attr("id") == $('#datasetSelect').val()){
+            $(this).show();
+          }else{
+            $(this).hide();
           }
-        }
-        var hRefs = document.getElementsByClassName("hiddenButton");
-        for(var i = 0; i < hRefs.length; i++){
-          if(hRefs[i].id != "Manual"){
-           if (hRefs[i].id == document.getElementById("datasetSelect")[elementToDisplay].value){
-            hRefs[i].style.display = "block";
-           }else{
-            hRefs[i].style.display = "none";
-           }
-         }
-        }
-      }
-
-      function show(btn){
-        var caller = btn;
-        var textTarget = document.getElementById(caller);
-        var allList = document.getElementsByTagName("ul");
-        var listToToggle;
-        for(var i = 0; i < allList.length; i++){
-          if(allList[i].closest("td") == textTarget.closest("td")){
-            listToToggle =  allList [i];
+        });
+        allProgress.each(function (){
+          if($(this).attr("id") == index){
+            $(this).show();
+          }else{
+            $(this).hide();
           }
-        }
-        if (textTarget.style.display == "none"){
-          textTarget.style.display = "block";
-          listToToggle.style.display = "none";
-        }else {
-          textTarget.style.display = "none";
-          listToToggle.style.display = "block";
-        }
+        });
+      })
 
-      }
-
+      $('#datasetSelect').trigger('change');
+      
     </script>
 {% endblock %}

@@ -1,5 +1,6 @@
 # -*- coding: utf-8 -*-
 from flask import render_template, flash, redirect, request, Markup
+from flask_breadcrumbs import Breadcrumbs, register_breadcrumb
 from pymongo import MongoClient
 from bson.objectid import ObjectId
 from app import app
@@ -44,6 +45,7 @@ def lookForFile(path, extension):
 
 @app.route('/')
 @app.route('/index', methods=['GET','POST'])
+@register_breadcrumb(app, '.', 'Inicio')
 def index():
 	query = Query()
 	ejemplo = ''
@@ -51,17 +53,25 @@ def index():
 		if request.form['submit'] == 'Buscar':
 			del query.noticiasSample[:]
 			result = request.form.get('search')
-			for sample in db.noticias.find({'text':{'$regex': ".*"+result+".*"}}).limit(8):
+			for sample in db.noticias.find({'text':{'$regex': ".*"+result+".*"}}).limit(4):
 				if 'tag' in sample.keys():
 					etiqueta = sample['tag']
 					etiquetaValores = sample['tag'].values()
 				else:
 					etiqueta = ''
 					etiquetaValores = ''
-				prediction = query.classification(sample['_id'])
+				prediction = []
+				predictTag = {}
+				for tag in etiqueta:
+					pred = query.classification(sample['_id'], tag)
+					prediction.append(pred)
+					if(pred['aFavor'] > 0.5):
+						predictTag[tag] = 'aFavor'
+					else:
+						predictTag[tag] = 'enContra'
 				query.noticiasSample.append({'id':str(sample['_id']), 'titular':sample['title'], 'autor':sample['author'],
 				 'fecha':sample['publishDate'], 'fuente':sample['source'], 'tag':etiqueta, 'tagValue':etiquetaValores,
-				  'predict': prediction, 'link':sample['link']})
+				  'predict': prediction, 'predictTag':predictTag, 'link':sample['link']})
 			return render_template("index.html",
 						   title='Home',
 						   query=query,
@@ -100,32 +110,68 @@ def queryResult(word):
 
 
 @app.route('/explanation/<string:arguments>', methods=['GET','POST'])
+@register_breadcrumb(app, '.Explicacion', 'Explicacion')
 def explanation(arguments):
 	query = Query()
-	auxid = arguments.split('-')[0]
-	dataset = arguments.split('-')[1]
-	results = query.explanation(auxid)
-	resultHTML = Markup(results['html'])
-	labels = []
-	relevances = []
-	for result in results['list']:
-	 	labels.append(result[0])
-	 	relevances.append(result[1])
-	resultsList = { 'etiquetas': labels, 'importancias': relevances}
+	arguments_splitted = arguments.split('-')
+	auxid = arguments_splitted[0]
+	dataset = arguments_splitted[1]
+	prediction = arguments_splitted[2]
+	mensaje = None
+	resultHTML = None
+	resultsList = None
+	if prediction == 'aFavor':
+		prediction = 'A Favor'
+	if prediction == 'enContra':
+		prediction = 'En Contra'
+	if (len(arguments_splitted) == 4):
+		tagToUpdate = "tag."+dataset
+		update_result = db.noticias.update_one({"_id":ObjectId(auxid)},{'$set':{tagToUpdate:prediction}})
+		mensaje = ''
+		if update_result.modified_count > 0:
+					mensaje = 'Noticia Actualizada'
+		if mensaje == '':
+			mensaje = 'No se ha actualizado la noticia'
+
+	else:
+		results = query.explanation(auxid, dataset)
+		resultHTML = Markup(results['html'])
+		resultsList = results['list']
 	return render_template("explanation.html",
+						   title='Explanation',
+						   auxid=auxid,
+						   query=query,
+						   prediction=prediction,
+						   dataset=dataset,
+						   resultHTML=resultHTML,
+						   mensaje=mensaje,
+						   resultsList = resultsList)
+
+	
+	if request.method == 'POST':
+		if request.form['submit'] == 'Guardar Resultado':
+			
+			return render_template("explanation.html",
 						   title='Explanation',
 						   query=query,
 						   dataset=dataset,
-						   resultHTML=resultHTML,
-						   resultsList = resultsList)
-
+						   mensaje=mensaje)
+	# labels = []
+	# relevances = []
+	# for result in results['list']:
+	#  	labels.append(result[0])
+	#  	relevances.append(result[1])
+	# resultsList = { 'etiquetas': labels, 'importancias': relevances}
+	
 @app.route('/scanpdf', methods=['GET','POST'])
+@register_breadcrumb(app, '.Lectura PDF', 'Lectura PDF')
 def scanpdf():
 	scan = ScanPDF()
 	return render_template("scanpdf.html",
 						   scan=scan)
 
 @app.route('/savepdfnews', methods=['GET', 'POST'])
+@register_breadcrumb(app, '.Resultados PDF', 'Resultados PDF')
 def savepdfnews():
 	scan = ScanPDF()
 	mostrar = 'Si'
@@ -175,24 +221,27 @@ def savepdfnews():
 			textos[ficheros.index(registro)] = consulta['text']
 			YaAlmacenada = 'Si'
 		try:
-			autoraux = autores[ficheros.index(registro)].decode('utf-16')
-		except:
 			autoraux = autores[ficheros.index(registro)]
+		except:
+			autoraux = autores[ficheros.index(registro)].decode('utf-16')
 		scan.noticias.append({'texto':textos[ficheros.index(registro)],
 		 'autor':autoraux,
 		 'fecha':fechas[ficheros.index(registro)],
 		 'titular':nombres[ficheros.index(registro)], 'almacenada':YaAlmacenada})
-	return render_template("savepdfnews.html",
-					   scan=scan,
-					   mostrar=mostrar)
 	if request.method == 'POST':
 		if request.form['submit'] == "Guardar Nuevas":
+			mensaje = "Noticias insertadas"
 			for noticia in scan.noticias:
 					db.noticias.update_one( {'title':noticia['titular']},{ '$set': {'author': noticia['autor'], 'title':noticia['titular'],
 					'publishDate':noticia['fecha'], 'text':noticia['texto'], 'source':'PDF', 'tag':''}}, upsert=True)
-			return render_template("savepdfnews.html", scan=scan, mostrar=mostrar)
+			return render_template("savepdfnews.html", scan=scan, mostrar=mostrar, mensaje=mensaje)
+	return render_template("savepdfnews.html",
+					   scan=scan,
+					   mostrar=mostrar)
+	
 
 @app.route('/websearch', methods=['GET', 'POST'])
+@register_breadcrumb(app, '.Busqueda RSS', 'Busqueda RSS')
 def websearch():
 	errorText = 'Todo Bien'
 	rssWS = RssScrapping()
@@ -299,10 +348,12 @@ def websearch():
 
 
 @app.route('/newdataset', methods=['GET', 'POST'])
+@register_breadcrumb(app, '.Lectura Dataset', 'Lectura Dataset')
 def newdataset():
 	return render_template('newdataset.html')
 
 @app.route('/savenewdataset', methods=['GET', 'POST'])
+@register_breadcrumb(app, '.Resultados Dataset', 'Resultados Dataset')
 def savenewdataset():
 	nds = NewDataSet()
 	del nombres[:]

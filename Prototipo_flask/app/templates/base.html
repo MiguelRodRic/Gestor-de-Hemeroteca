@@ -3,12 +3,18 @@
   <style>
   a.link:link, a.link:visited {
     background-color: #848484;
-    color: white;
     padding: 14px 25px;
     text-align: center;
     text-decoration: none;
     display: inline-block;
   }
+
+  a.breadcrumb {
+    color: #424242 !important;
+    background: none !important;
+  }
+
+
 
   a.link:hover, a.link:active {
       background-color: #424242;
@@ -46,6 +52,19 @@
     border: 2px solid black;
   }
 
+
+  .table > tbody > tr > td {
+    vertical-align: middle !important;
+  }
+  
+  .table-hover tbody tr:hover td {
+    background-color: #E6E6E6 !important;
+  }
+
+  .table-hover tbody tr:hover th {
+    background-color: #B0B0B0 !important;
+  }
+
   table {
       font-family: arial, sans-serif;
       border-collapse: collapse;
@@ -59,6 +78,11 @@
       border: 1px solid #dddddd;
       text-align: left;
       padding: 8px;
+      vertical-align: middle;
+  }
+
+  th {
+    background-color: #B0B0B0;
   }
 
   ul {
@@ -70,11 +94,17 @@
     float: left;
   }
   
-  tr:nth-child(even) {
-      background-color: #dddddd;
-  }
+  
+
   </style>
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
   <link href="https://fonts.googleapis.com/css?family=Arimo" rel="stylesheet"> 
+  <link href="{{url_for('static', filename='css/bootstrap.min.css')}}" rel="stylesheet" media="screen">
+  <link href="{{url_for('static', filename='css/bootstrap-responsive.min.css')}}" rel="stylesheet">
+  <script src="http://code.jquery.com/jquery-latest.js"></script>
+  <script src="{{url_for('static', filename='js/bootstrap.min.js')}}"></script>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
   {% if title %}
   <title>{{ title }} - TFG</title>
   {% else %}
@@ -82,20 +112,29 @@
   {% endif %}
   </head>
   <body>
-    <div>Prototipo: <a class="link" href="/index"> Search </a>&nbsp;
-    <a  class="link" href="/scanpdf" > PDF Scan </a>&nbsp;
-    <a  class="link" href="/websearch"> RSS Scrapping </a>&nbsp;
-    <a  class="link" href="/newdataset"> Dataset Scan </a></div>
-    <hr>
-    {% with messages = get_flashed_messages() %}
-      {% if messages %}
-        <ul>
-        {% for message in messages %}
-            <li>{{ message }} </li>
-        {% endfor %}
-        </ul>
-      {% endif %}
-    {% endwith %}
+  <nav class="navbar">
+    <div class="navbar-inner" style="height: 40px;">
+      <!-- Brand and toggle get grouped for better mobile display -->
+      <ul class="nav navbar-nav" style="height: 100%;">
+        <li id="index" class="active"> <a href="/index"> Search </a>&nbsp; </li>
+        <li id="PDF"> <a  href="/scanpdf" > PDF Scan </a>&nbsp; </li>
+        <li id="RSS"> <a  href="/websearch"> RSS Scrapping </a>&nbsp; </li>
+        <li id="XML"> <a  href="/newdataset"> Dataset Scan </a> </li>
+      </ul>
+      <!-- Collect the nav links, forms, and other content for toggling -->
+    </div><!-- /.container-fluid -->
+  </nav>
+    <div class="breadcrumbs">
+    {% for breadcrumb in breadcrumbs %}
+      <a class="breadcrumb" href="{{ breadcrumb.url }}"> >{{ breadcrumb.text }}</a>
+    {% endfor %}
+    </div>
     {% block content %}{% endblock %}
   </body>
+  <script type="text/javascript">
+   $(".nav a").on("click", function(){
+   $(".nav").find(".active").removeClass("active");
+   $(this).parent().addClass("active");
+  });
+  </script>
 </html>

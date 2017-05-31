@@ -13,7 +13,7 @@
     <h1> {{mensaje}}<h1>
     {% endif %}
     {% if fuente %}
-    <table>
+    <table class="table">
     <tr>
     <th>Autor</th>
     <th>Título</th>
@@ -32,5 +32,9 @@
     <input type="submit" name="submit" value="Guardar Nuevas">
     {% endif %}
     </form>
-
+    <script type="text/javascript">
+      $(".nav").find(".active").removeClass("active");
+      $("#RSS").addClass("active");
+    </script>
+       
 {% endblock %}

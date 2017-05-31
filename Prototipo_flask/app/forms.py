@@ -56,9 +56,9 @@ class Query(Form):
 	noticiasSample = []
 	search = StringField('')
 	palabras_filtrar = stopwords.words('spanish')
-	def classification(args,titulo):
+	def classification(args,titulo, tag):
 		palabras_filtrar = stopwords.words('spanish')
-		conjunto_entrenamiento = noticias.find({'source':{'$regex': "DataSet Isabel"}})
+		conjunto_entrenamiento = noticias.find({'tag.'+tag:{'$exists':True, "$ne":""}})
 		target =  noticias.find_one({'_id':ObjectId(titulo)})
 		trainset = []
 		textoNoticias = []
@@ -66,7 +66,7 @@ class Query(Form):
 		result_test = []
 		for noticia in conjunto_entrenamiento:
 			textoNoticias.append(noticia['text'])
-			etiquetaNoticias.append(noticia['tag']['VientreAlquiler'])
+			etiquetaNoticias.append(noticia['tag'][tag])
 		for noticia in textoNoticias:
 			index = textoNoticias.index(noticia)
 			etiqueta = etiquetaNoticias[index]
@@ -134,10 +134,9 @@ class Query(Form):
 		#explanation = explainer.explain_instance(target['text'], c.predict_proba, num_features=8)
 		#result = { 'prediction': prediction, 'explanation': explanation.as_list()}
 		return prediction
-
-	def explanation(args, titulo):
+	def explanation(args, titulo, tag):
 		palabras_filtrar = stopwords.words('spanish')
-		conjunto_entrenamiento = noticias.find({'source':{'$regex': "DataSet Isabel"}})
+		conjunto_entrenamiento = noticias.find({'tag.'+tag:{'$exists':True, "$ne":""}})
 		target =  noticias.find_one({'_id':ObjectId(titulo)})
 		trainset = []
 		textoNoticias = []
@@ -145,7 +144,7 @@ class Query(Form):
 		result_test = []
 		for noticia in conjunto_entrenamiento:
 			textoNoticias.append(noticia['text'])
-			etiquetaNoticias.append(noticia['tag']['VientreAlquiler'])
+			etiquetaNoticias.append(noticia['tag'][tag])
 		for noticia in textoNoticias:
 			index = textoNoticias.index(noticia)
 			etiqueta = etiquetaNoticias[index]
@@ -197,8 +196,7 @@ class Query(Form):
 		#pred = rf.predict(test_vectors)
 		c = make_pipeline(vectorizer, rf)
 		explanation = explainer.explain_instance(target['text'], c.predict_proba, num_features=10)
-		result_explanation = {'html':explanation.as_html(), 'list':explanation.as_list()}
-
+		result_explanation = {'html':explanation.as_html(), 'list':conjunto_entrenamiento.count()}
 		return result_explanation
 
 

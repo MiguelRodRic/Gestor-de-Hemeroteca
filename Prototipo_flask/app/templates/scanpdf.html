@@ -2,11 +2,16 @@
 {% block content %}
     <h1 style="font-family: 'Arimo', sans-serif" >Lector de PDF: </h1>
     <p> Para leer un pdf, dejar en la siguiente carpeta: </p>
-    <img src={{url_for('static', filename='img/location.png')}} alt="captura" height="200" width="600">
+    <img src="{{url_for('static', filename='img/location.png')}}" alt="captura" height="200" width="600">
     <form action="/scanpdf" method="post" name="pdf">
       <p>
           Pulsa para escanear pdf:<br>
       </p>
       <p><a href="{{url_for('savepdfnews')}}" class="button">Aceptar</a></p>
-    	</form>
+    </form>
+    <script type="text/javascript">
+      $(".nav").find(".active").removeClass("active");
+      $("#PDF").addClass("active");
+    </script>
+       
 {% endblock %}

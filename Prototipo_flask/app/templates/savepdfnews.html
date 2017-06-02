@@ -2,8 +2,11 @@
 {% block content %}
     <h1 style="font-family: 'Arimo', sans-serif" >Noticias leídas: </h1>
     <form action="/savepdfnews" method="post" name="pdf">
-      {% if mostrar %}
-      <table>
+      {% if mensaje %}
+        <h3>{{mensaje}} </h3>
+      {% endif %}
+      {% if scan.noticias %}
+      <table class="table">
       <tr>
       <th>Autor </th>
       <th>Fecha</th>
@@ -20,11 +23,8 @@
       {% endfor %} 
       </table>
       <input type="submit" name="submit" value="Guardar Nuevas">
-      <p><a href="{{url_for('scanpdf')}}" class="button">Volver</a></p>
       {% endif %}
-      {% if mensaje %}
-      <h3>{{mensaje}} </h3>
-      {% endif %}
+      <p><a href="{{url_for('scanpdf')}}" class="btn">Volver</a></p>
     	</form>
       <script type="text/javascript">
         $(".nav").find(".active").removeClass("active");

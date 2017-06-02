@@ -31,6 +31,7 @@ from textblob.classifiers import PositiveNaiveBayesClassifier
 import nltk 
 from bs4 import BeautifulSoup
 import urllib2
+import unicodedata
 
 cliente = MongoClient()
 db = cliente.test_database
@@ -65,27 +66,25 @@ class Query(Form):
 		etiquetaNoticias = []
 		result_test = []
 		for noticia in conjunto_entrenamiento:
-			textoNoticias.append(noticia['text'])
+			textoUni = unicodedata.normalize('NFKD',noticia['text'])
+			textoEncoded = noticia['text'].encode('ASCII','ignore')
+			textoNoticias.append(textoEncoded.encode('utf-8'))
 			etiquetaNoticias.append(noticia['tag'][tag])
 		for noticia in textoNoticias:
 			index = textoNoticias.index(noticia)
 			etiqueta = etiquetaNoticias[index]
-			"""noticiablob = TextBlob(noticia)
-												result_test.append(noticiablob.sentences)
-												for blob in splitIn3(noticia):
-													trainset.append((blob, etiqueta))"""
 			trainset.append((noticia,etiqueta))
-		#nb = MultinomialNB()
+
 		labels = ['text','opinion']
 		trainsetSK = []
 		
-		for sentence in trainset:
-			trainsetSK.append((sentence[0],sentence[1]))
+		for couple in trainset:
+			trainsetSK.append((couple[0],couple[1]))
 		tabla = pd.DataFrame.from_records(trainsetSK, columns=labels)
 		tabla['opinion_num'] = tabla.opinion.map({'aFavor':0, 'enContra':1})
 		X = tabla.text
 		Y = tabla.opinion
-		#Split the data to obtain training sentences, training labels, test sentences and test labels
+		#Split the data to obtain training couples, training labels, test couples and test labels
 		X_train, X_test, Y_train, Y_test = train_test_split(X, Y, random_state=1)
 		#vect = CountVectorizer(stop_words=palabras_filtrar)
 		ss = ShuffleSplit(n_splits=1, test_size=0.1, random_state=0)
@@ -113,26 +112,16 @@ class Query(Form):
 				X_test_label.append(0)
 			else:
 				X_test_label.append(1)
-		#Training data
-		#X_train_counts = vect.fit_transform(X_train_data)
-		#tf_transformer = TfidfTransformer(use_idf=False).fit(X_train_counts)
-		#X_train_tf = tf_transformer.transform(X_train_counts)
-		#X_train_tf.shape
-		#nb.fit(X_train_tf, X_train_label)
-		#explainer = LimeTextExplainer(class_names=labels)
 		vectorizer = feature_extraction.text.TfidfVectorizer(lowercase=False, stop_words=palabras_filtrar)
 		rf = ensemble.RandomForestClassifier(n_estimators=100)
 		train_vectors = vectorizer.fit_transform(X_train_data)
-		#test_vectors = vectorizer.transform(X_test_data)
+
 		rf.fit(train_vectors, X_train_label)
-		#pred = rf.predict(test_vectors)
 		c = make_pipeline(vectorizer, rf)
 		prediction_both = c.predict_proba([target['text']])
 		prediction_for = prediction_both[0,0]
 		prediction_against = prediction_both[0,1]
 		prediction = {'aFavor':prediction_for, 'enContra':prediction_against}
-		#explanation = explainer.explain_instance(target['text'], c.predict_proba, num_features=8)
-		#result = { 'prediction': prediction, 'explanation': explanation.as_list()}
 		return prediction
 	def explanation(args, titulo, tag):
 		palabras_filtrar = stopwords.words('spanish')
@@ -143,18 +132,20 @@ class Query(Form):
 		etiquetaNoticias = []
 		result_test = []
 		for noticia in conjunto_entrenamiento:
-			textoNoticias.append(noticia['text'])
+			textoUni = unicodedata.normalize('NFKD',noticia['text'])
+			textoEncoded = noticia['text'].encode('ASCII','ignore')
+			textoNoticias.append(textoEncoded.encode('utf-8'))
 			etiquetaNoticias.append(noticia['tag'][tag])
 		for noticia in textoNoticias:
 			index = textoNoticias.index(noticia)
 			etiqueta = etiquetaNoticias[index]
 			trainset.append((noticia,etiqueta))
-		#nb = MultinomialNB()
+
 		labels = ['text','opinion']
 		trainsetSK = []
 		
-		for sentence in trainset:
-			trainsetSK.append((sentence[0],sentence[1]))
+		for couple in trainset:
+			trainsetSK.append((couple[0],couple[1]))
 		tabla = pd.DataFrame.from_records(trainsetSK, columns=labels)
 		tabla['opinion_num'] = tabla.opinion.map({'aFavor':0, 'enContra':1})
 		X = tabla.text
@@ -191,19 +182,15 @@ class Query(Form):
 		vectorizer = feature_extraction.text.TfidfVectorizer(lowercase=False, stop_words=palabras_filtrar)
 		rf = ensemble.RandomForestClassifier(n_estimators=100)
 		train_vectors = vectorizer.fit_transform(X_train_data)
-		#test_vectors = vectorizer.transform(X_test_data)
 		rf.fit(train_vectors, X_train_label)
-		#pred = rf.predict(test_vectors)
 		c = make_pipeline(vectorizer, rf)
-		explanation = explainer.explain_instance(target['text'], c.predict_proba, num_features=10)
+		shownText = unicodedata.normalize('NFKD',target['text']).encode('ASCII','ignore')
+		explanation = explainer.explain_instance(shownText, c.predict_proba, num_features=10)
 		result_explanation = {'html':explanation.as_html(), 'list':conjunto_entrenamiento.count()}
 		return result_explanation
 
 
 
-class LoginForm(Form):
-	openid = StringField('openid', validators=[DataRequired()])
-	remember_me = BooleanField('remember_me', default=False)
 
 class ScanPDF(Form):
 	noticias=[]

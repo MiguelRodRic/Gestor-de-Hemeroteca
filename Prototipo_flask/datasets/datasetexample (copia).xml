@@ -16,7 +16,7 @@
 				<titular>Titular no Machista</titular>
 				<cuerpo>Esta es una noticia un poco aleatoria</cuerpo>
 				<link>www.linkrandom2.com</link>
-			<noticia>
+			</noticia>
 		</noticias>
 	</topic>
 	<topic id='vientre Alquiler'>
@@ -36,7 +36,7 @@
 				<titular>Titular vientre de alquiler</titular>
 				<cuerpo>Esta es una noticia un poco aleatoria</cuerpo>
 				<link>www.linkrandom2.com</link>
-			<noticia>
+			</noticia>
 		</noticias>
 	</topic>
 </root>

@@ -3,7 +3,7 @@
     <h1 style="font-family: 'Arimo', sans-serif" >Conjunto leído: </h1>
     <form action="/savenewdataset" method="post" name="savenewdataset">
       {% if mostrar %}
-      <table>
+      <table class="table">
       <tr>
       <th>Autor </th>
       <th>Fecha</th>
@@ -20,7 +20,7 @@
       {% endfor %} 
       </table>
       <p><input type="submit" name="submit" value="Guardar Nuevas"></p>
-      <p><a href="{{url_for('newdataset')}}" class="button">Cancelar</a></p>
+      <p><a href="{{url_for('newdataset')}}" class="btn">Cancelar</a></p>
       {% endif %}
       {% if errorText %}
       <h2> {{ errorText}} </h2>

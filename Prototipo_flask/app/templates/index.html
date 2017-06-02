@@ -1,85 +1,87 @@
 {% extends "base.html" %}
 
 {% block content %}
-    <h1 style="font-family: 'Arimo', sans-serif">Consulta de hemeroteca: </h1>
-    <form action="/index" method="post" name="index">
-    {% if query %}
-      <p>
-          por favor, introduce la palabra clave:<br>
-          {{ query.search(size=30) }}<br>
-      </p>
-      <p><input type="submit" name="submit" value="Buscar">
-    </a> </p> 
-    {% endif %}
-    {% if noticiasSample %}
-    <div style="float: right; margin-right: 80px; margin-top: -50px; padding-bottom: 20px;">
-    <div class="form-group">
-    <h4> Dataset</h4>
-    <select name="datasetSelect" id="datasetSelect" class="form-control">
-      {% for tagS in etiqueta %}
-        <option value="{{tagS}}"> {{tagS}} </option>
-      {% endfor %}
-    </select>
-    </div>
-    </div>
-    <table id="resultTable" class="table table-hover">
-    <tr>
-    <th style="display: none;"> ID </th>
-    <th>Titular</th>
-    <th>Autor</th>
-    <th>Fecha de publicación</th>
-    <th>Fuente </th>
-    <th> Probabilidades (A favor/ En contra)</th>
-    <th style="width: 100px;"> Etiquetas </th>
-    <th> </th>
-    </tr>
-    {% for noticiaS in noticiasSample %}
-    <tr>
-    <td style="display: none;">{{ noticiaS.id }} </td>
-    <td><a href="{{ noticiaS.link }}">{{ noticiaS.titular}}</a></td>
-    <td>{{ noticiaS.autor }}</td>
-    <td>{{ noticiaS.fecha }}</td>
-    <td>{{ noticiaS.fuente}}</td>
-    <td>
-    {% for prediction in noticiaS.predict %}
-    {% set outer_loop = loop %}
-    <progress id="{{ outer_loop.index-1}}" value="{{ prediction.aFavor}}" max="1">
-    </progress>
-    {% endfor %}
-    </td>
-    <td id="classes"> 
-      <ul class="{{noticiaS.id}}">
-      {% for tagV in noticiaS.tagValue %}
-      <li> {{tagV}} </li>
-      {% endfor %}
-      </ul>
-      <div id="{{noticiaS.titular}}" class="{{noticiaS.id}}" style="display:none">
-        <input type="radio" name="{{noticiaS.id}}" value="A Favor" />A Favor <br>
-        <input type="radio" name="{{noticiaS.id}}" value="En Contra" />En Contra <br>
+
+    <h1 style="font-family: 'Arimo', sans-serif;">Consulta de hemeroteca: </h1>
+    <div class="innercontent">
+      <form action="/index" method="post" name="index">
+      {% if query %}
+        <p>
+            <h4>por favor, introduce la palabra clave:</h4><br>
+            {{ query.search(size=30) }}<br>
+        </p>
+        <p><input type="submit" name="submit" value="Buscar">
+      </a> </p> 
+      {% endif %}
+      {% if noticiasSample %}
+      <div style="float: right; margin-right: 80px; margin-top: -50px; padding-bottom: 20px;">
+      <div class="form-group">
+      <h4> Dataset</h4>
+      <select name="datasetSelect" id="datasetSelect" class="form-control">
+        {% for tagS in etiqueta %}
+          <option value="{{tagS}}"> {{tagS}} </option>
+        {% endfor %}
+      </select>
       </div>
-    </td>
-    <td>
-    {% for tag in etiqueta %}
-    {% set aux = tag %}
-    <a id="{{tag}}" href="{{url_for('explanation',arguments=noticiaS.id+'-'+tag+'-'+noticiaS.predictTag.get(aux))}}" class="hiddenButton btn btn-primary">Clasificar <span class="glyphicon glyphicon-stats"></span>
-    </a> 
-    {% endfor %}
-    &nbsp; 
-    <a id="Manual" class="btn unselectable" name="{{noticiaS.id}}" > Etiquetar<span class="glyphicon glyphicon-pencil"></span></a>
-    </td>
-    </tr>
-    {% endfor %} 
-    </table>
-    <div style="padding-left: 400px; padding-top: 30px;">
-      <input type="submit" name="submit" value="Guardar Cambios">
+      </div>
+      <table id="resultTable" class="table table-hover">
+      <tr>
+      <th style="display: none;"> ID </th>
+      <th>Titular</th>
+      <th>Autor</th>
+      <th>Fecha de publicación</th>
+      <th>Fuente </th>
+      <th> Probabilidades (A favor/ En contra)</th>
+      <th style="width: 100px;"> Etiquetas </th>
+      <th> </th>
+      </tr>
+      {% for noticiaS in noticiasSample %}
+      <tr>
+      <td style="display: none;">{{ noticiaS.id }} </td>
+      <td><a href="{{ noticiaS.link }}">{{ noticiaS.titular}}</a></td>
+      <td>{{ noticiaS.autor }}</td>
+      <td>{{ noticiaS.fecha }}</td>
+      <td>{{ noticiaS.fuente}}</td>
+      <td>
+      {% for prediction in noticiaS.predict %}
+      {% set outer_loop = loop %}
+      <progress id="{{ outer_loop.index-1}}" value="{{ prediction.aFavor}}" max="1">
+      </progress>
+      {% endfor %}
+      </td>
+      <td id="classes"> 
+        <ul class="{{noticiaS.id}}">
+        {% for tagV in noticiaS.tagValue %}
+        <li> {{tagV}} </li>
+        {% endfor %}
+        </ul>
+        <div id="{{noticiaS.titular}}" class="{{noticiaS.id}}" style="display:none">
+          <input type="radio" name="{{noticiaS.id}}" value="A Favor" />A Favor <br>
+          <input type="radio" name="{{noticiaS.id}}" value="En Contra" />En Contra <br>
+        </div>
+      </td>
+      <td>
+      {% for tag in etiqueta %}
+      {% set aux = tag %}
+      <a id="{{tag}}" href="{{url_for('explanation',arguments=noticiaS.id+'-'+tag+'-'+noticiaS.predictTag.get(aux))}}" class="hiddenButton btn btn-primary">Clasificar <span class="glyphicon glyphicon-stats"></span>
+      </a> 
+      {% endfor %}
+      &nbsp; 
+      <a id="Manual" class="btn unselectable" name="{{noticiaS.id}}" > Etiquetar<span class="glyphicon glyphicon-pencil"></span></a>
+      </td>
+      </tr>
+      {% endfor %} 
+      </table>
+      <div style="padding-left: 400px; padding-top: 30px;">
+        <input type="submit" name="submit" value="Guardar Cambios">
+      </div>
+      {% endif %}
+      {% if mensaje %}
+      <h1>{{mensaje}} </h1>
+      <a  class="link" href="/index"> Volver </a>
+      {% endif %}
+      </form>
     </div>
-    {% endif %}
-    {% if mensaje %}
-    <h1>{{mensaje}} </h1>
-    <a  class="link" href="/index"> Volver </a>
-    <a
-    {% endif %}
-    </form>
     <script type=text/javascript src="{{
     url_for('static', filename='jquery-3.2.1.js') }}"></script>
     <script type="text/javascript">

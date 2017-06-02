@@ -74,6 +74,10 @@
       overflow-y: auto !important;
   }
 
+  td {
+    background-color: #FFFFFF;
+  }
+
   td, th {
       border: 1px solid #dddddd;
       text-align: left;
@@ -93,8 +97,41 @@
   li {
     float: left;
   }
+
+  .navbar-inner {
+    background-color: blue;
+  }
+
+  h1 
+  {
+    border-bottom: 1px solid black;
+  }
+
+  div.innercontent {
+    margin-left: 5% !important;
+    margin-top: 3% !important;
+
+  }
+
+  div.container {
+    margin-left: 3% !important;
+    margin-top: 1%;
+    border: 2px solid #2E2E2E;
+    border-radius: 5px;
+    background-color: #DDDDDD;
+    width: 90%;
+    height: 85%;
+  }
   
-  
+  div.content {
+    margin-left: 2% !important;
+    
+  }
+
+  body {
+    background-image: url("{{url_for('static', filename='img/stripes3.png')}}");
+    background-repeat: repeat;
+  }
 
   </style>
   <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
@@ -129,7 +166,11 @@
       <a class="breadcrumb" href="{{ breadcrumb.url }}"> >{{ breadcrumb.text }}</a>
     {% endfor %}
     </div>
-    {% block content %}{% endblock %}
+    <div class="container">
+      <div class="content">
+        {% block content %}{% endblock %}
+      </div>
+    </div>
   </body>
   <script type="text/javascript">
    $(".nav a").on("click", function(){

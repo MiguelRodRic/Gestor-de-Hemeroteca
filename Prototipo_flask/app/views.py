@@ -5,7 +5,7 @@ from pymongo import MongoClient
 from bson.objectid import ObjectId
 from app import app
 from flask_pymongo import PyMongo
-from .forms import LoginForm, ScanPDF, RssScrapping, Query, NewDataSet
+from .forms import ScanPDF, RssScrapping, Query, NewDataSet
 from config import ConfigVars
 from pdfminer.pdfparser import PDFParser
 from pdfminer.pdfdocument import PDFDocument
@@ -37,9 +37,10 @@ def lookForFile(path, extension):
 			ficheros.append(os.path.join(path,filename))
 			nombres.append(filename)
 			#print filename
-		elif "." not in filename:
-			newPath = os.path.join(path,filename)
-			lookForFile(newPath)
+		elif os.path.isdir(filename):
+				newPath = os.path.join(path,filename)
+				lookForFile(newPath, extension)
+
 
 
 
@@ -69,9 +70,13 @@ def index():
 						predictTag[tag] = 'aFavor'
 					else:
 						predictTag[tag] = 'enContra'
+				try:
+					link = sample['link']
+				except:
+					link = ''
 				query.noticiasSample.append({'id':str(sample['_id']), 'titular':sample['title'], 'autor':sample['author'],
 				 'fecha':sample['publishDate'], 'fuente':sample['source'], 'tag':etiqueta, 'tagValue':etiquetaValores,
-				  'predict': prediction, 'predictTag':predictTag, 'link':sample['link']})
+				  'predict': prediction, 'predictTag':predictTag, 'link':link})
 			return render_template("index.html",
 						   title='Home',
 						   query=query,
@@ -181,63 +186,83 @@ def savepdfnews():
 	del nombres[:]
 	lookForFile(rutapdf, '.pdf')
 	textos = [None]*len(ficheros)
-	autores =[None]*len(ficheros)
+	autores = [None]*len(ficheros)
 	fechas = [None]*len(ficheros)
-	for registro in ficheros:
-		consulta = db.noticias.find_one({'title':{'$regex': nombres[ficheros.index(registro)]}})
-		YaAlmacenada = ''
-		if consulta == None:
-			rsrcmgr = PDFResourceManager()
-			retstr = StringIO()
-			codec = 'utf-8'
-			laparams = LAParams()
-			device = TextConverter(rsrcmgr, retstr, codec=codec, laparams=laparams)
-			pdfLocal = registro
-			fp = file(pdfLocal, 'rb')
-			parser = PDFParser(fp)
-			doc = PDFDocument(parser)
-			#print str(doc.info).decode().encode('utf-8')
-			fechaAux = doc.info[0].get('CreationDate', None)
-			fechas[ficheros.index(registro)] = fechaAux[2:6]+'-'+fechaAux[6:8]+'-'+fechaAux[8:10]+' '+fechaAux[10:12]+':'+fechaAux[12:14]+':'+fechaAux[14:16]
-			autores[ficheros.index(registro)] = doc.info[0].get('Author', None)
-			YaAlmacenada = 'No'
-			interpreter = PDFPageInterpreter(rsrcmgr, device)
-			password = ""
-			maxpages = 0
-			caching = True
-			pagenos=set()
-			for page in PDFPage.get_pages(fp, pagenos, maxpages=maxpages, password=password,caching=caching, check_extractable=True):
-				interpreter.process_page(page)
-			text = retstr.getvalue()
-			textos[ficheros.index(registro)] = text
-			
-			fp.close()
-			device.close()
-			retstr.close()
-		else:
-			fechas[ficheros.index(registro)] = consulta['publishDate']
-			autores[ficheros.index(registro)] = consulta['author']
-			nombres[ficheros.index(registro)] = consulta['title']
-			textos[ficheros.index(registro)] = consulta['text']
-			YaAlmacenada = 'Si'
-		try:
-			autoraux = autores[ficheros.index(registro)]
-		except:
-			autoraux = autores[ficheros.index(registro)].decode('utf-16')
-		scan.noticias.append({'texto':textos[ficheros.index(registro)],
-		 'autor':autoraux,
-		 'fecha':fechas[ficheros.index(registro)],
-		 'titular':nombres[ficheros.index(registro)], 'almacenada':YaAlmacenada})
+	mensaje = None
+	if(len(ficheros)) > 0:
+		for registro in ficheros:
+			consulta = db.noticias.find_one({'title':{'$regex': nombres[ficheros.index(registro)]}})
+			YaAlmacenada = ''
+			if consulta == None:
+				rsrcmgr = PDFResourceManager()
+				retstr = StringIO()
+				codec = 'utf-8'
+				laparams = LAParams()
+				device = TextConverter(rsrcmgr, retstr, codec=codec, laparams=laparams)
+				pdfLocal = registro
+				fp = open(pdfLocal, 'rb')
+				parser = PDFParser(fp)
+				doc = PDFDocument(parser)
+				#print str(doc.info).decode().encode('utf-8')
+				YaAlmacenada = 'No'
+				interpreter = PDFPageInterpreter(rsrcmgr, device)
+				password = ""
+				maxpages = 0
+				caching = True
+				pagenos=set()
+				for page in PDFPage.get_pages(fp, pagenos, maxpages=maxpages, password=password,caching=caching, check_extractable=True):
+					interpreter.process_page(page)
+				text = retstr.getvalue()
+				try:
+					textos[ficheros.index(registro)] = text.split("(Cuerpo)")[1].decode('utf-8','ignore')
+				except:
+					mensaje.append('\n No se ha encontado el texto de la noticia')
+				try:
+					autores[ficheros.index(registro)] = text.split("(Autor)")[1].decode('utf-8','ignore')
+				except:
+					mensaje.append('\n No se ha encontado el autor de la noticia')
+				try:
+					fechas[ficheros.index(registro)] = text.split("(Fecha)")[1].decode('utf-8','ignore')
+				except:
+					mensaje.append('\n No se ha encontado la fecha de la noticia')
+				try:
+					nombres[ficheros.index(registro)] = text.split("(Titular)")[1].decode('utf-8','ignore')
+				except:
+					mensaje.append('\n No se ha encontado el titular de la noticia')
+
+				fp.close()
+				device.close()
+				retstr.close()
+			else:
+				fechas[ficheros.index(registro)] = consulta['publishDate']
+				autores[ficheros.index(registro)] = consulta['author']
+				nombres[ficheros.index(registro)] = consulta['title']
+				textos[ficheros.index(registro)] = consulta['text']
+				YaAlmacenada = 'Si'
+			try:
+				autoraux = autores[ficheros.index(registro)]
+			except:
+				autoraux = autores[ficheros.index(registro)].decode('utf-16')
+			scan.noticias.append({'texto':textos[ficheros.index(registro)],
+			 'autor':autoraux,
+			 'fecha':fechas[ficheros.index(registro)],
+			 'titular':nombres[ficheros.index(registro)],
+			 'almacenada':YaAlmacenada,
+			 'link':ficheros[ficheros.index(registro)]})
+	else:
+		mensaje = 'No se han encontrado archivos'
 	if request.method == 'POST':
 		if request.form['submit'] == "Guardar Nuevas":
 			mensaje = "Noticias insertadas"
 			for noticia in scan.noticias:
-					db.noticias.update_one( {'title':noticia['titular']},{ '$set': {'author': noticia['autor'], 'title':noticia['titular'],
-					'publishDate':noticia['fecha'], 'text':noticia['texto'], 'source':'PDF', 'tag':''}}, upsert=True)
+					db.noticias.update_one( {'title':noticia['titular']},{ '$set': {'author': noticia['autor'],
+					 'title':noticia['titular'], 'publishDate':noticia['fecha'], 'text':noticia['texto'],
+					  'link':noticia['link'], 'source':'PDF', 'tag':{'Machismo':'', 'VientreAlquiler':''} }}, upsert=True)
 			return render_template("savepdfnews.html", scan=scan, mostrar=mostrar, mensaje=mensaje)
 	return render_template("savepdfnews.html",
 					   scan=scan,
-					   mostrar=mostrar)
+					   mostrar=mostrar,
+					   mensaje=mensaje)
 	
 
 @app.route('/websearch', methods=['GET', 'POST'])
@@ -368,7 +393,7 @@ def savenewdataset():
 	for nombre in nombres:
 		soup = BeautifulSoup(open(rutadataset + '/' + nombre,'r'),'xml')
 		for root in soup.find_all('root'):
-			for topic in root.find_all('topic'):
+			for topic in root.find_all('dataset'):
 				for noticiasxml in topic.find_all('noticias'):
 					for noticiaxml in noticiasxml.find_all('noticia'):
 						try:
@@ -378,7 +403,7 @@ def savenewdataset():
 								'titular':noticiaxml.titular.text,
 								'texto':noticiaxml.cuerpo.text,
 								'link':noticiaxml.link.text,
-								'tag':topic['id'] + noticiasxml['id']
+								'tag':topic['topic']+ ' - ' + noticiasxml['clase']
 							}
 							nds.noticias.append(noticia)
 						except Exception as e:
@@ -393,78 +418,7 @@ def savenewdataset():
 
 # index view function suppressed for brevity
 
-@app.route('/login', methods=['GET', 'POST'])
-def login():
-	form = LoginForm()
-	return render_template('login.html', 
-						   title='Sign In',
-						   form=form)
 
-
-FAKE_DATABASE = [
-    {"id": 0,
-     "msg":  """Miré los muros de la patria mía,
-        si un tiempo fuertes, ya desmoronados,
-        de la carrera de la edad cansados,
-        por quien caduca ya su valentía."""
-    },
-    {"id": 1,
-     "msg":  """Salíme al campo, vi que el sol bebía
-        los arroyos del hielo desatados;
-        y del monte quejosos los ganados,
-        que con sombras hurtó la luz al día."""
-    },
-    {"id": 2,
-     "msg":  """Entré en mi casa: vi que amancillada
-        de anciana habitación era despojos;
-        mi báculo más corvo, y menos fuerte."""
-    },
-    {"id": 3,
-     "msg":  """Vencida de la edad sentí mi espada,
-        y no hallé cosa en qué poner los ojos
-        que no fuese recuerdo de la muerte."""
-    },
-    {"id": 4,
-     "msg":  """¡Cómo de entre mis manos te resbalas!
-        ¡Oh, cómo te deslizas, edad mía!
-        ¡Qué mudos pasos traes, oh muerte fría,
-        pues con callado pie todo lo igualas!"""
-    },
-    {"id": 5,
-     "msg":  """Feroz de tierra el débil muro escalas,
-        en quien lozana juventud se fía;
-        mas ya mi corazón del postrer día
-        atiende el vuelo, sin mirar las alas."""
-    },
-    {"id": 6,
-     "msg":  """¡Oh condición mortal! ¡Oh dura suerte!
-        ¡Que no puedo querer vivir mañana,
-        sin la pensión de procurar mi muerte!"""
-    },
-    {"id": 7,
-     "msg":      """Cualquier instante de la vida humana
-        es nueva ejecución, con que me advierte
-        cuán frágil es, cuán mísera, cuán vana."""
-    },
-]
-
-
-
-@app.route('/example')
-def example():
-    # Some silly pre-processing
-    summaries = []
-    for entry in FAKE_DATABASE:
-        summaries.append({"id": entry["id"], 
-                     "summary": entry["msg"].splitlines()[0].upper().decode("utf-8") })
-    return render_template('example.html', summaries=summaries)
-
-
-@app.route('/showFull/<int:id>')
-def showFull(id):
-    msg = FAKE_DATABASE[id]["msg"]
-    msg = msg.replace("\n", "<br />").decode("utf-8")
-    return render_template('showFull.html', msg=msg)
 
 if __name__ == '__main__':
     app.run(host = '0.0.0.0', port = 5000)

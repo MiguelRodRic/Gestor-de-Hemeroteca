@@ -12,32 +12,58 @@ Los principales criterios a tener en cuenta para quedarnos con una de las altern
 \subsection{PyQt}
 Permite crear aplicaciones de escritorio de forma sencilla, pudiendo crear elementos de interfaz sencillos como botones, cuadros de texto... etc(más aún si se usa su editor de GUI propio).
 
-No obstante, las opciones gr\'aficas no eran tan atractivas como pod\'ia parecer en un primer momento, y adem\'as ao es adecuada si la intenci\'on es crear una aplicaci\'on web.
+No obstante, las opciones gráficas no eran tan atractivas como podía parecer en un primer momento, y además no es adecuada si la intención es crear una aplicación web.
 
 \subsection{Kivy}
-Es una alternativa interesante ya que permite hacer aplicaciones de escritorio con c\'odigo Python con la ventaja de que es "Cross-platform", es decir, que las aplicaciones que se creen usando esta herramienta se pueden distribuir en distintos sistemas operativos. 
-No obstante, no se tuvo especialmente en cuenta ya que para cuando se estaba investigando esta opci\'on, la opci\'on de hacer una aplicaci\'on web en vez de una de escritorio estaba pr\ácticamente decidida.
+Es una alternativa interesante ya que permite hacer aplicaciones de escritorio con código Python con la ventaja de que es "Cross-platform", es decir, que las aplicaciones que se creen usando esta herramienta se pueden distribuir en distintos sistemas operativos. 
+No obstante, no se tuvo especialmente en cuenta ya que para cuando se estaba investigando esta opción, la opción de hacer una aplicación web en vez de una de escritorio estaba prácticamente decidida.
 
 \subsection{Flask}
-Permite combinar código HTML y Python de forma simple. La carater\ística que m\ás nos interesaba es su facilidad de combinar ficheros HTML y c\'odigos escritos puramente en Python, adem\ás de poder incluir de forma sencilla librer\ías con estilos para la interfaz.
-No obstante, a la hora de practicar con la herramienta (siguiendo el mega-tutorial de miguelgrinberg.com), la estructura de ficheros daba numerosos problemas al intentar ejecutar aplicaciones, unas veces relacionadas con el int\'erprete de Python, y otras por errores al combinar los ficheros. 
-Aunque finalmente se complet\ó la gu\ía, las sensaciones finales era que con Jupyter se desarrollaban aplicaciones sencillas con m\ás rapidez.
+Permite combinar código HTML y Python de forma simple. La caraterística que más nos interesaba es su facilidad de combinar ficheros HTML y códigos escritos puramente en Python, además de poder incluir de forma sencilla librerías con estilos para la interfaz.
+No obstante, a la hora de practicar con la herramienta (siguiendo el mega-tutorial de miguelgrinberg.com), la estructura de ficheros daba numerosos problemas al intentar ejecutar aplicaciones, unas veces relacionadas con el intérprete de Python, y otras por errores al combinar los ficheros. 
+Aunque finalmente se completó la guía, las sensaciones finales era que con Jupyter se desarrollaban aplicaciones sencillas con más rapidez.
 
 \subsection{Jupyter}
-En esta herramienta, y con ayuda de alguna librer\'ia de terceros (wand, display...) es especialmente sencillo combinar c\'odigo HTML y Python en un mismo fichero. De hecho, haciendo uso de los llamados "ipywidgets" (o dicho de otra manera, los Widgets que ofrece IPython), se puede encapsular el c\'odigo HTML de forma muy c\'omoda en un script normal de Python, especialmente el ipywidget HTML, que permite introducir una estructura HTML como si se tratara de una cadena de texto normal.
+En esta herramienta, y con ayuda de alguna librería de terceros (wand, display...) es especialmente sencillo combinar código HTML y Python en un mismo fichero. De hecho, haciendo uso de los llamados "ipywidgets" (o dicho de otra manera, los Widgets que ofrece IPython), se puede encapsular el código HTML de forma muy cómoda en un script normal de Python, especialmente el ipywidget HTML, que permite introducir una estructura HTML como si se tratara de una cadena de texto normal.
 
-Adem\'as, la curva de aprendizaje ha sido bastante sencilla y conseguir un c\'odigo inicial que muestre documentos PDF ha llevado poco tiempo. Las posibilidades de combinarlo con otros elementos, como Flask o MongoDB (PyMongo) hacen de esta herramienta una de las mejores alternativas. De hecho, fue la elegida para implementar la aplicaci\ón web.
+Además, la curva de aprendizaje ha sido bastante sencilla y conseguir un código inicial que muestre documentos PDF ha llevado poco tiempo. Las posibilidades de combinarlo con otros elementos, como Flask o MongoDB (PyMongo) hacen de esta herramienta una de las mejores alternativas. De hecho, fue la elegida para implementar la aplicación web.
 
 
 \bigskip
 
 \section{Herramientas candidatas (Bases de Datos de texto)}
-{De forma similar al apartado previo, en las fases iniciales del proyecto se planteaban varias opciones para elegir c\'omo almacenar los datos necesarios para que el usuario pudiera obtener noticias y a la vez poder acceder a los datos para realizar la miner\'ia de los mismos.}
+{De forma similar al apartado previo, en las fases iniciales del proyecto se planteaban varias opciones para elegir c\'omo almacenar los datos necesarios para que el usuario pudiera obtener noticias y a la vez poder acceder a los datos para realizar la minería de los mismos.}
 \subsection{PyLucene}
 
 \subsection{PyMongo}
-Es la extensi\'on de MongoDB para Python. Su principal caracter\'istica es que es una base de datos no relacional, o en otras palabras, no SQL. De modo que funciona con un modelo distinto al que es m\'as habitual ver en una base de datos convencional. 
-Por ejemplo, en vez de estructurarse como tablas con relaciones entre ellas, la forma de almacenar los datos se asemeja mucho m\'as a lo que se puede ver en JSON: los datos se almacenan en una estructura clave-valor similar a un diccionario. 
+Es la extensión de MongoDB para Python. Su principal característica es que es una base de datos no relacional, o en otras palabras, no SQL. De modo que funciona con un modelo distinto al que es más habitual ver en una base de datos convencional. 
+Por ejemplo, en vez de estructurarse como tablas con relaciones entre ellas, la forma de almacenar los datos se asemeja mucho más a lo que se puede ver en JSON: los datos se almacenan en una estructura clave-valor similar a un diccionario. 
 No obstante, aunque no se puedan usar relaciones, estas estructuras son muy flexibles, y se puede, por ejemplo, introducir unas estructuras como campos de otras, o introducir cualquier tipo de dato como valor.
 \subsection{SQLAlchemy}
 
+\section{BeautifulSoup}
+https://www.crummy.com/software/BeautifulSoup/
+
+
+BeautifulSoup es una librería de Python cuyo principal objetivo es facilitar la lectura y manipulación de documentos tipo XML. Uno de sus usos más frecuentes, y para el que ha sido utilizada en este proyecto, es para poder navegar por el texto de un documento HTML y leer su texto de forma muy sencilla cuando se están realizando labores de Web Scrapping. 
+
+Cuando recibe un documento XML o HTML, parsea la estructura de árbol de los mismos, de forma que permite acceder a los contenidos de la etiqueta que se desee con un simple método, y evitando al programador tener que buscar manualmente a lo largo del documento obtenido, que puede llegar a ser una tarea tediosa. Además, tiene operaciones muy interesantes como la de sacar todo el texto plano de un documento, de forma que nos ahorramos tener que iterar por toda la estructura separando etiquetas de texto.
+
+En este proyecto, BeautifulSoup se usó en combinación con Urllib2, una librería que permite hacer peticiones que abren URLs, de modo que con la segunda obteníamos todo el código HTML de la página web a la que queríamos acceder, y con la primera parseamos el documento filtrando todo el texto de los artículos.
+
+
+\section{Sci-Kit Learn}
+
+
+
+\section{feedparser}
+
+\section{TextBlob}
+
+https://textblob.readthedocs.io/en/dev/
+
+Librería Python usada para el procesamiento de datos de texto. Se centra en el procesamiento de lenguaje natural (NLP). Sus principales funciones consisten en reconocimiento de lenguaje y traducción de unos idiomas a otros, extracción de palabras y frases, análisis de emociones en una frase, clasificación de textos... etc.
+
+En el proyecto
+
+\section{PDFMiner}

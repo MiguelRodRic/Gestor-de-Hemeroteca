@@ -3,15 +3,25 @@
 \BOOKMARK [0][-]{section*.3}{\315ndice de tablas}{}% 3
 \BOOKMARK [0][-]{chapter*.4}{Introducci\363n}{}% 4
 \BOOKMARK [0][-]{chapter*.5}{Objetivos del proyecto}{}% 5
-\BOOKMARK [0][-]{chapter*.6}{Conceptos te\363ricos}{}% 6
-\BOOKMARK [1][-]{section.3.1}{Secciones}{chapter*.6}% 7
-\BOOKMARK [1][-]{section.3.2}{Referencias}{chapter*.6}% 8
-\BOOKMARK [1][-]{section.3.3}{Im\341genes}{chapter*.6}% 9
-\BOOKMARK [1][-]{section.3.4}{Listas de items}{chapter*.6}% 10
-\BOOKMARK [1][-]{section.3.5}{Tablas}{chapter*.6}% 11
-\BOOKMARK [0][-]{chapter*.9}{T\351cnicas y herramientas}{}% 12
-\BOOKMARK [1][-]{section.4.1}{Herramientas Candidatas \(Aplicaci\363n Web\)}{chapter*.9}% 13
-\BOOKMARK [1][-]{section.4.2}{Herramientas candidatas \(Bases de Datos de texto\)}{chapter*.9}% 14
-\BOOKMARK [0][-]{chapter*.17}{Aspectos relevantes del desarrollo del proyecto}{}% 15
-\BOOKMARK [0][-]{chapter*.18}{Trabajos relacionados}{}% 16
-\BOOKMARK [0][-]{chapter*.19}{Conclusiones y L\355neas de trabajo futuras}{}% 17
+\BOOKMARK [1][-]{section.2.1}{Objetivos basados en los requisitos funcionales}{chapter*.5}% 6
+\BOOKMARK [1][-]{section.2.2}{Objetivos t\351cnicos}{chapter*.5}% 7
+\BOOKMARK [1][-]{section.2.3}{Objetivos personales}{chapter*.5}% 8
+\BOOKMARK [0][-]{chapter*.6}{Conceptos te\363ricos}{}% 9
+\BOOKMARK [1][-]{section.3.1}{Miner\355a de Datos}{chapter*.6}% 10
+\BOOKMARK [1][-]{section.3.2}{Web Scraping}{chapter*.6}% 11
+\BOOKMARK [1][-]{section.3.3}{Referencias}{chapter*.6}% 12
+\BOOKMARK [0][-]{chapter*.11}{T\351cnicas y herramientas}{}% 13
+\BOOKMARK [1][-]{section.4.1}{Herramientas Candidatas \(Aplicaci\363n Web\)}{chapter*.11}% 14
+\BOOKMARK [1][-]{section.4.2}{Herramientas candidatas \(Bases de Datos de texto\)}{chapter*.11}% 15
+\BOOKMARK [1][-]{section.4.3}{BeautifulSoup}{chapter*.11}% 16
+\BOOKMARK [1][-]{section.4.4}{Sci-Kit Learn}{chapter*.11}% 17
+\BOOKMARK [1][-]{section.4.5}{feedparser}{chapter*.11}% 18
+\BOOKMARK [1][-]{section.4.6}{TextBlob}{chapter*.11}% 19
+\BOOKMARK [1][-]{section.4.7}{Lime}{chapter*.11}% 20
+\BOOKMARK [1][-]{section.4.8}{PDFMiner}{chapter*.11}% 21
+\BOOKMARK [0][-]{chapter*.19}{Aspectos relevantes del desarrollo del proyecto}{}% 22
+\BOOKMARK [1][-]{section.5.1}{Experimentaci\363n en Jupyter}{chapter*.19}% 23
+\BOOKMARK [1][-]{section.5.2}{Intento de publicaci\363n de Jupyter Dashboard}{chapter*.19}% 24
+\BOOKMARK [1][-]{section.5.3}{Omisi\363n de comentarios en el Scrapping}{chapter*.19}% 25
+\BOOKMARK [0][-]{chapter*.22}{Trabajos relacionados}{}% 26
+\BOOKMARK [0][-]{chapter*.23}{Conclusiones y L\355neas de trabajo futuras}{}% 27

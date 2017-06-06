@@ -5,3 +5,59 @@ Debe incluir desde la exposición del ciclo de vida utilizado, hasta los detalle
 Se busca que no sea una mera operación de copiar y pegar diagramas y extractos del código fuente, sino que realmente se justifiquen los caminos de solución que se han tomado, especialmente aquellos que no sean triviales.
 Puede ser el lugar más adecuado para documentar los aspectos más interesantes del diseño y de la implementación, con un mayor hincapié en aspectos tales como el tipo de arquitectura elegido, los índices de las tablas de la base de datos, normalización y desnormalización, distribución en ficheros3, reglas de negocio dentro de las bases de datos (EDVHV GH GDWRV DFWLYDV), aspectos de desarrollo relacionados con el WWW...
 Este apartado, debe convertirse en el resumen de la experiencia práctica del proyecto, y por sí mismo justifica que la memoria se convierta en un documento útil, fuente de referencia para los autores, los tutores y futuros alumnos.
+
+\section{Experimentación en Jupyter}
+
+Debido a los problemas que se mencionan a continuación, la opción de implementar la aplicación web basada en notebooks de Jupyter tuvo que ser descartada en pleno desarrollo del proyecto.
+No obstante, los primeros meses del mismo fueron dedicados casi completamente a la experimentación de funcionalidades en esta plataforma. De hecho, en el repositorio del proyecto se encuentra un grupo de notebooks que no llegaron a formar parte del producto final, pero que a su vez contienen funcionalidad avanzada que tampoco pudo incluirse en la aplicación de flask. Los ejemplos más interesantes son los siguientes:
+
+\begin{itemize}
+
+\item Web Scraping avanzado: Antes de enfocar el web scraping en los RSS de los medios de comunicación. Se realizaron dos prototipos de web scraping convencional en la página web de los periódicos Público y ElDiario.
+
+Cabe destacar que este web scrapping estaba más perfeccionado que el que hay en el código final, pero al mismo tiempo estaba demasiado personalizado para cada medio en concreto, y no podía replicarse con facilidad para otros portales web. En la versión final, se pueden añadir más medios con menos esfuerzos, a costa de sacrificar calidad en el texto extraído de cada noticia.
+
+\end{itemize}
+
+\section{Intento de publicación de Jupyter Dashboard}
+
+Uno de los objetivos iniciales que se comentaron al comenzar el proyecto consistía en, aparte de conseguir implementar la funcionalidad y la interfaz de usuario en un notebook de Jupyter, poder publicar estos archivos en un formato de aplicación web usando unas librerías llamadas Jupyter Dashboards. La finalidad de estas librerías es la de, teniendo un notebook con la funcionalidad completa, quitar de la pantalla todos los cuadros de código, dejando solo el "output" y los elementos interactivos a la vista; ideal para una situación como la que se nos presentaba, en la que la aplicación la iban a usar otros usuarios.
+
+No obstante, los requisitos para poder realizar esta publicación fueron complicándose hasta el punto de tener que descartar esta posibilidad. En lo referente al formato de la salida por pantalla, si que se consiguió configurar el notebook para que tuviera este aspecto de dashboard, pero todos los problemas estaban relacionados con la publicación del mismo. Por un lado, era necesario configurar una máquina virtual Docker que ejecutara los comandos necesarios para instalar y configurar todos los elementos que requería este tipo de aplicación. 
+
+Para realizar este proceso, y debido a lo prematuro de estas herramientas (Muchos de los problemas que sufrimos aparecen como issues sin resolver en los respectivos repositorios de GitHub), la opción más viable era seguir el único repositorio de GitHub con guías de despliegue de dashboards (\url{ https://github.com/jupyter-incubator/dashboards_setup}) que los propios autores habían facilitado. De estas guías, tres necesitaban de docker para funcionar y la cuarta recurría a CloudFoundry. Mientras que CloudFoundry se descartó porque requería de versiones de pago o versiones de prueba de alguna de las plataformas certificadas que usaban esta tecnología, en el caso de Docker las complicaciones eran de otra naturaleza.
+
+Debido a las condiciones del equipo en el que se realizó el proyecto (Sistema Operativo Windows con Hyper-V), no se podían configurar máquinas docker desde la máquina virtual, porque las máquinas virtuales con Linux que estábamos usando(en este caso, de Oracle VirtualBox) no funcionan con Hyper-V, y las máquinas virtuales de docker necesitaban crearse con Hyper-V activado. Ante la obligación de configurar todo desde el Sistema Operativo anfitrión, un conjunto de incompatibilidades y errores sin aparente solución entre Windows y estas máquinas virtuales, hizo que los recursos necesarios para solventar esta situación fueran demasiado grandes para las limitaciones de tiempo del proyecto.
+
+
+\section{Omisión de comentarios en el Scrapping}
+
+Una de las funcionalidades que se pretendía incluir en el producto, era la lectura y clasificación por separado de los comentarios de las noticias buscadas. El principal motivo era que los comentarios de una noticia no tenían por qué tener la misma ideología que la noticia, y de hecho muchos de ellos podrían ser de crítica de la propia noticia, aunque se suponga que la mayoría de lectores de un diario en concreto probablemente tenga la misma línea ideológica que el propio medio.
+
+
+Para realizar este scrapping por separado, se probaron diferentes alternativas, aunque ninguna era muy compatible con las técnicas de Web Scrapping que se usaban para leer el resto de la página y, en resumen, provocó la aparición de dos inconvenientes importantes:
+
+\subsection{Uso de Selenium para comentarios ocultos}
+
+En la mayoría de medios en los que se realiza la lectura de noticias, surgió el problema de que al hacer web scrapping con urllib2, no aparecían los comentarios en el código HTML que llegaba al código del programa. Esto se debe a que en muchos casos los comentarios de los medios se cargan usando herramientas de terceros que dependen de iframes y que, al usarun tipo concreto de request para coger el código HTML, no se podía alcanzar desde el código Python. 
+
+Por tanto, para atajar este problema, la alternativa más exitosa fue usar Selenium para poder acceder a esos iframe. No obstante, la url con el HTML de los comentarios tenía que cargarse en una pestaña aparte, además de que Selenium abre físicamente el navegador al cliente que esté ejecutando el código, lo cual a su vez generaba otros dos problemas:
+
+\begin{itemize}
+
+\item Según el medio o la herramienta que use el mismo para cargar los comentarios en las noticias, el hecho de que haya que hacer nuevas peticiones con las urls de los comentarios para cada noticia es una operación muy pesada que conllevaba varios minutos de carga en muchos casos, algo totalmente no deseable si la aplicación la va a utilizar algún usuario.
+
+\item Además del tiempo que se tarda en realizar estas operaciones, el usuario además tendría que aguantar que se estuvieran constantemente abriendo pestañas del navegador mientras se realiza la lectura de comentarios, lo cual tampoco es deseable si es un producto que va a usar un tercero.
+
+\end{itemize}
+ 
+
+
+\subsection{Falta de comentarios en RSS}
+
+Uno de los principales inconvenientes producidos por el cambio de enfoque de Web Scrapping al RSS de los diarios. Debido a las características de este formato, no se incluyen comentarios en las fichas de las noticias en los RSS de los medios. Debido a ello, a pesar de las ventajas que supone este formato en otros aspectos, como facilidad de lectura de noticias y velocidad de la propia lectura, una de las prestaciones que había que sacrificar era la lectura de comentarios.
+
+Incluso en el caso de aquellos medios en los cuáles hay que acceder al link que ofrece el RSS para leer el cuerpo de la noticia, si también quisiéramos aprovechar para leer comentarios, se volvería al problema mencionado previamente de falta de opciones sencillas de recogida de los mismos.
+
+
+Por estos dos motivos, se decidió prescindir de la lectura de comentarios en el producto entregable, a falta de encontrar una alternativa menos intrusiva y con menos costes de tiempo y recursos.

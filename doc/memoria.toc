@@ -13,30 +13,37 @@
 \contentsline {subsection}{Bag of Words}{4}{section*.7}
 \contentsline {subsection}{Vectorizador de texto}{5}{section*.8}
 \contentsline {subsection}{Bagging}{6}{section*.9}
-\contentsline {subsection}{Clasificador de bosque aleatorio}{7}{section*.10}
-\contentsline {section}{\numberline {3.2}Web Scraping}{7}{section.3.2}
-\contentsline {section}{\numberline {3.3}Referencias}{8}{section.3.3}
-\contentsline {chapter}{T\IeC {\'e}cnicas y herramientas}{9}{chapter*.11}
-\contentsline {section}{\numberline {4.1}Herramientas Candidatas (Aplicaci\IeC {\'o}n Web)}{9}{section.4.1}
-\contentsline {subsection}{PyQt}{9}{section*.12}
-\contentsline {subsection}{Kivy}{10}{section*.13}
-\contentsline {subsection}{Flask}{10}{section*.14}
-\contentsline {subsection}{Jupyter}{10}{section*.15}
-\contentsline {section}{\numberline {4.2}Herramientas candidatas (Bases de Datos de texto)}{10}{section.4.2}
-\contentsline {subsection}{PyLucene}{11}{section*.16}
-\contentsline {subsection}{PyMongo}{11}{section*.17}
-\contentsline {subsection}{SQLAlchemy}{11}{section*.18}
-\contentsline {section}{\numberline {4.3}BeautifulSoup}{11}{section.4.3}
-\contentsline {section}{\numberline {4.4}Sci-Kit Learn}{12}{section.4.4}
-\contentsline {section}{\numberline {4.5}feedparser}{12}{section.4.5}
-\contentsline {section}{\numberline {4.6}TextBlob}{12}{section.4.6}
-\contentsline {section}{\numberline {4.7}Lime}{12}{section.4.7}
-\contentsline {section}{\numberline {4.8}PDFMiner}{12}{section.4.8}
-\contentsline {chapter}{Aspectos relevantes del desarrollo del proyecto}{13}{chapter*.19}
-\contentsline {section}{\numberline {5.1}Experimentaci\IeC {\'o}n en Jupyter}{13}{section.5.1}
-\contentsline {section}{\numberline {5.2}Intento de publicaci\IeC {\'o}n de Jupyter Dashboard}{14}{section.5.2}
-\contentsline {section}{\numberline {5.3}Omisi\IeC {\'o}n de comentarios en el Scrapping}{15}{section.5.3}
-\contentsline {subsection}{Uso de Selenium para comentarios ocultos}{15}{section*.20}
-\contentsline {subsection}{Falta de comentarios en RSS}{16}{section*.21}
-\contentsline {chapter}{Trabajos relacionados}{17}{chapter*.22}
-\contentsline {chapter}{Conclusiones y L\IeC {\'\i }neas de trabajo futuras}{18}{chapter*.23}
+\contentsline {subsection}{Clasificador Random Forest}{7}{section*.10}
+\contentsline {section}{\numberline {3.2}Web Scraping}{8}{section.3.2}
+\contentsline {chapter}{T\IeC {\'e}cnicas y herramientas}{10}{chapter*.11}
+\contentsline {section}{\numberline {4.1}T\IeC {\'e}cnicas de trabajo}{10}{section.4.1}
+\contentsline {subsection}{Metodolog\IeC {\'\i }a \IeC {\'a}gil}{10}{section*.12}
+\contentsline {section}{\numberline {4.2}Herramientas Candidatas (Aplicaci\IeC {\'o}n Web)}{10}{section.4.2}
+\contentsline {subsection}{PyQt}{11}{section*.13}
+\contentsline {subsection}{Kivy}{11}{section*.14}
+\contentsline {subsection}{Flask}{11}{section*.15}
+\contentsline {subsection}{Jupyter}{11}{section*.16}
+\contentsline {section}{\numberline {4.3}Herramientas candidatas (Bases de Datos)}{12}{section.4.3}
+\contentsline {subsection}{PyLucene}{12}{section*.17}
+\contentsline {subsection}{PyMongo}{12}{section*.18}
+\contentsline {subsection}{SQLAlchemy}{13}{section*.19}
+\contentsline {section}{\numberline {4.4}BeautifulSoup}{13}{section.4.4}
+\contentsline {section}{\numberline {4.5}Sci-Kit Learn}{13}{section.4.5}
+\contentsline {section}{\numberline {4.6}feedparser}{14}{section.4.6}
+\contentsline {section}{\numberline {4.7}TextBlob}{14}{section.4.7}
+\contentsline {section}{\numberline {4.8}Lime}{14}{section.4.8}
+\contentsline {section}{\numberline {4.9}PDFMiner}{15}{section.4.9}
+\contentsline {section}{\numberline {4.10}Latex}{15}{section.4.10}
+\contentsline {chapter}{Aspectos relevantes del desarrollo del proyecto}{16}{chapter*.20}
+\contentsline {section}{\numberline {5.1}Conceptos avanzados de Bag of Words}{16}{section.5.1}
+\contentsline {subsection}{Stopwords}{16}{section*.21}
+\contentsline {subsection}{Normalizaci\IeC {\'o}n de las frecuencias}{17}{section*.22}
+\contentsline {section}{\numberline {5.2}Resultados de la explicaci\IeC {\'o}n de la predicci\IeC {\'o}n}{20}{section.5.2}
+\contentsline {section}{\numberline {5.3}Experimentaci\IeC {\'o}n en Jupyter}{21}{section.5.3}
+\contentsline {section}{\numberline {5.4}Intento de publicaci\IeC {\'o}n de Jupyter Dashboard}{22}{section.5.4}
+\contentsline {section}{\numberline {5.5}Omisi\IeC {\'o}n de comentarios en el Scrapping}{23}{section.5.5}
+\contentsline {subsection}{Uso de Selenium para comentarios ocultos}{23}{section*.23}
+\contentsline {subsection}{Falta de comentarios en RSS}{23}{section*.24}
+\contentsline {chapter}{Trabajos relacionados}{25}{chapter*.25}
+\contentsline {chapter}{Conclusiones y L\IeC {\'\i }neas de trabajo futuras}{26}{chapter*.26}
+\contentsline {chapter}{Bibliograf\'{\i }a}{27}{section*.28}

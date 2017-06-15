@@ -7,7 +7,7 @@ En los siguientes apartados se van a desarrollar todos los conceptos del proyect
 
 \subsection{Bag of Words}
 
-Bag of Words es una técnica de agrupación de palabras relacionada con el Procesamiento de Lenguaje Natural. Consiste en, a partir de un texto de muestra, almacenar la frecuencia de aparición de cada palabra distinta que esté contenida en el texto, independientemente del orden de aparición, y sin tener en cuenta el contexto en el que aparezca. 
+Bag of Words \cite{bagofwords} \cite{wiki:bagofwords} es una técnica de agrupación de palabras relacionada con el Procesamiento de Lenguaje Natural. Consiste en, a partir de un texto de muestra, almacenar la frecuencia de aparición de cada palabra distinta que esté contenida en el texto, independientemente del orden de aparición, y sin tener en cuenta el contexto en el que aparezca. 
 
 En términos de estructuras de datos, un bag of words se suele almacenar con un formato de diccionario, donde la clave está formada por cada palabra distinta, y el valor
 es la frecuencia de aparición de esa palabra.
@@ -16,11 +16,11 @@ Vamos a ilustrar lo explicado con un ejemplo. A continuación, mostramos unas fr
 
 \begin{itemize}
 
-\item "No se puede fumar en establecimientos públicos"
+\item ``No se puede fumar en establecimientos públicos"
 
-\item "Se puede fumar en residencias privadas"
+\item ``Se puede fumar en residencias privadas"
 
-\item "En general, no se debería fumar"
+\item ``En general, no se debería fumar"
 
 \end{itemize}
 
@@ -41,13 +41,15 @@ General & 1\\
 Debería & 1\\
 } 
 
-El potencial de esta técnica para análisis de texto es muy interesante. Por ejemplo, y por relacionarlo con este proyecto, se podría asociar una etiqueta a cada una de las frases propuestas, como "A favor de los fumadores" y "En contra de los fumadores"; para que una vez realizado el bag of words se pueda, entre otras funcionalidades, deducir las probabilidades que tiene cada una de las palabras del vocabulario obtenido de pertenecer a una de las dos clases.
+El potencial de esta técnica para análisis de texto es muy interesante. Por ejemplo, y por relacionarlo con este proyecto, se podría asociar una etiqueta a cada una de las frases propuestas, como ``A favor de los fumadores" y ``En contra de los fumadores"; para que una vez realizado el bag of words se pueda, entre otras funcionalidades, deducir las probabilidades que tiene cada una de las palabras del vocabulario obtenido de pertenecer a una de las dos clases.
 
 De forma indirecta, lo previamente mencionado se puede usar para predecir cuál sería la ideología de una frase nueva, en función de las palabras de la misma que coinciden con el vocabulario ya almacenado por los clasificadores.
 
+En el apartado ``Conceptos Avanzados de Bag of Words" dentro de ``Aspectos Relevantes" se explicarán con más detenimiento algunos aspectos más profundos de esta técnica.
+
 \subsection{Vectorizador de texto}
 
-Herramientas que convierten un documento de texto en matrices de tokens, que usualmente son palabras  \cite{http://scikit-learn.org/stable/modules/generated/sklearn.feature_extraction.text.CountVectorizer.html}.
+Herramientas que convierten un documento de texto en matrices de tokens, que usualmente son palabras  \cite{countvectorizer}.
 Son muy útiles para aplicar la técnica del bag of words a cualquier texto sin tener que recurrir a un conteo manual.
 
 El tamaño de la matriz suele corresponderse con el tamaño del vocabulario obtenido a partir de la extracción de palabras del texto, aunque en la mayoría de herramientas el propio programador puede elegir un límite fijo para el tamaño. 
@@ -56,7 +58,7 @@ En términos comerciales, los vectorizadores más usados son los de imágenes, l
 
 \subsection{Bagging}
 
-También conocido como Bootstrap Agreggation, es una técnica de minería de datos cuyo objetivo es el de reducir todo lo posible la varianza en la clasificación de datos. Consiste en obtener una predicción por votación a partir del promedio de los resultados obtenidos aplicando un gran número de clasificadores a distintas partes de los datos de entrenamiento.
+También conocido como Bootstrap Agreggation \cite{breiman1996bagging}, es una técnica de minería de datos cuyo objetivo es el de reducir todo lo posible la varianza en la clasificación de datos. Consiste en obtener una predicción por votación a partir del promedio de los resultados obtenidos aplicando un gran número de clasificadores a distintas partes de los datos de entrenamiento.
 
 De forma breve, podríamos explicar el proceso que realiza el Bagging en los siguientes pasos:
 
@@ -64,7 +66,7 @@ De forma breve, podríamos explicar el proceso que realiza el Bagging en los sig
 
 \item  A partir del conjunto de entrenamiento, se obtienen m subconjuntos distintos, llamados "bags", que contienen combinaciones aleatorias de instancias del conjunto de entrenamiento.
 
-\item Para cada "bag", se entrena un modelo con un clasificador distinto.
+\item Para cada ``bag", se entrena un modelo con un clasificador distinto.
 
 \item Todos los modelos resultantes se usan posteriormente para predecir el conjunto de prueba.
 
@@ -74,25 +76,25 @@ De forma breve, podríamos explicar el proceso que realiza el Bagging en los sig
 
 Ésta técnica se usa mucho en los casos de predicciones basadas en árboles, como es el caso de los bosques aleatorios, que explicaremos a continuación. En la siguiente imagen se pueden observar de forma sencilla los pasos previamente mencionados.
 
-\imagen{Bagging}{Esquema de funcionamiento básico de Bagging}
+\imagen{Bagging}{Esquema de funcionamiento básico de Bagging \cite{baggingpicture}}
 
-\subsection{Clasificador de bosque aleatorio}
+\subsection{Clasificador Random Forest}
 
-El clasificador de Bosque aleatorio es una técnica derivada del bagging aplicada a árboles de predicción. Como su nombre sugiere, se basa en el uso de la combinación de varios árboles de clasificación. 
+El clasificador Random Forest es una técnica derivada del bagging aplicada a árboles de predicción \cite{randomforestclassifier}. Como su nombre sugiere, se basa en el uso de la combinación de varios árboles de clasificación. 
 
 Cada uno de estos árboles se encarga de entrenar una instancia de los datos de entrenamiento, y la solución devuelta será la clase obtenida por votación de todos los árboles. 
 
-El principal objetivo de realizar este proceso es el de, mediante los subconjuntos aleatorios, aumentar todo lo posible la precisión y controlar el sobreajuste de los resultados. Por ese motivo, si tenemos un mismo conjunto de entrenamiento para todas las pruebas, se obtendrá un menor margen de error en aquellas clasificaciones que tengan un mayor número de árboles, mientras que los resultados con un número mínimo de árboles no serán tan fiables.
+El principal objetivo de realizar este proceso es el de, mediante los subconjuntos aleatorios, aumentar todo lo posible la precisión y controlar el sobreajuste de los resultados. Por ese motivo, si tenemos un mismo conjunto de entrenamiento para todas las pruebas, se obtendrá un menor margen de error en aquellas clasificaciones que tengan un mayor número de árboles, mientras que los resultados con un número mínimo de árboles no serán tan fiables \cite{randomforestclassifierberkeley}.
 
 En la siguiente imagen se muestra un esquema de funcionamiento del bosque aleatorio, en la que se puede observar las similaridades con el proceso de Bagging explicado anteriormente.
 
-\imagen{RandomForestExample}{Esquema de funcionamiento de bosque aleatorio}
+\imagen{RandomForestExample}{Esquema de funcionamiento de bosque aleatorio \cite{randomforestpicture}}
 
 
 
 \section{Web Scraping}
 
-El Web Scraping es una técnica, principalmente alternativa al uso de APIs de los propietarios de páginas web, para extraer información relevante de las propias páginas web.
+El Web Scraping \cite{mitchell2015web} es una técnica, principalmente alternativa al uso de APIs de los propietarios de páginas web, para extraer información relevante de las propias páginas web.
 
 De forma más concreta, lo que realiza un web scraper es la detección de información que se encuentra dentro de etiquetas concretas de un documento de tipo HTML, y su posterior extracción al indicarle las etiquetas en las que buscar. Es una técnica con un gran potencial, pues le evita al usuario la búsqueda manual de esta información, lo cual es una tarea especialmente ardua en los complejos códigos HTML de la mayoría de páginas web. 
 
@@ -114,8 +116,5 @@ A continuación mostramos un ejemplo sencillo de Web Scraping escrito en Python 
 
 \end{enumerate}
 
-\section{Referencias}
-
-Las referencias se incluyen en el texto usando cite \cite{wiki:latex}. Para citar webs, artículos o libros \cite{koza92}.
 
 

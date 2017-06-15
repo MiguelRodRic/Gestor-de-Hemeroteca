@@ -9,19 +9,23 @@
 \BOOKMARK [0][-]{chapter*.6}{Conceptos te\363ricos}{}% 9
 \BOOKMARK [1][-]{section.3.1}{Miner\355a de Datos}{chapter*.6}% 10
 \BOOKMARK [1][-]{section.3.2}{Web Scraping}{chapter*.6}% 11
-\BOOKMARK [1][-]{section.3.3}{Referencias}{chapter*.6}% 12
-\BOOKMARK [0][-]{chapter*.11}{T\351cnicas y herramientas}{}% 13
-\BOOKMARK [1][-]{section.4.1}{Herramientas Candidatas \(Aplicaci\363n Web\)}{chapter*.11}% 14
-\BOOKMARK [1][-]{section.4.2}{Herramientas candidatas \(Bases de Datos de texto\)}{chapter*.11}% 15
-\BOOKMARK [1][-]{section.4.3}{BeautifulSoup}{chapter*.11}% 16
-\BOOKMARK [1][-]{section.4.4}{Sci-Kit Learn}{chapter*.11}% 17
-\BOOKMARK [1][-]{section.4.5}{feedparser}{chapter*.11}% 18
-\BOOKMARK [1][-]{section.4.6}{TextBlob}{chapter*.11}% 19
-\BOOKMARK [1][-]{section.4.7}{Lime}{chapter*.11}% 20
-\BOOKMARK [1][-]{section.4.8}{PDFMiner}{chapter*.11}% 21
-\BOOKMARK [0][-]{chapter*.19}{Aspectos relevantes del desarrollo del proyecto}{}% 22
-\BOOKMARK [1][-]{section.5.1}{Experimentaci\363n en Jupyter}{chapter*.19}% 23
-\BOOKMARK [1][-]{section.5.2}{Intento de publicaci\363n de Jupyter Dashboard}{chapter*.19}% 24
-\BOOKMARK [1][-]{section.5.3}{Omisi\363n de comentarios en el Scrapping}{chapter*.19}% 25
-\BOOKMARK [0][-]{chapter*.22}{Trabajos relacionados}{}% 26
-\BOOKMARK [0][-]{chapter*.23}{Conclusiones y L\355neas de trabajo futuras}{}% 27
+\BOOKMARK [0][-]{chapter*.11}{T\351cnicas y herramientas}{}% 12
+\BOOKMARK [1][-]{section.4.1}{T\351cnicas de trabajo}{chapter*.11}% 13
+\BOOKMARK [1][-]{section.4.2}{Herramientas Candidatas \(Aplicaci\363n Web\)}{chapter*.11}% 14
+\BOOKMARK [1][-]{section.4.3}{Herramientas candidatas \(Bases de Datos\)}{chapter*.11}% 15
+\BOOKMARK [1][-]{section.4.4}{BeautifulSoup}{chapter*.11}% 16
+\BOOKMARK [1][-]{section.4.5}{Sci-Kit Learn}{chapter*.11}% 17
+\BOOKMARK [1][-]{section.4.6}{feedparser}{chapter*.11}% 18
+\BOOKMARK [1][-]{section.4.7}{TextBlob}{chapter*.11}% 19
+\BOOKMARK [1][-]{section.4.8}{Lime}{chapter*.11}% 20
+\BOOKMARK [1][-]{section.4.9}{PDFMiner}{chapter*.11}% 21
+\BOOKMARK [1][-]{section.4.10}{Latex}{chapter*.11}% 22
+\BOOKMARK [0][-]{chapter*.20}{Aspectos relevantes del desarrollo del proyecto}{}% 23
+\BOOKMARK [1][-]{section.5.1}{Conceptos avanzados de Bag of Words}{chapter*.20}% 24
+\BOOKMARK [1][-]{section.5.2}{Resultados de la explicaci\363n de la predicci\363n}{chapter*.20}% 25
+\BOOKMARK [1][-]{section.5.3}{Experimentaci\363n en Jupyter}{chapter*.20}% 26
+\BOOKMARK [1][-]{section.5.4}{Intento de publicaci\363n de Jupyter Dashboard}{chapter*.20}% 27
+\BOOKMARK [1][-]{section.5.5}{Omisi\363n de comentarios en el Scrapping}{chapter*.20}% 28
+\BOOKMARK [0][-]{chapter*.25}{Trabajos relacionados}{}% 29
+\BOOKMARK [0][-]{chapter*.26}{Conclusiones y L\355neas de trabajo futuras}{}% 30
+\BOOKMARK [0][-]{section*.28}{Bibliograf\355a}{}% 31

@@ -1,10 +1,158 @@
 \capitulo{5}{Aspectos relevantes del desarrollo del proyecto}
 
-Este apartado pretende recoger los aspectos más interesantes del desarrollo del proyecto, comentados por los autores del mismo.
-Debe incluir desde la exposición del ciclo de vida utilizado, hasta los detalles de mayor relevancia de las fases de análisis, diseño e implementación.
-Se busca que no sea una mera operación de copiar y pegar diagramas y extractos del código fuente, sino que realmente se justifiquen los caminos de solución que se han tomado, especialmente aquellos que no sean triviales.
-Puede ser el lugar más adecuado para documentar los aspectos más interesantes del diseño y de la implementación, con un mayor hincapié en aspectos tales como el tipo de arquitectura elegido, los índices de las tablas de la base de datos, normalización y desnormalización, distribución en ficheros3, reglas de negocio dentro de las bases de datos (EDVHV GH GDWRV DFWLYDV), aspectos de desarrollo relacionados con el WWW...
-Este apartado, debe convertirse en el resumen de la experiencia práctica del proyecto, y por sí mismo justifica que la memoria se convierta en un documento útil, fuente de referencia para los autores, los tutores y futuros alumnos.
+En este capítulo se desarrollarán en profundidad aspectos sólo mencionados en capítulos previos, relacionados tanto con conceptos teóricos como con las técnicas y herramientas, además de dar explicación a cuestiones relevantes respecto de la aplicación o de su desarrollo.
+
+\section{Conceptos avanzados de Bag of Words}
+
+Además de lo mencionado en los conceptos teóricos, hay diferentes matices dentro del bag of words que merecen la pena ser explicados con más detalle, ya que fueron relevantes en la implementación del proyecto.
+
+\subsection{Stopwords}
+
+Se conoce como ``stopwords" al conjunto de palabras prefijadas por el programador (o por el usuario, si se le da la opción) que no queremos que se tengan en cuenta a la hora de formar un vocabulario con el texto de entrada. 
+
+Cuando se está dando forma al modelo, se le pasa este conjunto a la herramienta que va a transformar el texto en un vocabulario con frecuencia de palabras, de modo que ésta filtra las palabras mencionadas para eliminar el ``ruido" y de forma consecuente, aumentar la relevancia del resto de palabras que almacene.
+
+Habitualmente, lo que se busca evitar son las palabras que tienen menos significado propio dentro de una frase. Dicho de otra manera, las primeras palabras que deben ser filtradas son artículos, determinantes, preposiciones... que son las menos interesantes en una frase.
+
+En este proyecto, se hizo uso de un stopwords de palabras en español que viene incluido en la librería de NLTK \cite{nltk}, que contiene las palabras de las tablas \cite{nltkstopwordsspanish} y \cite{nltkstopwordsspanish2}.
+
+
+\tablaSmall{Stopwords español de nltk}{c c c c}{nltkstopwordsspanish}
+{ \multicolumn{1}{c}{Palabras} & & & \\}{ 
+ de & la & que & el \\
+ en & y & a & los \\
+ del & se & las & por \\ 
+ un & para & con & no \\
+ una & su & al & lo \\ 
+ como & más & pero & sus \\
+ le & ya & o & este  \\ 
+ porque & esta & entre & sí \\
+ cuando & muy & sin & sobre \\
+ también & me & hasta & hay \\
+ donde & quien & desde & todo \\
+ nos & durante & todos & uno \\
+ les & ni & contra & otros \\
+ ese & eso & ante & ellos \\
+ e & esto & mí & antes \\
+ algunos & qué & unos & yo \\
+ otro & otras & otra & él \\
+ tanto & esa & estos & mucho \\
+ quienes & nada & muchos & cual \\ 
+ poco & ella & estar & estas \\ 
+ algunas & algo & nosotros & mi \\
+ mis & tú & te & ti \\
+ tu & tus & ellas & nosotras \\
+ vosostros & vosostras & os & mío \\
+ mía & míos & mías & tuyo \\
+ tuya & tuyos & tuyas & suyo \\
+ suya & suyos & suyas & nuestro \\
+ nuestra & nuestros & nuestras & vuestra \\
+ vuestros & vuestras & esos & esas \\
+ estoy & estás & está & estamos \\
+ estáis & están & esté & estés \\
+ estemos & estéis & estén & estaré \\
+ estarás & estará & estaremos & estaréis \\
+ estarán & estaría & estarías & estaríamos \\
+ estaríais & estarían & estaba & estabas \\
+ estábamos & estabais & estaban & estuve \\
+ estuviste & estuvo & estuvimos & estuvisteis \\
+ estuvieron & estuviera & estuvieras & estuviéramos \\
+ estuvierais & estuvieran & estuviese & estuvieses \\
+ estuviésemos & estuvieseis & estuviesen & estando \\
+ estado & estada & estados & estadas \\
+ estad & he & has & ha \\
+ hemos & habéis & han & haya \\
+ hayas & hayamos & hayáis & hayan \\
+ habré & habrás & habrá & habremos \\
+ habréis & habrán & habría & habrías \\
+ habríamos & habríais & habrían & había \\
+ habías & habíamos & habíais & habían \\
+ hube & hubiste & hubo & hubimos \\
+}
+
+
+\tablaSmall{Stopwords español de nltk (Segunda Parte)}{c c c c}{nltkstopwordsspanish2}
+{ \multicolumn{1}{c}{Palabras} & & & \\}{ 
+ hubisteis & hubieron & hubiera & hubieras \\ 
+ hubiéramos & hubierais & hubieran & hubiese \\
+ hubieses & hubiésemos & hubieseis & hubiesen \\
+ habiendo & habido & habida & habidos \\
+ habidas & soy & eres & es \\
+ somos & sois & son & sea \\
+ seas & seamos & seáis & sean \\
+ seré & serás & será & seremos \\
+ seréis & serán & sería & serías \\ 
+ seríamos & seríais & serían & era \\
+ eras & éramos & erais & eran \\
+ fui & fuiste & fue & fuimos \\
+ fuisteis & fueron & fuera & fueras \\ 
+ fuéramos & fuerais & fueran & fuese \\
+ fueses & fuésemos & fueseis & fuesen \\
+ sintiendo & sentido & sentida & sentidos \\
+ sentidas & siente & sentid & tengo \\
+ tienes & tiene & tenemos & tenéis \\
+ tienen & tenga & tengas & tengamos \\
+ tengáis & tengan & tendré & tendrás \\ 
+ tendrá & tendremos & tendréis & tendrán \\
+ tendría & tendrías & tendríamos & tendríais \\
+ tendrían & tenía & tenías & teníamos\\
+ teníais & tenían & tuve & tuviste \\
+ tuvo & tuvimos & tuvisteis & tuvieron \\ 
+ tuviera & tuvieras & tuviéramos & tuvierais \\ 
+ tuvieran & tuviese & tuvieses & tuviésemos \\
+ tuvieseis & tuviesen & teniendo & tenido \\
+ tenida & tenidos & tenidas\\
+}
+
+Ya que estas palabras son muy frecuentes en la mayoría de frases en español, no sólo restaban importancia a las verdaderamente relevantes, si no que incluso podrían ser consideradas de las más relevantes simplemente por su frecuencia de aparición, lo cuál restaría mucha calidad a la predicción posterior. 
+
+Cabe destacar que ésto no soluciona todo el problema, ya que en los textos de las noticias podrían aparecer alguna de estas palabras con mayúsculas, sin tildes, u otras palabras no relevantes que evitarían el filtro. No obstante, con este filtro ya se puede asegurar una cierta calidad en las predicciones de forma general.
+
+\subsection{Normalización de las frecuencias}
+
+Como se ha mencionado previamente, lo habitual es que una predicción de clases basada en un bag of words se realice basando la clasificación en la frecuencia de aparición de determinadas palabras en los textos de cada una de las clases.
+
+Para poder medir esta frecuencia, no es suficiente con tener los vocabularios de cada clase con sus frecuencias, pues no es una medida lo suficientemente precisa. Lo que se debe realizar es una normalización de estas frecuencias, teniendo en cuenta los siguientes cálculos \cite{spamtutorial}
+
+\begin{itemize}
+
+\item Frecuencia normalizada de una palabra en una clase:
+
+\[ FrecuenciaClase1[palabra] = apariciones[palabra] / numeroNoticias[Clase1] \]
+
+Se recomienda añadir una aparición por defecto, para evitar divisiones entre 0.
+
+\item Ratio de pertenencia de una palabra a una clase:
+
+\[ RatioClase1[palabra] = FrecuenciaClase1[palabra] / FrecuenciaClase2[palabra] \]
+
+Si, siguiendo el ejemplo que mencionamos en los conceptos teóricos, tenemos que la palabra ``salud" tiene un mayor ratio en la clase ``En contra de los fumadores" que en ``A favor de los fumadores", se puede anticipar que la próxima vez que se reciba una frase o texto con la palabra ``salud", tendrá mayores posibilidades de pertenecer a la clase ``En contra de los fumadores".
+
+\end{itemize}
+
+Realizando estos simples cálculos y ordenando las palabras en función de sus respectivos ratio, se puede deducir cuáles serán las palabras más influyentes a la hora de saber si una frase o un texto se corresponde con una clase u otra.
+
+\section{Resultados de la explicación de la predicción}
+
+Una de las funcionalidades que más peso tiene en el producto final es el de mostrar una explicación de la predicción realizada sobre una noticia, respecto de un Dataset determinado. 
+
+Siguiendo la filosofía de ``no reinventar la rueda", para parte de la programación de este apartado hemos usado la librería Lime, de la cual se habla en el apartado de ``Técnicas y Herramientas", y que permite obtener una explicación de cualquier clasificación realizada, ya sea usando texto o imagen, y preferiblemente usando Scikit-learn como librería para practicar la minería de datos.
+
+Se ha aprovechado la posibilidad que ofrece Lime de devolver esta explicación con un formato de bloque HTML, en el cuál a su vez se incluyen tres apartados distintos:
+
+\begin{itemize}
+
+\item Barras de progreso que indican las probabilidades de pertenencia a cada una de las clases.
+
+\item Un gráfico de barras en el que se muestran por orden las palabras más influyentes a la hora de tomar la decisión, ya sea para una clase o para otra.
+
+\item El texto de prueba entero que se ha recibido, resaltando en él las palabras que se han incluido en el gráfico del punto anterior, para que el usuario pueda observar estas palabras en su contexto real (antes de hacer el bag of words), y no simplemente en la lista de palabras influyentes.
+
+\end{itemize}
+
+En la imagen (Insertar captura de pantalla de explicación) se observan de forma diferenciada los tres apartados, y se le ofrece al usuario la posibilidad de, después de haber estudiado con detenimiento los detalles de la predicción, decidir etiquetar esta noticia en concordancia con la predicción realizada.
+
+Puede que al usar la aplicación de la sensación de que el estilo visual de estos resultados de la explicación no encaja completamente con el estilo visual del resto de las pestañas. Esto es debido a que se inyecta directamente el bloque HTML sin alterar que devuelve Lime en la pestaña antes de cargar la misma. Debido a limitaciones de tiempo, era más productivo aprovechar este código HTML ya escrito que solamente recibir de Lime los datos y dedicar tiempo extra a escribir el código HTML y las funciones de Javascript necesarias para preparar la misma vista de resultados pero con otros estilos diferentes. De nuevo, se ha decidido seguir el razonamiento de que ``no hay que reinventar la rueda".
 
 \section{Experimentación en Jupyter}
 
@@ -17,11 +165,15 @@ No obstante, los primeros meses del mismo fueron dedicados casi completamente a 
 
 Cabe destacar que este web scrapping estaba más perfeccionado que el que hay en el código final, pero al mismo tiempo estaba demasiado personalizado para cada medio en concreto, y no podía replicarse con facilidad para otros portales web. En la versión final, se pueden añadir más medios con menos esfuerzos, a costa de sacrificar calidad en el texto extraído de cada noticia.
 
+\item Clasificación con Bag of Words: En algunos de los notebooks hay muestras de las primeras pruebas de clasificación de texto que se hicieron usando Scikit-Learn, en las que además se puede ver como se usan otros elementos como la validación cruzada para crear conjuntos de entrenamiento y de prueba a partir de los mismos elementos iniciales. Como en la aplicación final sabemos a ciencia cierta cuál son las noticias de entrenamiento y cuál sobre la que hay que hacer la predicción, no hace falta usar esta validación cruzada.
+
+\item Lectura más exhaustiva de PDF: También hay un apartado de notebooks dedicado a la lectura de PDF y extracción de su texto, donde se implementaron los primeros acercamientos antes de programar la versión final en la aplicación de Flask. No obstante, esa versión tenía el problema de que los PDF de prueba que se habían recibido tenían diferentes formatos y no se había acordado una estructura común para el contenido, provocando que el texto que se recogía no fuera útil.
+
 \end{itemize}
 
 \section{Intento de publicación de Jupyter Dashboard}
 
-Uno de los objetivos iniciales que se comentaron al comenzar el proyecto consistía en, aparte de conseguir implementar la funcionalidad y la interfaz de usuario en un notebook de Jupyter, poder publicar estos archivos en un formato de aplicación web usando unas librerías llamadas Jupyter Dashboards. La finalidad de estas librerías es la de, teniendo un notebook con la funcionalidad completa, quitar de la pantalla todos los cuadros de código, dejando solo el "output" y los elementos interactivos a la vista; ideal para una situación como la que se nos presentaba, en la que la aplicación la iban a usar otros usuarios.
+Uno de los objetivos iniciales que se comentaron al comenzar el proyecto consistía en, aparte de conseguir implementar la funcionalidad y la interfaz de usuario en un notebook de Jupyter, poder publicar estos archivos en un formato de aplicación web usando unas librerías llamadas Jupyter Dashboards. La finalidad de estas librerías es la de, teniendo un notebook con la funcionalidad completa, quitar de la pantalla todos los cuadros de código, dejando solo el ``output" y los elementos interactivos a la vista; ideal para una situación como la que se nos presentaba, en la que la aplicación la iban a usar otros usuarios.
 
 No obstante, los requisitos para poder realizar esta publicación fueron complicándose hasta el punto de tener que descartar esta posibilidad. En lo referente al formato de la salida por pantalla, si que se consiguió configurar el notebook para que tuviera este aspecto de dashboard, pero todos los problemas estaban relacionados con la publicación del mismo. Por un lado, era necesario configurar una máquina virtual Docker que ejecutara los comandos necesarios para instalar y configurar todos los elementos que requería este tipo de aplicación. 
 
@@ -39,7 +191,7 @@ Para realizar este scrapping por separado, se probaron diferentes alternativas, 
 
 \subsection{Uso de Selenium para comentarios ocultos}
 
-En la mayoría de medios en los que se realiza la lectura de noticias, surgió el problema de que al hacer web scrapping con urllib2, no aparecían los comentarios en el código HTML que llegaba al código del programa. Esto se debe a que en muchos casos los comentarios de los medios se cargan usando herramientas de terceros que dependen de iframes y que, al usarun tipo concreto de request para coger el código HTML, no se podía alcanzar desde el código Python. 
+En la mayoría de medios en los que se realiza la lectura de noticias, surgió el problema de que al hacer web scrapping con urllib2, no aparecían los comentarios en el código HTML que llegaba al código del programa. Esto se debe a que en muchos casos los comentarios de los medios se cargan usando herramientas de terceros que dependen de iframes y que, al usar un tipo concreto de request para coger el código HTML, no se podía alcanzar desde el código Python. 
 
 Por tanto, para atajar este problema, la alternativa más exitosa fue usar Selenium para poder acceder a esos iframe. No obstante, la url con el HTML de los comentarios tenía que cargarse en una pestaña aparte, además de que Selenium abre físicamente el navegador al cliente que esté ejecutando el código, lo cual a su vez generaba otros dos problemas:
 

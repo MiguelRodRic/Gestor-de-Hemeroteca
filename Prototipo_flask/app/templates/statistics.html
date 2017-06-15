@@ -1,0 +1,132 @@
+{% extends "base.html" %}
+{% block content %}
+    <script src={{url_for('static', filename='Chart.min.js')}}></script>
+    <h1 style="font-family: 'Arimo', sans-serif">Estadísticas de la hemeroteca: </h1>
+    <form action="/statistics" method="post" name="statistics">
+    <h4> Elige el filtro para el gráfico </h4>
+    <a id="autores" class="btn btn-primary"> Autor </a> &nbsp;
+    <a id="fechas" class="btn btn-primary"> Fecha </a> &nbsp;
+    <a id="fuentes" class="btn btn-primary"> Fuente </a>
+    <h4 id="autoresinfo" style="display:none;"> Noticias por autor </h4>
+    <h4 id="fechasinfo" style="display:none;"> Noticias por fecha </h4>
+    <h4 id="fuentesinfo" style="display:none;"> Noticias por fuente </h4>
+    <div id="container" style="width:100%; height:500px; overflow: auto; margin-top: 20px;">
+    <canvas id="chart" width="500px" height="600px"> </canvas>
+    </div>
+    <a id="index" href="{{url_for('index')}}" class="btn"> Volver </a>
+    </form>
+    <script type="text/javascript">
+        $('#autores').click( 
+            function () {loadChart("autores");
+        });
+        $('#fechas').click(
+            function () {loadChart("fechas");
+        });
+        $('#fuentes').click(
+            function () {loadChart("fuentes");
+        });
+
+        var AutoresbarData = {
+             labels : [
+             {% for key, value in autores.items() %}
+                            "{{key}}",
+             {% endfor %}
+            ],
+             datasets : [
+                {
+                      fillColor: "rgba(151,187,205,0.2)",
+                      strokeColor: "rgba(151,187,205,1)",
+                      pointColor: "rgba(151,187,205,1)",
+                   data : [{% for key, value in autores.items() %}
+                                {{value}},
+                              {% endfor %}]
+                }
+                ]
+        };
+
+        var FechasbarData = {
+             labels : [
+             {% for key, value in fechas.items() %}
+                            "{{key}}",
+             {% endfor %}
+            ],
+             datasets : [
+                {
+                      fillColor: "rgba(151,187,205,0.2)",
+                      strokeColor: "rgba(151,187,205,1)",
+                      pointColor: "rgba(151,187,205,1)",
+                   data : [{% for key, value in fechas.items() %}
+                                {{value}},
+                              {% endfor %}]
+                }
+                ]
+        };
+
+        var FuentesbarData = {
+             labels : [
+             {% for key, value in fuentes.items() %}
+                            "{{key}}",
+             {% endfor %}
+            ],
+             datasets : [
+                {
+                      fillColor: "rgba(151,187,205,0.2)",
+                      strokeColor: "rgba(151,187,205,1)",
+                      pointColor: "rgba(151,187,205,1)",
+                   data : [{% for key, value in fuentes.items() %}
+                                {{value}},
+                              {% endfor %}]
+                }
+                ]
+        };
+
+        function loadChart(filter){
+            var barData;
+            if(filter == "autores"){
+                barData = AutoresbarData;
+                $('#chart').height(700);
+                steps = 10;
+                width = 5;
+                $('#autoresinfo').show();
+                $('#fechasinfo').hide();
+                $('#fuentesinfo').hide();
+            }else if (filter == "fechas"){
+                barData = FechasbarData;
+                $('#chart').height(600);
+                steps = 10;
+                width = 5;
+                $('#autoresinfo').hide();
+                $('#fechasinfo').show();
+                $('#fuentesinfo').hide();
+            }else if (filter == "fuentes"){
+                barData = FuentesbarData;
+                $('#chart').height(500);
+                steps = 10;
+                width = 20;
+                $('#autoresinfo').hide();
+                $('#fechasinfo').hide();
+                $('#fuentesinfo').show();
+            }
+            // get bar chart canvas
+            var mychart = document.getElementById("chart").getContext("2d");
+            
+            $('#chart').width(barData.labels.length * 20 + 100);
+            
+             // draw bar chart
+            var newChart = new Chart(mychart);
+            newChart.Bar(barData, {
+                  scaleOverride: true,
+                  scaleSteps: steps,
+                  scaleStepWidth: width,
+                  scaleStartValue: 0,
+                  scaleShowVerticalLines: true,
+                  scaleShowGridLines : true,
+                  barShowStroke : true,
+                  scaleShowLabels: true
+            });
+            $('#container').show();
+        }
+
+
+    </script>
+{% endblock %}

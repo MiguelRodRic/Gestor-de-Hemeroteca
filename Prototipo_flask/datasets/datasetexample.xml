@@ -5,8 +5,7 @@
 				<fecha>5-12-2017</fecha>
 				<autor>Periodista Random1</autor>
 				<titular>Titular Machista Random1</titular>
-				<cuerpo>Este es el cuerpo de una noticia random</cuerpo>
-				<link>www.linkrandom.com</link>
+				<link>http://www.abc.es/internacional/abci-dice-basta-tolerancia-extremismo-islamico-201706041218_noticia.html</link>
 			</noticia>
 		</noticias>
 		<noticias clase='enContra'>
@@ -14,8 +13,7 @@
 				<fecha>6-4-2016</fecha>
 				<autor>Autora Feminista</autor>
 				<titular>Titular no Machista</titular>
-				<cuerpo>Esta es una noticia un poco aleatoria</cuerpo>
-				<link>www.linkrandom2.com</link>
+				<link>http://www.abc.es/internacional/abci-dice-basta-tolerancia-extremismo-islamico-201706041218_noticia.html</link>
 			</noticia>
 		</noticias>
 	</dataset>
@@ -25,8 +23,7 @@
 				<fecha>5-12-2017</fecha>
 				<autor>Periodista Random1</autor>
 				<titular>Titular Gestacion Subrogada</titular>
-				<cuerpo>Este es el cuerpo de una noticia random</cuerpo>
-				<link>www.linkrandom.com</link>
+				<link>http://www.abc.es/internacional/abci-dice-basta-tolerancia-extremismo-islamico-201706041218_noticia.html</link>
 			</noticia>
 		</noticias>
 		<noticias clase='enContra'>
@@ -34,8 +31,7 @@
 				<fecha>6-4-2016</fecha>
 				<autor>Autora Random</autor>
 				<titular>Titular vientre de alquiler</titular>
-				<cuerpo>Esta es una noticia un poco aleatoria</cuerpo>
-				<link>www.linkrandom2.com</link>
+				<link>http://www.abc.es/internacional/abci-dice-basta-tolerancia-extremismo-islamico-201706041218_noticia.html</link>
 			</noticia>
 		</noticias>
 	</dataset>

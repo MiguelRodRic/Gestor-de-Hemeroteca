@@ -5,7 +5,7 @@ from pymongo import MongoClient
 from bson.objectid import ObjectId
 from app import app
 from flask_pymongo import PyMongo
-from .forms import ScanPDF, RssScrapping, Query, NewDataSet
+from .forms import ScanPDF, RssScrapping, Query, NewDataSet, CreateDataset
 from config import ConfigVars
 from pdfminer.pdfparser import PDFParser
 from pdfminer.pdfdocument import PDFDocument
@@ -19,6 +19,8 @@ from wtforms import SubmitField
 import os
 import feedparser
 import sys
+import urllib2
+import collections
 
 mongo = PyMongo(app)
 cliente = MongoClient()
@@ -30,6 +32,8 @@ rutadataset = ConfigVars.datasetpath
 ficheros = []
 nombres = []
 listaNoticias = []
+amountNoticias = 0
+
 
 def lookForFile(path, extension):
 	for filename in os.listdir(path):
@@ -45,45 +49,57 @@ def lookForFile(path, extension):
 
 
 @app.route('/')
-@app.route('/index', methods=['GET','POST'])
+@app.route('/index/', methods=['GET','POST'])
 @register_breadcrumb(app, '.', 'Inicio')
 def index():
 	query = Query()
 	ejemplo = ''
+	etiquetas = []
+	clases = {}
+	for dataset in db.datasets.find({}):
+			etiquetas.append(dataset['dataset'])
+			clases[dataset['dataset']] = [dataset['clases']['clase1'], dataset['clases']['clase2']]
 	if request.method == 'POST':
 		if request.form['submit'] == 'Buscar':
 			del query.noticiasSample[:]
-			result = request.form.get('search')
-			for sample in db.noticias.find({'text':{'$regex': ".*"+result+".*"}}).limit(4):
-				if 'tag' in sample.keys():
-					etiqueta = sample['tag']
-					etiquetaValores = sample['tag'].values()
-				else:
-					etiqueta = ''
-					etiquetaValores = ''
+			result = query.search.data
+			resultNoticias = db.noticias.find({'text':{'$regex': ".*"+result+".*"}})
+			amountNoticias = resultNoticias.count()/5
+			for sample in db.noticias.find({'text':{'$regex': ".*"+result+".*"}}).limit(5):
 				prediction = []
 				predictTag = {}
-				for tag in etiqueta:
-					pred = query.classification(sample['_id'], tag)
-					prediction.append(pred)
-					if(pred['aFavor'] > 0.5):
-						predictTag[tag] = 'aFavor'
+				savedTag = {}
+				mensaje = ''
+				for tag in etiquetas:
+					if sample['tag'][tag] != '':
+						savedTag[tag] = sample['tag'][tag]
 					else:
-						predictTag[tag] = 'enContra'
+						savedTag[tag] = None
+					pred = query.classification(sample['_id'], tag)
+					if type(pred) is not str:
+						prediction.append(pred)
+						if pred['aFavor'] > 0.5:
+							predictTag[tag] = 'aFavor'
+						else:
+							predictTag[tag] = 'enContra'
+					else:
+						mensajeError = pred
+						prediction.append(None)
+						predictTag[tag] = None
 				try:
 					link = sample['link']
 				except:
 					link = ''
 				query.noticiasSample.append({'id':str(sample['_id']), 'titular':sample['title'], 'autor':sample['author'],
-				 'fecha':sample['publishDate'], 'fuente':sample['source'], 'tag':etiqueta, 'tagValue':etiquetaValores,
-				  'predict': prediction, 'predictTag':predictTag, 'link':link})
+				 'fecha':sample['publishDate'], 'fuente':sample['source'], 'predict': prediction, 'predictTag':predictTag, 'savedTag':savedTag, 'link':link, 'mensaje':mensaje})
 			return render_template("index.html",
 						   title='Home',
 						   query=query,
 						   noticiasSample=query.noticiasSample,
-						   etiqueta=etiqueta)
-
-		if request.form['submit'] == 'Guardar Cambios':
+						   etiquetas=etiquetas,
+						   clases = clases,
+						   amountNoticias=amountNoticias)
+		elif request.form['submit'] == 'Guardar Cambios':
 			tag = request.form.get('datasetSelect')
 			tagToUpdate = "tag."+str(tag)
 			mensaje = ''
@@ -97,21 +113,69 @@ def index():
 			return render_template("index.html",
 						   title='Home',
 						   mensaje=mensaje)
+		else:
+			del query.noticiasSample[:]
+			result = query.search.data
+			resultNoticias = db.noticias.find({'text':{'$regex': ".*"+result+".*"}})
+			amountNoticias = resultNoticias.count()/5
+			page = int(request.form['submit'])
+			for sample in db.noticias.find({'text':{'$regex': ".*"+result+".*"}}).skip(page*5).limit(5):
+				prediction = []
+				predictTag = {}
+				savedTag = {}
+				mensaje = ''
+				for tag in etiquetas:
+					if sample['tag'][tag] != '':
+						savedTag[tag] = sample['tag'][tag]
+					else:
+						savedTag[tag] = None
+					pred = query.classification(sample['_id'], tag)
+					if type(pred) is not str:
+						prediction.append(pred)
+						if pred['aFavor'] > 0.5:
+							predictTag[tag] = 'aFavor'
+						else:
+							predictTag[tag] = 'enContra'
+					else:
+						mensajeError = pred
+						prediction.append(None)
+						predictTag[tag] = None
+				try:
+					link = sample['link']
+				except:
+					link = ''
+				query.noticiasSample.append({'id':str(sample['_id']), 'titular':sample['title'], 'autor':sample['author'],
+				 'fecha':sample['publishDate'], 'fuente':sample['source'], 'predict': prediction, 'predictTag':predictTag, 'savedTag':savedTag, 'link':link, 'mensaje':mensaje})
+			return render_template("index.html",
+						   title='Home',
+						   query=query,
+						   noticiasSample=query.noticiasSample,
+						   etiquetas=etiquetas,
+						   clases = clases,
+						   amountNoticias=amountNoticias,
+						   page=page)
 	return render_template("index.html",
 						   title='Home',
 						   query=query)
 
-@app.route('/queryresult/<string:word>', methods=['GET','POST'])
-def queryResult(word):
-	query = Query()
-	ejemplo = ''
-	noticiasSample = []
-	return render_template("queryresult.html",
-						   title='Home',
-						   query=query,
-						   noticiasSample=noticiasSample,
-						   ejemplo=ejemplo)
-
+@app.route('/statistics/', methods=['GET','POST'])
+def statistics():
+	resultNoticias = db.noticias.find({})
+	autores = []
+	fechas = []
+	fuentes = []
+	for noticia in resultNoticias:
+		autores.append(noticia['author'])
+		fechas.append(noticia['publishDate'])
+		fuentes.append(noticia['source'])
+	autores = collections.Counter(autores)
+	fechas = collections.Counter(fechas)
+	fuentes = collections.Counter(fuentes)
+	return render_template("statistics.html",
+						   title='Statistics',
+						   autores=autores,
+						   fechas=fechas,
+						   fuentes=fuentes)
 
 
 @app.route('/explanation/<string:arguments>', methods=['GET','POST'])
@@ -168,6 +232,24 @@ def explanation(arguments):
 	#  	relevances.append(result[1])
 	# resultsList = { 'etiquetas': labels, 'importancias': relevances}
 	
+
+@app.route('/createdataset', methods=['GET','POST'])
+@register_breadcrumb(app, '.Nuevo Dataset', 'Nuevo Dataset')
+def createdataset():
+	createDS = CreateDataset()
+	if request.method == 'POST':
+		if request.form['submit'] == "Guardar Dataset":
+			db.datasets.insert_one({'dataset':createDS.nombredataset.data,'clases':{'clase1':createDS.clase1.data,'clase2':createDS.clase2.data}})
+			for noticia in db.noticias.find({}):
+				db.noticias.update_one({'_id':noticia.get('_id')}, {'$set':{'tag.'+createDS.nombredataset.data:''}})
+			mensaje = 'Dataset Incluido'
+			return render_template("createdataset.html",
+									createDS=createDS,
+									mensaje=mensaje)
+	return render_template("createdataset.html",
+							createDS=createDS)
+
+
 @app.route('/scanpdf', methods=['GET','POST'])
 @register_breadcrumb(app, '.Lectura PDF', 'Lectura PDF')
 def scanpdf():
@@ -311,53 +393,67 @@ def websearch():
 			elif(select == u'ElMundo'):
 				textRSS = feedparser.parse('http://www.elmundo.es/rss/portada.xml')
 				etiqueta = 'summary'
-				fuente ='ElMundo'
+				fuente ='El Mundo'
 			titulares = []
 			textos = []
 			fechas = []
 			autores = []
+			links = []
 			if(etiqueta != None):
-				for entry in textRSS['entries']:
+				if textRSS['entries'] > 15:
+					top = 15
+				else:
+					top = len(textRSS['entries'])	
+				for entry in textRSS['entries'][0:top]:
 					try:
 						soup = BeautifulSoup(entry[etiqueta], "lxml")
 						titulares.append(entry['title'])
 						fechas.append(entry['published'])
 						autores.append(entry['author'])
-						if(fuente != 'ElMundo'):
-							textos.append(soup.text)
+						links.append(entry['links'][0]['href'])
+						requestURL = urllib2.Request(entry['links'][0]['href'])
+						handle = urllib2.urlopen(requestURL)
+						html = handle.read()
+						noticiaSoup = BeautifulSoup(html, 'html.parser')
+						for expendable in noticiaSoup(['style', 'script', '[document]', 'head', 'title']):
+							expendable.extract()
+						if noticiaSoup.find("article"):
+							textos.append(noticiaSoup.find("article").text)
 						else:
-							noticiaSoup = feedparser.parse(entry['links'][0]['href'])
-							if(BeautifulSoup(noticiaSoup['feed']['summary'])):
-								noticiaSoup = BeautifulSoup(noticiaSoup['feed']['summary'])
-							if(noticiaSoup.find('article')):
-								textos.append(noticiaSoup.find('article').text)
+							textos.append(noticiaSoup.getText())
 					except Exception as e:
 						errorText = str(e)
 						pass
 				for titular in titulares:
-					indice = titulares.index(titular)
-					autor = autores[indice]
-					fecha = fechas[indice]
-					texto = textos[indice].encode('utf-8').decode('utf-8')
-					incluida = db.noticias.find_one({'title':{'$regex': titular}})
-					almacenada = ''
-					if incluida == None:
-						almacenada = 'No'
-					else:
-						almacenada = 'Si'
-					noticia = { 'author': autor, 'title':titular,
-								'publishDate':fecha, 'text':texto, 'source':'RSS', 'almacenada':almacenada}
-					rssWS.noticias.append(noticia)
+					try:
+						indice = titulares.index(titular)
+						autor = autores[indice]
+						fecha = fechas[indice]
+						link = links[indice]
+						texto = textos[indice].encode('utf-8').decode('utf-8')
+						incluida = db.noticias.find_one({'title':{'$regex': titular}})
+						almacenada = ''
+						if incluida == None:
+							almacenada = 'No'
+						else:
+							almacenada = 'Si'
+						noticia = { 'author': autor, 'title':titular, 'link':link,
+									'publishDate':fecha, 'text':texto, 'source':fuente, 'almacenada':almacenada}
+						rssWS.noticias.append(noticia)
+					except Exception as e:
+						errorText = str(e)
+						pass					
 				return render_template('websearch.html', 
 									   title='Web Scrapping',
 									   rssWS = rssWS,
 									   options=options,
 									   etiqueta=etiqueta,
-									   fuente=fuente)
+									   fuente=fuente,
+									   errorText=errorText)
 		if request.form['submit'] == "Guardar Nuevas":
 			for noti in rssWS.noticias:
 				db.noticias.update_one( {'title':noti['title']},{ '$set': {'author': noti['author'], 'title':noti['title'],
-						'publishDate':noti['publishDate'], 'text':noti['text'], 'source':noti['source'], 'tag':''}}, upsert=True)
+						'publishDate':noti['publishDate'], 'text':noti['text'],'link':noti['link'], 'source':noti['source'], 'tag':{'Machismo':'','VientreAlquiler':''}}}, upsert=True)
 			mensaje = 'Se han incluido en base de datos'
 			return render_template('websearch.html', 
 								   title='Web Scrapping',
@@ -397,12 +493,22 @@ def savenewdataset():
 				for noticiasxml in topic.find_all('noticias'):
 					for noticiaxml in noticiasxml.find_all('noticia'):
 						try:
+							requestURL = urllib2.Request(noticiaxml.link.text)
+							handle = urllib2.urlopen(requestURL)
+							html = handle.read()
+							noticiaSoup = BeautifulSoup(html, 'html.parser')
+							for expendable in noticiaSoup(['style', 'script', '[document]', 'head', 'title']):
+								expendable.extract()
+							if noticiaSoup.find("article"):
+								textos.append(noticiaSoup.find("article").text)
+							else:
+								textos.append(noticiaSoup.getText())
 							noticia = {
 								'fecha':noticiaxml.fecha.text,
 								'autor':noticiaxml.autor.text,
 								'titular':noticiaxml.titular.text,
-								'texto':noticiaxml.cuerpo.text,
 								'link':noticiaxml.link.text,
+								'texto':noticiaSoup.getText(),
 								'tag':topic['topic']+ ' - ' + noticiasxml['clase']
 							}
 							nds.noticias.append(noticia)
@@ -413,7 +519,7 @@ def savenewdataset():
 	if request.form['submit'] == 'Guardar Nuevas':
 		for noticia in nds.noticias:
 			db.noticias.update_one( {'title':noti['title']},{ '$set': {'author': noti['author'], 'title':noti['title'],
-					'publishDate':noti['publishDate'], 'text':noti['text'], 'source':noti['source'], 'tag': ''}}, upsert=True)
+					'publishDate':noti['publishDate'], 'text':noti['text'], 'source':noti['source'], 'tag': {'Machismo':'','VientreAlquiler':''}}}, upsert=True)
 		return render_template('savenewdataset.html',mostrar = mostrar, nds = nds)
 
 # index view function suppressed for brevity
@@ -421,4 +527,4 @@ def savenewdataset():
 
 
 if __name__ == '__main__':
-    app.run(host = '0.0.0.0', port = 5000)
+	app.run(host = '0.0.0.0', port = 5000)

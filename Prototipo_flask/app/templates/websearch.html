@@ -23,7 +23,7 @@
     {% for noticiaFila in rssWS.noticias %}
     <tr>
     <td>{{noticiaFila.author }}</td>
-    <td>{{noticiaFila.title}}</td>
+    <td><a href="{{ noticiaFila.link }}">{{noticiaFila.title}}</a></td>
     <td>{{noticiaFila.publishDate}}</td>
     <td>{{noticiaFila.almacenada}}</td>
     </tr>

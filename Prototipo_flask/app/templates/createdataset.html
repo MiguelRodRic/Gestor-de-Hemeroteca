@@ -1,0 +1,26 @@
+{% extends "base.html" %}
+
+{% block content %}
+	<h1 style="font-family: 'Arimo', sans-serif;">Crear nuevo dataset: </h1>
+    <div class="innercontent">
+    <form action="/createdataset" method="post" name="createdataset">
+    {% if createDS %}
+    <h4> Introduce el nombre del dataset </h4> 
+    <p> Dataset: {{ createDS.nombredataset(size=30) }} </p><br> <br>
+
+    <h4> Introduce el nombre de las clases </h4>
+    <p> Clase 1: {{ createDS.clase1(size=30)}} </p> 
+    <p> Clase 2: {{ createDS.clase2(size=30)}} </p> <br>
+
+    <input type="submit" name="submit" value="Guardar Dataset">
+    {% endif %}
+    {% if mensaje %}
+    <h2> {{ mensaje }}</h2>
+    <a href="{{url_for('index')}}" class="btn">Volver</a>
+    {% else %}
+    <a href="{{url_for('index')}}" class="btn">Cancelar</a>
+    {% endif %}
+    </form>
+    </div>
+
+{% endblock %}

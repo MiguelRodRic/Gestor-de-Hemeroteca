@@ -1,5 +1,8 @@
 \documentclass[a4paper,11pt,oneside]{memoir}
 
+% Citas indentadas
+\usepackage{csquotes}
+
 % Castellano
 \usepackage[spanish,es-tabla]{babel}
 \selectlanguage{spanish}
@@ -421,12 +424,21 @@ Dr. César Ignacio García Osorno
 % Abstract en castellano
 \renewcommand*\abstractname{Resumen}
 \begin{abstract}
-En este primer apartado se hace una \textbf{breve} presentación del tema que se aborda en el proyecto.
+Se desea desarrollar una aplicación web en la que un usuario pueda almacenar un conjunto de noticias obtenidas de diferentes medios y formatos a modo de hemeroteca. Adicionalmente, el usuario podrá etiquetar estas noticias en relación a distintos temas y se usará la minería de datos para realizar predicciones sobre nuevas noticias.
+
+Para realizar esta labor, previamente se ha llevado a cabo una investigación de diferentes tecnologías para elegir las que más se adecuan a los objetivos establecidos; tanto en el caso de la herramienta con la que se creará la aplicación web y la base de datos en la que se almacenan las noticias, como en lo respectivo al análisis de textos con el que se realizarán las predicciones.
+
+Teniendo en cuenta que la herramienta está pensada para un uso ajeno al programador que la ha creado, al implementar
+ la herramienta se ha dado importancia a la accesibilidad de la misma, de modo que los nuevos usuarios que tengan que usarla sin estar familiarizados sufran un proceso de aprendizaje lo más ligero posible.
+
+Por último, se ha implementado la posibilidad de que el usuario vea qué criterios ha seguido la herramienta de predicción a la hora de asignar una etiqueta a una noticia. La intención es que inicialmente el usuario introduzca un conjunto de noticias a las que ha dado etiqueta manualmente y, a partir de esa situación, comenzar a incluir nuevas noticias que recibirán su etiqueta de forma automática basándose en las noticias que las precedan.
+
+
 \end{abstract}
 
 \renewcommand*\abstractname{Descriptores}
 \begin{abstract}
-Palabras separadas por comas que identifiquen el contenido del proyecto Ej: servidor web, buscador de vuelos, android \ldots
+Machine learning, Flask, Bases de Datos NoSQL, Python, Web Scraping, Aplicación web.
 \end{abstract}
 
 \clearpage
@@ -434,12 +446,19 @@ Palabras separadas por comas que identifiquen el contenido del proyecto Ej: serv
 % Abstract en inglés
 \renewcommand*\abstractname{Abstract}
 \begin{abstract}
-A \textbf{brief} presentation of the topic addressed in the project.
+The aim of the project is to develop a web application where a user will be able to store a set of news obtained from different media and with different formats so that it can become a Newspaper Library. In addition, the user can tag those news according to different issues and data mining will be used in order to predict tags for incoming news.
+
+To tackle this task, some research was previously carried out in order to choose the most suitable technologies to the established objectives, both in the case of the tools for creating the application and the database, as well as the tools related to the text analysis that is going to undertake the predictions.
+
+Taking into consideration that the application is not going to be used by the programmer who coded it, the accessibility of the application itself was very important, so that the new people who may use it without being prepared won't suffer a tough training process.
+
+Finally, the possibility of the user watching the criteria used by the prediction tool when returning a tag has been implemented. The aim is that the user starts off with storing a set of tagged news and, having done that, the news following those will be tagged by the prediction tool.
+
 \end{abstract}
 
 \renewcommand*\abstractname{Keywords}
 \begin{abstract}
-keywords separated by commas.
+Machine learning, Flask, NoSQL Databases, Python, Web Scraping, Web application.
 \end{abstract}
 
 \clearpage
@@ -466,7 +485,11 @@ keywords separated by commas.
 \include{./tex/7_Conclusiones_Lineas_de_trabajo_futuras}
 
 
-\bibliographystyle{plain}
+\bibliographystyle{ieeetr}
 \bibliography{bibliografia}
+
+\clearpage
+
+\imagen{LogoUbu}{}
 
 \end{document}

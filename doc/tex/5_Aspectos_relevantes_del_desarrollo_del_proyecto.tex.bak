@@ -14,95 +14,28 @@ Cuando se está dando forma al modelo, se le pasa este conjunto a la herramienta
 
 Habitualmente, lo que se busca evitar son las palabras que tienen menos significado propio dentro de una frase. Dicho de otra manera, las primeras palabras que deben ser filtradas son artículos, determinantes, preposiciones... que son las menos interesantes en una frase.
 
-En este proyecto, se hizo uso de un stopwords de palabras en español que viene incluido en la librería de NLTK \cite{nltk}, que contiene las palabras de las tablas \cite{nltkstopwordsspanish} y \cite{nltkstopwordsspanish2}.
+En este proyecto, se hizo uso de un stopwords de palabras en español que viene incluido en la librería de NLTK \cite{nltk}, que contiene las palabras de la siguiente lista:
 
-
-\tablaSmall{Stopwords español de nltk}{c c c c}{nltkstopwordsspanish}
-{ \multicolumn{1}{c}{Palabras} & & & \\}{ 
- de & la & que & el \\
- en & y & a & los \\
- del & se & las & por \\ 
- un & para & con & no \\
- una & su & al & lo \\ 
- como & más & pero & sus \\
- le & ya & o & este  \\ 
- porque & esta & entre & sí \\
- cuando & muy & sin & sobre \\
- también & me & hasta & hay \\
- donde & quien & desde & todo \\
- nos & durante & todos & uno \\
- les & ni & contra & otros \\
- ese & eso & ante & ellos \\
- e & esto & mí & antes \\
- algunos & qué & unos & yo \\
- otro & otras & otra & él \\
- tanto & esa & estos & mucho \\
- quienes & nada & muchos & cual \\ 
- poco & ella & estar & estas \\ 
- algunas & algo & nosotros & mi \\
- mis & tú & te & ti \\
- tu & tus & ellas & nosotras \\
- vosostros & vosostras & os & mío \\
- mía & míos & mías & tuyo \\
- tuya & tuyos & tuyas & suyo \\
- suya & suyos & suyas & nuestro \\
- nuestra & nuestros & nuestras & vuestra \\
- vuestros & vuestras & esos & esas \\
- estoy & estás & está & estamos \\
- estáis & están & esté & estés \\
- estemos & estéis & estén & estaré \\
- estarás & estará & estaremos & estaréis \\
- estarán & estaría & estarías & estaríamos \\
- estaríais & estarían & estaba & estabas \\
- estábamos & estabais & estaban & estuve \\
- estuviste & estuvo & estuvimos & estuvisteis \\
- estuvieron & estuviera & estuvieras & estuviéramos \\
- estuvierais & estuvieran & estuviese & estuvieses \\
- estuviésemos & estuvieseis & estuviesen & estando \\
- estado & estada & estados & estadas \\
- estad & he & has & ha \\
- hemos & habéis & han & haya \\
- hayas & hayamos & hayáis & hayan \\
- habré & habrás & habrá & habremos \\
- habréis & habrán & habría & habrías \\
- habríamos & habríais & habrían & había \\
- habías & habíamos & habíais & habían \\
- hube & hubiste & hubo & hubimos \\
+\begin{displayquote}
+\textbf{  de, la, que, el, en, y, a, los, del, se, las, por, un, para, con, no, una, su, al, lo, como, más, pero, sus, le, ya, o, este, porque, esta, entre, sí, cuando, muy, sin, sobre,
+ también, me, hasta, hay, donde, quien, desde, todo, nos, durante, todos, uno, les, ni, contra, otros, ese, eso, ante, ellos, e, esto, mí, antes, algunos, qué, unos, yo, otro, otras, otra, él, tanto, esa, estos, mucho, quienes, nada, muchos, cual, poco, ella, estar, estas, algunas, algo, nosotros, mi, mis, tú, te, ti, tu, tus, ellas, nosotras, vosostros, vosostras, os, mío, mía, míos, mías, tuyo, tuya, tuyos, tuyas, suyo, suya, suyos, suyas, nuestro, nuestra, nuestros, nuestras, vuestra, vuestros, vuestras, esos, esas, estoy, estás, está, estamos, estáis, están, esté, estés, estemos, estéis, estén, estaré, estarás, estará, estaremos, estaréis, estarán, estaría, estarías, estaríamos, estaríais, estarían, estaba, estabas, 
+ estábamos, estabais, estaban, estuve, estuviste, estuvo, estuvimos, estuvisteis, estuvieron, estuviera, estuvieras, estuviéramos, estuvierais, estuvieran, estuviese, estuvieses, 
+ estuviésemos, estuvieseis, estuviesen, estando, estado, estada, estados, estadas, estad, he, has, ha, hemos, habéis, han, haya, hayas, hayamos, hayáis, hayan, habré, habrás, habrá, habremos, habréis, habrán, habría, habrías, habríamos, habríais, habrían, había, habías, habíamos, habíais, habían, 
+ hube, hubiste, hubo, hubimos, hubisteis, hubieron, hubiera, hubieras, hubiéramos, hubierais, hubieran, hubiese,
+ hubieses, hubiésemos, hubieseis, hubiesen, habiendo, habido, habida, habidos, habidas, soy, eres, es, somos, sois, son, sea, 
+ seas, seamos, seáis, sean, seré, serás, será, seremos, 
+ seréis, serán, sería, serías, seríamos, seríais, serían, era, 
+ eras, éramos, erais, eran, fui, fuiste, fue, fuimos, 
+ fuisteis, fueron, fuera, fueras, fuéramos, fuerais, fueran, fuese, fueses, fuésemos, fueseis, fuesen, sintiendo, sentido, sentida, sentidos, sentidas, siente, sentid, tengo, 
+ tienes, tiene, tenemos, tenéis, tienen, tenga, tengas, tengamos, tengáis, tengan, tendré, tendrás, tendrá, tendremos, tendréis, tendrán, tendría, tendrías, tendríamos, tendríais, 
+ tendrían, tenía, tenías, teníamos, teníais, tenían, tuve, tuviste, tuvo, tuvimos, tuvisteis, tuvieron, tuviera, tuvieras, tuviéramos, tuvierais, tuvieran, tuviese, tuvieses, tuviésemos, 
+ tuvieseis, tuviesen, teniendo, tenido, tenida, tenidos, tenidas
 }
+\end{displayquote}
 
 
-\tablaSmall{Stopwords español de nltk (Segunda Parte)}{c c c c}{nltkstopwordsspanish2}
-{ \multicolumn{1}{c}{Palabras} & & & \\}{ 
- hubisteis & hubieron & hubiera & hubieras \\ 
- hubiéramos & hubierais & hubieran & hubiese \\
- hubieses & hubiésemos & hubieseis & hubiesen \\
- habiendo & habido & habida & habidos \\
- habidas & soy & eres & es \\
- somos & sois & son & sea \\
- seas & seamos & seáis & sean \\
- seré & serás & será & seremos \\
- seréis & serán & sería & serías \\ 
- seríamos & seríais & serían & era \\
- eras & éramos & erais & eran \\
- fui & fuiste & fue & fuimos \\
- fuisteis & fueron & fuera & fueras \\ 
- fuéramos & fuerais & fueran & fuese \\
- fueses & fuésemos & fueseis & fuesen \\
- sintiendo & sentido & sentida & sentidos \\
- sentidas & siente & sentid & tengo \\
- tienes & tiene & tenemos & tenéis \\
- tienen & tenga & tengas & tengamos \\
- tengáis & tengan & tendré & tendrás \\ 
- tendrá & tendremos & tendréis & tendrán \\
- tendría & tendrías & tendríamos & tendríais \\
- tendrían & tenía & tenías & teníamos\\
- teníais & tenían & tuve & tuviste \\
- tuvo & tuvimos & tuvisteis & tuvieron \\ 
- tuviera & tuvieras & tuviéramos & tuvierais \\ 
- tuvieran & tuviese & tuvieses & tuviésemos \\
- tuvieseis & tuviesen & teniendo & tenido \\
- tenida & tenidos & tenidas\\
-}
+
+
 
 Ya que estas palabras son muy frecuentes en la mayoría de frases en español, no sólo restaban importancia a las verdaderamente relevantes, si no que incluso podrían ser consideradas de las más relevantes simplemente por su frecuencia de aparición, lo cuál restaría mucha calidad a la predicción posterior. 
 
@@ -150,7 +83,9 @@ Se ha aprovechado la posibilidad que ofrece Lime de devolver esta explicación c
 
 \end{itemize}
 
-En la imagen (Insertar captura de pantalla de explicación) se observan de forma diferenciada los tres apartados, y se le ofrece al usuario la posibilidad de, después de haber estudiado con detenimiento los detalles de la predicción, decidir etiquetar esta noticia en concordancia con la predicción realizada.
+\imagen{CapturaExplicacion}{Resultados HTML de la explicación}
+
+En la imagen se observan de forma diferenciada los tres apartados, y se le ofrece al usuario la posibilidad de, después de haber estudiado con detenimiento los detalles de la predicción, decidir etiquetar esta noticia en concordancia con la predicción realizada.
 
 Puede que al usar la aplicación de la sensación de que el estilo visual de estos resultados de la explicación no encaja completamente con el estilo visual del resto de las pestañas. Esto es debido a que se inyecta directamente el bloque HTML sin alterar que devuelve Lime en la pestaña antes de cargar la misma. Debido a limitaciones de tiempo, era más productivo aprovechar este código HTML ya escrito que solamente recibir de Lime los datos y dedicar tiempo extra a escribir el código HTML y las funciones de Javascript necesarias para preparar la misma vista de resultados pero con otros estilos diferentes. De nuevo, se ha decidido seguir el razonamiento de que ``no hay que reinventar la rueda".
 

@@ -3,7 +3,27 @@ A continuación se explicarán los conceptos de carácter teórico más relevant
 
 
 \section{Minería de Datos}
+
 En los siguientes apartados se van a desarrollar todos los conceptos del proyecto relacionados con la minería de datos, esenciales en la parte de predicción del perfil ideológico de las noticias.
+
+\subsection{Machine learning}
+
+El aprendizaje automático, o machine learning \cite{andrieu2003introduction}, es una técnica del campo de la Inteligencia Artificial que permite a un computador simular un proceso de aprendizaje \cite{wiki:machinelearning}. Las predicciones que se realizan en esta aplicación se basan en el machine learning. En términos generales, se pueden distinguir tres tipos de aprendizaje distinto en función de la supervisión del programador:
+
+\begin{itemize}
+
+\item Aprendizaje supervisado, donde se indica a qué clase pertenece cada miembro del conjunto de entrenamiento.
+
+\item Aprendizaje no supervisado, donde los elementos del conjunto de entrenamiento no tienen asignadas clases y a lo largo del proceso se crean de forma automática 
+agrupaciones entre los elementos similares.
+
+\item Aprendizaje semisupervisado, donde hay miembros del conjunto que tienen asignada una clase y otros no, para mejorar la exactitud del aprendizaje \cite{wiki:semisupervised}.
+
+\end{itemize}
+
+En términos de programación, el aprendizaje que se ha realizado en este proyecto es supervisado, ya que en el corpus de entrenamiento todas las noticias tienen clase asignada.
+
+No obstante, podría decirse que conceptualmente tiene elementos del aprendizaje semisupervisado, pues pasado cierto tiempo, lo más probable es que parte del corpus del usuario tenga la clase asignada por una predicción realizada previamente, y no por un etiquetado manual, algo que es característico de este tipo de aprendizaje.
 
 \subsection{Bag of Words}
 

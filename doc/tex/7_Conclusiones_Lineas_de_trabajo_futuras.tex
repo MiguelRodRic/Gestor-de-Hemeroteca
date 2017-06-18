@@ -1,4 +1,41 @@
 \capitulo{7}{Conclusiones y Líneas de trabajo futuras}
 
-Todo proyecto debe incluir las conclusiones que se derivan de su desarrollo. Éstas pueden ser de diferente índole, dependiendo de la tipología del proyecto, pero normalmente van a estar presentes un conjunto de conclusiones relacionadas con los resultados del proyecto y un conjunto de conclusiones técnicas. 
-Además, resulta muy útil realizar un informe crítico indicando cómo se puede mejorar el proyecto, o cómo se puede continuar trabajando en la línea del proyecto realizado. 
+\section{Conclusiones}
+
+Tras ver toda la funcionalidad recogida en la aplicación final, se puede concluir que el proyecto ha alcanzado los objetivos propuestos. Especialmente, si se tiene en cuenta que los únicos objetivos iniciales claramente delimitados eran los relacionados con la lectura de noticias, y que en lo referente a minería de datos la intención era experimentar y conseguir toda la funcionalidad que se pudiera programar en el tiempo restante del proyecto.
+
+Recopilando todo lo anterior, se ha logrado desarrollar una herramienta en la que un usuario puede gestionar una hemeroteca de noticias que permite la lectura de las mismas en diferentes formatos y su posterior etiquetado.
+
+Además se han añadido varios aspectos de machine learning que permiten hacer predicciones de etiquetado de las noticias alternativas al etiquetado manual.
+
+Finalmente, se han aplicado múltiples conceptos aprendidos a lo largo de la carrera, tanto de programación y diseño como de planificación del trabajo realizado.
+
+No obstante, hay varios puntos en los que hay posibilidad de mejora, o de añadido de nuevas prestaciones que complementen lo existente, que se detallarán en el siguiente punto.
+
+\section{Líneas de trabajo futuras}
+
+Una de los aspectos donde hay más margen de mejora es en el método de predicción de noticias. Aunque el enfoque elegido en la aplicación final ha sido el del bag of words, inicialmente se contempló usar frases o párrafos enteros en lugar de palabras como base para el machine learning. Ese es el motivo de la experimentación con TextBlob y que en algún notebook usara este enfoque. 
+
+Por problemas relacionados con los corpus de noticias y una peor compatibilidad con Lime, se decidió finalmente descartar este enfoque y usar bag of words con Scikit-learn. Aún así, las herramientas y librerías de análisis de sentimientos de párrafos son una aproximación muy interesante y que, usada correctamente, podrían mejorar la calidad de las predicciones.
+
+Otro apartado que queda pendiente es el de la publicación de la aplicación en un servidor web. Como ya se ha comentado previamente, se hicieron varias pruebas cuando se usaba Jupyter como herramienta de desarrollo, pero no se logró una correcta publicación. Por otra parte, con la aplicación programada en Flask no hubo tiempo para investigar como realizar esta tarea de forma correcta; pero se presupone que, por el formato de la aplicación, la futura subida en un servidor no será especialmente complicada de llevar a cabo.
+
+En lo referente al Web Scraping, una tarea pendiente relevante sería encontrar la manera de recoger los comentarios de las noticias evitando los problemas de rendimiento (entre otras cosas) ya mencionados que se sufrieron al usar Selenium como solución. Los comentarios pueden aportar mucho a estos análisis ideológicos de noticias, ya que las opiniones de los lectores de un medio, u otros aspectos como la toxicidad de los comentarios, pueden afectar mucho al conjunto de opiniones relacionado con esas noticias.
+
+Otros aspectos menos importantes pero que también se deberían tener en cuenta son los siguientes:
+
+\begin{itemize}
+
+\item Mejora del aspecto gráfico de la aplicación.
+
+\item Añadir filtros adicionales de búsqueda de noticias en base de datos, no sólo por palabra clave.
+
+\item Conseguir dejar intactos los acentos de los textos de entrada, sorteando los problemas de codificación de Python, para mejorar la calidad de las predicciones.
+
+\item Crear un sistema de usuarios, en el caso de que la aplicación fuera utilizada por más de un usuario, de modo que cada uno tuviera su propia hemeroteca.
+
+\item Permitir que los dataset puedan soportar más de dos clases.
+
+\item Localizar la aplicación a otros idiomas, como el inglés.
+
+\end{itemize}

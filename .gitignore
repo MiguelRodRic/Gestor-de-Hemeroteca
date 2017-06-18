@@ -1,0 +1,31 @@
+# LaTeX temporary files
+*.aux
+*.log
+*.toc
+*.lof
+*.lot
+*.out
+
+# SyncTeX
+*.synctex.gz
+
+# BibTeX
+*.bbl
+*.blg
+
+# Glosaries and indices
+*.glo
+*.idx
+*.ilg
+*.ind
+*.ist
+*.gls
+
+# Others
+*.acn
+*.acr
+*.alg
+*.glg
+*.maf
+*.mtc
+*.mtc1

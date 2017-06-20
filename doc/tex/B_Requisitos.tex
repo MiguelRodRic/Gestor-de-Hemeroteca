@@ -6,8 +6,77 @@ En esta sección se describirán las funciones para las que la herramienta fue d
 
 \section{Objetivos generales}
 
+Como ya se describió previamente en a memoria, hay un conjunto de objetivos en torno a los cuales se estructura el desarrollo del proyecto. A continuación se volverán a resumir los relacionados con la funcionalidad y las técnicas empleadas:
+
+\begin{itemize}
+
+\item El principal objetivo es crear una aplicación web en la que el usuario pueda almacenar noticias tanto por medio de web scraping como lectura de PDF.
+
+\item Se busca que el usuario pueda añadir etiquetas  relacionadas con diferentes temas de debate a estas noticias, tanto manualmente como guardando una predicción realizada con aprendizaje automático.
+
+\item Otro objetivo es que el usuario pueda añadir temas de debate nuevos que contengan dos clases, para luego poder etiquetar estas noticias en función de estas nuevas clases.
+
+\item En caso de que el usuario ya tuviera un corpus preparado antes de comenzar a usar la aplicación, tiene la posibilidad de añadir un corpus mediante un archivo XML con todas las noticias que lo forman y sus etiquetas correspondientes.
+
+\item La aplicación debe ser responsive en los diferentes equipos en los que se use, y fácil de usar para nuevos usuarios.
+
+
+\end{itemize}
+
 \section{Catalogo de requisitos}
+
+\subsection{Requisitos Funcionales}
+
+Estos son los requisitos funcionales que la herramienta debe cumplir:
+
+\begin{itemize}
+
+\item RF - 1: Los usuarios deben poder visualizar un conjunto de noticias a partir de la búsqueda por palabra clave.
+
+\item RF - 2: Los usuarios podrán etiquetar manualmente las noticias en función del tema de debate seleccionado.
+\begin{itemize}
+\item RF - 2.1: Los usuarios podrán elegir de una lista de opciones el tema de debate mostrado en ese momento.
+\end{itemize}
+
+\item RF - 3: Los usuarios pueden ver una explicación gráfica de la explicación para la predicción de la etiqueta de una noticia.
+\begin{itemize}
+\item RF - 3.1: Los usuarios también podrán guardar esa predicción como la etiqueta final de la noticia.
+\end{itemize}
+
+\item RF - 4: Los usuarios podrán guardar las noticias que se contuvieran en archivos PDF almacenados en una carpeta concreta del proyecto.
+
+\item RF - 5: Los usuarios podrán guardar nuevas noticias de 
+los RSS de varios medios de comunicación españoles.
+\begin{itemize}
+\item RF - 5.1: Los usuarios podrán elegir de una lista de opciones el medio de comunicación del que ver las nuevas noticias.
+\end{itemize}
+
+\item RF - 6: Los usuarios podrán añadir un corpus de noticias entero, indicando el tema de debate y la etiqueta de cada noticia, a través de un archivo XML.
+
+\item RF - 7: Los usuarios podrán crear nuevos temas de debate, escribiendo el nombre del propio tema y el nombre de dos clases, que se usarán posteriormente de etiquetas para ese tema.
+
+\end{itemize}
+
+\subsection{Requisitos No Funcionales}
+
+Por otro lado, estos son los requisitos no relacionados con la funcionalidad que se deben tener en cuenta:
+
+\begin{itemize}
+
+\item RNF - 1: La interfaz de las pestañas no debe impedir su correcto funcionamiento en pantallas de diferentes tamaños.
+
+\item RNF - 2: A pesar de que se produzcan picos de carga de trabajo, el funcionamiento general no debe producir tiempos de carga excesivos.
+
+\item RNF - 3: La herramienta debe poder ejecutarse en cualquier navegador (siempre que soporten librerías como Bootstrap o JQuery).
+
+\end{itemize}
 
 \section{Especificación de requisitos}
 
+A continuación, se describirán con detalle los casos de uso de los que se compone el proyecto.
 
+\subsection{Diagrama de casos de uso}
+
+\imagen{casosdeuso}{Diagrama de casos de uso}
+
+\subsection{Descripción de casos de uso}

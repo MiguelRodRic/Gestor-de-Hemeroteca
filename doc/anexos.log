@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.14159265-2.6-1.40.17 (MiKTeX 2.9.6210 64-bit) (preloaded format=pdflatex 2017.2.7)  21 JUN 2017 00:13
+This is pdfTeX, Version 3.14159265-2.6-1.40.17 (MiKTeX 2.9.6210 64-bit) (preloaded format=pdflatex 2017.2.7)  21 JUN 2017 00:15
 entering extended mode
 **./anexos.tex
 (anexos.tex
@@ -1191,34 +1191,64 @@ LaTeX Info: Redefining \. on input line 1.
 LaTeX Info: Redefining \% on input line 1.
 LaTeX Info: Redefining \. on input line 2.
 LaTeX Info: Redefining \% on input line 2.
-)
 Package babel Info: Redefining spanish shorthand <<
-(babel)             in language  on input line 372.
+(babel)             in language  on input line 34.
 Package babel Info: Redefining spanish shorthand >>
-(babel)             in language  on input line 372.
+(babel)             in language  on input line 34.
 Package babel Info: Redefining spanish shorthand "=
-(babel)             in language  on input line 372.
+(babel)             in language  on input line 34.
 Package babel Info: Redefining spanish shorthand "~
-(babel)             in language  on input line 372.
+(babel)             in language  on input line 34.
 Package babel Info: Redefining spanish shorthand "!
-(babel)             in language  on input line 372.
+(babel)             in language  on input line 34.
 Package babel Info: Redefining spanish shorthand "?
-(babel)             in language  on input line 372.
+(babel)             in language  on input line 34.
 Package babel Info: Redefining spanish shorthand <<
-(babel)             in language  on input line 372.
+(babel)             in language  on input line 34.
 Package babel Info: Redefining spanish shorthand >>
-(babel)             in language  on input line 372.
+(babel)             in language  on input line 34.
 Package babel Info: Redefining spanish shorthand "=
-(babel)             in language  on input line 372.
+(babel)             in language  on input line 34.
 Package babel Info: Redefining spanish shorthand "~
-(babel)             in language  on input line 372.
+(babel)             in language  on input line 34.
 Package babel Info: Redefining spanish shorthand "!
-(babel)             in language  on input line 372.
+(babel)             in language  on input line 34.
 Package babel Info: Redefining spanish shorthand "?
-(babel)             in language  on input line 372.
+(babel)             in language  on input line 34.
  [3
 
-]
+])
+LaTeX Info: Redefining \. on input line 372.
+LaTeX Info: Redefining \% on input line 372.
+
+Overfull \vbox (0.8521pt too high) has occurred while \output is active []
+
+Package babel Info: Redefining spanish shorthand <<
+(babel)             in language  on input line 372.
+Package babel Info: Redefining spanish shorthand >>
+(babel)             in language  on input line 372.
+Package babel Info: Redefining spanish shorthand "=
+(babel)             in language  on input line 372.
+Package babel Info: Redefining spanish shorthand "~
+(babel)             in language  on input line 372.
+Package babel Info: Redefining spanish shorthand "!
+(babel)             in language  on input line 372.
+Package babel Info: Redefining spanish shorthand "?
+(babel)             in language  on input line 372.
+Package babel Info: Redefining spanish shorthand <<
+(babel)             in language  on input line 372.
+Package babel Info: Redefining spanish shorthand >>
+(babel)             in language  on input line 372.
+Package babel Info: Redefining spanish shorthand "=
+(babel)             in language  on input line 372.
+Package babel Info: Redefining spanish shorthand "~
+(babel)             in language  on input line 372.
+Package babel Info: Redefining spanish shorthand "!
+(babel)             in language  on input line 372.
+Package babel Info: Redefining spanish shorthand "?
+(babel)             in language  on input line 372.
+
+[4]
 Package babel Info: Redefining spanish shorthand <<
 (babel)             in language  on input line 375.
 Package babel Info: Redefining spanish shorthand >>
@@ -1261,7 +1291,7 @@ Package babel Info: Redefining spanish shorthand "!
 (babel)             in language  on input line 376.
 Package babel Info: Redefining spanish shorthand "?
 (babel)             in language  on input line 376.
- [4
+ [5
 
 ]
 \openout2 = `./tex/A_Plan_proyecto.aux'.
@@ -1342,281 +1372,314 @@ l.25 \item H
 
 
 
-]
+] <./img/Issues1.png, id=565, 737.00343pt x 123.46124pt>
+File: ./img/Issues1.png Graphic file (type png)
 
-! LaTeX Error: File `Issues1' not found.
+<use ./img/Issues1.png>
+Package pdftex.def Info: ./img/Issues1.png used on input line 33.
+(pdftex.def)             Requested size: 332.09775pt x 55.63239pt.
+ <./img/Report1.png, id=567, 735.49782pt x 432.11438pt>
+File: ./img/Report1.png Graphic file (type png)
 
-See the LaTeX manual or LaTeX Companion for explanation.
-Type  H <return>  for immediate help.
- ...                                              
-                                                  
-l.33 \imagen {Issues1}{Issues del primer sprint}
-                                                
-I could not locate the file with any of these extensions:
-.png,.pdf,.jpg,.mps,.jpeg,.jbig2,.jb2,.PNG,.PDF,.JPG,.JPEG,.JBIG2,.JB2,.eps
-Try typing  <return>  to proceed.
-If that doesn't work, type  X <return>  to quit.
-
-
-! LaTeX Error: File `Report1' not found.
-
-See the LaTeX manual or LaTeX Companion for explanation.
-Type  H <return>  for immediate help.
- ...                                              
-                                                  
-l.35 ...e resolución de tareas del primer sprint}
-                                                  
-I could not locate the file with any of these extensions:
-.png,.pdf,.jpg,.mps,.jpeg,.jbig2,.jb2,.PNG,.PDF,.JPG,.JPEG,.JBIG2,.JB2,.eps
-Try typing  <return>  to proceed.
-If that doesn't work, type  X <return>  to quit.
-
-
-! LaTeX Error: File `Issues2' not found.
-
-See the LaTeX manual or LaTeX Companion for explanation.
-Type  H <return>  for immediate help.
- ...                                              
-                                                  
-l.43 \imagen {Issues2}{Issues del segundo sprint}
-                                                 
-I could not locate the file with any of these extensions:
-.png,.pdf,.jpg,.mps,.jpeg,.jbig2,.jb2,.PNG,.PDF,.JPG,.JPEG,.JBIG2,.JB2,.eps
-Try typing  <return>  to proceed.
-If that doesn't work, type  X <return>  to quit.
+<use ./img/Report1.png>
+Package pdftex.def Info: ./img/Report1.png used on input line 35.
+(pdftex.def)             Requested size: 332.09775pt x 195.11562pt.
 
 
 LaTeX Warning: `!h' float specifier changed to `!ht'.
 
-LaTeX Info: Redefining \. on input line 43.
-LaTeX Info: Redefining \% on input line 43.
+LaTeX Info: Redefining \. on input line 35.
+LaTeX Info: Redefining \% on input line 35.
 
 Overfull \vbox (0.8521pt too high) has occurred while \output is active []
 
 Package babel Info: Redefining spanish shorthand <<
-(babel)             in language  on input line 43.
+(babel)             in language  on input line 35.
 Package babel Info: Redefining spanish shorthand >>
-(babel)             in language  on input line 43.
+(babel)             in language  on input line 35.
 Package babel Info: Redefining spanish shorthand "=
-(babel)             in language  on input line 43.
+(babel)             in language  on input line 35.
 Package babel Info: Redefining spanish shorthand "~
-(babel)             in language  on input line 43.
+(babel)             in language  on input line 35.
 Package babel Info: Redefining spanish shorthand "!
-(babel)             in language  on input line 43.
+(babel)             in language  on input line 35.
 Package babel Info: Redefining spanish shorthand "?
-(babel)             in language  on input line 43.
+(babel)             in language  on input line 35.
 Package babel Info: Redefining spanish shorthand <<
-(babel)             in language  on input line 43.
+(babel)             in language  on input line 35.
 Package babel Info: Redefining spanish shorthand >>
-(babel)             in language  on input line 43.
+(babel)             in language  on input line 35.
 Package babel Info: Redefining spanish shorthand "=
-(babel)             in language  on input line 43.
+(babel)             in language  on input line 35.
 Package babel Info: Redefining spanish shorthand "~
-(babel)             in language  on input line 43.
+(babel)             in language  on input line 35.
 Package babel Info: Redefining spanish shorthand "!
-(babel)             in language  on input line 43.
+(babel)             in language  on input line 35.
 Package babel Info: Redefining spanish shorthand "?
-(babel)             in language  on input line 43.
+(babel)             in language  on input line 35.
 
-[2]
+[2 <./img/Issues1.png>] <./img/Issues2.png, id=573, 737.00343pt x 164.11313pt>
+File: ./img/Issues2.png Graphic file (type png)
 
-! LaTeX Error: File `Report2' not found.
+<use ./img/Issues2.png>
+Package pdftex.def Info: ./img/Issues2.png used on input line 43.
+(pdftex.def)             Requested size: 332.09775pt x 73.95038pt.
+ <./img/Report2.png, id=574, 737.00343pt x 428.35031pt>
+File: ./img/Report2.png Graphic file (type png)
 
-See the LaTeX manual or LaTeX Companion for explanation.
-Type  H <return>  for immediate help.
- ...                                              
-                                                  
-l.45 ... resolución de tareas del segundo sprint}
-                                                  
-I could not locate the file with any of these extensions:
-.png,.pdf,.jpg,.mps,.jpeg,.jbig2,.jb2,.PNG,.PDF,.JPG,.JPEG,.JBIG2,.JB2,.eps
-Try typing  <return>  to proceed.
-If that doesn't work, type  X <return>  to quit.
-
-
-! LaTeX Error: File `Issues3' not found.
-
-See the LaTeX manual or LaTeX Companion for explanation.
-Type  H <return>  for immediate help.
- ...                                              
-                                                  
-l.61 \imagen {Issues3}{Issues del tercer sprint}
-                                                
-I could not locate the file with any of these extensions:
-.png,.pdf,.jpg,.mps,.jpeg,.jbig2,.jb2,.PNG,.PDF,.JPG,.JPEG,.JBIG2,.JB2,.eps
-Try typing  <return>  to proceed.
-If that doesn't work, type  X <return>  to quit.
-
-
-! LaTeX Error: File `Report3' not found.
-
-See the LaTeX manual or LaTeX Companion for explanation.
-Type  H <return>  for immediate help.
- ...                                              
-                                                  
-l.63 ...e resolución de tareas del tercer sprint}
-                                                  
-I could not locate the file with any of these extensions:
-.png,.pdf,.jpg,.mps,.jpeg,.jbig2,.jb2,.PNG,.PDF,.JPG,.JPEG,.JBIG2,.JB2,.eps
-Try typing  <return>  to proceed.
-If that doesn't work, type  X <return>  to quit.
+<use ./img/Report2.png>
+Package pdftex.def Info: ./img/Report2.png used on input line 45.
+(pdftex.def)             Requested size: 332.09775pt x 193.01729pt.
 
 
 LaTeX Warning: `!h' float specifier changed to `!ht'.
 
-LaTeX Info: Redefining \. on input line 63.
-LaTeX Info: Redefining \% on input line 63.
+LaTeX Info: Redefining \. on input line 45.
+LaTeX Info: Redefining \% on input line 45.
 
 Overfull \vbox (0.8521pt too high) has occurred while \output is active []
 
 Package babel Info: Redefining spanish shorthand <<
-(babel)             in language  on input line 63.
+(babel)             in language  on input line 45.
 Package babel Info: Redefining spanish shorthand >>
-(babel)             in language  on input line 63.
+(babel)             in language  on input line 45.
 Package babel Info: Redefining spanish shorthand "=
-(babel)             in language  on input line 63.
+(babel)             in language  on input line 45.
 Package babel Info: Redefining spanish shorthand "~
-(babel)             in language  on input line 63.
+(babel)             in language  on input line 45.
 Package babel Info: Redefining spanish shorthand "!
-(babel)             in language  on input line 63.
+(babel)             in language  on input line 45.
 Package babel Info: Redefining spanish shorthand "?
-(babel)             in language  on input line 63.
+(babel)             in language  on input line 45.
 Package babel Info: Redefining spanish shorthand <<
-(babel)             in language  on input line 63.
+(babel)             in language  on input line 45.
 Package babel Info: Redefining spanish shorthand >>
-(babel)             in language  on input line 63.
+(babel)             in language  on input line 45.
 Package babel Info: Redefining spanish shorthand "=
-(babel)             in language  on input line 63.
+(babel)             in language  on input line 45.
 Package babel Info: Redefining spanish shorthand "~
-(babel)             in language  on input line 63.
+(babel)             in language  on input line 45.
 Package babel Info: Redefining spanish shorthand "!
-(babel)             in language  on input line 63.
+(babel)             in language  on input line 45.
 Package babel Info: Redefining spanish shorthand "?
-(babel)             in language  on input line 63.
+(babel)             in language  on input line 45.
 
-[3]
+[3 <./img/Report1.png> <./img/Issues2.png>]
+LaTeX Info: Redefining \. on input line 58.
+LaTeX Info: Redefining \% on input line 58.
+
+Overfull \vbox (0.8521pt too high) has occurred while \output is active []
+
+Package babel Info: Redefining spanish shorthand <<
+(babel)             in language  on input line 58.
+Package babel Info: Redefining spanish shorthand >>
+(babel)             in language  on input line 58.
+Package babel Info: Redefining spanish shorthand "=
+(babel)             in language  on input line 58.
+Package babel Info: Redefining spanish shorthand "~
+(babel)             in language  on input line 58.
+Package babel Info: Redefining spanish shorthand "!
+(babel)             in language  on input line 58.
+Package babel Info: Redefining spanish shorthand "?
+(babel)             in language  on input line 58.
+Package babel Info: Redefining spanish shorthand <<
+(babel)             in language  on input line 58.
+Package babel Info: Redefining spanish shorthand >>
+(babel)             in language  on input line 58.
+Package babel Info: Redefining spanish shorthand "=
+(babel)             in language  on input line 58.
+Package babel Info: Redefining spanish shorthand "~
+(babel)             in language  on input line 58.
+Package babel Info: Redefining spanish shorthand "!
+(babel)             in language  on input line 58.
+Package babel Info: Redefining spanish shorthand "?
+(babel)             in language  on input line 58.
+
+[4 <./img/Report2.png>] <./img/Issues3.png, id=586, 737.00343pt x 119.69719pt>
+File: ./img/Issues3.png Graphic file (type png)
+
+<use ./img/Issues3.png>
+Package pdftex.def Info: ./img/Issues3.png used on input line 61.
+(pdftex.def)             Requested size: 332.09775pt x 53.93628pt.
+ <./img/Report3.png, id=587, 736.25063pt x 431.36156pt>
+File: ./img/Report3.png Graphic file (type png)
+
+<use ./img/Report3.png>
+Package pdftex.def Info: ./img/Report3.png used on input line 63.
+(pdftex.def)             Requested size: 332.09775pt x 194.57823pt.
+LaTeX Info: Redefining \. on input line 72.
+LaTeX Info: Redefining \% on input line 72.
+
+Overfull \vbox (0.8521pt too high) has occurred while \output is active []
+
+Package babel Info: Redefining spanish shorthand <<
+(babel)             in language  on input line 72.
+Package babel Info: Redefining spanish shorthand >>
+(babel)             in language  on input line 72.
+Package babel Info: Redefining spanish shorthand "=
+(babel)             in language  on input line 72.
+Package babel Info: Redefining spanish shorthand "~
+(babel)             in language  on input line 72.
+Package babel Info: Redefining spanish shorthand "!
+(babel)             in language  on input line 72.
+Package babel Info: Redefining spanish shorthand "?
+(babel)             in language  on input line 72.
+Package babel Info: Redefining spanish shorthand <<
+(babel)             in language  on input line 72.
+Package babel Info: Redefining spanish shorthand >>
+(babel)             in language  on input line 72.
+Package babel Info: Redefining spanish shorthand "=
+(babel)             in language  on input line 72.
+Package babel Info: Redefining spanish shorthand "~
+(babel)             in language  on input line 72.
+Package babel Info: Redefining spanish shorthand "!
+(babel)             in language  on input line 72.
+Package babel Info: Redefining spanish shorthand "?
+(babel)             in language  on input line 72.
+
+[5 <./img/Issues3.png> <./img/Report3.png>]
 LaTeX Font Info:    Try loading font information for OMS+cmr on input line 77.
- ("C:\Program Files\MiKTeX 2.9\tex\latex\base\omscmr.fd"
+
+("C:\Program Files\MiKTeX 2.9\tex\latex\base\omscmr.fd"
 File: omscmr.fd 2014/09/29 v2.5h Standard LaTeX font definitions
 )
 LaTeX Font Info:    Font shape `OMS/cmr/m/n' in size <10.95> not available
 (Font)              Font shape `OMS/cmsy/m/n' tried instead on input line 77.
 
+<./img/Issues4.png, id=594, 737.00343pt x 164.86594pt>
+File: ./img/Issues4.png Graphic file (type png)
+ <use ./img/Issues4.png>
+Package pdftex.def Info: ./img/Issues4.png used on input line 86.
+(pdftex.def)             Requested size: 332.09775pt x 74.2896pt.
 
-! LaTeX Error: File `Issues4' not found.
-
-See the LaTeX manual or LaTeX Companion for explanation.
-Type  H <return>  for immediate help.
- ...                                              
-                                                  
-l.86 \imagen {Issues4}{Issues del cuarto sprint}
-                                                
-I could not locate the file with any of these extensions:
-.png,.pdf,.jpg,.mps,.jpeg,.jbig2,.jb2,.PNG,.PDF,.JPG,.JPEG,.JBIG2,.JB2,.eps
-Try typing  <return>  to proceed.
-If that doesn't work, type  X <return>  to quit.
+<./img/Report4.png, id=595, 736.25063pt x 434.37282pt>
+File: ./img/Report4.png Graphic file (type png)
+ <use ./img/Report4.png>
+Package pdftex.def Info: ./img/Report4.png used on input line 88.
+(pdftex.def)             Requested size: 332.09775pt x 195.93654pt.
 
 
-! LaTeX Error: File `Report4' not found.
+LaTeX Warning: `!h' float specifier changed to `!ht'.
 
-See the LaTeX manual or LaTeX Companion for explanation.
-Type  H <return>  for immediate help.
- ...                                              
-                                                  
-l.88 ...e resolución de tareas del cuarto sprint}
-                                                  
-I could not locate the file with any of these extensions:
-.png,.pdf,.jpg,.mps,.jpeg,.jbig2,.jb2,.PNG,.PDF,.JPG,.JPEG,.JBIG2,.JB2,.eps
-Try typing  <return>  to proceed.
-If that doesn't work, type  X <return>  to quit.
-
-LaTeX Info: Redefining \. on input line 95.
-LaTeX Info: Redefining \% on input line 95.
+LaTeX Info: Redefining \. on input line 88.
+LaTeX Info: Redefining \% on input line 88.
 
 Overfull \vbox (0.8521pt too high) has occurred while \output is active []
 
 Package babel Info: Redefining spanish shorthand <<
-(babel)             in language  on input line 95.
+(babel)             in language  on input line 88.
 Package babel Info: Redefining spanish shorthand >>
-(babel)             in language  on input line 95.
+(babel)             in language  on input line 88.
 Package babel Info: Redefining spanish shorthand "=
-(babel)             in language  on input line 95.
+(babel)             in language  on input line 88.
 Package babel Info: Redefining spanish shorthand "~
-(babel)             in language  on input line 95.
+(babel)             in language  on input line 88.
 Package babel Info: Redefining spanish shorthand "!
-(babel)             in language  on input line 95.
+(babel)             in language  on input line 88.
 Package babel Info: Redefining spanish shorthand "?
-(babel)             in language  on input line 95.
+(babel)             in language  on input line 88.
 Package babel Info: Redefining spanish shorthand <<
-(babel)             in language  on input line 95.
+(babel)             in language  on input line 88.
 Package babel Info: Redefining spanish shorthand >>
-(babel)             in language  on input line 95.
+(babel)             in language  on input line 88.
 Package babel Info: Redefining spanish shorthand "=
-(babel)             in language  on input line 95.
+(babel)             in language  on input line 88.
 Package babel Info: Redefining spanish shorthand "~
-(babel)             in language  on input line 95.
+(babel)             in language  on input line 88.
 Package babel Info: Redefining spanish shorthand "!
-(babel)             in language  on input line 95.
+(babel)             in language  on input line 88.
 Package babel Info: Redefining spanish shorthand "?
-(babel)             in language  on input line 95.
+(babel)             in language  on input line 88.
 
-[4]
+[6 <./img/Issues4.png>] <./img/Issues5.png, id=602, 734.745pt x 79.79813pt>
+File: ./img/Issues5.png Graphic file (type png)
 
-! LaTeX Error: File `Issues5' not found.
+<use ./img/Issues5.png>
+Package pdftex.def Info: ./img/Issues5.png used on input line 96.
+(pdftex.def)             Requested size: 332.09775pt x 36.06831pt.
+ <./img/Report5.png, id=603, 737.75626pt x 427.5975pt>
+File: ./img/Report5.png Graphic file (type png)
 
-See the LaTeX manual or LaTeX Companion for explanation.
-Type  H <return>  for immediate help.
- ...                                              
-                                                  
-l.96 \imagen {Issues5}{Issues del quinto sprint}
-                                                
-I could not locate the file with any of these extensions:
-.png,.pdf,.jpg,.mps,.jpeg,.jbig2,.jb2,.PNG,.PDF,.JPG,.JPEG,.JBIG2,.JB2,.eps
-Try typing  <return>  to proceed.
-If that doesn't work, type  X <return>  to quit.
+<use ./img/Report5.png>
+Package pdftex.def Info: ./img/Report5.png used on input line 98.
+(pdftex.def)             Requested size: 332.09775pt x 192.47581pt.
 
 
-! LaTeX Error: File `Report5' not found.
+LaTeX Warning: `!h' float specifier changed to `!ht'.
 
-See the LaTeX manual or LaTeX Companion for explanation.
-Type  H <return>  for immediate help.
- ...                                              
-                                                  
-l.98 ...e resolución de tareas del quinto sprint}
-                                                  
-I could not locate the file with any of these extensions:
-.png,.pdf,.jpg,.mps,.jpeg,.jbig2,.jb2,.PNG,.PDF,.JPG,.JPEG,.JBIG2,.JB2,.eps
-Try typing  <return>  to proceed.
-If that doesn't work, type  X <return>  to quit.
+LaTeX Info: Redefining \. on input line 98.
+LaTeX Info: Redefining \% on input line 98.
 
+Overfull \vbox (0.8521pt too high) has occurred while \output is active []
 
-! LaTeX Error: File `Issues6' not found.
+Package babel Info: Redefining spanish shorthand <<
+(babel)             in language  on input line 98.
+Package babel Info: Redefining spanish shorthand >>
+(babel)             in language  on input line 98.
+Package babel Info: Redefining spanish shorthand "=
+(babel)             in language  on input line 98.
+Package babel Info: Redefining spanish shorthand "~
+(babel)             in language  on input line 98.
+Package babel Info: Redefining spanish shorthand "!
+(babel)             in language  on input line 98.
+Package babel Info: Redefining spanish shorthand "?
+(babel)             in language  on input line 98.
+Package babel Info: Redefining spanish shorthand <<
+(babel)             in language  on input line 98.
+Package babel Info: Redefining spanish shorthand >>
+(babel)             in language  on input line 98.
+Package babel Info: Redefining spanish shorthand "=
+(babel)             in language  on input line 98.
+Package babel Info: Redefining spanish shorthand "~
+(babel)             in language  on input line 98.
+Package babel Info: Redefining spanish shorthand "!
+(babel)             in language  on input line 98.
+Package babel Info: Redefining spanish shorthand "?
+(babel)             in language  on input line 98.
 
-See the LaTeX manual or LaTeX Companion for explanation.
-Type  H <return>  for immediate help.
- ...                                              
-                                                  
-l.107 \imagen {Issues6}{Issues del sexto sprint}
-                                                
-I could not locate the file with any of these extensions:
-.png,.pdf,.jpg,.mps,.jpeg,.jbig2,.jb2,.PNG,.PDF,.JPG,.JPEG,.JBIG2,.JB2,.eps
-Try typing  <return>  to proceed.
-If that doesn't work, type  X <return>  to quit.
+[7 <./img/Report4.png> <./img/Issues5.png>]
+<./img/Issues6.png, id=611, 738.50906pt x 165.61874pt>
+File: ./img/Issues6.png Graphic file (type png)
+ <use ./img/Issues6.png>
+Package pdftex.def Info: ./img/Issues6.png used on input line 107.
+(pdftex.def)             Requested size: 332.09775pt x 74.47719pt.
 
+<./img/Report6.png, id=612, 739.26187pt x 431.36156pt>
+File: ./img/Report6.png Graphic file (type png)
+ <use ./img/Report6.png>
+Package pdftex.def Info: ./img/Report6.png used on input line 109.
+(pdftex.def)             Requested size: 332.09775pt x 193.7818pt.
+LaTeX Info: Redefining \. on input line 109.
+LaTeX Info: Redefining \% on input line 109.
 
-! LaTeX Error: File `Report6' not found.
+Overfull \vbox (0.8521pt too high) has occurred while \output is active []
 
-See the LaTeX manual or LaTeX Companion for explanation.
-Type  H <return>  for immediate help.
- ...                                              
-                                                  
-l.109 ...e resolución de tareas del sexto sprint}
-                                                  
-I could not locate the file with any of these extensions:
-.png,.pdf,.jpg,.mps,.jpeg,.jbig2,.jb2,.PNG,.PDF,.JPG,.JPEG,.JBIG2,.JB2,.eps
-Try typing  <return>  to proceed.
-If that doesn't work, type  X <return>  to quit.
+Package babel Info: Redefining spanish shorthand <<
+(babel)             in language  on input line 109.
+Package babel Info: Redefining spanish shorthand >>
+(babel)             in language  on input line 109.
+Package babel Info: Redefining spanish shorthand "=
+(babel)             in language  on input line 109.
+Package babel Info: Redefining spanish shorthand "~
+(babel)             in language  on input line 109.
+Package babel Info: Redefining spanish shorthand "!
+(babel)             in language  on input line 109.
+Package babel Info: Redefining spanish shorthand "?
+(babel)             in language  on input line 109.
+Package babel Info: Redefining spanish shorthand <<
+(babel)             in language  on input line 109.
+Package babel Info: Redefining spanish shorthand >>
+(babel)             in language  on input line 109.
+Package babel Info: Redefining spanish shorthand "=
+(babel)             in language  on input line 109.
+Package babel Info: Redefining spanish shorthand "~
+(babel)             in language  on input line 109.
+Package babel Info: Redefining spanish shorthand "!
+(babel)             in language  on input line 109.
+Package babel Info: Redefining spanish shorthand "?
+(babel)             in language  on input line 109.
 
+[8 <./img/Report5.png> <./img/Issues6.png>]
 LaTeX Info: Redefining \. on input line 119.
 LaTeX Info: Redefining \% on input line 119.
 
@@ -1647,35 +1710,18 @@ Package babel Info: Redefining spanish shorthand "!
 Package babel Info: Redefining spanish shorthand "?
 (babel)             in language  on input line 119.
 
-[5]
+[9 <./img/Report6.png>] <./img/Issues7.png, id=624, 735.49782pt x 165.61874pt>
+File: ./img/Issues7.png Graphic file (type png)
 
-! LaTeX Error: File `Issues7' not found.
+<use ./img/Issues7.png>
+Package pdftex.def Info: ./img/Issues7.png used on input line 120.
+(pdftex.def)             Requested size: 332.09775pt x 74.78297pt.
+ <./img/Report7.png, id=625, 737.75626pt x 434.37282pt>
+File: ./img/Report7.png Graphic file (type png)
 
-See the LaTeX manual or LaTeX Companion for explanation.
-Type  H <return>  for immediate help.
- ...                                              
-                                                  
-l.120 ...gen {Issues7}{Issues del séptimo sprint}
-                                                  
-I could not locate the file with any of these extensions:
-.png,.pdf,.jpg,.mps,.jpeg,.jbig2,.jb2,.PNG,.PDF,.JPG,.JPEG,.JBIG2,.JB2,.eps
-Try typing  <return>  to proceed.
-If that doesn't work, type  X <return>  to quit.
-
-
-! LaTeX Error: File `Report7' not found.
-
-See the LaTeX manual or LaTeX Companion for explanation.
-Type  H <return>  for immediate help.
- ...                                              
-                                                  
-l.122 ...esolución de tareas del séptimo sprint}
-                                                  
-I could not locate the file with any of these extensions:
-.png,.pdf,.jpg,.mps,.jpeg,.jbig2,.jb2,.PNG,.PDF,.JPG,.JPEG,.JBIG2,.JB2,.eps
-Try typing  <return>  to proceed.
-If that doesn't work, type  X <return>  to quit.
-
+<use ./img/Report7.png>
+Package pdftex.def Info: ./img/Report7.png used on input line 122.
+(pdftex.def)             Requested size: 332.09775pt x 195.5256pt.
 LaTeX Info: Redefining \. on input line 131.
 LaTeX Info: Redefining \% on input line 131.
 
@@ -1706,35 +1752,18 @@ Package babel Info: Redefining spanish shorthand "!
 Package babel Info: Redefining spanish shorthand "?
 (babel)             in language  on input line 131.
 
-[6]
+[10 <./img/Issues7.png> <./img/Report7.png>]
+<./img/Issues8.png, id=632, 737.75626pt x 210.7875pt>
+File: ./img/Issues8.png Graphic file (type png)
+ <use ./img/Issues8.png>
+Package pdftex.def Info: ./img/Issues8.png used on input line 132.
+(pdftex.def)             Requested size: 332.09775pt x 94.88245pt.
 
-! LaTeX Error: File `Issues8' not found.
-
-See the LaTeX manual or LaTeX Companion for explanation.
-Type  H <return>  for immediate help.
- ...                                              
-                                                  
-l.132 \imagen {Issues8}{Issues del octavo sprint}
-                                                 
-I could not locate the file with any of these extensions:
-.png,.pdf,.jpg,.mps,.jpeg,.jbig2,.jb2,.PNG,.PDF,.JPG,.JPEG,.JBIG2,.JB2,.eps
-Try typing  <return>  to proceed.
-If that doesn't work, type  X <return>  to quit.
-
-
-! LaTeX Error: File `Report8' not found.
-
-See the LaTeX manual or LaTeX Companion for explanation.
-Type  H <return>  for immediate help.
- ...                                              
-                                                  
-l.134 ... resolución de tareas del octavo sprint}
-                                                  
-I could not locate the file with any of these extensions:
-.png,.pdf,.jpg,.mps,.jpeg,.jbig2,.jb2,.PNG,.PDF,.JPG,.JPEG,.JBIG2,.JB2,.eps
-Try typing  <return>  to proceed.
-If that doesn't work, type  X <return>  to quit.
-
+<./img/Report8.png, id=633, 737.00343pt x 434.37282pt>
+File: ./img/Report8.png Graphic file (type png)
+ <use ./img/Report8.png>
+Package pdftex.def Info: ./img/Report8.png used on input line 134.
+(pdftex.def)             Requested size: 332.09775pt x 195.73108pt.
 LaTeX Info: Redefining \. on input line 145.
 LaTeX Info: Redefining \% on input line 145.
 
@@ -1765,414 +1794,503 @@ Package babel Info: Redefining spanish shorthand "!
 Package babel Info: Redefining spanish shorthand "?
 (babel)             in language  on input line 145.
 
-[7]
+[11 <./img/Issues8.png> <./img/Report8.png>]
+<./img/Issues9.png, id=640, 739.26187pt x 299.61937pt>
+File: ./img/Issues9.png Graphic file (type png)
+ <use ./img/Issues9.png>
+Package pdftex.def Info: ./img/Issues9.png used on input line 146.
+(pdftex.def)             Requested size: 332.09775pt x 134.59888pt.
 
-! LaTeX Error: File `Issues9' not found.
-
-See the LaTeX manual or LaTeX Companion for explanation.
-Type  H <return>  for immediate help.
- ...                                              
-                                                  
-l.146 \imagen {Issues9}{Issues del noveno sprint}
-                                                 
-I could not locate the file with any of these extensions:
-.png,.pdf,.jpg,.mps,.jpeg,.jbig2,.jb2,.PNG,.PDF,.JPG,.JPEG,.JBIG2,.JB2,.eps
-Try typing  <return>  to proceed.
-If that doesn't work, type  X <return>  to quit.
-
-
-! LaTeX Error: File `Report9' not found.
-
-See the LaTeX manual or LaTeX Companion for explanation.
-Type  H <return>  for immediate help.
- ...                                              
-                                                  
-l.148 ... resolución de tareas del noveno sprint}
-                                                  
-I could not locate the file with any of these extensions:
-.png,.pdf,.jpg,.mps,.jpeg,.jbig2,.jb2,.PNG,.PDF,.JPG,.JPEG,.JBIG2,.JB2,.eps
-Try typing  <return>  to proceed.
-If that doesn't work, type  X <return>  to quit.
-
-
-! LaTeX Error: File `Issues10' not found.
-
-See the LaTeX manual or LaTeX Companion for explanation.
-Type  H <return>  for immediate help.
- ...                                              
-                                                  
-l.158 ...gen {Issues10}{Issues del décimo sprint}
-                                                  
-I could not locate the file with any of these extensions:
-.png,.pdf,.jpg,.mps,.jpeg,.jbig2,.jb2,.PNG,.PDF,.JPG,.JPEG,.JBIG2,.JB2,.eps
-Try typing  <return>  to proceed.
-If that doesn't work, type  X <return>  to quit.
-
-
-! LaTeX Error: File `Report10' not found.
-
-See the LaTeX manual or LaTeX Companion for explanation.
-Type  H <return>  for immediate help.
- ...                                              
-                                                  
-l.160 ...resolución de tareas del décimo sprint}
-                                                  
-I could not locate the file with any of these extensions:
-.png,.pdf,.jpg,.mps,.jpeg,.jbig2,.jb2,.PNG,.PDF,.JPG,.JPEG,.JBIG2,.JB2,.eps
-Try typing  <return>  to proceed.
-If that doesn't work, type  X <return>  to quit.
-
-
-! LaTeX Error: File `Issues11' not found.
-
-See the LaTeX manual or LaTeX Companion for explanation.
-Type  H <return>  for immediate help.
- ...                                              
-                                                  
-l.170 ...n {Issues11}{Issues del undécimo sprint}
-                                                  
-I could not locate the file with any of these extensions:
-.png,.pdf,.jpg,.mps,.jpeg,.jbig2,.jb2,.PNG,.PDF,.JPG,.JPEG,.JBIG2,.JB2,.eps
-Try typing  <return>  to proceed.
-If that doesn't work, type  X <return>  to quit.
+<./img/Report9.png, id=641, 727.21687pt x 429.85594pt>
+File: ./img/Report9.png Graphic file (type png)
+ <use ./img/Report9.png>
+Package pdftex.def Info: ./img/Report9.png used on input line 148.
+(pdftex.def)             Requested size: 332.09775pt x 196.30624pt.
 
 
 LaTeX Warning: `!h' float specifier changed to `!ht'.
 
-LaTeX Info: Redefining \. on input line 170.
-LaTeX Info: Redefining \% on input line 170.
+LaTeX Info: Redefining \. on input line 148.
+LaTeX Info: Redefining \% on input line 148.
 
 Overfull \vbox (0.8521pt too high) has occurred while \output is active []
 
 Package babel Info: Redefining spanish shorthand <<
-(babel)             in language  on input line 170.
+(babel)             in language  on input line 148.
 Package babel Info: Redefining spanish shorthand >>
-(babel)             in language  on input line 170.
+(babel)             in language  on input line 148.
 Package babel Info: Redefining spanish shorthand "=
-(babel)             in language  on input line 170.
+(babel)             in language  on input line 148.
 Package babel Info: Redefining spanish shorthand "~
-(babel)             in language  on input line 170.
+(babel)             in language  on input line 148.
 Package babel Info: Redefining spanish shorthand "!
-(babel)             in language  on input line 170.
+(babel)             in language  on input line 148.
 Package babel Info: Redefining spanish shorthand "?
-(babel)             in language  on input line 170.
+(babel)             in language  on input line 148.
 Package babel Info: Redefining spanish shorthand <<
-(babel)             in language  on input line 170.
+(babel)             in language  on input line 148.
 Package babel Info: Redefining spanish shorthand >>
-(babel)             in language  on input line 170.
+(babel)             in language  on input line 148.
 Package babel Info: Redefining spanish shorthand "=
-(babel)             in language  on input line 170.
+(babel)             in language  on input line 148.
 Package babel Info: Redefining spanish shorthand "~
-(babel)             in language  on input line 170.
+(babel)             in language  on input line 148.
 Package babel Info: Redefining spanish shorthand "!
-(babel)             in language  on input line 170.
+(babel)             in language  on input line 148.
 Package babel Info: Redefining spanish shorthand "?
-(babel)             in language  on input line 170.
+(babel)             in language  on input line 148.
 
-[8]
+[12 <./img/Issues9.png>]
+<./img/Issues10.png, id=647, 737.75626pt x 164.11313pt>
+File: ./img/Issues10.png Graphic file (type png)
 
-! LaTeX Error: File `Report11' not found.
+<use ./img/Issues10.png>
+Package pdftex.def Info: ./img/Issues10.png used on input line 158.
+(pdftex.def)             Requested size: 332.09775pt x 73.87276pt.
 
-See the LaTeX manual or LaTeX Companion for explanation.
-Type  H <return>  for immediate help.
- ...                                              
-                                                  
-l.172 ...solución de tareas del undécimo sprint}
-                                                  
-I could not locate the file with any of these extensions:
-.png,.pdf,.jpg,.mps,.jpeg,.jbig2,.jb2,.PNG,.PDF,.JPG,.JPEG,.JBIG2,.JB2,.eps
-Try typing  <return>  to proceed.
-If that doesn't work, type  X <return>  to quit.
+<./img/Report10.png, id=648, 737.00343pt x 435.12563pt>
+File: ./img/Report10.png Graphic file (type png)
 
-
-! LaTeX Error: File `Issues12' not found.
-
-See the LaTeX manual or LaTeX Companion for explanation.
-Type  H <return>  for immediate help.
- ...                                              
-                                                  
-l.182 ... {Issues12}{Issues del duodécimo sprint}
-                                                  
-I could not locate the file with any of these extensions:
-.png,.pdf,.jpg,.mps,.jpeg,.jbig2,.jb2,.PNG,.PDF,.JPG,.JPEG,.JBIG2,.JB2,.eps
-Try typing  <return>  to proceed.
-If that doesn't work, type  X <return>  to quit.
+<use ./img/Report10.png>
+Package pdftex.def Info: ./img/Report10.png used on input line 160.
+(pdftex.def)             Requested size: 332.09775pt x 196.0703pt.
 
 
-! LaTeX Error: File `Report12' not found.
+LaTeX Warning: `!h' float specifier changed to `!ht'.
 
-See the LaTeX manual or LaTeX Companion for explanation.
-Type  H <return>  for immediate help.
- ...                                              
-                                                  
-l.184 ...olución de tareas del duodécimo sprint}
-                                                  
-I could not locate the file with any of these extensions:
-.png,.pdf,.jpg,.mps,.jpeg,.jbig2,.jb2,.PNG,.PDF,.JPG,.JPEG,.JBIG2,.JB2,.eps
-Try typing  <return>  to proceed.
-If that doesn't work, type  X <return>  to quit.
-
-
-! LaTeX Error: File `Issues13' not found.
-
-See the LaTeX manual or LaTeX Companion for explanation.
-Type  H <return>  for immediate help.
- ...                                              
-                                                  
-l.192 ...Issues13}{Issues del decimotercer sprint}
-                                                  
-I could not locate the file with any of these extensions:
-.png,.pdf,.jpg,.mps,.jpeg,.jbig2,.jb2,.PNG,.PDF,.JPG,.JPEG,.JBIG2,.JB2,.eps
-Try typing  <return>  to proceed.
-If that doesn't work, type  X <return>  to quit.
-
-
-! LaTeX Error: File `Report13' not found.
-
-See the LaTeX manual or LaTeX Companion for explanation.
-Type  H <return>  for immediate help.
- ...                                              
-                                                  
-l.194 ...ución de tareas del decimotercer sprint}
-                                                  
-I could not locate the file with any of these extensions:
-.png,.pdf,.jpg,.mps,.jpeg,.jbig2,.jb2,.PNG,.PDF,.JPG,.JPEG,.JBIG2,.JB2,.eps
-Try typing  <return>  to proceed.
-If that doesn't work, type  X <return>  to quit.
-
-LaTeX Info: Redefining \. on input line 199.
-LaTeX Info: Redefining \% on input line 199.
+LaTeX Info: Redefining \. on input line 160.
+LaTeX Info: Redefining \% on input line 160.
 
 Overfull \vbox (0.8521pt too high) has occurred while \output is active []
 
 Package babel Info: Redefining spanish shorthand <<
-(babel)             in language  on input line 199.
+(babel)             in language  on input line 160.
 Package babel Info: Redefining spanish shorthand >>
-(babel)             in language  on input line 199.
+(babel)             in language  on input line 160.
 Package babel Info: Redefining spanish shorthand "=
-(babel)             in language  on input line 199.
+(babel)             in language  on input line 160.
 Package babel Info: Redefining spanish shorthand "~
-(babel)             in language  on input line 199.
+(babel)             in language  on input line 160.
 Package babel Info: Redefining spanish shorthand "!
-(babel)             in language  on input line 199.
+(babel)             in language  on input line 160.
 Package babel Info: Redefining spanish shorthand "?
-(babel)             in language  on input line 199.
+(babel)             in language  on input line 160.
 Package babel Info: Redefining spanish shorthand <<
-(babel)             in language  on input line 199.
+(babel)             in language  on input line 160.
 Package babel Info: Redefining spanish shorthand >>
-(babel)             in language  on input line 199.
+(babel)             in language  on input line 160.
 Package babel Info: Redefining spanish shorthand "=
-(babel)             in language  on input line 199.
+(babel)             in language  on input line 160.
 Package babel Info: Redefining spanish shorthand "~
-(babel)             in language  on input line 199.
+(babel)             in language  on input line 160.
 Package babel Info: Redefining spanish shorthand "!
-(babel)             in language  on input line 199.
+(babel)             in language  on input line 160.
 Package babel Info: Redefining spanish shorthand "?
-(babel)             in language  on input line 199.
+(babel)             in language  on input line 160.
 
-[9]
+[13 <./img/Report9.png> <./img/Issues10.png>]
+<./img/Issues11.png, id=657, 737.00343pt x 186.6975pt>
+File: ./img/Issues11.png Graphic file (type png)
 
-! LaTeX Error: File `Issues14' not found.
+<use ./img/Issues11.png>
+Package pdftex.def Info: ./img/Issues11.png used on input line 170.
+(pdftex.def)             Requested size: 332.09775pt x 84.12704pt.
 
-See the LaTeX manual or LaTeX Companion for explanation.
-Type  H <return>  for immediate help.
- ...                                              
-                                                  
-l.202 ...Issues14}{Issues del decimocuarto sprint}
-                                                  
-I could not locate the file with any of these extensions:
-.png,.pdf,.jpg,.mps,.jpeg,.jbig2,.jb2,.PNG,.PDF,.JPG,.JPEG,.JBIG2,.JB2,.eps
-Try typing  <return>  to proceed.
-If that doesn't work, type  X <return>  to quit.
+<./img/Report11.png, id=658, 735.49782pt x 428.35031pt>
+File: ./img/Report11.png Graphic file (type png)
 
-
-! LaTeX Error: File `Report14' not found.
-
-See the LaTeX manual or LaTeX Companion for explanation.
-Type  H <return>  for immediate help.
- ...                                              
-                                                  
-l.204 ...ución de tareas del decimocuarto sprint}
-                                                  
-I could not locate the file with any of these extensions:
-.png,.pdf,.jpg,.mps,.jpeg,.jbig2,.jb2,.PNG,.PDF,.JPG,.JPEG,.JBIG2,.JB2,.eps
-Try typing  <return>  to proceed.
-If that doesn't work, type  X <return>  to quit.
+<use ./img/Report11.png>
+Package pdftex.def Info: ./img/Report11.png used on input line 172.
+(pdftex.def)             Requested size: 332.09775pt x 193.416pt.
 
 
-! LaTeX Error: File `Issues15' not found.
+LaTeX Warning: `!h' float specifier changed to `!ht'.
 
-See the LaTeX manual or LaTeX Companion for explanation.
-Type  H <return>  for immediate help.
- ...                                              
-                                                  
-l.212 ...Issues15}{Issues del decimoquinto sprint}
-                                                  
-I could not locate the file with any of these extensions:
-.png,.pdf,.jpg,.mps,.jpeg,.jbig2,.jb2,.PNG,.PDF,.JPG,.JPEG,.JBIG2,.JB2,.eps
-Try typing  <return>  to proceed.
-If that doesn't work, type  X <return>  to quit.
-
-
-! LaTeX Error: File `Report15' not found.
-
-See the LaTeX manual or LaTeX Companion for explanation.
-Type  H <return>  for immediate help.
- ...                                              
-                                                  
-l.214 ...ución de tareas del decimoquinto sprint}
-                                                  
-I could not locate the file with any of these extensions:
-.png,.pdf,.jpg,.mps,.jpeg,.jbig2,.jb2,.PNG,.PDF,.JPG,.JPEG,.JBIG2,.JB2,.eps
-Try typing  <return>  to proceed.
-If that doesn't work, type  X <return>  to quit.
-
-LaTeX Info: Redefining \. on input line 221.
-LaTeX Info: Redefining \% on input line 221.
+LaTeX Info: Redefining \. on input line 172.
+LaTeX Info: Redefining \% on input line 172.
 
 Overfull \vbox (0.8521pt too high) has occurred while \output is active []
 
 Package babel Info: Redefining spanish shorthand <<
-(babel)             in language  on input line 221.
+(babel)             in language  on input line 172.
 Package babel Info: Redefining spanish shorthand >>
-(babel)             in language  on input line 221.
+(babel)             in language  on input line 172.
 Package babel Info: Redefining spanish shorthand "=
-(babel)             in language  on input line 221.
+(babel)             in language  on input line 172.
 Package babel Info: Redefining spanish shorthand "~
-(babel)             in language  on input line 221.
+(babel)             in language  on input line 172.
 Package babel Info: Redefining spanish shorthand "!
-(babel)             in language  on input line 221.
+(babel)             in language  on input line 172.
 Package babel Info: Redefining spanish shorthand "?
-(babel)             in language  on input line 221.
+(babel)             in language  on input line 172.
 Package babel Info: Redefining spanish shorthand <<
-(babel)             in language  on input line 221.
+(babel)             in language  on input line 172.
 Package babel Info: Redefining spanish shorthand >>
-(babel)             in language  on input line 221.
+(babel)             in language  on input line 172.
 Package babel Info: Redefining spanish shorthand "=
-(babel)             in language  on input line 221.
+(babel)             in language  on input line 172.
 Package babel Info: Redefining spanish shorthand "~
-(babel)             in language  on input line 221.
+(babel)             in language  on input line 172.
 Package babel Info: Redefining spanish shorthand "!
-(babel)             in language  on input line 221.
+(babel)             in language  on input line 172.
 Package babel Info: Redefining spanish shorthand "?
-(babel)             in language  on input line 221.
+(babel)             in language  on input line 172.
 
-[10]
+[14 <./img/Report10.png> <./img/Issues11.png>]
+<./img/Issues12.png, id=665, 737.00343pt x 250.68657pt>
+File: ./img/Issues12.png Graphic file (type png)
 
-! LaTeX Error: File `Issues16' not found.
+<use ./img/Issues12.png>
+Package pdftex.def Info: ./img/Issues12.png used on input line 182.
+(pdftex.def)             Requested size: 332.09775pt x 112.9609pt.
 
-See the LaTeX manual or LaTeX Companion for explanation.
-Type  H <return>  for immediate help.
- ...                                              
-                                                  
-l.224 ...{Issues16}{Issues del decimosexto sprint}
-                                                  
-I could not locate the file with any of these extensions:
-.png,.pdf,.jpg,.mps,.jpeg,.jbig2,.jb2,.PNG,.PDF,.JPG,.JPEG,.JBIG2,.JB2,.eps
-Try typing  <return>  to proceed.
-If that doesn't work, type  X <return>  to quit.
+<./img/Report12.png, id=666, 736.25063pt x 429.85594pt>
+File: ./img/Report12.png Graphic file (type png)
 
-
-! LaTeX Error: File `Report16' not found.
-
-See the LaTeX manual or LaTeX Companion for explanation.
-Type  H <return>  for immediate help.
- ...                                              
-                                                  
-l.226 ...lución de tareas del decimosexto sprint}
-                                                  
-I could not locate the file with any of these extensions:
-.png,.pdf,.jpg,.mps,.jpeg,.jbig2,.jb2,.PNG,.PDF,.JPG,.JPEG,.JBIG2,.JB2,.eps
-Try typing  <return>  to proceed.
-If that doesn't work, type  X <return>  to quit.
+<use ./img/Report12.png>
+Package pdftex.def Info: ./img/Report12.png used on input line 184.
+(pdftex.def)             Requested size: 332.09775pt x 193.89908pt.
 
 
-! LaTeX Error: File `Issues17' not found.
+LaTeX Warning: `!h' float specifier changed to `!ht'.
 
-See the LaTeX manual or LaTeX Companion for explanation.
-Type  H <return>  for immediate help.
- ...                                              
-                                                  
-l.232 ...ssues17}{Issues del decimoseptimo sprint}
-                                                  
-I could not locate the file with any of these extensions:
-.png,.pdf,.jpg,.mps,.jpeg,.jbig2,.jb2,.PNG,.PDF,.JPG,.JPEG,.JBIG2,.JB2,.eps
-Try typing  <return>  to proceed.
-If that doesn't work, type  X <return>  to quit.
-
-
-! LaTeX Error: File `Report17' not found.
-
-See the LaTeX manual or LaTeX Companion for explanation.
-Type  H <return>  for immediate help.
- ...                                              
-                                                  
-l.234 ...ción de tareas del decimoseptimo sprint}
-                                                  
-I could not locate the file with any of these extensions:
-.png,.pdf,.jpg,.mps,.jpeg,.jbig2,.jb2,.PNG,.PDF,.JPG,.JPEG,.JBIG2,.JB2,.eps
-Try typing  <return>  to proceed.
-If that doesn't work, type  X <return>  to quit.
-
-
-! LaTeX Error: File `Issues18' not found.
-
-See the LaTeX manual or LaTeX Companion for explanation.
-Type  H <return>  for immediate help.
- ...                                              
-                                                  
-l.242 ...{Issues18}{Issues del decimoctavo sprint}
-                                                  
-I could not locate the file with any of these extensions:
-.png,.pdf,.jpg,.mps,.jpeg,.jbig2,.jb2,.PNG,.PDF,.JPG,.JPEG,.JBIG2,.JB2,.eps
-Try typing  <return>  to proceed.
-If that doesn't work, type  X <return>  to quit.
-
-
-! LaTeX Error: File `Report18' not found.
-
-See the LaTeX manual or LaTeX Companion for explanation.
-Type  H <return>  for immediate help.
- ...                                              
-                                                  
-l.244 ...lución de tareas del decimoctavo sprint}
-                                                  
-I could not locate the file with any of these extensions:
-.png,.pdf,.jpg,.mps,.jpeg,.jbig2,.jb2,.PNG,.PDF,.JPG,.JPEG,.JBIG2,.JB2,.eps
-Try typing  <return>  to proceed.
-If that doesn't work, type  X <return>  to quit.
-
-LaTeX Info: Redefining \. on input line 249.
-LaTeX Info: Redefining \% on input line 249.
+LaTeX Info: Redefining \. on input line 184.
+LaTeX Info: Redefining \% on input line 184.
 
 Overfull \vbox (0.8521pt too high) has occurred while \output is active []
 
 Package babel Info: Redefining spanish shorthand <<
-(babel)             in language  on input line 249.
+(babel)             in language  on input line 184.
 Package babel Info: Redefining spanish shorthand >>
-(babel)             in language  on input line 249.
+(babel)             in language  on input line 184.
 Package babel Info: Redefining spanish shorthand "=
-(babel)             in language  on input line 249.
+(babel)             in language  on input line 184.
 Package babel Info: Redefining spanish shorthand "~
-(babel)             in language  on input line 249.
+(babel)             in language  on input line 184.
 Package babel Info: Redefining spanish shorthand "!
-(babel)             in language  on input line 249.
+(babel)             in language  on input line 184.
 Package babel Info: Redefining spanish shorthand "?
-(babel)             in language  on input line 249.
+(babel)             in language  on input line 184.
 Package babel Info: Redefining spanish shorthand <<
-(babel)             in language  on input line 249.
+(babel)             in language  on input line 184.
 Package babel Info: Redefining spanish shorthand >>
-(babel)             in language  on input line 249.
+(babel)             in language  on input line 184.
 Package babel Info: Redefining spanish shorthand "=
-(babel)             in language  on input line 249.
+(babel)             in language  on input line 184.
 Package babel Info: Redefining spanish shorthand "~
-(babel)             in language  on input line 249.
+(babel)             in language  on input line 184.
 Package babel Info: Redefining spanish shorthand "!
-(babel)             in language  on input line 249.
+(babel)             in language  on input line 184.
 Package babel Info: Redefining spanish shorthand "?
-(babel)             in language  on input line 249.
+(babel)             in language  on input line 184.
 
-[11]
+[15 <./img/Report11.png> <./img/Issues12.png>]
+<./img/Issues13.png, id=673, 737.75626pt x 468.24937pt>
+File: ./img/Issues13.png Graphic file (type png)
+
+<use ./img/Issues13.png>
+Package pdftex.def Info: ./img/Issues13.png used on input line 192.
+(pdftex.def)             Requested size: 332.09775pt x 210.77457pt.
+
+
+LaTeX Warning: `!h' float specifier changed to `!ht'.
+
+LaTeX Info: Redefining \. on input line 192.
+LaTeX Info: Redefining \% on input line 192.
+
+Overfull \vbox (0.8521pt too high) has occurred while \output is active []
+
+Package babel Info: Redefining spanish shorthand <<
+(babel)             in language  on input line 192.
+Package babel Info: Redefining spanish shorthand >>
+(babel)             in language  on input line 192.
+Package babel Info: Redefining spanish shorthand "=
+(babel)             in language  on input line 192.
+Package babel Info: Redefining spanish shorthand "~
+(babel)             in language  on input line 192.
+Package babel Info: Redefining spanish shorthand "!
+(babel)             in language  on input line 192.
+Package babel Info: Redefining spanish shorthand "?
+(babel)             in language  on input line 192.
+Package babel Info: Redefining spanish shorthand <<
+(babel)             in language  on input line 192.
+Package babel Info: Redefining spanish shorthand >>
+(babel)             in language  on input line 192.
+Package babel Info: Redefining spanish shorthand "=
+(babel)             in language  on input line 192.
+Package babel Info: Redefining spanish shorthand "~
+(babel)             in language  on input line 192.
+Package babel Info: Redefining spanish shorthand "!
+(babel)             in language  on input line 192.
+Package babel Info: Redefining spanish shorthand "?
+(babel)             in language  on input line 192.
+
+[16 <./img/Report12.png>]
+<./img/Report13.png, id=679, 737.75626pt x 435.12563pt>
+File: ./img/Report13.png Graphic file (type png)
+
+<use ./img/Report13.png>
+Package pdftex.def Info: ./img/Report13.png used on input line 194.
+(pdftex.def)             Requested size: 332.09775pt x 195.86447pt.
+LaTeX Info: Redefining \. on input line 201.
+LaTeX Info: Redefining \% on input line 201.
+
+Overfull \vbox (0.8521pt too high) has occurred while \output is active []
+
+Package babel Info: Redefining spanish shorthand <<
+(babel)             in language  on input line 201.
+Package babel Info: Redefining spanish shorthand >>
+(babel)             in language  on input line 201.
+Package babel Info: Redefining spanish shorthand "=
+(babel)             in language  on input line 201.
+Package babel Info: Redefining spanish shorthand "~
+(babel)             in language  on input line 201.
+Package babel Info: Redefining spanish shorthand "!
+(babel)             in language  on input line 201.
+Package babel Info: Redefining spanish shorthand "?
+(babel)             in language  on input line 201.
+Package babel Info: Redefining spanish shorthand <<
+(babel)             in language  on input line 201.
+Package babel Info: Redefining spanish shorthand >>
+(babel)             in language  on input line 201.
+Package babel Info: Redefining spanish shorthand "=
+(babel)             in language  on input line 201.
+Package babel Info: Redefining spanish shorthand "~
+(babel)             in language  on input line 201.
+Package babel Info: Redefining spanish shorthand "!
+(babel)             in language  on input line 201.
+Package babel Info: Redefining spanish shorthand "?
+(babel)             in language  on input line 201.
+
+[17 <./img/Issues13.png> <./img/Report13.png>]
+<./img/Issues14.png, id=686, 737.75626pt x 310.15875pt>
+File: ./img/Issues14.png Graphic file (type png)
+
+<use ./img/Issues14.png>
+Package pdftex.def Info: ./img/Issues14.png used on input line 202.
+(pdftex.def)             Requested size: 332.09775pt x 139.61273pt.
+ <./img/Report14.png, id=687, 736.25063pt x 433.62pt>
+File: ./img/Report14.png Graphic file (type png)
+
+<use ./img/Report14.png>
+Package pdftex.def Info: ./img/Report14.png used on input line 204.
+(pdftex.def)             Requested size: 332.09775pt x 195.59697pt.
+LaTeX Info: Redefining \. on input line 211.
+LaTeX Info: Redefining \% on input line 211.
+
+Overfull \vbox (0.8521pt too high) has occurred while \output is active []
+
+Package babel Info: Redefining spanish shorthand <<
+(babel)             in language  on input line 211.
+Package babel Info: Redefining spanish shorthand >>
+(babel)             in language  on input line 211.
+Package babel Info: Redefining spanish shorthand "=
+(babel)             in language  on input line 211.
+Package babel Info: Redefining spanish shorthand "~
+(babel)             in language  on input line 211.
+Package babel Info: Redefining spanish shorthand "!
+(babel)             in language  on input line 211.
+Package babel Info: Redefining spanish shorthand "?
+(babel)             in language  on input line 211.
+Package babel Info: Redefining spanish shorthand <<
+(babel)             in language  on input line 211.
+Package babel Info: Redefining spanish shorthand >>
+(babel)             in language  on input line 211.
+Package babel Info: Redefining spanish shorthand "=
+(babel)             in language  on input line 211.
+Package babel Info: Redefining spanish shorthand "~
+(babel)             in language  on input line 211.
+Package babel Info: Redefining spanish shorthand "!
+(babel)             in language  on input line 211.
+Package babel Info: Redefining spanish shorthand "?
+(babel)             in language  on input line 211.
+
+[18 <./img/Issues14.png> <./img/Report14.png>]
+<./img/Issues15.png, id=694, 737.00343pt x 341.77687pt>
+File: ./img/Issues15.png Graphic file (type png)
+
+<use ./img/Issues15.png>
+Package pdftex.def Info: ./img/Issues15.png used on input line 212.
+(pdftex.def)             Requested size: 332.09775pt x 154.00676pt.
+
+<./img/Report15.png, id=695, 733.99219pt x 432.11438pt>
+File: ./img/Report15.png Graphic file (type png)
+
+<use ./img/Report15.png>
+Package pdftex.def Info: ./img/Report15.png used on input line 214.
+(pdftex.def)             Requested size: 332.09775pt x 195.51122pt.
+LaTeX Info: Redefining \. on input line 219.
+LaTeX Info: Redefining \% on input line 219.
+
+Overfull \vbox (0.8521pt too high) has occurred while \output is active []
+
+Package babel Info: Redefining spanish shorthand <<
+(babel)             in language  on input line 219.
+Package babel Info: Redefining spanish shorthand >>
+(babel)             in language  on input line 219.
+Package babel Info: Redefining spanish shorthand "=
+(babel)             in language  on input line 219.
+Package babel Info: Redefining spanish shorthand "~
+(babel)             in language  on input line 219.
+Package babel Info: Redefining spanish shorthand "!
+(babel)             in language  on input line 219.
+Package babel Info: Redefining spanish shorthand "?
+(babel)             in language  on input line 219.
+Package babel Info: Redefining spanish shorthand <<
+(babel)             in language  on input line 219.
+Package babel Info: Redefining spanish shorthand >>
+(babel)             in language  on input line 219.
+Package babel Info: Redefining spanish shorthand "=
+(babel)             in language  on input line 219.
+Package babel Info: Redefining spanish shorthand "~
+(babel)             in language  on input line 219.
+Package babel Info: Redefining spanish shorthand "!
+(babel)             in language  on input line 219.
+Package babel Info: Redefining spanish shorthand "?
+(babel)             in language  on input line 219.
+
+[19 <./img/Issues15.png> <./img/Report15.png>]
+<./img/Issues16.png, id=703, 662.475pt x 376.40625pt>
+File: ./img/Issues16.png Graphic file (type png)
+ <use ./img/Issues16.png>
+Package pdftex.def Info: ./img/Issues16.png used on input line 224.
+(pdftex.def)             Requested size: 332.09775pt x 188.69084pt.
+
+<./img/Report16.png, id=704, 665.48625pt x 476.53032pt>
+File: ./img/Report16.png Graphic file (type png)
+
+<use ./img/Report16.png>
+Package pdftex.def Info: ./img/Report16.png used on input line 226.
+(pdftex.def)             Requested size: 332.09775pt x 237.80649pt.
+
+
+LaTeX Warning: `!h' float specifier changed to `!ht'.
+
+LaTeX Info: Redefining \. on input line 226.
+LaTeX Info: Redefining \% on input line 226.
+
+Overfull \vbox (0.8521pt too high) has occurred while \output is active []
+
+Package babel Info: Redefining spanish shorthand <<
+(babel)             in language  on input line 226.
+Package babel Info: Redefining spanish shorthand >>
+(babel)             in language  on input line 226.
+Package babel Info: Redefining spanish shorthand "=
+(babel)             in language  on input line 226.
+Package babel Info: Redefining spanish shorthand "~
+(babel)             in language  on input line 226.
+Package babel Info: Redefining spanish shorthand "!
+(babel)             in language  on input line 226.
+Package babel Info: Redefining spanish shorthand "?
+(babel)             in language  on input line 226.
+Package babel Info: Redefining spanish shorthand <<
+(babel)             in language  on input line 226.
+Package babel Info: Redefining spanish shorthand >>
+(babel)             in language  on input line 226.
+Package babel Info: Redefining spanish shorthand "=
+(babel)             in language  on input line 226.
+Package babel Info: Redefining spanish shorthand "~
+(babel)             in language  on input line 226.
+Package babel Info: Redefining spanish shorthand "!
+(babel)             in language  on input line 226.
+Package babel Info: Redefining spanish shorthand "?
+(babel)             in language  on input line 226.
+
+[20 <./img/Issues16.png>]
+<./img/Issues17.png, id=710, 662.475pt x 221.32687pt>
+File: ./img/Issues17.png Graphic file (type png)
+ <use ./img/Issues17.png>
+Package pdftex.def Info: ./img/Issues17.png used on input line 232.
+(pdftex.def)             Requested size: 332.09775pt x 110.95021pt.
+
+<./img/Report17.png, id=711, 663.22781pt x 476.53032pt>
+File: ./img/Report17.png Graphic file (type png)
+
+<use ./img/Report17.png>
+Package pdftex.def Info: ./img/Report17.png used on input line 234.
+(pdftex.def)             Requested size: 332.09775pt x 238.61359pt.
+
+
+LaTeX Warning: `!h' float specifier changed to `!ht'.
+
+LaTeX Info: Redefining \. on input line 234.
+LaTeX Info: Redefining \% on input line 234.
+
+Overfull \vbox (0.8521pt too high) has occurred while \output is active []
+
+Package babel Info: Redefining spanish shorthand <<
+(babel)             in language  on input line 234.
+Package babel Info: Redefining spanish shorthand >>
+(babel)             in language  on input line 234.
+Package babel Info: Redefining spanish shorthand "=
+(babel)             in language  on input line 234.
+Package babel Info: Redefining spanish shorthand "~
+(babel)             in language  on input line 234.
+Package babel Info: Redefining spanish shorthand "!
+(babel)             in language  on input line 234.
+Package babel Info: Redefining spanish shorthand "?
+(babel)             in language  on input line 234.
+Package babel Info: Redefining spanish shorthand <<
+(babel)             in language  on input line 234.
+Package babel Info: Redefining spanish shorthand >>
+(babel)             in language  on input line 234.
+Package babel Info: Redefining spanish shorthand "=
+(babel)             in language  on input line 234.
+Package babel Info: Redefining spanish shorthand "~
+(babel)             in language  on input line 234.
+Package babel Info: Redefining spanish shorthand "!
+(babel)             in language  on input line 234.
+Package babel Info: Redefining spanish shorthand "?
+(babel)             in language  on input line 234.
+
+[21 <./img/Report16.png> <./img/Issues17.png>]
+<./img/Issues18.png, id=718, 664.73344pt x 296.60812pt>
+File: ./img/Issues18.png Graphic file (type png)
+
+<use ./img/Issues18.png>
+Package pdftex.def Info: ./img/Issues18.png used on input line 242.
+(pdftex.def)             Requested size: 332.09775pt x 148.18602pt.
+
+
+LaTeX Warning: `!h' float specifier changed to `!ht'.
+
+LaTeX Info: Redefining \. on input line 242.
+LaTeX Info: Redefining \% on input line 242.
+
+Overfull \vbox (0.8521pt too high) has occurred while \output is active []
+
+Package babel Info: Redefining spanish shorthand <<
+(babel)             in language  on input line 242.
+Package babel Info: Redefining spanish shorthand >>
+(babel)             in language  on input line 242.
+Package babel Info: Redefining spanish shorthand "=
+(babel)             in language  on input line 242.
+Package babel Info: Redefining spanish shorthand "~
+(babel)             in language  on input line 242.
+Package babel Info: Redefining spanish shorthand "!
+(babel)             in language  on input line 242.
+Package babel Info: Redefining spanish shorthand "?
+(babel)             in language  on input line 242.
+Package babel Info: Redefining spanish shorthand <<
+(babel)             in language  on input line 242.
+Package babel Info: Redefining spanish shorthand >>
+(babel)             in language  on input line 242.
+Package babel Info: Redefining spanish shorthand "=
+(babel)             in language  on input line 242.
+Package babel Info: Redefining spanish shorthand "~
+(babel)             in language  on input line 242.
+Package babel Info: Redefining spanish shorthand "!
+(babel)             in language  on input line 242.
+Package babel Info: Redefining spanish shorthand "?
+(babel)             in language  on input line 242.
+
+[22 <./img/Report17.png>]
+<./img/Report18.png, id=724, 663.98062pt x 473.51906pt>
+File: ./img/Report18.png Graphic file (type png)
+
+<use ./img/Report18.png>
+Package pdftex.def Info: ./img/Report18.png used on input line 244.
+(pdftex.def)             Requested size: 332.09775pt x 236.83841pt.
 Package babel Info: Redefining spanish shorthand <<
 (babel)             in language  on input line 251.
 Package babel Info: Redefining spanish shorthand >>
@@ -2185,7 +2303,37 @@ Package babel Info: Redefining spanish shorthand "!
 (babel)             in language  on input line 251.
 Package babel Info: Redefining spanish shorthand "?
 (babel)             in language  on input line 251.
-)
+LaTeX Info: Redefining \. on input line 256.
+LaTeX Info: Redefining \% on input line 256.
+
+Overfull \vbox (0.8521pt too high) has occurred while \output is active []
+
+Package babel Info: Redefining spanish shorthand <<
+(babel)             in language  on input line 256.
+Package babel Info: Redefining spanish shorthand >>
+(babel)             in language  on input line 256.
+Package babel Info: Redefining spanish shorthand "=
+(babel)             in language  on input line 256.
+Package babel Info: Redefining spanish shorthand "~
+(babel)             in language  on input line 256.
+Package babel Info: Redefining spanish shorthand "!
+(babel)             in language  on input line 256.
+Package babel Info: Redefining spanish shorthand "?
+(babel)             in language  on input line 256.
+Package babel Info: Redefining spanish shorthand <<
+(babel)             in language  on input line 256.
+Package babel Info: Redefining spanish shorthand >>
+(babel)             in language  on input line 256.
+Package babel Info: Redefining spanish shorthand "=
+(babel)             in language  on input line 256.
+Package babel Info: Redefining spanish shorthand "~
+(babel)             in language  on input line 256.
+Package babel Info: Redefining spanish shorthand "!
+(babel)             in language  on input line 256.
+Package babel Info: Redefining spanish shorthand "?
+(babel)             in language  on input line 256.
+
+[23 <./img/Issues18.png> <./img/Report18.png>])
 LaTeX Info: Redefining \. on input line 382.
 LaTeX Info: Redefining \% on input line 382.
 
@@ -2216,7 +2364,7 @@ Package babel Info: Redefining spanish shorthand "!
 Package babel Info: Redefining spanish shorthand "?
 (babel)             in language  on input line 382.
 
-[12]
+[24]
 \openout2 = `./tex/B_Requisitos.aux'.
 
  (tex/B_Requisitos.tex
@@ -2280,7 +2428,7 @@ Package babel Info: Redefining spanish shorthand "!
 (babel)             in language  on input line 22.
 Package babel Info: Redefining spanish shorthand "?
 (babel)             in language  on input line 22.
- [13
+ [25
 
 
 
@@ -2327,7 +2475,7 @@ Package babel Info: Redefining spanish shorthand "!
 Package babel Info: Redefining spanish shorthand "?
 (babel)             in language  on input line 69.
 
-[14]
+[26]
 Package babel Info: Redefining spanish shorthand <<
 (babel)             in language  on input line 74.
 Package babel Info: Redefining spanish shorthand >>
@@ -2340,7 +2488,7 @@ Package babel Info: Redefining spanish shorthand "!
 (babel)             in language  on input line 74.
 Package babel Info: Redefining spanish shorthand "?
 (babel)             in language  on input line 74.
- <./img/casosdeuso.png, id=585, 794.97pt x 614.295pt>
+ <./img/casosdeuso.png, id=748, 794.97pt x 614.295pt>
 File: ./img/casosdeuso.png Graphic file (type png)
 
 <use ./img/casosdeuso.png>
@@ -2377,7 +2525,7 @@ Package babel Info: Redefining spanish shorthand "!
 Package babel Info: Redefining spanish shorthand "?
 (babel)             in language  on input line 383.
 
-[15 <./img/casosdeuso.png>]
+[27 <./img/casosdeuso.png>]
 \openout2 = `./tex/C_Diseno.aux'.
 
  (tex/C_Diseno.tex
@@ -2466,7 +2614,7 @@ Package babel Info: Redefining spanish shorthand "!
 (babel)             in language  on input line 384.
 Package babel Info: Redefining spanish shorthand "?
 (babel)             in language  on input line 384.
- [16
+ [28
 
 
 
@@ -2501,7 +2649,7 @@ Package babel Info: Redefining spanish shorthand "!
 Package babel Info: Redefining spanish shorthand "?
 (babel)             in language  on input line 384.
 
-[17]
+[29]
 \openout2 = `./tex/D_Manual_programador.aux'.
 
  (tex/D_Manual_programador.tex
@@ -2602,7 +2750,7 @@ Package babel Info: Redefining spanish shorthand "!
 (babel)             in language  on input line 385.
 Package babel Info: Redefining spanish shorthand "?
 (babel)             in language  on input line 385.
- [18
+ [30
 
 
 
@@ -2695,7 +2843,7 @@ Package babel Info: Redefining spanish shorthand "!
 (babel)             in language  on input line 386.
 Package babel Info: Redefining spanish shorthand "?
 (babel)             in language  on input line 386.
- [19
+ [31
 
 
 
@@ -2739,10 +2887,10 @@ LaTeX Warning: Label(s) may have changed. Rerun to get cross-references right.
 Package atveryend Info: Empty hook `AtVeryVeryEnd' on input line 392.
  ) 
 Here is how much of TeX's memory you used:
- 11140 strings out of 493333
- 153633 string characters out of 3139165
- 300635 words of memory out of 3000000
- 14360 multiletter control sequences out of 15000+200000
+ 11285 strings out of 493333
+ 157017 string characters out of 3139165
+ 300919 words of memory out of 3000000
+ 14504 multiletter control sequences out of 15000+200000
  12818 words of font info for 45 fonts, out of 3000000 for 9000
  1141 hyphenation exceptions out of 8191
  43i,12n,35p,806b,698s stack positions out of 5000i,500n,10000p,200000b,50000s
@@ -2758,9 +2906,9 @@ m/cmsl10.pfb><C:/Program Files/MiKTeX 2.9/fonts/type1/public/amsfonts/cm/cmssbx
 <C:/Program Files/MiKTeX 2.9/fonts/type1/public/amsfonts/cm/cmsy10.pfb><C:/Prog
 ram Files/MiKTeX 2.9/fonts/type1/public/amsfonts/cm/cmti12.pfb><C:/Program File
 s/MiKTeX 2.9/fonts/type1/public/amsfonts/cm/cmtt10.pfb>
-Output written on anexos.pdf (24 pages, 732811 bytes).
+Output written on anexos.pdf (37 pages, 1742430 bytes).
 PDF statistics:
- 673 PDF objects out of 1000 (max. 8388607)
- 95 named destinations out of 1000 (max. 500000)
- 240 words of extra memory for PDF output out of 10000 (max. 10000000)
+ 840 PDF objects out of 1000 (max. 8388607)
+ 108 named destinations out of 1000 (max. 500000)
+ 420 words of extra memory for PDF output out of 10000 (max. 10000000)
 

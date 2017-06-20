@@ -69,6 +69,19 @@ De forma indirecta, lo previamente mencionado se puede usar para predecir cuál 
 
 En el apartado ``Conceptos Avanzados de Bag of Words'' dentro de ``Aspectos Relevantes'' se explicarán con más detenimiento algunos aspectos más profundos de esta técnica.
 
+\subsection{Clasificador Naive Bayes}
+
+Este clasificador es muy popular en la clasificación de textos. Basa su funcionamiento en el Teorema de Bayes, que consiste en calcular la probabilidad de un evento dando relevancia al conocimiento previo de los factores relacionados consigo mismo \cite{bayestheorem}.
+
+Llevando esto a la minería de datos, las probabilidades de que un elemento pertenezca a una clase van a ser potenciadas por el conocimiento previo del valor de cada uno de sus atributos. Además, se le añade la etiqueta de ``naive'' porque se considera que no hay ninguna relación de dependencia entre los diferentes atributos que componen ese elemento, aunque fuera del contexto de la clasificación estos atributos sí que estén fuertemente relacionados \cite{bayesclassifier}.
+
+\subsection{Árbol de decisión}
+
+Un árbol de decisión es una técnica para la toma de decisiones basado en la evaluación de atributos por separado. Cada árbol tiene un número de hojas, correspondiente al número de clases que se pueden devolver como resultado en función de la decisión que se haya tomado en la ``raíz'' del mismo \cite{decisiontree}.
+
+\imagen{decisiontree1}{Ejemplo básico de funcionamiento de árbol de decisión}
+
+Cuanto más complejo sea el árbol y mayor el número de nodos, se podrán evaluar decisiones más complejas y tener varios atributos en cuenta. Es una técnica usada con mucha frecuencia en el aprendizaje automático, ya que la combinación de muchos árboles de decisión forman lo que se conocen como ``bosques'', de los que hablaremos a continuación.
 
 \subsection{Bagging}
 
@@ -92,14 +105,6 @@ De forma breve, podríamos explicar el proceso que realiza el Bagging en los sig
 
 \imagen{Bagging}{Esquema de funcionamiento básico de Bagging  \cite{baggingpicture}}
 
-\subsection{Árbol de decisión}
-
-Un árbol de decisión es una técnica para la toma de decisiones basado en la evaluación de atributos por separado. Cada árbol tiene un número de hojas, correspondiente al número de clases que se pueden devolver como resultado en función de la decisión que se haya tomado en la ``raíz'' del mismo \cite{decisiontree}.
-
-\imagen{decisiontree1}{Ejemplo básico de funcionamiento de árbol de decisión}
-
-Cuanto más complejo sea el árbol y mayor el número de nodos, se podrán evaluar decisiones más complejas y tener varios atributos en cuenta. Es una técnica usada con mucha frecuencia en el aprendizaje automático, ya que la combinación de muchos árboles de decisión forman lo que se conocen como ``bosques'', de los que hablaremos a continuación.
-
 
 \subsection{Clasificador Random Forest}
 
@@ -113,11 +118,6 @@ En la siguiente imagen se muestra un esquema de funcionamiento del bosque aleato
 
 \imagen{RandomForestExample}{Esquema de funcionamiento de bosque aleatorio \cite{randomforestpicture}}
 
-\subsection{Clasificador Naive Bayes}
-
-Este clasificador es muy popular en la clasificación de textos. Basa su funcionamiento en el Teorema de Bayes, que consiste en calcular la probabilidad de un evento dando relevancia al conocimiento previo de los factores relacionados consigo mismo \cite{bayestheorem}.
-
-Llevando esto a la minería de datos, las probabilidades de que un elemento pertenezca a una clase van a ser potenciadas por el conocimiento previo del valor de cada uno de sus atributos. Además, se le añade la etiqueta de ``naive'' porque se considera que no hay ninguna relación de dependencia entre los diferentes atributos que componen ese elemento, aunque fuera del contexto de la clasificación estos atributos sí que estén fuertemente relacionados \cite{bayesclassifier}.
 
 \subsection{Vectorizador de texto}
 
@@ -126,7 +126,7 @@ Son muy útiles para aplicar la técnica del bag of words a cualquier texto sin 
 
 El tamaño de la matriz suele corresponderse con el tamaño del vocabulario obtenido a partir de la extracción de palabras del texto, aunque en la mayoría de herramientas el propio programador puede elegir un límite fijo para el tamaño. 
 
-En términos comerciales, los vectorizadores más usados son los de imágenes, los cuales permiten transformar una imagen en formatos más flexibles para poder manejar las mismas o exportarlas con facilidad. No obstante, en contextos de investigación y análisis de textos, estas herramientas son especialmente prácticas.
+También es muy frecuente encontrar proyectos en los que se han usado vectorizadores para el tratamiento de imágenes, los cuales permiten transformarlas en formatos más flexibles para que puedan ser manejadas y exportadas con facilidad. No obstante, en contextos de investigación y análisis de textos, estas herramientas también son especialmente prácticas.
 
 
 

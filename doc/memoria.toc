@@ -12,10 +12,10 @@
 \contentsline {section}{\numberline {3.1}Miner\IeC {\'\i }a de Datos}{4}{section.3.1}
 \contentsline {subsection}{Machine learning}{4}{section*.7}
 \contentsline {subsection}{Bag of Words}{5}{section*.8}
-\contentsline {subsection}{Bagging}{6}{section*.9}
-\contentsline {subsection}{\IeC {\'A}rbol de decisi\IeC {\'o}n}{7}{section*.10}
-\contentsline {subsection}{Clasificador Random Forest}{8}{section*.11}
-\contentsline {subsection}{Clasificador Naive Bayes}{9}{section*.12}
+\contentsline {subsection}{Clasificador Naive Bayes}{6}{section*.9}
+\contentsline {subsection}{\IeC {\'A}rbol de decisi\IeC {\'o}n}{6}{section*.10}
+\contentsline {subsection}{Bagging}{7}{section*.11}
+\contentsline {subsection}{Clasificador Random Forest}{8}{section*.12}
 \contentsline {subsection}{Vectorizador de texto}{9}{section*.13}
 \contentsline {section}{\numberline {3.2}Web Scraping}{9}{section.3.2}
 \contentsline {chapter}{T\IeC {\'e}cnicas y herramientas}{11}{chapter*.14}

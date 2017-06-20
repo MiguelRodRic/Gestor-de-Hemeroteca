@@ -6,7 +6,7 @@ A continuación se explicarán los conceptos de carácter teórico más relevant
 
 En los siguientes apartados se van a desarrollar todos los conceptos del proyecto relacionados con la minería de datos, esenciales en la parte de predicción del perfil ideológico de las noticias.
 
-Inicialmente, se resumirá de forma breve el concepto de aprendizaje automático para a continuación hablar de la técnica del bag of words y de los 
+Inicialmente, se resumirá de forma breve el concepto de aprendizaje automático para a continuación hablar de la técnica del bag of words y de los clasificadores que se han usado en combinación con ésta.
 
 \subsection{Machine learning}
 
@@ -23,7 +23,7 @@ agrupaciones entre los elementos similares.
 
 \end{itemize}
 
-En términos de programación, el aprendizaje que se ha realizado en este proyecto es supervisado, ya que en el corpus de entrenamiento todas las noticias tienen clase asignada.
+Respecto al proyecto, el aprendizaje que se ha realizado es de tipo supervisado, ya que en el corpus de entrenamiento todas las noticias tienen clase asignada.
 
 No obstante, podría decirse que conceptualmente tiene elementos del aprendizaje semisupervisado, pues pasado cierto tiempo, lo más probable es que parte del corpus del usuario tenga la clase asignada por una predicción realizada previamente, y no por un etiquetado manual, algo que es característico de este tipo de aprendizaje.
 
@@ -46,7 +46,7 @@ Vamos a ilustrar lo explicado con un ejemplo. A continuación, mostramos unas fr
 
 \end{itemize}
 
-Teniendo estas frases, si almacenamos la frecuencia de las palabras distintas para cada una de ellas, y las combinamos, tendríamos una tabla como la siguiente:
+Teniendo estas frases, si almacenamos la frecuencia de las palabras distintas para cada una de ellas, y las combinamos, tendríamos una tabla como la 3.1.
 
 \tablaSmall{Frecuencias de palabras en las frases de ejemplo}{c c}{ejemplofrecuenciaspalabras}
 { \multicolumn{1}{c}{Palabras} & Frecuencia \\}{ 
@@ -63,32 +63,24 @@ General & 1\\
 Debería & 1\\
 } 
 
-El potencial de esta técnica para análisis de texto es muy interesante. Por ejemplo, y por relacionarlo con este proyecto, se podría asociar una etiqueta a cada una de las frases propuestas, como ``A favor de los fumadores" y ``En contra de los fumadores"; para que una vez realizado el bag of words se pueda, entre otras funcionalidades, deducir las probabilidades que tiene cada una de las palabras del vocabulario obtenido de pertenecer a una de las dos clases.
+El potencial de esta técnica para análisis de texto es muy interesante. Por ejemplo, y por relacionarlo con este proyecto, se podría asociar una etiqueta a cada una de las frases propuestas, como ``A favor de los fumadores'' y ``En contra de los fumadores''; para que una vez realizado el bag of words se pueda, entre otras funcionalidades, deducir las probabilidades que tiene cada una de las palabras del vocabulario obtenido de pertenecer a una de las dos clases.
 
 De forma indirecta, lo previamente mencionado se puede usar para predecir cuál sería la ideología de una frase nueva, en función de las palabras de la misma que coinciden con el vocabulario ya almacenado por los clasificadores.
 
-En el apartado ``Conceptos Avanzados de Bag of Words" dentro de ``Aspectos Relevantes" se explicarán con más detenimiento algunos aspectos más profundos de esta técnica.
+En el apartado ``Conceptos Avanzados de Bag of Words'' dentro de ``Aspectos Relevantes'' se explicarán con más detenimiento algunos aspectos más profundos de esta técnica.
 
-\subsection{Vectorizador de texto}
-
-Herramientas que convierten un documento de texto en matrices de tokens, que usualmente son palabras  \cite{countvectorizer}.
-Son muy útiles para aplicar la técnica del bag of words a cualquier texto sin tener que recurrir a un conteo manual.
-
-El tamaño de la matriz suele corresponderse con el tamaño del vocabulario obtenido a partir de la extracción de palabras del texto, aunque en la mayoría de herramientas el propio programador puede elegir un límite fijo para el tamaño. 
-
-En términos comerciales, los vectorizadores más usados son los de imágenes, los cuales permiten transformar una imagen en formatos más flexibles para poder manejar las mismas o exportarlas con facilidad. No obstante, en contextos de investigación y análisis de textos, estas herramientas son especialmente prácticas.
 
 \subsection{Bagging}
 
-También conocido como Bootstrap Agreggation \cite{breiman1996bagging}, es una técnica de minería de datos cuyo objetivo es el de reducir todo lo posible la varianza en la clasificación de datos. Consiste en obtener una predicción por votación a partir del promedio de los resultados obtenidos aplicando un gran número de clasificadores a distintas partes de los datos de entrenamiento.
+También conocido como Bootstrap Agreggation \cite{breiman1996bagging}, es una técnica de aprendizaje supervisado, y más concretamente de clasificación, basada en la combinación de clasificadores. Su objetivo es el de reducir todo lo posible la varianza en la clasificación de datos. Consiste en obtener una predicción por votación a partir del promedio de los resultados obtenidos aplicando un gran número de clasificadores a distintas partes de los datos de entrenamiento.
 
 De forma breve, podríamos explicar el proceso que realiza el Bagging en los siguientes pasos:
 
 \begin{enumerate}
 
-\item  A partir del conjunto de entrenamiento, se obtienen m subconjuntos distintos, llamados "bags", que contienen combinaciones aleatorias de instancias del conjunto de entrenamiento.
+\item  A partir del conjunto de entrenamiento, se obtienen $m$ subconjuntos distintos, llamados ``bags'', que contienen combinaciones aleatorias de instancias del conjunto de entrenamiento.
 
-\item Para cada ``bag", se entrena un modelo con un clasificador distinto.
+\item Para cada ``bag'', se entrena un modelo con un clasificador distinto.
 
 \item Todos los modelos resultantes se usan posteriormente para predecir el conjunto de prueba.
 
@@ -100,9 +92,18 @@ De forma breve, podríamos explicar el proceso que realiza el Bagging en los sig
 
 \imagen{Bagging}{Esquema de funcionamiento básico de Bagging  \cite{baggingpicture}}
 
+\subsection{Árbol de decisión}
+
+Un árbol de decisión es una técnica para la toma de decisiones basado en la evaluación de atributos por separado. Cada árbol tiene un número de hojas, correspondiente al número de clases que se pueden devolver como resultado en función de la decisión que se haya tomado en la ``raíz'' del mismo \cite{decisiontree}.
+
+\imagen{decisiontree1}{Ejemplo básico de funcionamiento de árbol de decisión}
+
+Cuanto más complejo sea el árbol y mayor el número de nodos, se podrán evaluar decisiones más complejas y tener varios atributos en cuenta. Es una técnica usada con mucha frecuencia en el aprendizaje automático, ya que la combinación de muchos árboles de decisión forman lo que se conocen como ``bosques'', de los que hablaremos a continuación.
+
+
 \subsection{Clasificador Random Forest}
 
-El clasificador Random Forest es una técnica derivada del bagging aplicada a árboles de predicción \cite{randomforestclassifier}. Como su nombre sugiere, se basa en el uso de la combinación de varios árboles de clasificación. 
+El clasificador Random Forest es una técnica derivada del bagging aplicada a árboles de decisión \cite{randomforestclassifier}. Como su nombre sugiere, se basa en el uso de la combinación de varios árboles de clasificación. 
 
 Cada uno de estos árboles se encarga de entrenar una instancia de los datos de entrenamiento, y la solución devuelta será la clase obtenida por votación de todos los árboles. 
 
@@ -111,6 +112,21 @@ El principal objetivo de realizar este proceso es el de, mediante los subconjunt
 En la siguiente imagen se muestra un esquema de funcionamiento del bosque aleatorio, en la que se puede observar las similaridades con el proceso de Bagging explicado anteriormente.
 
 \imagen{RandomForestExample}{Esquema de funcionamiento de bosque aleatorio \cite{randomforestpicture}}
+
+\subsection{Clasificador Naive Bayes}
+
+Este clasificador es muy popular en la clasificación de textos. Basa su funcionamiento en el Teorema de Bayes, que consiste en calcular la probabilidad de un evento dando relevancia al conocimiento previo de los factores relacionados consigo mismo \cite{bayestheorem}.
+
+Llevando esto a la minería de datos, las probabilidades de que un elemento pertenezca a una clase van a ser potenciadas por el conocimiento previo del valor de cada uno de sus atributos. Además, se le añade la etiqueta de ``naive'' porque se considera que no hay ninguna relación de dependencia entre los diferentes atributos que componen ese elemento, aunque fuera del contexto de la clasificación estos atributos sí que estén fuertemente relacionados \cite{bayesclassifier}.
+
+\subsection{Vectorizador de texto}
+
+Herramientas que convierten un documento de texto en matrices de tokens, que usualmente son palabras  \cite{countvectorizer}.
+Son muy útiles para aplicar la técnica del bag of words a cualquier texto sin tener que recurrir a un conteo manual.
+
+El tamaño de la matriz suele corresponderse con el tamaño del vocabulario obtenido a partir de la extracción de palabras del texto, aunque en la mayoría de herramientas el propio programador puede elegir un límite fijo para el tamaño. 
+
+En términos comerciales, los vectorizadores más usados son los de imágenes, los cuales permiten transformar una imagen en formatos más flexibles para poder manejar las mismas o exportarlas con facilidad. No obstante, en contextos de investigación y análisis de textos, estas herramientas son especialmente prácticas.
 
 
 

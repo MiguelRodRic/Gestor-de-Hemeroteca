@@ -8,9 +8,9 @@ Además de lo mencionado en los conceptos teóricos, hay diferentes matices dent
 
 \subsection{Stopwords}
 
-Se conoce como ``stopwords" al conjunto de palabras prefijadas por el programador (o por el usuario, si se le da la opción) que no queremos que se tengan en cuenta a la hora de formar un vocabulario con el texto de entrada. 
+Se conoce como ``stopwords'' (o palabras vacías) al conjunto de palabras prefijadas por el programador (o por el usuario, si se le da la opción) que no queremos que se tengan en cuenta a la hora de formar un vocabulario con el texto de entrada. 
 
-Cuando se está dando forma al modelo, se le pasa este conjunto a la herramienta que va a transformar el texto en un vocabulario con frecuencia de palabras, de modo que ésta filtra las palabras mencionadas para eliminar el ``ruido" y de forma consecuente, aumentar la relevancia del resto de palabras que almacene.
+Cuando se está dando forma al modelo, se le pasa este conjunto a la herramienta que va a transformar el texto en un vocabulario con frecuencia de palabras, de modo que ésta filtra las palabras mencionadas para eliminar el ``ruido'' y de forma consecuente, aumentar la relevancia del resto de palabras que almacene.
 
 Habitualmente, lo que se busca evitar son las palabras que tienen menos significado propio dentro de una frase. Dicho de otra manera, las primeras palabras que deben ser filtradas son artículos, determinantes, preposiciones... que son las menos interesantes en una frase.
 
@@ -34,9 +34,6 @@ En este proyecto, se hizo uso de un stopwords de palabras en español que viene 
 \end{displayquote}
 
 
-
-
-
 Ya que estas palabras son muy frecuentes en la mayoría de frases en español, no sólo restaban importancia a las verdaderamente relevantes, si no que incluso podrían ser consideradas de las más relevantes simplemente por su frecuencia de aparición, lo cuál restaría mucha calidad a la predicción posterior. 
 
 Cabe destacar que ésto no soluciona todo el problema, ya que en los textos de las noticias podrían aparecer alguna de estas palabras con mayúsculas, sin tildes, u otras palabras no relevantes que evitarían el filtro. No obstante, con este filtro ya se puede asegurar una cierta calidad en las predicciones de forma general.
@@ -55,11 +52,11 @@ Para poder medir esta frecuencia, no es suficiente con tener los vocabularios de
 
 Se recomienda añadir una aparición por defecto, para evitar divisiones entre 0.
 
-\item Ratio de pertenencia de una palabra a una clase:
+\item Ratio de pertenencia de una palabra a una clase, en el caso de que el problema sólo tenga 2 clases:
 
 \[ RatioClase1[palabra] = FrecuenciaClase1[palabra] / FrecuenciaClase2[palabra] \]
 
-Si, siguiendo el ejemplo que mencionamos en los conceptos teóricos, tenemos que la palabra ``salud" tiene un mayor ratio en la clase ``En contra de los fumadores" que en ``A favor de los fumadores", se puede anticipar que la próxima vez que se reciba una frase o texto con la palabra ``salud", tendrá mayores posibilidades de pertenecer a la clase ``En contra de los fumadores".
+Si, siguiendo el ejemplo que mencionamos en los conceptos teóricos, tenemos que la palabra ``salud'' tiene un mayor ratio en la clase ``En contra de los fumadores" que en ``A favor de los fumadores", se puede anticipar que la próxima vez que se reciba una frase o texto con la palabra ``salud'', tendrá mayores posibilidades de pertenecer a la clase ``En contra de los fumadores''.
 
 \end{itemize}
 
@@ -108,13 +105,13 @@ Cabe destacar que este web scrapping estaba más perfeccionado que el que hay en
 
 \section{Intento de publicación de Jupyter Dashboard}
 
-Uno de los objetivos iniciales que se comentaron al comenzar el proyecto consistía en, aparte de conseguir implementar la funcionalidad y la interfaz de usuario en un notebook de Jupyter, poder publicar estos archivos en un formato de aplicación web usando unas librerías llamadas Jupyter Dashboards. La finalidad de estas librerías es la de, teniendo un notebook con la funcionalidad completa, quitar de la pantalla todos los cuadros de código, dejando solo el ``output" y los elementos interactivos a la vista; ideal para una situación como la que se nos presentaba, en la que la aplicación la iban a usar otros usuarios.
+Uno de los objetivos iniciales que se comentaron al comenzar el proyecto consistía en, aparte de conseguir implementar la funcionalidad y la interfaz de usuario en un notebook de Jupyter, poder publicar estos archivos en un formato de aplicación web usando unas librerías llamadas Jupyter Dashboards. La finalidad de estas librerías es la de, teniendo un notebook con la funcionalidad completa, quitar de la pantalla todos los cuadros de código, dejando solo el ``output'' y los elementos interactivos a la vista; ideal para una situación como la que se nos presentaba, en la que la aplicación la iban a usar otros usuarios.
 
 No obstante, los requisitos para poder realizar esta publicación fueron complicándose hasta el punto de tener que descartar esta posibilidad. En lo referente al formato de la salida por pantalla, si que se consiguió configurar el notebook para que tuviera este aspecto de dashboard, pero todos los problemas estaban relacionados con la publicación del mismo. Por un lado, era necesario configurar una máquina virtual Docker que ejecutara los comandos necesarios para instalar y configurar todos los elementos que requería este tipo de aplicación. 
 
 Para realizar este proceso, y debido a lo prematuro de estas herramientas (Muchos de los problemas que sufrimos aparecen como issues sin resolver en los respectivos repositorios de GitHub), la opción más viable era seguir el único repositorio de GitHub con guías de despliegue de dashboards (\url{ https://github.com/jupyter-incubator/dashboards_setup}) que los propios autores habían facilitado. De estas guías, tres necesitaban de docker para funcionar y la cuarta recurría a CloudFoundry. Mientras que CloudFoundry se descartó porque requería de versiones de pago o versiones de prueba de alguna de las plataformas certificadas que usaban esta tecnología, en el caso de Docker las complicaciones eran de otra naturaleza.
 
-Debido a las condiciones del equipo en el que se realizó el proyecto (Sistema Operativo Windows con Hyper-V), no se podían configurar máquinas docker desde la máquina virtual, porque las máquinas virtuales con Linux que estábamos usando(en este caso, de Oracle VirtualBox) no funcionan con Hyper-V, y las máquinas virtuales de docker necesitaban crearse con Hyper-V activado. Ante la obligación de configurar todo desde el Sistema Operativo anfitrión, un conjunto de incompatibilidades y errores sin aparente solución entre Windows y estas máquinas virtuales, hizo que los recursos necesarios para solventar esta situación fueran demasiado grandes para las limitaciones de tiempo del proyecto.
+Debido a las condiciones del equipo en el que se realizó el proyecto (Sistema Operativo Windows con Hyper-V), no se podían configurar máquinas docker desde la máquina virtual, porque las máquinas virtuales con Linux que estábamos usando (en este caso, de Oracle VirtualBox) no funcionan con Hyper-V, y las máquinas virtuales de docker necesitaban crearse con Hyper-V activado. Ante la obligación de configurar todo desde el Sistema Operativo anfitrión, un conjunto de incompatibilidades y errores sin aparente solución entre Windows y estas máquinas virtuales, hizo que los recursos necesarios para solventar esta situación fueran demasiado grandes para las limitaciones de tiempo del proyecto.
 
 
 \section{Omisión de comentarios en el Scrapping}

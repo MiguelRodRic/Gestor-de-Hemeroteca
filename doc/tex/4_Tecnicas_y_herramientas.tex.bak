@@ -8,9 +8,9 @@ Este capítulo está dedicado a la mención de una serie de herramientas y técn
 
 El desarrollo de este proyecto ha sido llevado a cabo en un contexto de metodología ágil, que se basa en seguir los principios del manifiesto ágil \cite{fowler2001agile}, como dar prioridad a la comunicación con el cliente y entre los miembros del equipo, permitir que los requisitos sean flexibles a lo largo del desarrollo, hacer progresos de forma constante en periodos que comprendan una o pocas semanas... etc.
 
-En el apartado "Planificación del proyecto" de los anexos, se profundizará más sobre este concepto, explicando en detalle cómo se organizaba el desarrollo y el progreso realizado a lo largo de las semanas.
+En el apartado ``Planificación del proyecto'' de los anexos, se profundizará más sobre este concepto, explicando en detalle cómo se organizaba el desarrollo y el progreso realizado a lo largo de las semanas.
 
-\section{Herramientas Candidatas (Aplicación Web)}
+\section{Herramientas Candidatas (Framework de Desarrollo)}
 Este apartado detallará las herramientas que inicialmente fueron consideradas para la programación de la aplicación web de forma compatible con el uso de Python.
 
 
@@ -18,7 +18,7 @@ Los principales criterios a tener en cuenta para quedarnos con una de las altern
 
 \subsection{PyQt}
 
-PyQt es una herramienta \cite{wiki:pyqt} que permite crear aplicaciones de escritorio de forma sencilla, pudiendo crear elementos de interfaz sencillos como botones, cuadros de texto... etc(más aún si se usa su editor de GUI propio).
+PyQt es una herramienta \cite{wiki:pyqt} que permite crear aplicaciones de escritorio de forma sencilla, pudiendo crear elementos de interfaz sencillos como botones, cuadros de texto... etc (más aún si se usa su editor de GUI propio).
 
 No obstante, las opciones gráficas no eran tan atractivas como podía parecer en un primer momento, y además no es adecuada si la intención es crear una aplicación web.
 
@@ -28,14 +28,6 @@ Kivy \cite{kivy:homepage} es una alternativa interesante ya que permite hacer ap
 
 No obstante, no se tuvo especialmente en cuenta ya que para cuando se estaba investigando esta opción, la opción de hacer una aplicación web en vez de una de escritorio estaba prácticamente decidida.
 
-\subsection{Flask}
-
-Flask es una herramienta \cite{Grinberg:2014:FWD:2621997} que permite combinar código HTML y Python de forma simple. La caraterística que más nos interesaba es su facilidad de combinar ficheros HTML y códigos escritos puramente en Python, además de poder incluir de forma sencilla librerías con estilos para la interfaz.
-
-A pesar de que inicialmente Jupyter parecía una alternativa más cómoda, los objetivos respecto del producto final que se quería conseguir provocaron que la aplicación fuera desarrollada en Flask, ya que permitía crear una aplicación web convencional basada en templates de forma mucho más fácil.
-
-En el aprendizaje de esta herramienta, cabe destacar lo útil que resultó el Mega-Tutorial de Miguel Grinberg \cite{flaskmegatutorial} a la hora de familiarizarse con los conceptos básicos.
-
 
 \subsection{Jupyter}
 
@@ -44,6 +36,14 @@ La herramienta Jupyter \cite{PER-GRA:2007} permite con ayuda de alguna librería
 Además, la curva de aprendizaje ha sido bastante sencilla y conseguir un código inicial que muestre documentos PDF ha llevado poco tiempo. La posibilidad de crear y ejecutar funcionalidades diferentes y mostrarlas en una interfaz de forma muy rápida hacía muy atractiva esta herramienta.
 
 De hecho, fue elegida inicialmente para implementar la aplicación web. No obstante, debido a los problemas sufridos de configuración de los notebook como una aplicación web y su posible subida a servidor, esta plataforma tuvo que ser descartada para el producto final, a pesar de que parte importante de la funcionalidad fuera inicialmente desarrollada usando esta herramienta. En el repositorio del proyecto en GitHub se encuentran todos los experimentos de funcionalidad probados en notebooks.
+
+\subsection{Flask}
+
+Flask es una herramienta \cite{Grinberg:2014:FWD:2621997} que permite combinar código HTML y Python de forma simple. La caraterística que más nos interesaba es su facilidad de combinar ficheros HTML y códigos escritos puramente en Python, además de poder incluir de forma sencilla librerías con estilos para la interfaz.
+
+A pesar de que inicialmente Jupyter parecía una alternativa más cómoda, los objetivos respecto del producto final que se quería conseguir provocaron que la aplicación fuera desarrollada en Flask, ya que permitía crear una aplicación web convencional basada en templates de forma mucho más fácil.
+
+En el aprendizaje de esta herramienta, cabe destacar lo útil que resultó el Mega-Tutorial de Miguel Grinberg \cite{flaskmegatutorial} a la hora de familiarizarse con los conceptos básicos.
 
 
 \bigskip
@@ -57,6 +57,12 @@ PyLucene \cite{pylucene:homepage} es una extensión para Python de Apache Lucene
 
 Debido a la adecuación de una base de datos NoSQL como MongoDB para nuestro proyecto, PyLucene no se adecuaba con exactitud a la funcionalidad para la que queríamos una base de datos para almacenar la información de las noticias.
 
+\subsection{SQLAlchemy}
+
+SQLAlchemy \cite{copeland2008essential} es una base de datos relacional usada frecuentamente en Python. En nuestro caso, nos encontramos con ella al realizar el Mega-Tutorial de Flask, y por su sencilla implementación y uso, se decidió investigar como candidata para la aplicación final.
+
+No obstante, es una base de datos SQL, y debido a la flexibilidad que se quería conseguir en el almacenamiento de las noticias, no se adaptaba a nuestras necesidades tanto como las alternativas NoSQL.
+
 \subsection{PyMongo}
 
 Es la extensión de MongoDB \cite{Chodorow:2010:MDG:1941134} para Python. Su principal característica es que es una base de datos no relacional, o en otras palabras, no SQL. De modo que funciona con un modelo distinto al que es más habitual ver en una base de datos convencional. 
@@ -67,13 +73,9 @@ No obstante, aunque no se puedan usar relaciones (no de forma convencional, se p
 
 Por la flexibilidad mencionada, y por su fácil uso en Python a través de las librerías, ésta fue la alternativa elegida para almacenar los datos.
 
-\subsection{SQLAlchemy}
+\section{Librerías de Web Scraping}
 
-SQLAlchemy \cite{copeland2008essential} es una base de datos relacional usada frecuentamente en Python. En nuestro caso, nos encontramos con ella al realizar el Mega-Tutorial de Flask, y por su sencilla implementación y uso, se decidió investigar como candidata para la aplicación final.
-
-No obstante, es una base de datos SQL, y debido a la flexibilidad que se quería conseguir en el almacenamiento de las noticias, no se adaptaba a nuestras necesidades tanto como las alternativas NoSQL.
-
-\section{BeautifulSoup}
+\subsection{BeautifulSoup}
 
 BeautifulSoup \cite{richardson2007beautiful} \cite{beautifulsoup} es una librería de Python cuyo principal objetivo es facilitar la lectura y manipulación de documentos tipo XML. Uno de sus usos más frecuentes, y para el que ha sido utilizada en este proyecto, es para poder navegar por el texto de un documento HTML y leer su texto de forma muy sencilla cuando se están realizando labores de Web Scrapping. 
 
@@ -81,28 +83,37 @@ Cuando recibe un documento XML o HTML, parsea la estructura de árbol de los mis
 
 En este proyecto, BeautifulSoup se usó en combinación con Urllib2, una librería que permite hacer peticiones que abren URLs, de modo que con la segunda obteníamos todo el código HTML de la página web a la que queríamos acceder, y con la primera parseamos el documento filtrando todo el texto de los artículos.
 
-
-\section{Sci-Kit Learn}
-
-Sci-kit Learn \cite{pedregosa2011scikit} \cite{scikitlearn} es una librería de Python enfocada en el machine learning y la minería de datos. Ofrece múltiples funcionalidades que se pueden aplicar en diferentes etapas de la propia minería como preprocesado, clustering, reducción de dimensionalidad, selección de modelo, regresión y clasificación.
-
-En nuestro proyecto, sólo se usaron herramientas de preprocesado, para transformar el texto de las noticias que se recibe en algo utilizable por la librería, y de clasificación, para poder realizar la predicción de etiquetas.
-
-
-\section{feedparser}
+\subsection{feedparser}
 
 Librería para Python cuya funcionalidad es similar a la de un Web Scraper. A diferencia de BeautifulSoup, feedparser \cite{feedparser} está diseñada para parsear los RSS de las webs, y no el template HTML convencional. 
 
 Su forma de uso si que es similar a la de BeautifulSoup, pero en lugar de llamar a los elementos por medio de métodos, cuando leemos el código HTML del RSS se almacena en una variable con formato de diccionario, siendo las distintas partes de las entradas claves en este diccionario.
 
+\section{Librerías de parseo de PDF}
 
-\section{TextBlob}
+\subsection{PDFMiner}
+
+Librería, también para Python, utilizada para la manipulación, a través de código, de archivos PDF \cite{shinyama2015pdfminer} \cite{pdfminer}. Además de para la lectura del texto que contenga, que sería el uso más convencional, también se pueden obtener otros datos como el nombre del usuario que creó el archivo y la fecha en la que fue creada, además de otros metadatos.
+No sólo eso, si no que además incluye un convertidor de formato, que da la posibilidad de transformar los ficheros PDF en otros formatos como HTML \cite{pdfminer}.
+
+En lo respectivo a nuestro proyecto, sólo nos interesaba la funcionalidad de lectura de texto del archivo, puesto que como lo que se almacena en base de datos es información relacionada con la noticia, los metadatos como creador del PDF o fecha de creación seguramente no coincidan con el autor de la noticia o la fecha de publicación de la misma.
+
+\section{Librerías para la minería de datos}
+
+\subsection{Scikit-Learn}
+
+SciKit-Learn \cite{pedregosa2011scikit} \cite{scikitlearn} es una librería de Python enfocada en el machine learning y la minería de datos. Ofrece múltiples funcionalidades que se pueden aplicar en diferentes etapas de la propia minería como preprocesado, clustering, reducción de dimensionalidad, selección de modelo, regresión y clasificación.
+
+En nuestro proyecto, sólo se usaron herramientas de preprocesado, para transformar el texto de las noticias que se recibe en algo utilizable por la librería, y de clasificación, para poder realizar la predicción de etiquetas.
+
+
+\subsection{TextBlob}
 
 TextBlob \cite{loria2014textblob} es una librería Python usada para el procesamiento de datos de texto. Se centra en el procesamiento de lenguaje natural (NLP). Sus principales funciones consisten en reconocimiento de lenguaje y traducción de unos idiomas a otros, extracción de palabras y frases, análisis de emociones en una frase, clasificación de textos... etc.
 
 En el proyecto se utilizó para organizar el texto extraído previamente con BeautifulSoup en frases, que se dividían en las dos posibles clases disponibles para realizar posteriormente un entrenamiento de un conjunto y clasificación de las mismas. Inicialmente usamos el clasificador NaiveBayes que incluía TextBlob para las primeras pruebas de clasificación, pero a medida que avanzó el proyecto se decidió pasar al uso de Sci-Kit Learn, por la mayor gama de opciones para manipular los datos obtenidos, y para un uso en combinación con Lime.
 
-\section{Lime}
+\subsection{Lime}
 
 Lime \cite{lime} es una librería para Python pensada para usarse en combinación con otras librerías de minería de datos como por ejemplo sci-kit learn. Su propósito es el de realizar explicaciones de predicciones realizadas por clasificadores externos donde sólo se sabe el resultado, pero no cómo se ha llegado a él. 
 
@@ -112,13 +123,8 @@ Está última opción es muy interesante en desarrollo web, donde se puede inyec
 
 Lime se puede usar tanto en clasificación de imágenes como en clasificación de textos, pero en el caso de nuestro proyecto únicamente nos interesaban las explicaciones para predicciones de texto. En el caso de las imágenes, también hay un formato de resultado devuelto donde se indica qué fragmentos de la imagen se han tenido en cuenta para elegir una clase u otra.
 
-\section{PDFMiner}
+\section{Herramientas para la documentación}
 
-Librería, también para Python, utilizada para la manipulación, a través de código, de archivos PDF \cite{shinyama2015pdfminer} \cite{pdfminer}. Además de para la lectura del texto que contenga, que sería el uso más convencional, también se pueden obtener otros datos como el nombre del usuario que creó el archivo y la fecha en la que fue creada, además de otros metadatos.
-No sólo eso, si no que además incluye un convertidor de formato, que da la posibilidad de transformar los ficheros PDF en otros formatos como HTML (Cita al repositorio).
-
-En lo respectivo a nuestro proyecto, sólo nos interesaba la funcionalidad de lectura de texto del archivo, puesto que como lo que se almacena en base de datos es información relacionada con la noticia, los metadatos como creador del PDF o fecha de creación seguramente no coincidan con el autor de la noticia o la fecha de publicación de la misma.
-
-\section{Latex}
+\subsection{Latex}
 
 Por último, es necesario mencionar la herramienta en la que está escrita esta memoria. Latex \cite{lamport1994latex} es un editor de texto caracterizado por realizar la escritura los documentos en texto plano y aplicar los formatos en una compilación posterior. Es frecuentemente usado en documentación de índole científica \cite{wiki:latex}(Artículos, libros, etc...).

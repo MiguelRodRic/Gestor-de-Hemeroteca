@@ -2,7 +2,23 @@
 
 \section{Introducción}
 
+En este apartado se analizará el diseño de la aplicación desde las diferentes perspectivas que componen el sistema. Se hablará del diseño de los datos, del flujo de ejecución de la aplicación y del diseño de la estructura de la misma.
+
 \section{Diseño de datos}
+
+Como ya se ha mencionado en la memoria, la base de datos que se usa en la aplicación es NoSQL, lo cual quiere decir que no tendrá un sistema relacional de tablas como es costumbre. 
+
+También hay que destacar que, como la herramienta no está pensada para el uso abierto a cualquier usuario, si no a uno en concreto, no se consideró necesario hacer un sistema de registro de usuarios, con lo cual las colecciones/tablas habituales con la información de los usuarios aquí son inexistentes.
+
+Sin embargo, si que existen dos colecciones (Se entiende por colección el equivalente a una tabla en SQL) en torno a las cuáles se estructura el almacenamiento de la información. A continuación describimos qué contienen cada una de ellas:
+
+\begin{itemize}
+
+\item \textbf{Noticias:} Es la colección que almacena los datos importantes de cada una de las noticias guardadas en la hemeroteca.
+
+\item \textbf{Datasets:} Es la colección que almacena los diferentes temas de debate sobre los que luego se podrá etiquetar y realizar predicciones con las noticias. 
+
+\end{itemize}
 
 \section{Diseño procedimental}
 

@@ -6,7 +6,7 @@ Tras ver toda la funcionalidad recogida en la aplicación final, se puede conclu
 
 Recopilando todo lo anterior, se ha logrado desarrollar una herramienta en la que un usuario puede gestionar una hemeroteca de noticias que permite la lectura de las mismas en diferentes formatos y su posterior etiquetado.
 
-Además se han añadido varios aspectos de machine learning que permiten hacer predicciones de etiquetado de las noticias alternativas al etiquetado manual.
+Además, se han añadido varios aspectos de \emph{machine learning} que permiten hacer predicciones de etiquetado de las noticias alternativas al etiquetado manual.
 
 Finalmente, se han aplicado múltiples conceptos aprendidos a lo largo de la carrera, tanto de programación y diseño como de planificación del trabajo realizado.
 
@@ -14,9 +14,9 @@ No obstante, hay varios puntos en los que hay posibilidad de mejora, o de añadi
 
 \section{Líneas de trabajo futuras}
 
-Una de los aspectos donde hay más margen de mejora es en el método de predicción de noticias. Aunque el enfoque elegido en la aplicación final ha sido el del bag of words, inicialmente se contempló usar frases o párrafos enteros en lugar de palabras como base para el machine learning. Ese es el motivo de la experimentación con TextBlob y que en algún notebook usara este enfoque. 
+Uno de los aspectos donde hay más margen de mejora es en el método de predicción de noticias. Aunque el enfoque elegido en la aplicación final ha sido el del \emph{bag of words}, inicialmente se contempló usar frases o párrafos enteros en lugar de palabras como base para el machine learning. Ese es el motivo de la experimentación con TextBlob y que en algún notebook usara este enfoque. 
 
-Por problemas relacionados con los corpus de noticias y una peor compatibilidad con Lime, se decidió finalmente descartar este enfoque y usar bag of words con Scikit-learn. Aún así, las herramientas y librerías de análisis de sentimientos de párrafos son una aproximación muy interesante y que, usada correctamente, podrían mejorar la calidad de las predicciones.
+Por problemas relacionados con los corpus de noticias y una peor compatibilidad con Lime, se decidió finalmente descartar este enfoque y usar \emph{bag of words} con Scikit-learn. Aun así, las herramientas y librerías de análisis de sentimientos de párrafos son una aproximación muy interesante y que, usada correctamente, podrían mejorar la calidad de las predicciones.
 
 Otro apartado que queda pendiente es el de la publicación de la aplicación en un servidor web. Como ya se ha comentado previamente, se hicieron varias pruebas cuando se usaba Jupyter como herramienta de desarrollo, pero no se logró una correcta publicación. Por otra parte, con la aplicación programada en Flask no hubo tiempo para investigar como realizar esta tarea de forma correcta; pero se presupone que, por el formato de la aplicación, la futura subida en un servidor no será especialmente complicada de llevar a cabo.
 

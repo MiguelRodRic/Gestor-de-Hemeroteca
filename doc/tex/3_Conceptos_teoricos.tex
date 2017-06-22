@@ -10,7 +10,7 @@ Inicialmente, se resumirá de forma breve el concepto de aprendizaje automático
 
 \subsection{Machine learning}
 
-El aprendizaje automático, o machine learning \cite{andrieu2003introduction}, es una técnica del campo de la Inteligencia Artificial que permite a un computador simular un proceso de aprendizaje \cite{wiki:machinelearning}. Las predicciones que se realizan en esta aplicación se basan en el machine learning. En términos generales, se pueden distinguir tres tipos de aprendizaje distinto en función de la supervisión del programador:
+El aprendizaje automático, o \emph{machine learning} \cite{andrieu2003introduction}, es una técnica del campo de la Inteligencia Artificial que permite a un computador simular un proceso de aprendizaje \cite{wiki:machinelearning}. Las predicciones que se realizan en esta aplicación se basan en el \emph{machine learning}. En términos generales, se pueden distinguir tres tipos de aprendizaje distinto en función de la supervisión del programador:
 
 \begin{itemize}
 
@@ -29,7 +29,7 @@ No obstante, podría decirse que conceptualmente tiene elementos del aprendizaje
 
 \subsection{Bag of Words}
 
-Bag of Words \cite{bagofwords} \cite{wiki:bagofwords} es una técnica de agrupación de palabras relacionada con el Procesamiento de Lenguaje Natural. Consiste en, a partir de un texto de muestra, almacenar la frecuencia de aparición de cada palabra distinta que esté contenida en el texto, independientemente del orden de aparición, y sin tener en cuenta el contexto en el que aparezca. 
+\emph{Bag of Words} \cite{bagofwords} \cite{wiki:bagofwords} es una técnica de agrupación de palabras relacionada con el Procesamiento de Lenguaje Natural. Consiste en, a partir de un texto de muestra, almacenar la frecuencia de aparición de cada palabra distinta que esté contenida en el texto, independientemente del orden de aparición, y sin tener en cuenta el contexto en el que aparezca. 
 
 En términos de estructuras de datos, un bag of words se suele almacenar con un formato de diccionario, donde la clave está formada por cada palabra distinta, y el valor
 es la frecuencia de aparición de esa palabra.
@@ -46,7 +46,7 @@ Vamos a ilustrar lo explicado con un ejemplo. A continuación, mostramos unas fr
 
 \end{itemize}
 
-Teniendo estas frases, si almacenamos la frecuencia de las palabras distintas para cada una de ellas, y las combinamos, tendríamos una tabla como la 3.1.
+Teniendo estas frases, si almacenamos la frecuencia de las palabras distintas para cada una de ellas, y las combinamos, tendríamos una tabla como la \ref{tabla:ejemplofrecuenciaspalabras}.
 
 \tablaSmall{Frecuencias de palabras en las frases de ejemplo}{c c}{ejemplofrecuenciaspalabras}
 { \multicolumn{1}{c}{Palabras} & Frecuencia \\}{ 
@@ -85,7 +85,7 @@ Cuanto más complejo sea el árbol y mayor el número de nodos, se podrán evalu
 
 \subsection{Bagging}
 
-También conocido como Bootstrap Agreggation \cite{breiman1996bagging}, es una técnica de aprendizaje supervisado, y más concretamente de clasificación, basada en la combinación de clasificadores. Su objetivo es el de reducir todo lo posible la varianza en la clasificación de datos. Consiste en obtener una predicción por votación a partir del promedio de los resultados obtenidos aplicando un gran número de clasificadores a distintas partes de los datos de entrenamiento.
+También conocido como \emph{Bootstrap Agreggation} \cite{breiman1996bagging}, es una técnica de aprendizaje supervisado, y más concretamente de clasificación, basada en la combinación de clasificadores. Su objetivo es el de reducir todo lo posible la varianza en la clasificación de datos. Consiste en obtener una predicción por votación a partir del promedio de los resultados obtenidos aplicando un gran número de clasificadores a distintas partes de los datos de entrenamiento.
 
 De forma breve, podríamos explicar el proceso que realiza el Bagging en los siguientes pasos:
 
@@ -101,22 +101,25 @@ De forma breve, podríamos explicar el proceso que realiza el Bagging en los sig
 
 \end{enumerate}
 
-Ésta técnica se usa mucho en los casos de predicciones basadas en árboles, como es el caso de los bosques aleatorios, que explicaremos a continuación. En la siguiente imagen se pueden observar de forma sencilla los pasos previamente mencionados.
+Ésta técnica se usa mucho en los casos de predicciones basadas en árboles, como es el caso de los bosques aleatorios, que explicaremos a continuación. En la siguiente figura se pueden observar de forma sencilla los pasos previamente mencionados.
 
-\imagen{Bagging}{Esquema de funcionamiento básico de Bagging  \cite{baggingpicture}}
+\imagenalternativa{Bagging}{Esquema de funcionamiento básico de Bagging  \cite{baggingpicture}}{Esquema de funcionamiento básico de Bagging}
+
 
 
 \subsection{Clasificador Random Forest}
 
-El clasificador Random Forest es una técnica derivada del bagging aplicada a árboles de decisión \cite{randomforestclassifier}. Como su nombre sugiere, se basa en el uso de la combinación de varios árboles de clasificación. 
+El clasificador \emph{Random Forest} es una técnica derivada del bagging aplicada a árboles de decisión \cite{randomforestclassifier}. Como su nombre sugiere, se basa en el uso de la combinación de varios árboles de clasificación. 
 
 Cada uno de estos árboles se encarga de entrenar una instancia de los datos de entrenamiento, y la solución devuelta será la clase obtenida por votación de todos los árboles. 
 
 El principal objetivo de realizar este proceso es el de, mediante los subconjuntos aleatorios, aumentar todo lo posible la precisión y controlar el sobreajuste de los resultados. Por ese motivo, si tenemos un mismo conjunto de entrenamiento para todas las pruebas, se obtendrá un menor margen de error en aquellas clasificaciones que tengan un mayor número de árboles, mientras que los resultados con un número mínimo de árboles no serán tan fiables \cite{randomforestclassifierberkeley}.
 
-En la siguiente imagen se muestra un esquema de funcionamiento del bosque aleatorio, en la que se puede observar las similaridades con el proceso de Bagging explicado anteriormente.
+En la siguiente figura se muestra un esquema de funcionamiento del bosque aleatorio, en la que se puede observar las similaridades con el proceso de Bagging explicado anteriormente.
 
-\imagen{RandomForestExample}{Esquema de funcionamiento de bosque aleatorio \cite{randomforestpicture}}
+%\imagen{RandomForestExample}{Esquema de funcionamiento de bosque aleatorio \cite{randomforestpicture}}
+
+\imagenalternativa{RandomForestExample}{Esquema de funcionamiento de bosque aleatorio \cite{randomforestpicture}}{Esquema de funcionamiento de bosque aleatorio}
 
 
 \subsection{Vectorizador de texto}
@@ -132,11 +135,11 @@ También es muy frecuente encontrar proyectos en los que se han usado vectorizad
 
 \section{Web Scraping}
 
-El Web Scraping \cite{mitchell2015web} es una técnica, principalmente alternativa al uso de APIs de los propietarios de páginas web, para extraer información relevante de las propias páginas web.
+El \emph{Web Scraping} \cite{mitchell2015web} es una técnica, principalmente alternativa al uso de APIs de los propietarios de páginas web, para extraer información relevante de las propias páginas web.
 
 De forma más concreta, lo que realiza un web scraper es la detección de información que se encuentra dentro de etiquetas concretas de un documento de tipo HTML, y su posterior extracción al indicarle las etiquetas en las que buscar. Es una técnica con un gran potencial, pues le evita al usuario la búsqueda manual de esta información, lo cual es una tarea especialmente ardua en los complejos códigos HTML de la mayoría de páginas web. 
 
-A continuación mostramos un ejemplo sencillo de Web Scraping escrito en Python usando urllib2 y BeautifulSoup, en el que obtenemos el número de descargas de un repositorio en SourceForge:
+A continuación mostramos un ejemplo sencillo de \emph{Web Scraping} escrito en Python usando urllib2 y BeautifulSoup, en el que obtenemos el número de descargas de un repositorio en SourceForge:
 
 \begin{enumerate}
 

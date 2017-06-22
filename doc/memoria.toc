@@ -40,7 +40,7 @@
 \contentsline {subsection}{TextBlob}{16}{section*.27}
 \contentsline {subsection}{Lime}{16}{section*.28}
 \contentsline {section}{\numberline {4.7}Herramientas para la documentaci\IeC {\'o}n}{17}{section.4.7}
-\contentsline {subsection}{Latex}{17}{section*.29}
+\contentsline {subsection}{\LaTeX }{17}{section*.29}
 \contentsline {chapter}{Aspectos relevantes del desarrollo del proyecto}{18}{chapter*.30}
 \contentsline {section}{\numberline {5.1}Conceptos avanzados de Bag of Words}{18}{section.5.1}
 \contentsline {subsection}{Stopwords}{18}{section*.31}

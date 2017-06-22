@@ -3,6 +3,7 @@
 % Citas indentadas
 \usepackage{csquotes}
 
+\usepackage{minted}
 
 
 % Castellano
@@ -42,6 +43,16 @@
 	\end{figure}
 	\FloatBarrier
 }
+
+\newcommand{\imagenalternativa}[3]{
+	\begin{figure}[!h]
+		\centering
+		\includegraphics[width=0.9\textwidth]{#1}
+		\caption[#3]{#2}\label{fig:#1}
+	\end{figure}
+	\FloatBarrier
+}
+
 
 \newcommand{\imagenflotante}[2]{
 	\begin{figure}%[!h]
@@ -378,13 +389,13 @@
 
 \noindent\includegraphics[width=\textwidth]{cabecera}\vspace{1cm}
 
-\noindent D. José Francisco Díez Pastor, profesor del departamento de Ingeniería Civil, área de Lenguajes y Sistemas Informáticos.
+\noindent D. José Francisco Díez Pastor y César Ignacio García Osorio, profesores del departamento de Ingeniería Civil, área de Lenguajes y Sistemas Informáticos.
 
-\noindent Expone:
+\noindent Exponen:
 
 \noindent Que el alumno D. \nombre, con DNI 71286391F, ha realizado el Trabajo final de Grado en Ingeniería Informática titulado ``Herramienta para el análisis y gestión de Hemeroteca". 
 
-\noindent Y que dicho trabajo ha sido realizado por el alumno bajo la dirección del que suscribe, en virtud de lo cual se autoriza su presentación y defensa.
+\noindent Y que dicho trabajo ha sido realizado por el alumno bajo la dirección de los que suscriben, en virtud de lo cual se autoriza su presentación y defensa.
 
 \begin{center} %\large
 En Burgos, {\large \today}
@@ -431,9 +442,9 @@ Se desea desarrollar una aplicación web en la que un usuario pueda almacenar un
 Para realizar esta labor, previamente se ha llevado a cabo una investigación de diferentes tecnologías para elegir las que más se adecuan a los objetivos establecidos; tanto en el caso de la herramienta con la que se creará la aplicación web y la base de datos no relacional en la que se almacenan las noticias, como en lo respectivo al análisis de textos con el que se realizarán las predicciones. Las herramientas principales escogidas son Flask, MongoDB, Scikit-Learn y Lime.
 
 Teniendo en cuenta que la herramienta está pensada para un uso ajeno al programador que la ha creado, al implementar
- la herramienta se ha dado importancia a la accesibilidad de la misma, de modo que los nuevos usuarios que tengan que usarla sin estar familiarizados sufran un proceso de aprendizaje lo más ligero posible.
+ la herramienta se ha dado importancia a la accesibilidad de la misma, de modo que los nuevos usuarios que tengan que usarla sin estar familiarizados puedan acometer un proceso de aprendizaje lo más ligero posible.
 
-Por último, se ha implementado, haciendo uso de técnicas de machine learning, la posibilidad de que el usuario vea qué criterios ha seguido la herramienta de predicción a la hora de asignar una etiqueta a una noticia. La intención es que inicialmente el usuario introduzca un conjunto de noticias a las que ha dado etiqueta manualmente y, a partir de esa situación, comenzar a incluir nuevas noticias que recibirán su etiqueta de forma automática basándose en las noticias que las precedan.
+Por último, se ha implementado, haciendo uso de técnicas de machine learning, la posibilidad de que el usuario vea qué criterios ha seguido la herramienta de predicción a la hora de asignar una etiqueta a una noticia. La intención es que, inicialmente, el usuario introduzca un conjunto de noticias a las que ha dado etiqueta manualmente y, a partir de esa situación, comenzar a incluir nuevas noticias que recibirán su etiqueta de forma automática, basándose en las noticias que las precedan.
 
 
 \end{abstract}
@@ -448,13 +459,13 @@ Machine learning, Flask, Bases de Datos NoSQL, Python, Web Scraping, Aplicación
 % Abstract en inglés
 \renewcommand*\abstractname{Abstract}
 \begin{abstract}
-The aim of the project is to develop a web application where a user will be able to store a set of news obtained from different media and with different formats (whether it is a web page, a PDF file or a XML file) so that it can become a Newspaper Library. In addition, the user can tag those news according to different issues and data mining will be used in order to predict tags for incoming news.
+The aim of the project is to develop a web application where a user will be able to store a set of news obtained from different media and with different formats (whether it is a web page, a PDF file or a XML file) so that it can become a Newspaper Library. In addition, the user can label those news according to different aspects and data mining will be used in order to predict labels for incoming news.
 
 To tackle this task, some research was previously carried out in order to choose the most suitable technologies to the established objectives, both in the case of the tools for creating the application and the NoSQL database, as well as the tools related to the text analysis that is going to undertake the predictions. The main chosen tools are Flask, MongoDB, Scikit-Learn and Lime.
 
-Taking into consideration that the application is not going to be used by the programmer who coded it, the accessibility of the application itself was very important, so that the new people who may use it without being prepared won't suffer a tough training process.
+Taking into consideration that the application is not going to be used by the programmer who coded it, the accessibility of the application itself was very important, so that the unprepared final user won't experiment a tough training process.
 
-Finally, the possibility of the user watching the criteria used by the prediction tool when returning a tag has been implemented using machine learning techniques. The aim is that the user starts off with storing a set of tagged news and, having done that, the news following those will be tagged by the prediction tool.
+Finally, the possibility of the user watching the criteria used by the prediction tool when returning a label has been implemented using machine learning techniques. The aim is that the user starts off with storing a set of labeled news and, having done that, the news following those will be labeled by the prediction tool.
 
 \end{abstract}
 
@@ -492,6 +503,12 @@ Machine learning, Flask, NoSQL Databases, Python, Web Scraping, Web application.
 
 \clearpage
 
-\imagen{LogoUbu}{}
+\clearpage
+\thispagestyle{empty}
+\begin{vplace}
+\begin{center}
+\includegraphics[width=0.9\textwidth]{logo_COLOR_2L_ABAJO}
+\end{center}
+\end{vplace}
 
 \end{document}

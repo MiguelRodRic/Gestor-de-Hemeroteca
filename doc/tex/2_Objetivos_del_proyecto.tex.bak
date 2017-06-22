@@ -10,13 +10,13 @@ Los siguientes objetivos se corresponden con las funcionalidades que debería sa
 
 \item Leer noticias que se adjunten en un formato PDF en un directorio concreto, cuyo contenido tenga un formato prefijado para facilitar la lectura. Esta funcionalidad cubre el análisis de textos que no están libremente accesibles en Internet, como los que están detrás de una pasarela de pago, ya no existe o nunca estuvieron online.
 
-\item Poder asignar una clase a estas noticias respecto a un dataset, ya sea de forma manual, o por medio de una predicción realizada con minería de datos.
+\item Poder etiquetar las noticias usando clases de varios conjuntos de datos, ya sea de forma manual, o por medio de una predicción realizada con minería de datos.
 
-\item La posibilidad de incluir un dataset entero de noticias mediante un archivo XML, con etiquetas ya añadidas, por si el usuario quiere añadir un corpus de entrenamiento directamente.
+\item La posibilidad de incluir un conjunto de datos entero de noticias mediante un archivo XML, con etiquetas ya añadidas, por si el usuario quiere añadir un corpus de entrenamiento directamente.
 
 \item Mostrar una explicación de la predicción que se realice de las noticias, de modo que el usuario sea capaz de observar cuáles han sido los criterios para sugerir una clase u otra.
 
-\item Añadir nuevos datasets de forma manual, y clasificar las noticias existentes para esos nuevos datasets.
+\item Añadir nuevos conjuntos de datos de forma manual, y clasificar las noticias existentes para esos nuevos conjuntos.
 
 \end{itemize}
 

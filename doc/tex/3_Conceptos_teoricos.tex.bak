@@ -147,22 +147,6 @@ A continuación mostramos un ejemplo sencillo de \emph{Web Scraping} escrito en 
 
 \imagen{WebScraping1}{Petición http}
 
-\begin{figure}
-\begin{center}
-\begin{minted}[frame=single,fontsize=\small]{python}
-#Indicamos la url:
-url = "http://sourceforge.net/projects/sevenzip/files/stats/timeline"
-
-#Creamos la request
-request = urllib2.Rquest(url)
-
-#Abrimos el contenido de la página por medio de la petición
-handle = urllib2.urlopen(request)
-\end{minted}
-\end{center}
-\caption{Petición \textsf{http}.}
-\end{figure}
-
 \item Leemos el contenido de la url y se la pasamos al scraper:
 
 \imagen{WebScraping2}{Lectura del contenido de la web}

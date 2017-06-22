@@ -38,12 +38,12 @@ Estos son los requisitos funcionales que la herramienta debe cumplir:
 \item RF - 2.1: Los usuarios podrán elegir de una lista de opciones el tema de debate mostrado en ese momento.
 \end{itemize}
 
-\item RF - 3: Los usuarios pueden ver una explicación gráfica de la explicación para la predicción de la etiqueta de una noticia.
+\item RF - 3: Los usuarios pueden ver una explicación gráfica para la predicción de la etiqueta de una noticia.
 \begin{itemize}
 \item RF - 3.1: Los usuarios también podrán guardar esa predicción como la etiqueta final de la noticia.
 \end{itemize}
 
-\item RF - 4: Los usuarios podrán guardar las noticias que se contuvieran en archivos PDF almacenados en una carpeta concreta del proyecto.
+\item RF - 4: Los usuarios podrán guardar las noticias guardadas en archivos PDF almacenados en una carpeta concreta del proyecto.
 
 \item RF - 5: Los usuarios podrán guardar nuevas noticias de 
 los RSS de varios medios de comunicación españoles.
@@ -80,3 +80,209 @@ A continuación, se describirán con detalle los casos de uso de los que se comp
 \imagen{casosdeuso}{Diagrama de casos de uso}
 
 \subsection{Descripción de casos de uso}
+
+\subsubsection{CU1 - Consulta de Noticias}
+
+\begin{center}
+\begin{tabular}{ | m{3cm} | m{10cm}| } 
+\hline
+Caso de uso & Consulta de Noticias \\ 
+\hline
+Autor & Miguel Rodríguez \\ 
+\hline
+Requisitos & RF - 1: Los usuarios deben poder visualizar un conjunto de noticias a partir de la búsqueda por palabra clave \\ 
+\hline
+Descripción & El usuario introduce una palabra clave para la búsqueda de las noticias que la contengan \\
+\hline
+Precondiciones & Las noticias tienen que estar almacenadas en la base de datos. 
+
+La palabra debe aparecer en la noticia para que sea devuelta. \\
+\hline
+Acciones & En la pestaña inicial, el usuario introduce en el cuadro de texto la palabra clave con la que quiere realizar la búsqueda y pulsa el botón ``Buscar'' \\
+\hline
+Postcondiciones & Se cargará una tabla con las noticias que contenían la palabra \\
+\hline
+Excepciones & En caso de que la palabra no se encuentre en ninguna noticia, no se devolverán filas de la tabla de resultados \\
+\hline 
+Importancia & Alta \\
+\hline 
+\end{tabular}
+\end{center}
+
+\subsubsection{CU2 - Etiquetado Manual}
+
+\begin{center}
+\begin{tabular}{ | m{3cm} | m{10cm}| } 
+\hline
+Caso de uso & Etiquetado Manual \\ 
+\hline
+Autor & Miguel Rodríguez \\ 
+\hline
+Requisitos & RF - 2: Los usuarios pueden etiquetar manualmente las noticias en función del tema de debate seleccionado
+
+RF - 2.1: Los usuarios podrán elegir de una lista de opciones el tema de debate mostrado en ese momento \\ 
+\hline
+Descripción & El usuario selecciona un tema de debate y una de las dos clases para la noticia que quiera etiquetar \\
+\hline
+Precondiciones & La noticia que se va a etiquetar tiene que estar en la tabla de resultados. El tema de debate sobre el que se quiera etiquetar tiene que existir previamente. \\
+\hline
+Acciones & El usuario selecciona de una lista desplegable el tema de debate en el que quiera etiquetar las noticias. Una vez seleccionado, pulsando el botón de ``Etiquetar'' de cada fila podrá marcar cuál de las dos etiquetas quiere aplicar a esa noticia. Pulsando en ``Guardar Cambios'', se actualizarán todas las etiquetas modificadas. \\
+\hline
+Postcondiciones & Se añadirá o etiquetará esa etiqueta a esa noticia. Esa noticia pasa a formar parte del corpus de entrenamiento para ese tema de debate. \\
+\hline
+Excepciones & Si se realizan etiquetados pero no se guardan los resultados, no se aplicarán los cambios \\
+\hline 
+Importancia & Alta \\
+\hline 
+\end{tabular}
+\end{center}
+
+\subsubsection{CU3 - Creación de Explicación}
+
+\begin{center}
+\begin{tabular}{ | m{3cm} | m{10cm}| } 
+\hline
+Caso de uso & Creación de explicación \\ 
+\hline
+Autor & Miguel Rodríguez \\ 
+\hline
+Requisitos & RF - 3: Los usuarios pueden ver una explicación gráfica para la predicción de la etiqueta de una noticia.
+
+RF - 3.1: Los usuarios también podrán guardar esa predicción como la etiqueta final de la noticia.\\ 
+\hline
+Descripción & El usuario selecciona la opción de explicación para una noticia de la tabla de resultados. \\
+\hline
+Precondiciones & La noticia que se va a etiquetar tiene que estar en la tabla de resultados. Debe existir un corpus de entrenamiento para el tema de debate sobre el que se va a realizar la predicción. \\
+\hline
+Acciones & El usuario selecciona de una lista desplegable el tema de debate en el que quiera etiquetar las noticias. Una vez seleccionado, pulsando el botón de ``Clasificar'' de una noticia en concreto cargará una página con la explicación correspondiente. Pulsando en ``Guardar Predicción'', se guardará el resultado de la predicción como etiqueta. \\
+\hline
+Postcondiciones & Se etiquetará la noticia con el valor de la clase ganadora en la predicción \\
+\hline
+Excepciones & Si no hay un corpus de entrenamiento, la explicación no se cargará correctamente \\
+\hline 
+Importancia & Alta \\
+\hline 
+\end{tabular}
+\end{center}
+
+\subsubsection{CU4 - Lectura de PDF}
+
+\begin{center}
+\begin{tabular}{ | m{3cm} | m{10cm}| } 
+\hline
+Caso de uso & Lectura de PDF \\ 
+\hline
+Autor & Miguel Rodríguez \\ 
+\hline
+Requisitos & RF - 4: Los usuarios podrán guardar las noticias guardadas en archivos PDF almacenados en una carpeta concreta del proyecto\\ 
+\hline
+Descripción & Se muestra una lista de noticias leídas en archivos PDF y el usuario escoge si guardar las nuevas o no. \\
+\hline
+Precondiciones & Debe haber archivos PDF que contengan noticias en el directorio adecuado. 
+
+Además, deben de seguir el formato especificado para que se puedan leer correctamente. \\
+\hline
+Acciones & En la pestaña de lectura de PDF, el usuario pulsará el botón de leer noticias. 
+
+Cuando se hayan leído y se muestre la lista, el usuario puede pulsar el botón de ``Guardar Nuevas'' para almacenar las noticias no previamente guardadas. \\
+\hline
+Postcondiciones & Se almacenarán las noticias no guardadas previamente en la base de datos. \\
+\hline
+Excepciones & Si no hay archivos PDF no se mostrará nada en la tabla de resultados. 
+
+Si no tienen el formato indicado, no se podrá leer esas noticias. \\
+\hline 
+Importancia & Media \\
+\hline 
+\end{tabular}
+\end{center}
+
+\subsubsection{CU5 - Lectura de RSS}
+
+\begin{center}
+\begin{tabular}{ | m{3cm} | m{10cm}| } 
+\hline
+Caso de uso & Lectura de RSS \\ 
+\hline
+Autor & Miguel Rodríguez \\ 
+\hline
+Requisitos & RF - 5: Los usuarios podrán guardar nuevas noticias de 
+los RSS de varios medios de comunicación españoles.
+
+RF - 5.1: Los usuarios podrán elegir de una lista de opciones el medio de comunicación del que ver las nuevas noticias.
+\\ 
+\hline
+Descripción & El usuario elige un medio de comunicación y después puede guardar las nuevas noticias de ese medio. \\
+\hline
+Precondiciones & El medio de comunicación tiene que ser uno de los incluidos en la lista. Hay que tener conexión a internet para acceder a los RSS de estos medios. \\
+\hline
+Acciones & En la pestaña de lectura de RSS, el usuario elegirá en un desplegable el medio de comunicación del que quiere leer la noticia.
+
+Pulsando el botón de ``Guardar Nuevas'', el usuario podrá almacenar las que no estuvieran ya en la base de datos. \\
+\hline
+Postcondiciones & Se mostrará una tabla con las últimas noticias del medio de comunicación seleccionado. \\
+\hline
+Excepciones & En caso de que no haya conexión a Internet, la lectura de noticias no se podrá realizar. \\
+\hline 
+Importancia & Alta \\
+\hline 
+\end{tabular}
+\end{center}
+
+\subsubsection{CU6 - Lectura de XML}
+
+\begin{center}
+\begin{tabular}{ | m{3cm} | m{10cm}| } 
+\hline
+Caso de uso & Lectura de XML \\ 
+\hline
+Autor & Miguel Rodríguez \\ 
+\hline
+Requisitos & RF - 6: Los usuarios podrán añadir un corpus de noticias entero, indicando el tema de debate y la etiqueta de cada noticia, a través de un archivo XML. \\ 
+\hline
+Descripción & El usuario ordena leer los documentos XML que contienen los corpus situados en el directorio especificado.\\
+\hline
+Precondiciones & Los documentos XML tienen que tener el formato determinado. \\
+\hline
+Acciones & En la pestaña de lectura de nuevos conjuntos, el usuario pulsará el botón de ``Leer''. 
+
+Se cargará una nueva pestaña donde si el usuario pulsa ``Guardar Nuevas'', se almacenarán las noticias, con las etiquetas ya aplicadas de antemano. \\
+\hline
+Postcondiciones & Se guardarán las nuevas noticias con etiquetas ya aplicadas, al contrario que en los otros formatos. \\
+\hline
+Excepciones & En caso de que no hubiera archivos XML o que no tengan el formato correcto, la lectura no se realizará correctamente. \\
+\hline 
+Importancia & Alta \\
+\hline 
+\end{tabular}
+\end{center}
+
+\subsubsection{CU7 - Creación de Dataset}
+
+\begin{center}
+\begin{tabular}{ | m{3cm} | m{10cm}| } 
+\hline
+Caso de uso & Creación de dataset \\ 
+\hline
+Autor & Miguel Rodríguez \\ 
+\hline
+Requisitos & RF - 7: Los usuarios podrán crear nuevos temas de debate, escribiendo el nombre del propio tema y el nombre de dos clases, que se usarán posteriormente de etiquetas para ese tema. \\ 
+\hline
+Descripción & El usuario tiene la opción de introducir nuevos dataset para las noticias indicando su nombre y el de sus 2 posibles clases. \\
+\hline
+Precondiciones & Los temas de debate deben de tener 2 clases posibles. \\
+\hline
+Acciones & En la pestaña inicial, el usuario debe pulsar el botón de ``Añadir Nuevo Dataset''.
+
+En la pestaña a la que ha sido redirigido, escribirá el nombre del nuevo dataset y el de sus dos clases, que serán las etiquetas que luego se podrán añadir a las noticias.
+
+Al pulsar el botón de guardar cambios, se actualizará la base de datos con esta información. \\
+\hline
+Postcondiciones & Se añadirá a la lista de datasets el escrito en la aplicación, y a todas las noticias almacenadas también se les añadirán campos para soportar las nuevas etiquetas.\\
+\hline
+Excepciones & En caso de que no se rellenen los tres campos, no se guardará correctamente el nuevo dataset. \\
+\hline 
+Importancia & Alta \\
+\hline 
+\end{tabular}
+\end{center}

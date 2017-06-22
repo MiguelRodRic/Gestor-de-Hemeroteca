@@ -17,20 +17,28 @@
 \contentsline {subsection}{Requisitos No Funcionales}{26}{section*.7}
 \contentsline {section}{\numberline {B.4}Especificaci\IeC {\'o}n de requisitos}{27}{section.Alph2.4}
 \contentsline {subsection}{Diagrama de casos de uso}{27}{section*.8}
-\contentsline {subsection}{Descripci\IeC {\'o}n de casos de uso}{27}{section*.9}
-\contentsline {appendix}{\chapternumberline {C}Especificaci\IeC {\'o}n de dise\IeC {\~n}o}{28}{appendix.Alph3}
-\contentsline {section}{\numberline {C.1}Introducci\IeC {\'o}n}{28}{section.Alph3.1}
-\contentsline {section}{\numberline {C.2}Dise\IeC {\~n}o de datos}{28}{section.Alph3.2}
-\contentsline {section}{\numberline {C.3}Dise\IeC {\~n}o procedimental}{29}{section.Alph3.3}
-\contentsline {section}{\numberline {C.4}Dise\IeC {\~n}o arquitect\IeC {\'o}nico}{29}{section.Alph3.4}
-\contentsline {appendix}{\chapternumberline {D}Documentaci\IeC {\'o}n t\IeC {\'e}cnica de programaci\IeC {\'o}n}{30}{appendix.Alph4}
-\contentsline {section}{\numberline {D.1}Introducci\IeC {\'o}n}{30}{section.Alph4.1}
-\contentsline {section}{\numberline {D.2}Estructura de directorios}{30}{section.Alph4.2}
-\contentsline {section}{\numberline {D.3}Manual del programador}{30}{section.Alph4.3}
-\contentsline {section}{\numberline {D.4}Compilaci\IeC {\'o}n, instalaci\IeC {\'o}n y ejecuci\IeC {\'o}n del proyecto}{30}{section.Alph4.4}
-\contentsline {section}{\numberline {D.5}Pruebas del sistema}{30}{section.Alph4.5}
-\contentsline {appendix}{\chapternumberline {E}Documentaci\IeC {\'o}n de usuario}{31}{appendix.Alph5}
-\contentsline {section}{\numberline {E.1}Introducci\IeC {\'o}n}{31}{section.Alph5.1}
-\contentsline {section}{\numberline {E.2}Requisitos de usuarios}{31}{section.Alph5.2}
-\contentsline {section}{\numberline {E.3}Instalaci\IeC {\'o}n}{31}{section.Alph5.3}
-\contentsline {section}{\numberline {E.4}Manual del usuario}{31}{section.Alph5.4}
+\contentsline {subsection}{Descripci\IeC {\'o}n de casos de uso}{28}{section*.9}
+\contentsline {subsubsection}{CU1 - Consulta de Noticias}{28}{section*.10}
+\contentsline {subsubsection}{CU2 - Etiquetado Manual}{28}{section*.11}
+\contentsline {subsubsection}{CU3 - Creaci\IeC {\'o}n de Explicaci\IeC {\'o}n}{29}{section*.12}
+\contentsline {subsubsection}{CU4 - Lectura de PDF}{30}{section*.13}
+\contentsline {subsubsection}{CU5 - Lectura de RSS}{31}{section*.14}
+\contentsline {subsubsection}{CU6 - Lectura de XML}{32}{section*.15}
+\contentsline {subsubsection}{CU7 - Creaci\IeC {\'o}n de Dataset}{33}{section*.16}
+\contentsline {appendix}{\chapternumberline {C}Especificaci\IeC {\'o}n de dise\IeC {\~n}o}{35}{appendix.Alph3}
+\contentsline {section}{\numberline {C.1}Introducci\IeC {\'o}n}{35}{section.Alph3.1}
+\contentsline {section}{\numberline {C.2}Dise\IeC {\~n}o de datos}{35}{section.Alph3.2}
+\contentsline {section}{\numberline {C.3}Dise\IeC {\~n}o procedimental}{36}{section.Alph3.3}
+\contentsline {section}{\numberline {C.4}Dise\IeC {\~n}o arquitect\IeC {\'o}nico}{36}{section.Alph3.4}
+\contentsline {appendix}{\chapternumberline {D}Documentaci\IeC {\'o}n t\IeC {\'e}cnica de programaci\IeC {\'o}n}{37}{appendix.Alph4}
+\contentsline {section}{\numberline {D.1}Introducci\IeC {\'o}n}{37}{section.Alph4.1}
+\contentsline {section}{\numberline {D.2}Estructura de directorios}{37}{section.Alph4.2}
+\contentsline {section}{\numberline {D.3}Manual del programador}{37}{section.Alph4.3}
+\contentsline {section}{\numberline {D.4}Compilaci\IeC {\'o}n, instalaci\IeC {\'o}n y ejecuci\IeC {\'o}n del proyecto}{37}{section.Alph4.4}
+\contentsline {section}{\numberline {D.5}Pruebas del sistema}{37}{section.Alph4.5}
+\contentsline {appendix}{\chapternumberline {E}Documentaci\IeC {\'o}n de usuario}{38}{appendix.Alph5}
+\contentsline {section}{\numberline {E.1}Introducci\IeC {\'o}n}{38}{section.Alph5.1}
+\contentsline {section}{\numberline {E.2}Requisitos de usuarios}{38}{section.Alph5.2}
+\contentsline {section}{\numberline {E.3}Instalaci\IeC {\'o}n}{38}{section.Alph5.3}
+\contentsline {section}{\numberline {E.4}Manual del usuario}{38}{section.Alph5.4}
+\contentsline {chapter}{Bibliograf\'{\i }a}{39}{section*.18}

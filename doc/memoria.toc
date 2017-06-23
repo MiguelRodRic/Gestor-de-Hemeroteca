@@ -18,41 +18,41 @@
 \contentsline {subsection}{Clasificador Random Forest}{8}{section*.12}
 \contentsline {subsection}{Vectorizador de texto}{9}{section*.13}
 \contentsline {section}{\numberline {3.2}Web Scraping}{9}{section.3.2}
-\contentsline {chapter}{T\IeC {\'e}cnicas y herramientas}{11}{chapter*.14}
-\contentsline {section}{\numberline {4.1}T\IeC {\'e}cnicas de trabajo}{11}{section.4.1}
-\contentsline {subsection}{Metodolog\IeC {\'\i }a \IeC {\'a}gil}{11}{section*.15}
-\contentsline {section}{\numberline {4.2}Herramientas Candidatas (Framework de Desarrollo)}{11}{section.4.2}
-\contentsline {subsection}{PyQt}{12}{section*.16}
-\contentsline {subsection}{Kivy}{12}{section*.17}
-\contentsline {subsection}{Jupyter}{12}{section*.18}
-\contentsline {subsection}{Flask}{13}{section*.19}
-\contentsline {section}{\numberline {4.3}Herramientas candidatas (Bases de Datos)}{13}{section.4.3}
-\contentsline {subsection}{PyLucene}{13}{section*.20}
-\contentsline {subsection}{SQLAlchemy}{13}{section*.21}
-\contentsline {subsection}{PyMongo}{14}{section*.22}
-\contentsline {section}{\numberline {4.4}Librer\IeC {\'\i }as de Web Scraping}{14}{section.4.4}
-\contentsline {subsection}{BeautifulSoup}{14}{section*.23}
-\contentsline {subsection}{feedparser}{15}{section*.24}
-\contentsline {section}{\numberline {4.5}Librer\IeC {\'\i }as de parseo de PDF}{15}{section.4.5}
-\contentsline {subsection}{PDFMiner}{15}{section*.25}
-\contentsline {section}{\numberline {4.6}Librer\IeC {\'\i }as para la miner\IeC {\'\i }a de datos}{15}{section.4.6}
-\contentsline {subsection}{Scikit-Learn}{15}{section*.26}
-\contentsline {subsection}{TextBlob}{16}{section*.27}
-\contentsline {subsection}{Lime}{16}{section*.28}
-\contentsline {section}{\numberline {4.7}Herramientas para la documentaci\IeC {\'o}n}{17}{section.4.7}
-\contentsline {subsection}{\LaTeX }{17}{section*.29}
-\contentsline {chapter}{Aspectos relevantes del desarrollo del proyecto}{18}{chapter*.30}
-\contentsline {section}{\numberline {5.1}Conceptos avanzados de Bag of Words}{18}{section.5.1}
-\contentsline {subsection}{Stopwords}{18}{section*.31}
-\contentsline {subsection}{Normalizaci\IeC {\'o}n de las frecuencias}{20}{section*.32}
-\contentsline {section}{\numberline {5.2}Resultados de la explicaci\IeC {\'o}n de la predicci\IeC {\'o}n}{21}{section.5.2}
-\contentsline {section}{\numberline {5.3}Experimentaci\IeC {\'o}n en Jupyter}{22}{section.5.3}
-\contentsline {section}{\numberline {5.4}Intento de publicaci\IeC {\'o}n de Jupyter Dashboard}{23}{section.5.4}
-\contentsline {section}{\numberline {5.5}Omisi\IeC {\'o}n de comentarios en el Scrapping}{24}{section.5.5}
-\contentsline {subsection}{Uso de Selenium para comentarios ocultos}{24}{section*.33}
-\contentsline {subsection}{Falta de comentarios en RSS}{25}{section*.34}
-\contentsline {chapter}{Trabajos relacionados}{26}{chapter*.35}
-\contentsline {chapter}{Conclusiones y L\IeC {\'\i }neas de trabajo futuras}{27}{chapter*.36}
-\contentsline {section}{\numberline {7.1}Conclusiones}{27}{section.7.1}
-\contentsline {section}{\numberline {7.2}L\IeC {\'\i }neas de trabajo futuras}{27}{section.7.2}
-\contentsline {chapter}{Bibliograf\'{\i }a}{29}{section*.38}
+\contentsline {chapter}{T\IeC {\'e}cnicas y herramientas}{12}{chapter*.14}
+\contentsline {section}{\numberline {4.1}T\IeC {\'e}cnicas de trabajo}{12}{section.4.1}
+\contentsline {subsection}{Metodolog\IeC {\'\i }a \IeC {\'a}gil}{12}{section*.15}
+\contentsline {section}{\numberline {4.2}Herramientas Candidatas (Framework de Desarrollo)}{12}{section.4.2}
+\contentsline {subsection}{PyQt}{13}{section*.16}
+\contentsline {subsection}{Kivy}{13}{section*.17}
+\contentsline {subsection}{Jupyter}{13}{section*.18}
+\contentsline {subsection}{Flask}{14}{section*.19}
+\contentsline {section}{\numberline {4.3}Herramientas candidatas (Bases de Datos)}{14}{section.4.3}
+\contentsline {subsection}{PyLucene}{14}{section*.20}
+\contentsline {subsection}{SQLAlchemy}{14}{section*.21}
+\contentsline {subsection}{PyMongo}{15}{section*.22}
+\contentsline {section}{\numberline {4.4}Librer\IeC {\'\i }as de Web Scraping}{15}{section.4.4}
+\contentsline {subsection}{BeautifulSoup}{15}{section*.23}
+\contentsline {subsection}{feedparser}{16}{section*.24}
+\contentsline {section}{\numberline {4.5}Librer\IeC {\'\i }as de parseo de PDF}{16}{section.4.5}
+\contentsline {subsection}{PDFMiner}{16}{section*.25}
+\contentsline {section}{\numberline {4.6}Librer\IeC {\'\i }as para la miner\IeC {\'\i }a de datos}{16}{section.4.6}
+\contentsline {subsection}{Scikit-Learn}{16}{section*.26}
+\contentsline {subsection}{TextBlob}{17}{section*.27}
+\contentsline {subsection}{Lime}{17}{section*.28}
+\contentsline {section}{\numberline {4.7}Herramientas para la documentaci\IeC {\'o}n}{18}{section.4.7}
+\contentsline {subsection}{\LaTeX }{18}{section*.29}
+\contentsline {chapter}{Aspectos relevantes del desarrollo del proyecto}{19}{chapter*.30}
+\contentsline {section}{\numberline {5.1}Conceptos avanzados de Bag of Words}{19}{section.5.1}
+\contentsline {subsection}{Stopwords}{19}{section*.31}
+\contentsline {subsection}{Normalizaci\IeC {\'o}n de las frecuencias}{21}{section*.32}
+\contentsline {section}{\numberline {5.2}Resultados de la explicaci\IeC {\'o}n de la predicci\IeC {\'o}n}{22}{section.5.2}
+\contentsline {section}{\numberline {5.3}Experimentaci\IeC {\'o}n en Jupyter}{23}{section.5.3}
+\contentsline {section}{\numberline {5.4}Intento de publicaci\IeC {\'o}n de Jupyter Dashboard}{24}{section.5.4}
+\contentsline {section}{\numberline {5.5}Omisi\IeC {\'o}n de comentarios en el Scrapping}{25}{section.5.5}
+\contentsline {subsection}{Uso de Selenium para comentarios ocultos}{25}{section*.33}
+\contentsline {subsection}{Falta de comentarios en RSS}{26}{section*.34}
+\contentsline {chapter}{Trabajos relacionados}{27}{chapter*.35}
+\contentsline {chapter}{Conclusiones y L\IeC {\'\i }neas de trabajo futuras}{28}{chapter*.36}
+\contentsline {section}{\numberline {7.1}Conclusiones}{28}{section.7.1}
+\contentsline {section}{\numberline {7.2}L\IeC {\'\i }neas de trabajo futuras}{28}{section.7.2}
+\contentsline {chapter}{Bibliograf\'{\i }a}{30}{section*.38}

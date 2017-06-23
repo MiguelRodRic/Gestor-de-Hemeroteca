@@ -143,17 +143,52 @@ A continuación mostramos un ejemplo sencillo de \emph{Web Scraping} escrito en 
 
 \begin{enumerate}
 
-\item Hacemos una petición http con la url indicada:
+\item Hacemos una petición http con la url indicada (\ref{fig:httprequest}).
 
-\imagen{WebScraping1}{Petición http}
+\item Leemos el contenido de la url y se la pasamos al scraper (\ref{fig:read}).
 
-\item Leemos el contenido de la url y se la pasamos al scraper:
+\item A través del scraper, accedemos al texto de la etiqueta que queramos directamente (\ref{fig:extract}).
 
-\imagen{WebScraping2}{Lectura del contenido de la web}
+\clearpage
 
-\item A través del scraper, accedemos al texto de la etiqueta que queramos directamente:
+\begin{figure}
+\begin{minted}{python}
+#Indicamos la url:
+url = "http://sourceforge.net/projects/sevenzip/files/stats/timeline"
 
-\imagen{WebScraping3}{Acceso a la información deseada con el scraper}
+#Creamos la request
+request = urllib2.Rquest(url)
+
+#Abrimos el contenido de la página por medio de la petición
+handle = urllib2.urlopen(request)
+\end{minted}
+\caption{Petición \textsf{http}.}
+\label{fig:httprequest}
+\end{figure}
+
+\begin{figure}
+\begin{minted}{python}
+#Leemos el contenido:
+content = handle.read()
+
+#Le pasamos al scraper el texto con el contenido de la página
+soup = BeautifulSoup(content)
+
+\end{minted}
+\caption{Lectura del contenido de la web}
+\label{fig:read}
+\end{figure}
+
+\begin{figure}
+\begin{minted}{python}
+#Accedemos a la etiqueta que queremos y sacamos el texto
+downloadsnum = soup.find('td', {'headers':'files_downloads_h'}).text
+
+\end{minted}
+\caption{Extracción de la información deseada}
+\label{fig:extract}
+\end{figure}
+
 
 \end{enumerate}
 

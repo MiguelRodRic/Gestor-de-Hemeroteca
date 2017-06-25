@@ -12,10 +12,10 @@
     <p> Clase 1: {{ createDS.clase1(size=30)}} </p> 
     <p> Clase 2: {{ createDS.clase2(size=30)}} </p> <br>
 
-    <input type="submit" name="submit" value="Guardar Dataset">
+    <input id="saveds" type="submit" name="submit" value="Guardar Dataset">
     {% endif %}
     {% if mensaje %}
-    <h2> {{ mensaje }}</h2>
+    <h2 id="mensaje"> {{ mensaje }}</h2>
     <a href="{{url_for('index')}}" class="btn">Volver</a>
     {% else %}
     <a href="{{url_for('index')}}" class="btn">Cancelar</a>

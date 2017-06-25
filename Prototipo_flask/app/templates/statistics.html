@@ -29,7 +29,11 @@
         var AutoresbarData = {
              labels : [
              {% for key, value in autores.items() %}
+                        {% if key|length > 30 %}
+                            "{{key[0:30]}}...",
+                        {% else %}
                             "{{key}}",
+                        {% endif %}
              {% endfor %}
             ],
              datasets : [
@@ -47,7 +51,11 @@
         var FechasbarData = {
              labels : [
              {% for key, value in fechas.items() %}
-                            "{{key}}",
+                            {% if key|length > 30 %}
+                                "{{key[0:30]}}...",
+                            {% else %}
+                                "{{key}}",
+                            {% endif %}
              {% endfor %}
             ],
              datasets : [
@@ -84,7 +92,7 @@
             var barData;
             if(filter == "autores"){
                 barData = AutoresbarData;
-                $('#chart').height(700);
+                $('#chart').height(500);
                 steps = 10;
                 width = 5;
                 $('#autoresinfo').show();
@@ -92,7 +100,7 @@
                 $('#fuentesinfo').hide();
             }else if (filter == "fechas"){
                 barData = FechasbarData;
-                $('#chart').height(600);
+                $('#chart').height(500);
                 steps = 10;
                 width = 5;
                 $('#autoresinfo').hide();
@@ -115,14 +123,15 @@
              // draw bar chart
             var newChart = new Chart(mychart);
             newChart.Bar(barData, {
-                  scaleOverride: true,
+                  scaleOverride: false,
                   scaleSteps: steps,
                   scaleStepWidth: width,
                   scaleStartValue: 0,
                   scaleShowVerticalLines: true,
                   scaleShowGridLines : true,
                   barShowStroke : true,
-                  scaleShowLabels: true
+                  scaleShowLabels: true,
+                  maintainAspectRatio: true
             });
             $('#container').show();
         }

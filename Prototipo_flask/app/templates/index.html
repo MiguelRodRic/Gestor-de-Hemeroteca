@@ -6,12 +6,13 @@
     <div class="innercontent">
       <form action="/index/" method="post" name="index">
       {% if query %}
-        <p>
-            <h4>por favor, introduce la palabra clave:</h4><br>
-            {{ query.search(size=30) }}<br>
-        </p>
-        <p><input type="submit" name="submit" value="Buscar">
-      </p> 
+      <p>
+          <h4>por favor, introduce la palabra clave:</h4><br>
+          <div style="display:inline;">{{ query.search(size=30) }} <div id="loadingif" style="display:none; margin-left:10px;"> Cargando... <div class="loader" style="margin-left: 20px; margin-top: -5px;"></div><br>
+          </div></div>
+      </p>  
+      <p><input id="buscarbutton" type="submit" name="submit" value="Buscar"></p>
+      <br>
       <p><a id="createnewdataset" href="{{url_for('createdataset')}}" class="btn btn-success"> Crear nuevo Dataset</a></p>
       <p><a id="statistics" href="{{url_for('statistics')}}" class="btn btn-success"> Ver estadísticas</a></p>
       {% endif %}
@@ -84,7 +85,7 @@
       {% set aux = tag %}
       {% if noticiaS.predictTag.get(aux) %}
       <a id="{{tag}}" href="{{url_for('explanation',arguments=noticiaS.id+'-'+tag+'-'+noticiaS.predictTag.get(aux))}}" class="hiddenButton btn btn-primary">Clasificar <span class="glyphicon glyphicon-stats"></span>
-      </a> 
+      </a>
       {% endif %}
       {% endfor %}
       &nbsp; 
@@ -93,19 +94,20 @@
       </tr>
       {% endfor %} 
       </table>
-      <div> 
+      <div style="display:inline;"> 
       <ul class="pagination">
-      {% for n in range(amountNoticias) %}
+      {% for n in range(amount_noticias) %}
       <li> <input type="submit" name="submit" value="{{n+1}}"></li>
       {% endfor %}
       </ul>
-      </div>      
+      <div id="loadinPred" style="display:none; margin-left:100px;margin-top: -60px;"> Cargando... <div class="loader" style="margin-left: 20px; margin-top: -5px;"></div></div>
+      </div>
       <div style="padding-left: 400px; padding-top: 30px;">
-        <input type="submit" name="submit" value="Guardar Cambios">
+        <input id="savechanges" type="submit" name="submit" value="Guardar Cambios">
       </div>
       {% endif %}
       {% if mensaje %}
-      <h1>{{mensaje}} </h1>
+      <h1 id="mensaje">{{mensaje}} </h1>
       <a  class="btn" href="/index"> Volver </a>
       {% endif %}
       </form>
@@ -119,6 +121,14 @@
         $("div[class=\'"+auxid+"\']").toggle();
         $("ul[class=\'"+auxid+"\']").toggle();
       });
+
+      $('#buscarbutton').click(function () {
+        $('#loadingif').css('display','inline-flex');
+      })
+
+      $('.btn-primary').click(function () {
+        $('#loadinPred').css('display','inline-flex');
+      })
 
       $('#datasetSelect').on('change', function () {
         var index = $(this).prop("selectedIndex");

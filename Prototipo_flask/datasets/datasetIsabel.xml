@@ -1,0 +1,152 @@
+<root>
+	<dataset topic='VientreAlquiler'>
+		<noticias clase='aFavor'>
+			<noticia>
+				<fecha>11-2-2017</fecha>
+				<autor>EDUARDO MENDICUTTI</autor>
+				<titular>La necesaria maternidad subrogada</titular>
+				<link>http://www.elmundo.es/opinion/2017/02/11/589dfd6a468aeb24118b4616.html</link>
+			</noticia>
+			<noticia>
+				<fecha>9-10-2017</fecha>
+				<autor>Marta Martínez</autor>
+				<titular>Mucho más que un vientre</titular>
+				<link>http://www.deia.com/2016/10/09/sociedad/euskadi/mucho-mas-que-un-vientre</link>
+			</noticia>
+			<noticia>
+				<fecha>1-5-2014</fecha>
+				<autor>J. Mouzo Quintáns, L. Rivas Martínez</autor>
+				<titular>Las familias españolas buscan vientres de alquiler ‘baratos’</titular>
+				<link>http://sociedad.elpais.com/sociedad/2014/05/01/actualidad/1398974404_290772.html</link>
+			</noticia>
+			<noticia>
+				<fecha>23-2-2017</fecha>
+				<autor>Elena Reina</autor>
+				<titular>El alto precio de perseguir un vientre mexicano</titular>
+				<link>http://internacional.elpais.com/internacional/2017/02/22/mexico/1487799528_068485.html</link>
+			</noticia>
+			<noticia>
+				<fecha>7-7-2014</fecha>
+				<autor>Editorial</autor>
+				<titular>Proteger al menor</titular>
+				<link>http://elpais.com/elpais/2014/07/06/opinion/1404657061_919858.html</link>
+			</noticia>
+			<noticia>
+				<fecha>25-2-2017</fecha>
+				<autor>Editorial</autor>
+				<titular>Gestación altruista</titular>
+				<link>http://elpais.com/elpais/2017/02/25/opinion/1488039785_039670.html</link>
+			</noticia>
+			<noticia>
+				<fecha>3-10-2014</fecha>
+				<autor>Gabriela Cañas</autor>
+				<titular>La pesadilla de fundar una familia</titular>
+				<link>http://internacional.elpais.com/internacional/2014/11/03/actualidad/1414999655_905774.html</link>
+			</noticia>
+			<noticia>
+				<fecha>6-2-2017</fecha>
+				<autor>Juan José Mateo</autor>
+				<titular>Ciudadanos apuesta por una ley que regule la gestación subrogada</titular>
+				<link>http://politica.elpais.com/politica/2017/02/06/actualidad/1486383023_272932.html</link>
+			</noticia>
+			<noticia>
+				<fecha>1-3-2017</fecha>
+				<autor>Martín Corera Izu</autor>
+				<titular>Urge regular la gestación subrogada</titular>
+				<link>http://elpais.com/elpais/2017/03/01/opinion/1488395907_827633.html</link>
+			</noticia>
+			<noticia>
+				<fecha>2-1-2017</fecha>
+				<autor>Josep Grau</autor>
+				<titular>Historia de una niña con dos papás</titular>
+				<link>http://ccaa.elpais.com/ccaa/2015/12/29/valencia/1451385119_992970.html</link>
+			</noticia>
+			<noticia>
+				<fecha>21-2-2017</fecha>
+				<autor>Rocío Aguilera Vázquez</autor>
+				<titular>“Mamá, ¿vengo de tu tripita?”</titular>
+				<link>http://elpais.com/elpais/2017/02/17/videos/1487339232_876585.html</link>
+			</noticia>
+			<noticia>
+				<fecha>5-3-2017</fecha>
+				<autor>EFE</autor>
+				<titular>La gestación subrogada se dispara en España ante la caída de la adopción internacional</titular>
+				<link>http://www.elmundo.es/sociedad/2017/03/05/58bbe43cca4741c1428b4579.html</link>
+			</noticia>
+		</noticias>
+		<noticias clase='enContra'>
+			<noticia>
+				<fecha>25-3-2017</fecha>
+				<autor>Judith Bosch</autor>
+				<titular>Mi vientre no se alquila</titular>
+				<link>https://judithbosch.wordpress.com/2017/03/25/mi-vientre-no-se-alquila/</link>
+			</noticia>
+			<noticia>
+				<fecha>25-3-2017</fecha>
+				<autor>Redacción Tribuna</autor>
+				<titular>Dones Juristes señala los intereses de lobbies económicos en el debate del alquiler de vientres</titular>
+				<link>http://www.tribunafeminista.org/2017/02/dones-juristes-senala-los-intereses-de-lobbies-economicos-en-el-debate-del-alquiler-de-vientres/</link>
+			</noticia>
+			<noticia>
+				<fecha>25-3-2017</fecha>
+				<autor>Laura Nuño</autor>
+				<titular>Una nueva cláusula del Contrato Sexual: vientres de alquiler</titular>
+				<link>http://www.tribunafeminista.org/2017/01/una-nueva-clausula-del-contrato-sexual-vientres-de-alquiler/</link>
+			</noticia>
+			<noticia>
+				<fecha>25-3-2017</fecha>
+				<autor>@RaulSolisEU</autor>
+				<titular>Los vientres de alquiler: la cara más brutal del ‘gaypitalismo’</titular>
+				<link>http://www.paralelo36andalucia.com/los-vientres-de-alquiler-la-cara-mas-brutal-del-gaypitalismo/</link>
+			</noticia>
+			<noticia>
+				<fecha>25-3-2017</fecha>
+				<autor>Gloria Fortún</autor>
+				<titular>Explotación reproductiva</titular>
+				<link>http://www.tribunafeminista.org/2017/02/explotacion-reproductiva/</link>
+			</noticia>
+			<noticia>
+				<fecha>18-3-2017</fecha>
+				<autor>Beatriz Gimeno</autor>
+				<titular>Vientres de alquiler y aborto</titular>
+				<link>https://beatrizgimeno.es/2017/03/18/vientres-de-alquiler-y-aborto/</link>
+			</noticia>
+			<noticia>
+				<fecha>3-2-2017</fecha>
+				<autor>AGUSTÍN BUADES</autor>
+				<titular>¿Vientres de alquiler?</titular>
+				<link>http://www.elmundo.es/baleares/2017/02/03/5894548446163f836a8b4655.html</link>
+			</noticia>
+			<noticia>
+				<fecha>7-5-2016</fecha>
+				<autor>Raquel Pereira Malagón</autor>
+				<titular>Mujer pobre, sana, se alquila</titular>
+				<link>http://elpais.com/elpais/2016/05/06/tentaciones/1462535192_740903.html</link>
+			</noticia>
+			<noticia>
+				<fecha>6-3-2017</fecha>
+				<autor>Mercedes Boronat Tormo</autor>
+				<titular>Tener hijos no es un derecho</titular>
+				<link>http://elpais.com/elpais/2017/03/01/opinion/1488376776_471436.html</link>
+			</noticia>
+			<noticia>
+				<fecha>16-2-2017</fecha>
+				<autor>Beatriz Gimeno</autor>
+				<titular>Mercado de vientres</titular>
+				<link>http://elpais.com/elpais/2017/02/13/opinion/1487011358_053416.html</link>
+			</noticia>
+			<noticia>
+				<fecha>28-7-2015</fecha>
+				<autor>Martín Caparrós</autor>
+				<titular>Paternidad 2.0</titular>
+				<link>http://elpais.com/elpais/2015/07/27/eps/1438008645_417941.html</link>
+			</noticia>
+			<noticia>
+				<fecha>2-2-2017</fecha>
+				<autor>Luz Sánchez-Mellado</autor>
+				<titular>Mujeres horno</titular>
+				<link>http://elpais.com/elpais/2017/02/01/opinion/1485969099_452388.html</link>
+			</noticia>
+		</noticias>
+	</dataset>
+</root>

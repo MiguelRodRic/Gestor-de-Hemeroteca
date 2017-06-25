@@ -3,17 +3,17 @@
     <h1 style="font-family: 'Arimo', sans-serif">Buscador de noticias en RSS: </h1>
     <h3 style="font-family: 'Arimo', sans-serif">Elige el medio que desees: </h3>
     <form method="POST">
-    <select name='media-select'>
+    <select id="media-select" name='media-select'>
     {% for option in options %}
     <option value="{{option.value}}">{{option.name}} </option>
     {% endfor %}
     </select>
-    <p><input type="submit" name="submit" value="Aceptar"></p>
+    <p><input id="readnews" type="submit" name="submit" value="Aceptar"><div id="loadingif" style="display:none; margin-left:10px;"> Cargando... <div class="loader" style="margin-left: 20px; margin-top: -5px;"></div></div></p>
     {% if mensaje %}
     <h1> {{mensaje}}<h1>
     {% endif %}
     {% if fuente %}
-    <table class="table">
+    <table id="newstable" class="table">
     <tr>
     <th>Autor</th>
     <th>Título</th>
@@ -35,6 +35,10 @@
     <script type="text/javascript">
       $(".nav").find(".active").removeClass("active");
       $("#RSS").addClass("active");
+
+      $('#readnews').click(function () {
+        $('#loadingif').css('display','inline-flex');
+      })
     </script>
        
 {% endblock %}

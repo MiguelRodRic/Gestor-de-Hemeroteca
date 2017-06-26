@@ -480,13 +480,20 @@ def savenewdataset():
     #get all the links from the xml
     if request.method == 'POST':
         if request.form['submit'] == 'Guardar Nuevas':
+            insertadas = []
             for noticia in nds.noticias:
                 if DB.noticias.find_one({'title':{'$regex': noticia['titular']}}) is None:
-                    DB.noticias.insert_one({'author': noticia['autor'], 'title':noticia['titular'],
+                    insertada = DB.noticias.insert_one({'author': noticia['autor'], 'title':noticia['titular'],
                         'publishDate':noticia['fecha'], 'text':noticia['texto'],
-                        'link':noticia['link'], 'source':'PDF',
+                        'link':noticia['link'], 'source':'XML',
                         'tag':{'Machismo':'', 'VientreAlquiler':''}})
-            return render_template('savenewdataset.html', title='Nuevo Corpus', mostrar=mostrar, nds=nds)
+                    insertadas.append(insertada.inserted_id)
+            if len(insertadas) == 0:
+                mensaje = 'No se han introducido nuevas noticias'
+            else:
+                mensaje = 'Noticias insertadas'
+            return render_template('savenewdataset.html', title='Nuevo Corpus',
+                mensaje=mensaje, nds=nds)
     else:
         for nombre in NOMBRES_ARCHIVOS:
             noticias_fichero = scanNewsXML(nombre)

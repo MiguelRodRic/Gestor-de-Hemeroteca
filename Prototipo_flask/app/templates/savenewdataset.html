@@ -2,10 +2,13 @@
 {% block content %}
     <h1 style="font-family: 'Arimo', sans-serif" >Conjunto leído: </h1>
     <form action="/savenewdataset" method="post" name="savenewdataset">
-      {% if mostrar %}
       {% if errorText %}
       <h2>{{errorText}} </h2>
       {% endif %}
+      {% if mensaje %}
+      <h2> {{mensaje}} </h2>
+      {% endif %}
+      {% if mostrar %}
       <table class="table" id="corpustable">
       <tr>
       <th>Autor </th>

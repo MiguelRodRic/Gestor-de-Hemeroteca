@@ -86,6 +86,30 @@ En la imagen se observan de forma diferenciada los tres apartados, y se le ofrec
 
 Puede que al usar la aplicación de la sensación de que el estilo visual de estos resultados de la explicación no encaja completamente con el estilo visual del resto de las pestañas. Esto es debido a que se inyecta directamente el bloque HTML sin alterar que devuelve Lime en la pestaña antes de cargar la misma. Debido a limitaciones de tiempo, era más productivo aprovechar este código HTML ya escrito que solamente recibir de Lime los datos y dedicar tiempo extra a escribir el código HTML y las funciones de Javascript necesarias para preparar la misma vista de resultados pero con otros estilos diferentes. De nuevo, se ha decidido seguir el razonamiento de que ``no hay que reinventar la rueda''.
 
+\section{Pruebas de clasificación}
+
+Como ya se ha mencionado en el apartado de conceptos teóricos, hay más de un clasificador que se tuvo en cuenta en el aprendizaje automático de textos. A continuación haremos una comparativa en la que se verá cómo afectaban al rendimiento y precisión cada caso.
+
+\subsection{Predicción de clase}
+
+Cuando se muestra una muestra de resultados de noticias, se puede observar una barra que indica las probabilidades de esa etiqueta de pertenecer a una clase u a otra. Para conseguir ésto hay que realizar predicciones por medio del aprendizaje automático, como ya se ha comentado en otras secciones.
+
+Los clasificadores que se han comparado han sido un clasificador de \emph{random forest} y un clasificador \emph{Naive Bayes}. En el primer caso, como podemos indicar cuántos árboles queremos que formen el bosque, hemos realizado pruebas de rendimiento con varios casos, como se puede ver en la siguiente imagen:
+
+\imagen{clasificacionchart}{Comparativa de rendimiento en función del número de árboles}
+
+Como se puede observar, a medida que desciende el número de árboles, más rápidas son las predicciones. No obstante, hay que tener en cuenta que la variación de las mismas sí que se reduce con más árboles. Por tanto, disminuir mucho el número de árboles lleva a predicciones poco estables y en muchos casos, equivocadas. Con 90 árboles, los tiempos de carga son aceptables y los resultados siguen siendo bastante estables, así que fue la cantidad que se escogió como ganadora.
+
+En el caso del clasificador \emph{Naive Bayes}, los tiempos de carga eran mínimos, tardaba entre 3 y 4 segundos en realizar las predicciones. El problema es que este tipo de clasificador no usa \emph{Bagging}, y por tanto, todas las predicciones que haga no van a tener un componente aleatorio y no van a cambiar a no se que cambie el conjunto de entrenamiento. Dicho de otra manera, si el clasificador está realizando predicciones erróneas, no hay manera de saberlo pues no va a variar los resultados con repetidas pruebas.
+
+\subsection{Creación de explicaciones}
+
+En el caso de las explicaciones, la perspectiva es notablemente distinta. Dado que se usa la librería \emph{Lime} para generarlas, como ya se ha explicado en la parte de herramientas, los tiempos de carga no dependen exclusivamente del tipo de clasificación que se esté realizando. 
+
+De hecho, realizando pruebas similares a las del apartado anterior, se ha podido ver que para crear una explicación para una noticia tarda siempre lo mismo, ya sea un clasificador \emph{Random Forest} o un \emph{Naive Bayes}, con márgenes de unos 5 segundos. De hecho, aún probando con cantidades de árboles muy distintas (de 20 a 500), sólo se ha notado efecto en el rendimiento a partir de los 400 árboles, aproximadamente. Usando esto a como una ventaja, se ha podido aumentar mucho el número de árboles en comparación con los que se usan en la predicción, lo cual aumentará la precisión promedio de los resultados.
+
+Desafortunadamente, los tiempos de carga de \emph{Lime} son perceptibles en comparación con el resto de operaciones de la herramienta, y se puede hacer poco a nivel de código para mejorar esta situación.
+
 \section{Experimentación en Jupyter}
 
 Debido a los problemas que se mencionan a continuación, la opción de implementar la aplicación web basada en notebooks de Jupyter tuvo que ser descartada en pleno desarrollo del proyecto.

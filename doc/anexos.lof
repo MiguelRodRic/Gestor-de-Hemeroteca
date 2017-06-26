@@ -1,44 +1,56 @@
 \select@language {spanish}
 \select@language {spanish}
 \addvspace {10pt}
-\contentsline {figure}{\numberline {A.1}{\ignorespaces Issues del primer sprint}}{2}{figure.Alph1.1}
-\contentsline {figure}{\numberline {A.2}{\ignorespaces Progreso de resoluci\IeC {\'o}n de tareas del primer sprint}}{3}{figure.Alph1.2}
-\contentsline {figure}{\numberline {A.3}{\ignorespaces Issues del segundo sprint}}{3}{figure.Alph1.3}
-\contentsline {figure}{\numberline {A.4}{\ignorespaces Progreso de resoluci\IeC {\'o}n de tareas del segundo sprint}}{4}{figure.Alph1.4}
-\contentsline {figure}{\numberline {A.5}{\ignorespaces Issues del tercer sprint}}{5}{figure.Alph1.5}
-\contentsline {figure}{\numberline {A.6}{\ignorespaces Progreso de resoluci\IeC {\'o}n de tareas del tercer sprint}}{5}{figure.Alph1.6}
-\contentsline {figure}{\numberline {A.7}{\ignorespaces Issues del cuarto sprint}}{6}{figure.Alph1.7}
-\contentsline {figure}{\numberline {A.8}{\ignorespaces Progreso de resoluci\IeC {\'o}n de tareas del cuarto sprint}}{7}{figure.Alph1.8}
-\contentsline {figure}{\numberline {A.9}{\ignorespaces Issues del quinto sprint}}{7}{figure.Alph1.9}
-\contentsline {figure}{\numberline {A.10}{\ignorespaces Progreso de resoluci\IeC {\'o}n de tareas del quinto sprint}}{8}{figure.Alph1.10}
-\contentsline {figure}{\numberline {A.11}{\ignorespaces Issues del sexto sprint}}{8}{figure.Alph1.11}
-\contentsline {figure}{\numberline {A.12}{\ignorespaces Progreso de resoluci\IeC {\'o}n de tareas del sexto sprint}}{9}{figure.Alph1.12}
-\contentsline {figure}{\numberline {A.13}{\ignorespaces Issues del s\IeC {\'e}ptimo sprint}}{10}{figure.Alph1.13}
-\contentsline {figure}{\numberline {A.14}{\ignorespaces Progreso de resoluci\IeC {\'o}n de tareas del s\IeC {\'e}ptimo sprint}}{10}{figure.Alph1.14}
-\contentsline {figure}{\numberline {A.15}{\ignorespaces Issues del octavo sprint}}{11}{figure.Alph1.15}
-\contentsline {figure}{\numberline {A.16}{\ignorespaces Progreso de resoluci\IeC {\'o}n de tareas del octavo sprint}}{11}{figure.Alph1.16}
-\contentsline {figure}{\numberline {A.17}{\ignorespaces Issues del noveno sprint}}{12}{figure.Alph1.17}
-\contentsline {figure}{\numberline {A.18}{\ignorespaces Progreso de resoluci\IeC {\'o}n de tareas del noveno sprint}}{13}{figure.Alph1.18}
-\contentsline {figure}{\numberline {A.19}{\ignorespaces Issues del d\IeC {\'e}cimo sprint}}{13}{figure.Alph1.19}
-\contentsline {figure}{\numberline {A.20}{\ignorespaces Progreso de resoluci\IeC {\'o}n de tareas del d\IeC {\'e}cimo sprint}}{14}{figure.Alph1.20}
-\contentsline {figure}{\numberline {A.21}{\ignorespaces Issues del und\IeC {\'e}cimo sprint}}{14}{figure.Alph1.21}
-\contentsline {figure}{\numberline {A.22}{\ignorespaces Progreso de resoluci\IeC {\'o}n de tareas del und\IeC {\'e}cimo sprint}}{15}{figure.Alph1.22}
-\contentsline {figure}{\numberline {A.23}{\ignorespaces Issues del duod\IeC {\'e}cimo sprint}}{15}{figure.Alph1.23}
-\contentsline {figure}{\numberline {A.24}{\ignorespaces Progreso de resoluci\IeC {\'o}n de tareas del duod\IeC {\'e}cimo sprint}}{16}{figure.Alph1.24}
-\contentsline {figure}{\numberline {A.25}{\ignorespaces Issues del decimotercer sprint}}{17}{figure.Alph1.25}
-\contentsline {figure}{\numberline {A.26}{\ignorespaces Progreso de resoluci\IeC {\'o}n de tareas del decimotercer sprint}}{17}{figure.Alph1.26}
-\contentsline {figure}{\numberline {A.27}{\ignorespaces Issues del decimocuarto sprint}}{18}{figure.Alph1.27}
-\contentsline {figure}{\numberline {A.28}{\ignorespaces Progreso de resoluci\IeC {\'o}n de tareas del decimocuarto sprint}}{18}{figure.Alph1.28}
-\contentsline {figure}{\numberline {A.29}{\ignorespaces Issues del decimoquinto sprint}}{19}{figure.Alph1.29}
-\contentsline {figure}{\numberline {A.30}{\ignorespaces Progreso de resoluci\IeC {\'o}n de tareas del decimoquinto sprint}}{19}{figure.Alph1.30}
-\contentsline {figure}{\numberline {A.31}{\ignorespaces Issues del decimosexto sprint}}{20}{figure.Alph1.31}
-\contentsline {figure}{\numberline {A.32}{\ignorespaces Progreso de resoluci\IeC {\'o}n de tareas del decimosexto sprint}}{21}{figure.Alph1.32}
-\contentsline {figure}{\numberline {A.33}{\ignorespaces Issues del decimoseptimo sprint}}{21}{figure.Alph1.33}
-\contentsline {figure}{\numberline {A.34}{\ignorespaces Progreso de resoluci\IeC {\'o}n de tareas del decimoseptimo sprint}}{22}{figure.Alph1.34}
-\contentsline {figure}{\numberline {A.35}{\ignorespaces Issues del decimoctavo sprint}}{23}{figure.Alph1.35}
-\contentsline {figure}{\numberline {A.36}{\ignorespaces Progreso de resoluci\IeC {\'o}n de tareas del decimoctavo sprint}}{23}{figure.Alph1.36}
+\contentsline {figure}{\numberline {A.1}{\ignorespaces Issues del primer sprint\relax }}{2}{figure.caption.4}
+\contentsline {figure}{\numberline {A.2}{\ignorespaces Progreso de resoluci\IeC {\'o}n de tareas del primer sprint\relax }}{3}{figure.caption.5}
+\contentsline {figure}{\numberline {A.3}{\ignorespaces Issues del segundo sprint\relax }}{3}{figure.caption.6}
+\contentsline {figure}{\numberline {A.4}{\ignorespaces Progreso de resoluci\IeC {\'o}n de tareas del segundo sprint\relax }}{4}{figure.caption.7}
+\contentsline {figure}{\numberline {A.5}{\ignorespaces Issues del tercer sprint\relax }}{5}{figure.caption.8}
+\contentsline {figure}{\numberline {A.6}{\ignorespaces Progreso de resoluci\IeC {\'o}n de tareas del tercer sprint\relax }}{5}{figure.caption.9}
+\contentsline {figure}{\numberline {A.7}{\ignorespaces Issues del cuarto sprint\relax }}{6}{figure.caption.10}
+\contentsline {figure}{\numberline {A.8}{\ignorespaces Progreso de resoluci\IeC {\'o}n de tareas del cuarto sprint\relax }}{7}{figure.caption.11}
+\contentsline {figure}{\numberline {A.9}{\ignorespaces Issues del quinto sprint\relax }}{7}{figure.caption.12}
+\contentsline {figure}{\numberline {A.10}{\ignorespaces Progreso de resoluci\IeC {\'o}n de tareas del quinto sprint\relax }}{8}{figure.caption.13}
+\contentsline {figure}{\numberline {A.11}{\ignorespaces Issues del sexto sprint\relax }}{8}{figure.caption.14}
+\contentsline {figure}{\numberline {A.12}{\ignorespaces Progreso de resoluci\IeC {\'o}n de tareas del sexto sprint\relax }}{9}{figure.caption.15}
+\contentsline {figure}{\numberline {A.13}{\ignorespaces Issues del s\IeC {\'e}ptimo sprint\relax }}{10}{figure.caption.16}
+\contentsline {figure}{\numberline {A.14}{\ignorespaces Progreso de resoluci\IeC {\'o}n de tareas del s\IeC {\'e}ptimo sprint\relax }}{10}{figure.caption.17}
+\contentsline {figure}{\numberline {A.15}{\ignorespaces Issues del octavo sprint\relax }}{11}{figure.caption.18}
+\contentsline {figure}{\numberline {A.16}{\ignorespaces Progreso de resoluci\IeC {\'o}n de tareas del octavo sprint\relax }}{11}{figure.caption.19}
+\contentsline {figure}{\numberline {A.17}{\ignorespaces Issues del noveno sprint\relax }}{12}{figure.caption.20}
+\contentsline {figure}{\numberline {A.18}{\ignorespaces Progreso de resoluci\IeC {\'o}n de tareas del noveno sprint\relax }}{13}{figure.caption.21}
+\contentsline {figure}{\numberline {A.19}{\ignorespaces Issues del d\IeC {\'e}cimo sprint\relax }}{13}{figure.caption.22}
+\contentsline {figure}{\numberline {A.20}{\ignorespaces Progreso de resoluci\IeC {\'o}n de tareas del d\IeC {\'e}cimo sprint\relax }}{14}{figure.caption.23}
+\contentsline {figure}{\numberline {A.21}{\ignorespaces Issues del und\IeC {\'e}cimo sprint\relax }}{14}{figure.caption.24}
+\contentsline {figure}{\numberline {A.22}{\ignorespaces Progreso de resoluci\IeC {\'o}n de tareas del und\IeC {\'e}cimo sprint\relax }}{15}{figure.caption.25}
+\contentsline {figure}{\numberline {A.23}{\ignorespaces Issues del duod\IeC {\'e}cimo sprint\relax }}{15}{figure.caption.26}
+\contentsline {figure}{\numberline {A.24}{\ignorespaces Progreso de resoluci\IeC {\'o}n de tareas del duod\IeC {\'e}cimo sprint\relax }}{16}{figure.caption.27}
+\contentsline {figure}{\numberline {A.25}{\ignorespaces Issues del decimotercer sprint\relax }}{17}{figure.caption.28}
+\contentsline {figure}{\numberline {A.26}{\ignorespaces Progreso de resoluci\IeC {\'o}n de tareas del decimotercer sprint\relax }}{17}{figure.caption.29}
+\contentsline {figure}{\numberline {A.27}{\ignorespaces Issues del decimocuarto sprint\relax }}{18}{figure.caption.30}
+\contentsline {figure}{\numberline {A.28}{\ignorespaces Progreso de resoluci\IeC {\'o}n de tareas del decimocuarto sprint\relax }}{18}{figure.caption.31}
+\contentsline {figure}{\numberline {A.29}{\ignorespaces Issues del decimoquinto sprint\relax }}{19}{figure.caption.32}
+\contentsline {figure}{\numberline {A.30}{\ignorespaces Progreso de resoluci\IeC {\'o}n de tareas del decimoquinto sprint\relax }}{19}{figure.caption.33}
+\contentsline {figure}{\numberline {A.31}{\ignorespaces Issues del decimosexto sprint\relax }}{20}{figure.caption.34}
+\contentsline {figure}{\numberline {A.32}{\ignorespaces Progreso de resoluci\IeC {\'o}n de tareas del decimosexto sprint\relax }}{21}{figure.caption.35}
+\contentsline {figure}{\numberline {A.33}{\ignorespaces Issues del decimoseptimo sprint\relax }}{21}{figure.caption.36}
+\contentsline {figure}{\numberline {A.34}{\ignorespaces Progreso de resoluci\IeC {\'o}n de tareas del decimoseptimo sprint\relax }}{22}{figure.caption.37}
+\contentsline {figure}{\numberline {A.35}{\ignorespaces Issues del decimoctavo sprint\relax }}{23}{figure.caption.38}
+\contentsline {figure}{\numberline {A.36}{\ignorespaces Progreso de resoluci\IeC {\'o}n de tareas del decimoctavo sprint\relax }}{23}{figure.caption.39}
 \addvspace {10pt}
-\contentsline {figure}{\numberline {B.1}{\ignorespaces Diagrama de casos de uso}}{27}{figure.Alph2.1}
+\contentsline {figure}{\numberline {B.1}{\ignorespaces Diagrama de casos de uso\relax }}{28}{figure.caption.46}
 \addvspace {10pt}
+\contentsline {figure}{\numberline {C.1}{\ignorespaces Diagrama de flujo para un caso de interacci\IeC {\'o}n habitual\relax }}{38}{figure.caption.55}
+\contentsline {figure}{\numberline {C.2}{\ignorespaces Diagrama de paquetes\relax }}{39}{figure.caption.56}
+\contentsline {figure}{\numberline {C.3}{\ignorespaces Clases utilizadas en la herramienta\relax }}{40}{figure.caption.57}
 \addvspace {10pt}
+\contentsline {figure}{\numberline {D.1}{\ignorespaces Ubicaci\IeC {\'o}n del c\IeC {\'o}digo utilizado en el aprendizaje autom\IeC {\'a}tico\relax }}{43}{figure.caption.59}
+\contentsline {figure}{\numberline {D.2}{\ignorespaces Funciones encargadas de la interacci\IeC {\'o}n con las pesta\IeC {\~n}as\relax }}{44}{figure.caption.61}
+\contentsline {figure}{\numberline {D.3}{\ignorespaces Nota obtenida antes de realizar refactorizaciones\relax }}{47}{figure.caption.70}
+\contentsline {figure}{\numberline {D.4}{\ignorespaces Nota obtenida despu\IeC {\'e}s de varias semanas, aplicando algunas t\IeC {\'e}cnicas de refactorizaci\IeC {\'o}n\relax }}{48}{figure.caption.71}
+\contentsline {figure}{\numberline {D.5}{\ignorespaces Nota obtenida en los \IeC {\'u}ltimos d\IeC {\'\i }as de desarrollo\relax }}{48}{figure.caption.72}
+\contentsline {figure}{\numberline {D.6}{\ignorespaces Algunos de los factores que valora Pylint\relax }}{49}{figure.caption.73}
+\contentsline {figure}{\numberline {D.7}{\ignorespaces Nota obtenida antes de aplicar cambios\relax }}{50}{figure.caption.74}
+\contentsline {figure}{\numberline {D.8}{\ignorespaces Nota despu\IeC {\'e}s de los primeros cambios\relax }}{50}{figure.caption.75}
+\contentsline {figure}{\numberline {D.9}{\ignorespaces Nota despu\IeC {\'e}s de haber aplicado la mayor\IeC {\'\i }a de los cambios\relax }}{50}{figure.caption.76}
 \addvspace {10pt}

@@ -2,10 +2,174 @@
 
 \section{Introducción}
 
+En esta sección se explicarán todos los apartados necesarios para que, en el caso de que un programador externo entrara a trabajar en esta aplicación, pudiera familiarizarse rápido con ella y su desarrollo.
+
 \section{Estructura de directorios}
+
+\emph{Prototipo Flask} es el directorio en el que se ubican todos los archivos de la herramienta. En esta carpeta podemos encontrar los siguientes directorios:
+
+\begin{itemize}
+
+\item \textbf{app}: Es el directorio más importante de la propia aplicación, ya que contiene todos los archivos de \emph{back-end} (scripts de Python con la funcionalidad) y \emph{front-end} (documentos HTML para las pestañas) que forman la herramienta, junto con las carpetas con los estilos CSS, los fuentes de \emph{Bootstrap}, \emph{JQuery} y alguna biblioteca adicional, y las imágenes que se usan en las pestañas.
+
+\item \textbf{datasets}: En este directorio es donde se deben de dejar los archivos XML que contengan corpus de noticias enteros. Este formato está pensado para casos en los que el usuario ya tuviera un conjunto de noticias con las clases asignadas de forma previa al uso de la herramienta.
+
+\item \textbf{pdf}: En esta ubicación se deben de depositar los archivos PDF que sigan el formato indicado para su posterior lectura por parte de la aplicación.
+
+\item \textbf{tests}: Aquí se encuentran los ficheros de código Python con las pruebas en Selenium para los casos de uso. Con la perspectiva de probarles por separado, se creó un archivo con una prueba para cada caso de uso.
+
+\end{itemize}
+
+Aparte de lo anterior, en el directorio raíz tenemos los siguientes archivos:
+
+\begin{itemize}
+
+\item \emph{config.py}: Fichero que contiene las variables de configuración (En este caso, las rutas a las carpetas donde se ubican los PDF, XML... etc)s.
+
+\item \emph{requirements.txt}: Este fichero de texto plano contiene una lista de todos los recursos usados, para que cuando se instale la aplicación en otro equipo se puedan instalar a la vez usando este archivo en vez de uno a uno.
+
+\item \emph{run.py}: Este código de Python es el que arranca la aplicación, haciendo uso del directorio \emph{app}.
+
+\item \emph{setup.sh}: Contiene un conjunto de comandos simples, como el arranque del entorno virtual y de la base de datos, para que sólo sea necesario ejecutar este archivo antes de usar la aplicación.
+
+\end{itemize}
 
 \section{Manual del programador}
 
+En este apartado se mencionarán los distintos puntos a tener en cuenta en relación al desarrollo de la aplicación.
+
+\subsection{Minería de datos}
+
+Todo lo relacionado con el aprendizaje automático de los textos de las noticias se encuentra en el script \emph{forms.py}, que se encuentra dentro de la carpeta app. 
+
+En la clase \emph{Query}, que es la que se llama desde la aplicación para estas operaciones, tenemos dos métodos principales: \emph{classification} y \emph{explanation}. Si se quisiera modificar la predicción de noticias que se realiza en la tabla de resultados, habría que cambiar el código de la primera función, mientras que si se quieren hacer cambios en las explicaciones se deberá modificar la segunda función.
+
+En lo que respecta al modelo, se refactorizó código extrayendo en una función apartada, llamada \emph{prepare model}, el preparado de los datos de entrenamiento a partir de las noticias.
+
+A continuación se muestra una captura del código donde se puede observar esta estructura.
+
+\imagen{MachineLearningCode}{Ubicación del código utilizado en el aprendizaje automático}
+
+\subsection{Lectura de noticias}
+
+Toda la funcionalidad relacionada con el almacenamiento y obtención de noticias, e interacción con la web se encuentra en el fichero \emph{views.py}. Allí, se puede encontrar una función para cada pestaña de la aplicación, ocupada de la funcionalidad \emph{back-end}. 
+
+En la siguiente imagen se muestran estas funciones.
+
+\imagen{NewsCode}{Funciones encargadas de la interacción con las pestañas}
+
 \section{Compilación, instalación y ejecución del proyecto}
 
+En los siguientes puntos se van a detallar qué elementos son imprescindibles para la configuración e instalación de la aplicación. Este proceso es muy similar al que se realiza en el Mega-Tutorial de Flask de Miguel Gringberg \cite{flaskmegatutorial}.
+
+\subsection{Python}
+Es esencial que en el equipo que vayamos a usar la herramienta esté Python instalado. Más concretamente, la versión 2.7 es en la que se ha desarrollado nuestro código.
+
+En las últimas versiones de los Sistemas Operativos Ubuntu, ya viene una versión de Python 2 y Python 3 instalada, por lo tanto no requiere acciones extra por nuestra parte.
+
+\subsection{Pip}
+
+Otra herramienta muy útil a la hora de instalar bibliotecas de Python es Pip. Se puede instalar simplemente con el siguiente comando: 
+
+\begin{minted}{bash}
+sudo apt-get install python-pip
+\end{minted}
+
+\subsection{NLTK}
+
+Para poder usar las palabras vacías, necesitamos descargarnos el corpus \emph{stopwords} de nltk, para ello, en un script Python, basta con los siguientes comandos:
+
+\begin{minted}{bash}
+import nltk
+nltk.download()
+\end{minted}
+
+Se abrirá el menú de instalación de nltk, y desde ahí se podrá elegir que biblioteca queremos descargarnos (en este caso, la llamada ``stopwords'').
+
+\subsection{Pymongo}
+
+Antes de comenzar la instalación de la aplicación, hay que configurar en el equipo la base de datos NoSQL. Antes de la extensión de Python, necesitamos tener MongoDB en nuestro equipo, lo cual conseguiremos siguiendo los pasos que indican en la guía de la página oficial de MongoDB \cite{Chodorow:2010:MDG:1941134}, en este enlace: \url{https://docs.mongodb.com/v3.2/tutorial/install-mongodb-on-ubuntu/}.
+
+Para instalar Pymongo, teniendo Pip en el equipo basta con escribir lo siguiente:
+
+\begin{minted}{bash}
+sudo python -m pip install pymongo
+\end{minted}
+
+
+Para activar el servicio de MongoDB en el Sistema Operativo sólo hace falta escribir en la terminal:
+
+\begin{minted}{bash}
+sudo service mongod start
+\end{minted}
+
+\subsection{Entorno Virtual}
+
+Para poder usar Flask, se creará un entorno virtual en el que se va a realizar la instalación de todo lo relacionado con Flask y se ejecutará la aplicación.
+
+Para poder crear este entorno virtual, lo primero que hay que hacer es instalar \emph{virtualenv}, con el siguiente comando:
+
+\begin{minted}{bash}
+sudo apt-get install python-virtualenv
+\end{minted}
+
+\subsection{Flask}
+
+Una vez esté instalado \emph{virtualenv}, desde la ventana de comandos habrá que situarse en la ubicación del directorio raíz del proyecto y ejecutar el siguiente comando:
+
+\begin{minted}{bash}
+virtualenv flask
+\end{minted}
+
+
+Aprovechando que hay un archivo llamado \emph{requirements} que contiene todas las bibliotecas que se han usado en el desarrollo, basta con el siguiente comando para que se instalen todas en orden sin necesidad de instalarlas una a una:
+
+\begin{minted}{bash}
+sudo flask/bin/pip install -r requirements.txt
+\end{minted}
+
+
+Una vez está instalado todo lo necesario, hay que modificar los permisos del fichero \emph{run.py} para que nos permita ejecutarle. Se hace de la siguiente manera:
+
+\begin{minted}{bash}
+sudo chmod a+x run.py
+\end{minted}
+
+Una vez sea accesible este archivo, ya se podría ejecutar la aplicación. Es crucial mencionar que la primera vez que se ejecuta la aplicación en un ordenador nuevo, no va a tener ningún dataset, y por tanto se debe usar el script \emph{createdataset.py}, ubicado en el directorio raíz, para crear los dataset iniciales con los que poder empezar a etiquetar noticias.
+
+
 \section{Pruebas del sistema}
+
+\subsection{Pruebas de funcionalidad}
+
+Aparte de las pruebas convencionales de funcionamiento realizadas por usuarios, se han creado un conjunto de pruebas simples automatizadas con la herramienta \emph{Selenium}. 
+
+No obstante, al contrario de su uso habitual, que consistiría en grabar un conjunto de pasos con el plugin del navegador y exportarlo en algún lenguaje como Java, hemos usado las bibliotecas de \emph{Selenium} para Python, evitando así usar diferentes lenguajes de programación, aún a costa de no usar el plugin para Mozilla Firefox.
+
+En la carpeta \emph{tests} del proyecto, se pueden encontrar un conjunto de scripts numerados del 1 al 7, que contienen una prueba simple para cada caso de uso. Para evitar hacer cambios innecesarios en la base de datos, se ha evitado ejecutar la funcionalidad de guardar nuevas noticias en las pruebas, ya que si por ejemplo, en el caso de uso de lectura de RSS, se estuvieran haciendo pruebas constantes, podría llenarse la base de datos de noticias que no se querían almacenar en un primer momento.
+
+Además de esto, hay un script auxiliar llamado \emph{deletedataset} que se puede usar para borrar un conjunto de datos de la aplicación. El motivo de que esté guardado es que, realizando pruebas, se acababan almacenando demasiados conjuntos de pruebas innecesarios en la aplicación, y esto podía afectar al rendimiento. Por tanto, ejecutando este script con el nombre del conjunto que queramos borrar ahorra bastante trabajo al programador que esté probando la herramienta.
+
+\subsection{Calidad del código}
+Además de las pruebas de funcionalidad, se llevó a cabo una evolución progresiva de la calidad del código usando la herramienta \emph{Pylint}, que detecta todos los errores, avisos y mejoras de refactorización que se pueden realizar en programas escritos en Python. Esta herramienta se usó tanto en \emph{views.py} como en \emph{forms.py}, que son los dos scripts que reunen la mayoría de la funcionalidad de la aplicación.
+
+Por ejemplo, en las siguientes imágenes podemos ver la evolución de calidad del código del fichero \emph{views} en función de la nota recibida por \emph{Pylint}:
+
+\imagen{PreviousQuality}{Nota obtenida antes de realizar refactorizaciones}
+
+\imagen{NewQuality}{Nota obtenida después de varias semanas, aplicando algunas técnicas de refactorización}
+
+\imagen{NewQuality2Views}{Nota obtenida en los últimos días de desarrollo}
+
+\imagen{NewMessages}{Algunos de los factores que valora Pylint}
+
+Del mismo modo, podemos observar de forma breve la evolución de \emph{forms} a lo largo de las semanas, aplicando algunas técnicas de refactorización:
+
+\imagen{FormsQuality1}{Nota obtenida antes de aplicar cambios}
+
+\imagen{FormsQuality3}{Nota después de los primeros cambios}
+
+\imagen{FormsQuality4}{Nota después de haber aplicado la mayoría de los cambios}
+
+
+Cabe destacar que, aunque sigue habiendo margen de mejora, era imposible obtener un 10/10 con esta herramienta, pues es conflictiva en algunos aspectos. Por poner un ejemplo, evalúa con mala nota las líneas con más de 100 columnas de código, pero si se introduce un salto de línea para dividir la longitud, penaliza que haya un salto de línea inapropiado.

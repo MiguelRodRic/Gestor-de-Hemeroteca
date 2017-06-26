@@ -46,13 +46,16 @@
 \contentsline {subsection}{Stopwords}{19}{section*.31}
 \contentsline {subsection}{Normalizaci\IeC {\'o}n de las frecuencias}{21}{section*.32}
 \contentsline {section}{\numberline {5.2}Resultados de la explicaci\IeC {\'o}n de la predicci\IeC {\'o}n}{22}{section.5.2}
-\contentsline {section}{\numberline {5.3}Experimentaci\IeC {\'o}n en Jupyter}{23}{section.5.3}
-\contentsline {section}{\numberline {5.4}Intento de publicaci\IeC {\'o}n de Jupyter Dashboard}{24}{section.5.4}
-\contentsline {section}{\numberline {5.5}Omisi\IeC {\'o}n de comentarios en el Scrapping}{25}{section.5.5}
-\contentsline {subsection}{Uso de Selenium para comentarios ocultos}{25}{section*.33}
-\contentsline {subsection}{Falta de comentarios en RSS}{26}{section*.34}
-\contentsline {chapter}{Trabajos relacionados}{27}{chapter*.35}
-\contentsline {chapter}{Conclusiones y L\IeC {\'\i }neas de trabajo futuras}{28}{chapter*.36}
-\contentsline {section}{\numberline {7.1}Conclusiones}{28}{section.7.1}
-\contentsline {section}{\numberline {7.2}L\IeC {\'\i }neas de trabajo futuras}{28}{section.7.2}
-\contentsline {chapter}{Bibliograf\'{\i }a}{30}{section*.38}
+\contentsline {section}{\numberline {5.3}Pruebas de clasificaci\IeC {\'o}n}{23}{section.5.3}
+\contentsline {subsection}{Predicci\IeC {\'o}n de clase}{23}{section*.33}
+\contentsline {subsection}{Creaci\IeC {\'o}n de explicaciones}{24}{section*.34}
+\contentsline {section}{\numberline {5.4}Experimentaci\IeC {\'o}n en Jupyter}{25}{section.5.4}
+\contentsline {section}{\numberline {5.5}Intento de publicaci\IeC {\'o}n de Jupyter Dashboard}{26}{section.5.5}
+\contentsline {section}{\numberline {5.6}Omisi\IeC {\'o}n de comentarios en el Scrapping}{27}{section.5.6}
+\contentsline {subsection}{Uso de Selenium para comentarios ocultos}{27}{section*.35}
+\contentsline {subsection}{Falta de comentarios en RSS}{28}{section*.36}
+\contentsline {chapter}{Trabajos relacionados}{29}{chapter*.37}
+\contentsline {chapter}{Conclusiones y L\IeC {\'\i }neas de trabajo futuras}{30}{chapter*.38}
+\contentsline {section}{\numberline {7.1}Conclusiones}{30}{section.7.1}
+\contentsline {section}{\numberline {7.2}L\IeC {\'\i }neas de trabajo futuras}{30}{section.7.2}
+\contentsline {chapter}{Bibliograf\'{\i }a}{32}{section*.40}

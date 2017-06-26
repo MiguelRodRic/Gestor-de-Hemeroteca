@@ -26,19 +26,19 @@ Los campos de esta colección son los siguientes:
 \item \textbf{PublishDate}: La fecha de publicación de la noticia.
 \item \textbf{Source}: La fuente de la noticia.
 \item \textbf{Link}: Ubicación o url de la noticia.
-\item \textbf{Tag}: El conjunto de etiquetas para cada dataset de la noticia.
+\item \textbf{Tag}: El conjunto de etiquetas para cada dataset de la noticia. El formato es el de diccionario: dentro de esta variable hay un conjunto de claves representando los conjuntos de datos y unos valores que representan las etiquetas de esa noticia para esos conjuntos.
 
 \end{itemize}
 
 \item \textbf{Datasets:} Es la colección que almacena los diferentes temas de debate sobre los que luego se podrá etiquetar y realizar predicciones con las noticias, siendo las etiquetas el nombre de las clases. 
 
-Los campos que contiene son estos:
+Los campos que contiene son éstos:
 
 \begin{itemize}
 
 \item \textbf{Dataset}: El nombre del tema de debate.
 \item \textbf{Clase1}: El nombre de la primera clase.
-\item \textbf{Title}: El nombre de la segunda clase.
+\item \textbf{Clase2}: El nombre de la segunda clase.
 
 \end{itemize}
 
@@ -46,6 +46,23 @@ Los campos que contiene son estos:
 
 \section{Diseño procedimental}
 
+Teniendo en cuenta que la mayoría de casos de uso de la aplicación son independientes entre ellos, y que no hay ningún orden específico de realización de los mismos, vamos a mostrar un diagrama de flujo de los más cruciales que son los relacionados con el etiquetado de noticias:
+
+\imagen{FlowDiagram}{Diagrama de flujo para un caso de interacción habitual}
+
 \section{Diseño arquitectónico}
 
+Aunque se desarrollará con más profundidad en el siguiente apartado, cabe destacar que todo el proyecto se ubica bajo un mismo directorio. En esta ubicación, se encuentra, aparte del directorio que contiene el código de la aplicación, otros en los que se almacenan las noticias de PDF, los corpus en XML, y las pruebas de casos de uso realizadas con Selenium.
 
+En el siguiente diagrama se muestra como interaccionan los paquetes entre ellos.
+
+\imagen{Deployment}{Diagrama de paquetes}
+
+
+Dentro del directorio \emph{app}, encontramos los archivos de Python que manejan la funcionalidad de la herramienta. Al contrario que una aplicación de escritorio, al ser una aplicación web construida con Flask, no hay un conjunto de clases interconectadas que construyan el sistema, si no que la mayor parte de la funcionalidad está implementada en funciones escritas en Python conectadas con cada una de las pestañas de la herramienta.
+
+No obstante, si que hay un pequeño grupo de clases de las que hacen uso las funciones que se han mencionado previamente, y que son las siguientes:
+
+\imagen{Classes}{Clases utilizadas en la herramienta}
+
+Como se puede observar, la mayoría no tienen ni siquiera métodos debido a que su papel es la de hacer las funciones de formularios, donde los atributos van a ser campos para introducir datos desde la aplicación, o para almacenar información que va a ser devuelta por pantalla. Tampoco hay relación entre las clases porque cada una es llamada por la función de una pestaña distinta. La clase Query, sin embargo, si que tiene dos métodos y son cruciales, pues implementan toda la funcionalidad relacionada con el aprendizaje automático, y es usada por las pestañas de consulta de noticias y creación de explicaciones.

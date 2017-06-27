@@ -5,10 +5,172 @@ En este apartado se explicarán las condiciones que tiene que cumplir el equipo 
 
 \section{Requisitos de usuarios}
 
+\subsection{Software}
 
+Aunque en el apartado ``Manual del programador'' se explica con más detalle qué programas y librerías son necesarias para ejecutar la aplicación, los resumiremos en un listado breve como el siguiente:
+
+\begin{itemize}
+
+\item Sistema Operativo: La herramienta se ha desarrollado y está pensada para utilizarse en Ubuntu y, más específicamente, la versión 16.
+
+\item Navegador Web: Durante el desarrollo se utilizó Mozilla Firefox, que además es el que usa \emph{Selenium} para realizar las pruebas. No obstante, la herramienta ha sido probada en otros navegadores como el incluido en Ubuntu por defecto, y funciona correctamente.
+
+\item Python: Ya viene incluido en Ubuntu. Si aun así se deseara descargar, habría que elegir la versión 2.7.
+
+\item Pip: Para realizar la instalación de la mayoría de bibliotecas que usa la aplicación.
+
+\item MongoDB: Necesario para poder montar una base de datos con las noticias.
+
+\item Virtualenv: El entorno virtual en el que se instalarán todo y desde donde se ejecutará la aplicación.
+
+\item NLTK: Al menos, el corpus correspondiente a las palabras vacías.
+\end{itemize}
+
+\subsection{Hardware}
+
+En lo relacionado con los aspectos técnicos del equipo en el que se ejecute la aplicación, no hay que tener en cuenta requisitos especialmente exigentes. Si que hay que contemplar que, a mejor \emph{hardware} esté disponible, las operaciones más costosas se realizarán con más facilidad.
+
+Por tomar un punto de referencia mínimo, vamos a citar los requisitos hardware de Mozilla Firefox para los Sistemas Operativos convencionales \cite{mozillarequirements}:
+
+\begin{itemize}
+
+\item Procesador: Pentium 4 o superior
+
+\item Tamaño de Memoria RAM: 512MB (Si se va a ejecutar en una máquina virtual, habrá que controlar que el equipo tenga suficiente RAM asignada a la misma para que funcione correctamente).
+
+\end{itemize}
+
+En términos de almacenamiento, se recomienda dejar libre alrededor de 1 GB para poder instalar varias de las bibliotecas adicionales que vienen incluidas en \emph{requirements}. No ocupan tanto espacio, pero lo más aconsejable es dejar un margen por si se implementaran nuevas funcionalidades o se llegaran a instalar nnuevas bibliotecas de terceros.
 
 \section{Instalación}
 
+El conjunto de elementos que hay que instalar para poder ejecutar la aplicación (Python, MongoDB ... etc) viene explicado con detalle en el apartado ``Manual del Programador'', pues los pasos a seguir son los mismos.
+
+Habiendo realizado todas las acciones mencionadas antes, lo único necesario ahora sería ejecutar el archivo \emph{setup.sh} que hay en el directorio raíz, con el siguiente comando:
+
+\begin{minted}{bash}
+sudo bash setup.sh
+\end{minted}
+
+Este archivo simplemente reúne el conjunto de comandos que harían falta para ejecutar la herramienta, que consiste en:
+
+\begin{itemize}
+
+\item Arrancar base de datos.
+
+\item Preparar entorno virtual.
+
+\item Ejecutar \emph{run.py}
+
+\end{itemize} 
+
+De esta manera, solo hay que ejecutar un comando en vez de varios. Una vez escrito, la aplicación estará preparada y entrando en la url que se indica por la terminal, se puede acceder a la aplicación.
+
 \section{Manual del usuario}
 
+En este manual se van a explicar cómo se realizan las diferentes acciones que se pueden llevar a cabo dentro de la aplicación.
 
+\subsection{Consulta de noticias}
+
+Estando en la página de inicio, como se puede ver en la imagen \ref{fig:CapturaIndex}, hay que introducir la palabra clave que queramos buscar en el cuadro de texto, y pulsar en el botón ``Buscar''.
+
+\imagen{CapturaIndex}{Ejemplo de palabra clave de búsqueda en la herramienta}
+
+Tras un tiempo de espera, aparecerá en pantalla una tabla como la de la imagen \ref{fig:CapturaIndex2}
+
+\imagen{CapturaIndex2}{Tabla de resultados}
+
+\subsection{Etiquetado y Explicación}
+
+Una vez tengamos acceso a la tabla de resultados de la búsqueda, podemos realizar dos acciones con las noticias, siempre respecto al dataset seleccionado en el desplegable que hay encima de la tabla:
+
+\begin{itemize}
+
+\item Primero, podemos realizar un etiquetado manual de las noticias. Para ello, basta con pulsar el botón "Etiquetar" de la noticia para que en la celda de la etiqueta aparezcan opciones de selección única, como se ve en la imagen \ref{fig:CapturaIndex2}. Cuando hayamos etiquetado las noticias que queramos, pulsamos en ``Guardar Resultados'' para aplicar los cambios.
+
+\item La otra opción sería ver una explicación de la predicción de la noticia, pulsando en el botón ``Clasificar'', que abrirá otra pestaña en la que se puede ver una explicación de los criterios para elegir una clase como en la imagen \ref{fig:CapturaExplicacion}.
+
+\imagen{CapturaExplicacion}{Explicación para la predicción de la clase de una noticia}
+\end{itemize}
+
+\subsection{Lectura de Noticias}
+
+Si, por el contrario, lo que se quiere es aumentar el corpus de noticias en la base de datos, hay varias opciones de hacerlo.
+
+\subsubsection{Lectura de PDF}
+
+Pulsando en el apartado ``Lectura PDF'' de la barra de navegación, accedemos a la pestaña de lectura de documentos PDF. Allí, se indica al usuario en qué directorio debe dejar los archivos. La interfaz es la que se puede ver en \ref{fig:PDFpage}.
+
+\imagen{PDFpage}{Pestaña de lectura de PDF}
+
+Pulsando en el botón, nos llevará a una tabla de resultados igual que la de \ref{fig:PDFread}.
+
+\imagen{PDFread}{Resultados de la lectura de PDF}
+
+Y si allí se pulsa en ``Guardar Nuevas'', se almacenarán las noticias que no estuvieran ya en la base de datos.
+
+Es crucial mencionar que las noticias se deben guardar en los PDF en un formato concreto, de lo contrario no se podrá realizar la lectura de la noticia correctamente. El formato es:
+
+\begin{itemize}
+
+\item \textbf{(Titular) *titular de la noticia* (Titular)}  
+
+\item \textbf{(Autor) *autor de la noticia* (Autor)}
+
+\item \textbf{(Fecha) *fecha de la noticia* (Fecha)}
+
+\item \textbf{(Cuerpo) *texto de la noticia* (Cuerpo)}
+
+\end{itemize}
+
+Esta decisión se tomó debido a que inicialmente había numerosos PDF con formatos distintos de los que leer noticias, y no se podía programar una solución satisfactoria para todos los casos. En la carpeta \emph{pdf} de la aplicación, hay un documento de ejemplo con el formato adecuado.
+
+\subsubsection{Lectura de RSS}
+
+Pulsando en el apartado ``RSS Scraping'' de la barra de navegación, accedemos a una pestaña que muestra un desplegable con los nombres de varios medios de comunicación, como se puede ver en \ref{fig:RSS1}. Si elegimos uno de ellos y hacemos click en ``Aceptar'', nos mostrará una tabla con las últimas noticias en el RSS de ese medio de comunicación.
+
+\imagen{RSS1}{Imagen inicial de la pestaña de lectura de RSS}
+
+Tras un breve tiempo de cargar, aparecerán los resultados en una tabla como la de \ref{fig:RSS2}.
+
+\imagen{RSS2}{Resultados de lectura de RSS}
+
+Igual que con el resto de formatos, pulsando en ``Guardar Nuevas'' almacenaremos en la base de datos las que no estén ya guardadas.
+
+\subsubsection{Lectura de Dataset}
+
+Este apartado está pensado para introducir corpus de noticias enteros que el usuario pudiera tener ya preparados antes de haber usado la aplicación, por medio de un archivo XML. En esta pestaña, de forma similar a la de lectura de PDF, se indica cuál es la carpeta en la que hay que dejar los archivos, como se puede observar en \ref{fig:Corpus1}.
+
+\imagen{Corpus1}{Pestaña de lectura de Corpus}
+
+El formato que deben de tener los XML es el siguiente:
+
+\imagen{Corpus}{Estructura de los corpus en XML}
+
+Cuando se hayan leído las noticias del corpus, se devolverá en una tabla de resultados similar al resto, pero en esta ocasión las noticias ya tendrán una etiqueta asignada. Esta tabla es como la de la imagen \ref{fig:Corpusread}
+
+\imagen{Corpusread}{Tabla de resultados con el corpus}
+
+Al igual que en los otros apartados, se pueden guardar las nuevas noticias pulsando el botón correspondiente.
+
+\subsection{Creación de nuevos Conjuntos de datos}
+
+Desde la pestaña de inicio, si pulsamos el botón ``Crear nuevo Dataset'', nos llevará a una nueva ventana donde podemos introducir en los cuadros de texto el nombre del conjunto y de las 2 clases que lo van a formar, y añadirle a la lista de los existentes.
+
+\imagen{NewDataset}{Pestaña de creación de Datasets}
+
+Una vez creado, en la tabla de resultados de noticias podrán realizarse etiquetados para ese conjunto de datos.
+
+\subsection{Estadísticas de las noticias}
+
+La herramienta permite ver, de forma básica, un conjunto de gráficos para controlar la cantidad de noticias que hay almacenadas en relación a varios factores. En la pestaña de inicio, si se pulsa ``Ver estadísticas'', aparecerá una vista en la que podemos elegir si ver la cantidad de noticias en función del autor, de la fecha, o de la fuente, y mostrará el gráfico correspondiente.
+
+No es una funcionalidad con mucha profundidad pero el usuario puede considerar interesante saber este tipo de información para añadir datos cuando realice estudios sobre las noticias. Los gráficos tienen el aspecto de la imagen \ref{fig:Statistics}
+
+\imagen{Statistics}{Gráfico de noticias por autor}
+
+\subsection{Consideraciones adicionales}
+
+Al usar la herramienta en un nuevo ordenador, hay que tener en cuenta que no habrá ni noticias ni conjuntos de datos almacenados en la base de datos. 
+
+Se podría solucionar este problema usando las opciones que da la propia herramienta, pero para facilitar la toma de contacto, hay un script llamado \emph{createdatasets} que añade a la base de datos los dos conjuntos iniciales con los que se ha trabajado, y en la carpeta \emph{dataset} está el corpus facilitado por nuestra colaboradora María Isabel Menéndez. La idea es que con estos dos sencillos pasos ya haya una base sobre la que seguir trabajando con las funcionalidades de la aplicación.

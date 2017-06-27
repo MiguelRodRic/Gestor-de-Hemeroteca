@@ -7,48 +7,60 @@
 \contentsline {section}{\numberline {A.1}Introducci\IeC {\'o}n}{1}{section.Alph1.1}
 \contentsline {section}{\numberline {A.2}Planificaci\IeC {\'o}n temporal}{1}{section.Alph1.2}
 \contentsline {section}{\numberline {A.3}Estudio de viabilidad}{24}{section.Alph1.3}
-\contentsline {subsection}{Viabilidad econ\IeC {\'o}mica}{24}{section*.40}
-\contentsline {subsection}{Viabilidad legal}{24}{section*.41}
-\contentsline {appendix}{\chapternumberline {B}Especificaci\IeC {\'o}n de Requisitos}{26}{appendix.Alph2}
-\contentsline {section}{\numberline {B.1}Introducci\IeC {\'o}n}{26}{section.Alph2.1}
-\contentsline {section}{\numberline {B.2}Objetivos generales}{26}{section.Alph2.2}
-\contentsline {section}{\numberline {B.3}Catalogo de requisitos}{27}{section.Alph2.3}
-\contentsline {subsection}{Requisitos Funcionales}{27}{section*.43}
-\contentsline {subsection}{Requisitos No Funcionales}{27}{section*.44}
-\contentsline {section}{\numberline {B.4}Especificaci\IeC {\'o}n de requisitos}{28}{section.Alph2.4}
-\contentsline {subsection}{Diagrama de casos de uso}{28}{section*.45}
-\contentsline {subsection}{Descripci\IeC {\'o}n de casos de uso}{28}{section*.47}
-\contentsline {subsubsection}{CU1 - Consulta de Noticias}{29}{section*.48}
-\contentsline {subsubsection}{CU2 - Etiquetado Manual}{30}{section*.49}
-\contentsline {subsubsection}{CU3 - Creaci\IeC {\'o}n de Explicaci\IeC {\'o}n}{31}{section*.50}
-\contentsline {subsubsection}{CU4 - Lectura de PDF}{32}{section*.51}
-\contentsline {subsubsection}{CU5 - Lectura de RSS}{33}{section*.52}
-\contentsline {subsubsection}{CU6 - Lectura de XML}{34}{section*.53}
-\contentsline {subsubsection}{CU7 - Creaci\IeC {\'o}n de Dataset}{35}{section*.54}
-\contentsline {appendix}{\chapternumberline {C}Especificaci\IeC {\'o}n de dise\IeC {\~n}o}{36}{appendix.Alph3}
-\contentsline {section}{\numberline {C.1}Introducci\IeC {\'o}n}{36}{section.Alph3.1}
-\contentsline {section}{\numberline {C.2}Dise\IeC {\~n}o de datos}{36}{section.Alph3.2}
-\contentsline {section}{\numberline {C.3}Dise\IeC {\~n}o procedimental}{37}{section.Alph3.3}
-\contentsline {section}{\numberline {C.4}Dise\IeC {\~n}o arquitect\IeC {\'o}nico}{39}{section.Alph3.4}
-\contentsline {appendix}{\chapternumberline {D}Documentaci\IeC {\'o}n t\IeC {\'e}cnica de programaci\IeC {\'o}n}{41}{appendix.Alph4}
-\contentsline {section}{\numberline {D.1}Introducci\IeC {\'o}n}{41}{section.Alph4.1}
-\contentsline {section}{\numberline {D.2}Estructura de directorios}{41}{section.Alph4.2}
-\contentsline {section}{\numberline {D.3}Manual del programador}{42}{section.Alph4.3}
-\contentsline {subsection}{Miner\IeC {\'\i }a de datos}{42}{section*.58}
-\contentsline {subsection}{Lectura de noticias}{43}{section*.60}
-\contentsline {section}{\numberline {D.4}Compilaci\IeC {\'o}n, instalaci\IeC {\'o}n y ejecuci\IeC {\'o}n del proyecto}{44}{section.Alph4.4}
-\contentsline {subsection}{Python}{44}{section*.62}
-\contentsline {subsection}{Pip}{45}{section*.63}
-\contentsline {subsection}{NLTK}{45}{section*.64}
-\contentsline {subsection}{Pymongo}{45}{section*.65}
-\contentsline {subsection}{Entorno Virtual}{46}{section*.66}
-\contentsline {subsection}{Flask}{46}{section*.67}
-\contentsline {section}{\numberline {D.5}Pruebas del sistema}{46}{section.Alph4.5}
-\contentsline {subsection}{Pruebas de funcionalidad}{46}{section*.68}
-\contentsline {subsection}{Calidad del c\IeC {\'o}digo}{47}{section*.69}
-\contentsline {appendix}{\chapternumberline {E}Documentaci\IeC {\'o}n de usuario}{51}{appendix.Alph5}
-\contentsline {section}{\numberline {E.1}Introducci\IeC {\'o}n}{51}{section.Alph5.1}
-\contentsline {section}{\numberline {E.2}Requisitos de usuarios}{51}{section.Alph5.2}
-\contentsline {section}{\numberline {E.3}Instalaci\IeC {\'o}n}{51}{section.Alph5.3}
-\contentsline {section}{\numberline {E.4}Manual del usuario}{51}{section.Alph5.4}
-\contentsline {chapter}{Bibliograf\'{\i }a}{52}{section*.78}
+\contentsline {subsection}{Viabilidad econ\IeC {\'o}mica}{24}{section*.42}
+\contentsline {subsubsection}{Viabilidad econ\IeC {\'o}mica del desarrollo}{25}{section*.43}
+\contentsline {subsection}{Viabilidad legal}{25}{section*.44}
+\contentsline {appendix}{\chapternumberline {B}Especificaci\IeC {\'o}n de Requisitos}{27}{appendix.Alph2}
+\contentsline {section}{\numberline {B.1}Introducci\IeC {\'o}n}{27}{section.Alph2.1}
+\contentsline {section}{\numberline {B.2}Objetivos generales}{27}{section.Alph2.2}
+\contentsline {section}{\numberline {B.3}Catalogo de requisitos}{28}{section.Alph2.3}
+\contentsline {subsection}{Requisitos Funcionales}{28}{section*.46}
+\contentsline {subsection}{Requisitos No Funcionales}{28}{section*.47}
+\contentsline {section}{\numberline {B.4}Especificaci\IeC {\'o}n de requisitos}{29}{section.Alph2.4}
+\contentsline {subsection}{Diagrama de casos de uso}{29}{section*.48}
+\contentsline {subsection}{Descripci\IeC {\'o}n de casos de uso}{29}{section*.50}
+\contentsline {subsubsection}{CU1 - Consulta de Noticias}{30}{section*.51}
+\contentsline {subsubsection}{CU2 - Etiquetado Manual}{31}{section*.52}
+\contentsline {subsubsection}{CU3 - Creaci\IeC {\'o}n de Explicaci\IeC {\'o}n}{32}{section*.53}
+\contentsline {subsubsection}{CU4 - Lectura de PDF}{33}{section*.54}
+\contentsline {subsubsection}{CU5 - Lectura de RSS}{34}{section*.55}
+\contentsline {subsubsection}{CU6 - Lectura de XML}{35}{section*.56}
+\contentsline {subsubsection}{CU7 - Creaci\IeC {\'o}n de Dataset}{36}{section*.57}
+\contentsline {appendix}{\chapternumberline {C}Especificaci\IeC {\'o}n de dise\IeC {\~n}o}{37}{appendix.Alph3}
+\contentsline {section}{\numberline {C.1}Introducci\IeC {\'o}n}{37}{section.Alph3.1}
+\contentsline {section}{\numberline {C.2}Dise\IeC {\~n}o de datos}{37}{section.Alph3.2}
+\contentsline {section}{\numberline {C.3}Dise\IeC {\~n}o procedimental}{38}{section.Alph3.3}
+\contentsline {section}{\numberline {C.4}Dise\IeC {\~n}o arquitect\IeC {\'o}nico}{40}{section.Alph3.4}
+\contentsline {appendix}{\chapternumberline {D}Documentaci\IeC {\'o}n t\IeC {\'e}cnica de programaci\IeC {\'o}n}{42}{appendix.Alph4}
+\contentsline {section}{\numberline {D.1}Introducci\IeC {\'o}n}{42}{section.Alph4.1}
+\contentsline {section}{\numberline {D.2}Estructura de directorios}{42}{section.Alph4.2}
+\contentsline {section}{\numberline {D.3}Manual del programador}{43}{section.Alph4.3}
+\contentsline {subsection}{Miner\IeC {\'\i }a de datos}{43}{section*.61}
+\contentsline {subsection}{Lectura de noticias}{44}{section*.63}
+\contentsline {section}{\numberline {D.4}Compilaci\IeC {\'o}n, instalaci\IeC {\'o}n y ejecuci\IeC {\'o}n del proyecto}{45}{section.Alph4.4}
+\contentsline {subsection}{Python}{45}{section*.65}
+\contentsline {subsection}{Pip}{46}{section*.66}
+\contentsline {subsection}{NLTK}{46}{section*.67}
+\contentsline {subsection}{Pymongo}{46}{section*.68}
+\contentsline {subsection}{Entorno Virtual}{47}{section*.69}
+\contentsline {subsection}{Flask}{47}{section*.70}
+\contentsline {section}{\numberline {D.5}Pruebas del sistema}{47}{section.Alph4.5}
+\contentsline {subsection}{Pruebas de funcionalidad}{47}{section*.71}
+\contentsline {subsection}{Calidad del c\IeC {\'o}digo}{48}{section*.72}
+\contentsline {appendix}{\chapternumberline {E}Documentaci\IeC {\'o}n de usuario}{52}{appendix.Alph5}
+\contentsline {section}{\numberline {E.1}Introducci\IeC {\'o}n}{52}{section.Alph5.1}
+\contentsline {section}{\numberline {E.2}Requisitos de usuarios}{52}{section.Alph5.2}
+\contentsline {subsection}{Software}{52}{section*.80}
+\contentsline {subsection}{Hardware}{53}{section*.81}
+\contentsline {section}{\numberline {E.3}Instalaci\IeC {\'o}n}{53}{section.Alph5.3}
+\contentsline {section}{\numberline {E.4}Manual del usuario}{54}{section.Alph5.4}
+\contentsline {subsection}{Consulta de noticias}{54}{section*.82}
+\contentsline {subsection}{Etiquetado y Explicaci\IeC {\'o}n}{55}{section*.85}
+\contentsline {subsection}{Lectura de Noticias}{56}{section*.87}
+\contentsline {subsubsection}{Lectura de PDF}{56}{section*.88}
+\contentsline {subsubsection}{Lectura de RSS}{57}{section*.91}
+\contentsline {subsubsection}{Lectura de Dataset}{58}{section*.94}
+\contentsline {subsection}{Creaci\IeC {\'o}n de nuevos Conjuntos de datos}{60}{section*.98}
+\contentsline {subsection}{Estad\IeC {\'\i }sticas de las noticias}{61}{section*.100}
+\contentsline {subsection}{Consideraciones adicionales}{62}{section*.102}
+\contentsline {chapter}{Bibliograf\'{\i }a}{63}{section*.104}

@@ -4,6 +4,7 @@
 
 \usepackage{caption}
 \usepackage{minted}
+\usepackage{eurosym}
 
 % Castellano
 \usepackage[spanish,es-tabla]{babel}

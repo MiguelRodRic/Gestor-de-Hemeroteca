@@ -258,6 +258,19 @@ Más allá de lo comprendido por la propia herramienta, el único coste impresci
 
 Cabe destacar que en el contexto de este proyecto la aplicación no está publicada en un servidor web, pero que en un futuro podría llevarse a cabo esta operación. De ser así, habría que evaluar diferentes alternativas de host compatibles y comprobar si alguna de estas alternativas son de pago o gratuitas.
 
+\subsubsection{Viabilidad económica del desarrollo}
+
+En lo relacionado con costes de personal, hay varios datos de los que se podrían obtener algunos presupuestos hipotéticos.
+
+Por ejemplo, según la información proporcionada por \emph{ZenHub} en el repositorio del proyecto, se estima que se han invertido 556 horas en el desarrollo, a lo largo de los 6 meses del mismo.
+
+Si se propusiera un sueldo para el programador de 10\euro{} la hora, tendríamos el siguiente cálculo:
+
+\[10{\euro{}} /\textsf{Hora}*556\textsf{horas}=5560{\euro{}} \]
+\[10 \mathit{{\euro}} /\textsf{hora} * 556 \textsf{horas} = 5560 {\euro}\]
+
+De esta cantidad inicial, habría que reflexionar acerca de cuánto tiempo ha sido dedicado a programar la aplicación final, y cuánto tiempo fue dedicado a la investigación y programación de funcionalidades que no acabaron incluidas en el producto, ya que podría considerarse que esas horas no podrían considerarse parte del desarrollo de la herramienta, y por tanto ser descontadas de la cantidad calculada.
+
 \subsection{Viabilidad legal}
 
 A continuación, se expondrán de forma breve las licencias de todas las herramientas y librerías utilizadas en la creación del producto final.

@@ -100,7 +100,9 @@ Los clasificadores que se han comparado han sido un clasificador de \emph{random
 
 Como se puede observar, a medida que desciende el número de árboles, más rápidas son las predicciones. No obstante, hay que tener en cuenta que la variación de las mismas sí que se reduce con más árboles. Por tanto, disminuir mucho el número de árboles lleva a predicciones poco estables y en muchos casos, equivocadas. Con 90 árboles, los tiempos de carga son aceptables y los resultados siguen siendo bastante estables, así que fue la cantidad que se escogió como ganadora.
 
-En el caso del clasificador \emph{Naive Bayes}, los tiempos de carga eran mínimos, tardaba entre 3 y 4 segundos en realizar las predicciones. El problema es que este tipo de clasificador no usa \emph{Bagging}, y por tanto, todas las predicciones que haga no van a tener un componente aleatorio y no van a cambiar a no se que cambie el conjunto de entrenamiento. Dicho de otra manera, si el clasificador está realizando predicciones erróneas, no hay manera de saberlo pues no va a variar los resultados con repetidas pruebas.
+En el caso del clasificador \emph{Naive Bayes}, los tiempos de carga eran mínimos, tardaba entre 3 y 4 segundos en realizar las predicciones. El problema es que este tipo de clasificador no usa \emph{Bagging}, y por tanto, todas las predicciones realizadas no van a tener un componente aleatorio y no van a cambiar a no ser que cambie el conjunto de entrenamiento. Dicho de otra manera, si el clasificador está realizando predicciones erróneas, no hay manera de contrastarlo con repetidas pruebas.
+
+En la sección ``Pruebas del Sistema'' del anexo \emph{D} (Documentación técnica de programación), se muestran pruebas adicionales de rendimiento de estos clasificadores.
 
 \subsection{Creación de explicaciones}
 

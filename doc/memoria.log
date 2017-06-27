@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.14159265-2.6-1.40.17 (MiKTeX 2.9.6210 64-bit) (preloaded format=pdflatex 2017.2.7)  26 JUN 2017 13:38
+This is pdfTeX, Version 3.14159265-2.6-1.40.17 (MiKTeX 2.9.6210 64-bit) (preloaded format=pdflatex 2017.2.7)  27 JUN 2017 09:51
 entering extended mode
 **./memoria.tex
 (memoria.tex
@@ -3216,16 +3216,13 @@ LaTeX Font Warning: Some font shapes were not available, defaults substituted.
 
 LaTeX Warning: There were undefined references.
 
-
-LaTeX Warning: Label(s) may have changed. Rerun to get cross-references right.
-
 runsystem(del memoria.pyg)...executed.
 
  ) 
 Here is how much of TeX's memory you used:
  14697 strings out of 493333
  224387 string characters out of 3139165
- 418905 words of memory out of 3000000
+ 418906 words of memory out of 3000000
  17784 multiletter control sequences out of 15000+200000
  14819 words of font info for 52 fonts, out of 3000000 for 9000
  1141 hyphenation exceptions out of 8191
@@ -3245,7 +3242,7 @@ TeX 2.9/fonts/type1/public/amsfonts/cm/cmss10.pfb><C:/Program Files/MiKTeX 2.9/
 fonts/type1/public/amsfonts/cm/cmssbx10.pfb><C:/Program Files/MiKTeX 2.9/fonts/
 type1/public/amsfonts/cm/cmti10.pfb><C:/Program Files/MiKTeX 2.9/fonts/type1/pu
 blic/amsfonts/cm/cmtt10.pfb>
-Output written on memoria.pdf (50 pages, 784949 bytes).
+Output written on memoria.pdf (50 pages, 784413 bytes).
 PDF statistics:
  927 PDF objects out of 1000 (max. 8388607)
  161 named destinations out of 1000 (max. 500000)

@@ -77,19 +77,19 @@ Por la flexibilidad mencionada, y por su fácil uso en Python a través de las l
 
 \subsection{BeautifulSoup}
 
-BeautifulSoup \cite{richardson2007beautiful} \cite{beautifulsoup} es una biblioteca de Python cuyo principal objetivo es facilitar la lectura y manipulación de documentos tipo XML. Uno de sus usos más frecuentes, y para el que ha sido utilizada en este proyecto, es para poder navegar por el texto de un documento HTML y leer su texto de forma muy sencilla cuando se están realizando labores de Web Scrapping. 
+BeautifulSoup \cite{richardson2007beautiful} \cite{beautifulsoup} es una librería de Python cuyo principal objetivo es facilitar la lectura y manipulación de documentos tipo XML. Uno de sus usos más frecuentes, y para el que ha sido utilizada en este proyecto, es para poder navegar por el texto de un documento HTML y leer su texto de forma muy sencilla cuando se están realizando labores de Web Scrapping. 
 
 Cuando recibe un documento XML o HTML, parsea la estructura de árbol de los mismos, de forma que permite acceder a los contenidos de la etiqueta que se desee con un simple método, y evitando al programador tener que buscar manualmente a lo largo del documento obtenido, que puede llegar a ser una tarea tediosa. Además, tiene operaciones muy interesantes como la de sacar todo el texto plano de un documento, de forma que nos ahorramos tener que iterar por toda la estructura separando etiquetas de texto.
 
-En este proyecto, BeautifulSoup se usó en combinación con Urllib2, una biblioteca que permite hacer peticiones que abren URLs, de modo que con la segunda obteníamos todo el código HTML de la página web a la que queríamos acceder, y con la primera parseamos el documento filtrando todo el texto de los artículos.
+En este proyecto, BeautifulSoup se usó en combinación con Urllib2, una librería que permite hacer peticiones que abren URLs, de modo que con la segunda obteníamos todo el código HTML de la página web a la que queríamos acceder, y con la primera parseamos el documento filtrando todo el texto de los artículos.
 
 \subsection{feedparser}
 
-Biblioteca para Python cuya funcionalidad es similar a la de un Web Scraper. A diferencia de BeautifulSoup, feedparser \cite{feedparser} está diseñada para analizar los RSS de las webs, y no el documento HTML convencional. 
+Librería para Python cuya funcionalidad es similar a la de un Web Scraper. A diferencia de BeautifulSoup, feedparser \cite{feedparser} está diseñada para analizar los RSS de las webs, y no el documento HTML convencional. 
 
 Su forma de uso sí que es similar a la de BeautifulSoup, pero en lugar de llamar a los elementos por medio de métodos, cuando leemos el código HTML del RSS, se almacena en una variable con formato de diccionario, siendo las distintas partes de las entradas claves en este diccionario.
 
-\section{Librerías de parseo de PDF}
+\section{Librerías de lectura de PDF}
 
 \subsection{PDFMiner}
 
@@ -102,7 +102,7 @@ En lo respectivo a nuestro proyecto, sólo nos interesaba la funcionalidad de le
 
 \subsection{Scikit-Learn}
 
-SciKit-Learn \cite{pedregosa2011scikit} \cite{scikitlearn} es una biblioteca de Python enfocada en el \emph{machine learning} y la minería de datos. Ofrece múltiples funcionalidades que se pueden aplicar en diferentes etapas de la propia minería como preprocesado, clustering, reducción de dimensionalidad, selección de modelo, regresión y clasificación.
+SciKit-Learn \cite{pedregosa2011scikit} \cite{scikitlearn} es una librería de Python enfocada en el \emph{machine learning} y la minería de datos. Ofrece múltiples funcionalidades que se pueden aplicar en diferentes etapas de la propia minería como preprocesado, clustering, reducción de dimensionalidad, selección de modelo, regresión y clasificación.
 
 En nuestro proyecto, sólo se usaron herramientas de preprocesado, para transformar el texto de las noticias que se recibe en algo utilizable por la librería, y de clasificación, para poder realizar la predicción de etiquetas.
 

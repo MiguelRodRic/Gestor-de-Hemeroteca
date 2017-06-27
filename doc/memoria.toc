@@ -33,7 +33,7 @@
 \contentsline {section}{\numberline {4.4}Librer\IeC {\'\i }as de Web Scraping}{15}{section.4.4}
 \contentsline {subsection}{BeautifulSoup}{15}{section*.23}
 \contentsline {subsection}{feedparser}{16}{section*.24}
-\contentsline {section}{\numberline {4.5}Librer\IeC {\'\i }as de parseo de PDF}{16}{section.4.5}
+\contentsline {section}{\numberline {4.5}Librer\IeC {\'\i }as de lectura de PDF}{16}{section.4.5}
 \contentsline {subsection}{PDFMiner}{16}{section*.25}
 \contentsline {section}{\numberline {4.6}Librer\IeC {\'\i }as para la miner\IeC {\'\i }a de datos}{16}{section.4.6}
 \contentsline {subsection}{Scikit-Learn}{16}{section*.26}
@@ -51,7 +51,7 @@
 \contentsline {subsection}{Creaci\IeC {\'o}n de explicaciones}{25}{section*.34}
 \contentsline {section}{\numberline {5.4}Experimentaci\IeC {\'o}n en Jupyter}{25}{section.5.4}
 \contentsline {section}{\numberline {5.5}Intento de publicaci\IeC {\'o}n de Jupyter Dashboard}{26}{section.5.5}
-\contentsline {section}{\numberline {5.6}Omisi\IeC {\'o}n de comentarios en el Scrapping}{27}{section.5.6}
+\contentsline {section}{\numberline {5.6}Omisi\IeC {\'o}n de comentarios en el Scraping}{27}{section.5.6}
 \contentsline {subsection}{Uso de Selenium para comentarios ocultos}{27}{section*.35}
 \contentsline {subsection}{Falta de comentarios en RSS}{28}{section*.36}
 \contentsline {chapter}{Trabajos relacionados}{29}{chapter*.37}

@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.14159265-2.6-1.40.17 (MiKTeX 2.9.6210 64-bit) (preloaded format=pdflatex 2017.2.7)  27 JUN 2017 12:07
+This is pdfTeX, Version 3.14159265-2.6-1.40.17 (MiKTeX 2.9.6210 64-bit) (preloaded format=pdflatex 2017.2.7)  27 JUN 2017 12:20
 entering extended mode
 **./memoria.tex
 (memoria.tex
@@ -1826,18 +1826,7 @@ Package babel Info: Redefining spanish shorthand "!
 (babel)             in language  on input line 70.
 Package babel Info: Redefining spanish shorthand "?
 (babel)             in language  on input line 70.
-[5]
-
-LaTeX Warning: Citation `bayestheorem' on page 6 undefined on input line 74.
-
-
-LaTeX Warning: Citation `bayesclassifier' on page 6 undefined on input line 76.
-
-
-
-LaTeX Warning: Citation `decisiontree' on page 6 undefined on input line 80.
-
-<./img/decisiontree1.png, id=571, 972.63374pt x 420.82219pt>
+[5] <./img/decisiontree1.png, id=574, 972.63374pt x 420.82219pt>
 File: ./img/decisiontree1.png Graphic file (type png)
 
 <use ./img/decisiontree1.png>
@@ -1901,13 +1890,13 @@ Package babel Info: Redefining spanish shorthand "!
 Package babel Info: Redefining spanish shorthand "?
 (babel)             in language  on input line 105.
  [7 <./img/decisiontree1.png>]
-<./img/Bagging.png, id=592, 545.03625pt x 254.9525pt>
+<./img/Bagging.png, id=598, 545.03625pt x 254.9525pt>
 File: ./img/Bagging.png Graphic file (type png)
  <use ./img/Bagging.png>
 Package pdftex.def Info: ./img/Bagging.png used on input line 106.
 (pdftex.def)             Requested size: 332.09775pt x 155.34572pt.
 
-<./img/RandomForestExample.jpg, id=597, 173.448pt x 95.1555pt>
+<./img/RandomForestExample.jpg, id=603, 173.448pt x 95.1555pt>
 File: ./img/RandomForestExample.jpg Graphic file (type jpg)
 
 <use ./img/RandomForestExample.jpg>
@@ -2475,7 +2464,7 @@ Package babel Info: Redefining spanish shorthand "!
 (babel)             in language  on input line 65.
 Package babel Info: Redefining spanish shorthand "?
 (babel)             in language  on input line 65.
- <./img/CapturaExplicacion.png, id=741, 866.48718pt x 354.57469pt>
+ <./img/CapturaExplicacion.png, id=747, 866.48718pt x 354.57469pt>
 File: ./img/CapturaExplicacion.png Graphic file (type png)
 
 <use ./img/CapturaExplicacion.png>
@@ -2551,7 +2540,7 @@ Package babel Info: Redefining spanish shorthand "!
 Package babel Info: Redefining spanish shorthand "?
 (babel)             in language  on input line 98.
  [23 <./img/CapturaExplicacion.png>]
-<./img/clasificacionchart.png, id=752, 360.59718pt x 216.05719pt>
+<./img/clasificacionchart.png, id=758, 360.59718pt x 216.05719pt>
 File: ./img/clasificacionchart.png Graphic file (type png)
 
 <use ./img/clasificacionchart.png>
@@ -2885,62 +2874,62 @@ Package babel Info: Redefining spanish shorthand "?
 
 bibitemlist
 Package babel Info: Redefining spanish shorthand <<
-(babel)             in language  on input line 57.
+(babel)             in language  on input line 54.
 Package babel Info: Redefining spanish shorthand >>
-(babel)             in language  on input line 57.
+(babel)             in language  on input line 54.
 Package babel Info: Redefining spanish shorthand "=
-(babel)             in language  on input line 57.
+(babel)             in language  on input line 54.
 Package babel Info: Redefining spanish shorthand "~
-(babel)             in language  on input line 57.
+(babel)             in language  on input line 54.
 Package babel Info: Redefining spanish shorthand "!
-(babel)             in language  on input line 57.
+(babel)             in language  on input line 54.
 Package babel Info: Redefining spanish shorthand "?
-(babel)             in language  on input line 57.
+(babel)             in language  on input line 54.
 Package babel Info: Redefining spanish shorthand <<
-(babel)             in language  on input line 57.
+(babel)             in language  on input line 54.
 Package babel Info: Redefining spanish shorthand >>
-(babel)             in language  on input line 57.
+(babel)             in language  on input line 54.
 Package babel Info: Redefining spanish shorthand "=
-(babel)             in language  on input line 57.
+(babel)             in language  on input line 54.
 Package babel Info: Redefining spanish shorthand "~
-(babel)             in language  on input line 57.
+(babel)             in language  on input line 54.
 Package babel Info: Redefining spanish shorthand "!
-(babel)             in language  on input line 57.
+(babel)             in language  on input line 54.
 Package babel Info: Redefining spanish shorthand "?
-(babel)             in language  on input line 57.
+(babel)             in language  on input line 54.
 [32
 
 
 ]
-LaTeX Info: Redefining \. on input line 127.
-LaTeX Info: Redefining \% on input line 127.
+LaTeX Info: Redefining \. on input line 128.
+LaTeX Info: Redefining \% on input line 128.
 
 Overfull \vbox (0.8521pt too high) has occurred while \output is active []
 
 Package babel Info: Redefining spanish shorthand <<
-(babel)             in language  on input line 127.
+(babel)             in language  on input line 128.
 Package babel Info: Redefining spanish shorthand >>
-(babel)             in language  on input line 127.
+(babel)             in language  on input line 128.
 Package babel Info: Redefining spanish shorthand "=
-(babel)             in language  on input line 127.
+(babel)             in language  on input line 128.
 Package babel Info: Redefining spanish shorthand "~
-(babel)             in language  on input line 127.
+(babel)             in language  on input line 128.
 Package babel Info: Redefining spanish shorthand "!
-(babel)             in language  on input line 127.
+(babel)             in language  on input line 128.
 Package babel Info: Redefining spanish shorthand "?
-(babel)             in language  on input line 127.
+(babel)             in language  on input line 128.
 Package babel Info: Redefining spanish shorthand <<
-(babel)             in language  on input line 127.
+(babel)             in language  on input line 128.
 Package babel Info: Redefining spanish shorthand >>
-(babel)             in language  on input line 127.
+(babel)             in language  on input line 128.
 Package babel Info: Redefining spanish shorthand "=
-(babel)             in language  on input line 127.
+(babel)             in language  on input line 128.
 Package babel Info: Redefining spanish shorthand "~
-(babel)             in language  on input line 127.
+(babel)             in language  on input line 128.
 Package babel Info: Redefining spanish shorthand "!
-(babel)             in language  on input line 127.
+(babel)             in language  on input line 128.
 Package babel Info: Redefining spanish shorthand "?
-(babel)             in language  on input line 127.
+(babel)             in language  on input line 128.
 
 [33])
 LaTeX Info: Redefining \. on input line 504.
@@ -2973,7 +2962,7 @@ Package babel Info: Redefining spanish shorthand "!
 Package babel Info: Redefining spanish shorthand "?
 (babel)             in language  on input line 504.
 
-[34] <./img/logo_COLOR_2L_ABAJO.pdf, id=814, 99.19058pt x 109.00725pt>
+[34] <./img/logo_COLOR_2L_ABAJO.pdf, id=820, 99.19058pt x 109.00725pt>
 File: ./img/logo_COLOR_2L_ABAJO.pdf Graphic file (type pdf)
 
 <use ./img/logo_COLOR_2L_ABAJO.pdf>
@@ -3039,21 +3028,18 @@ LaTeX Info: Redefining \% on input line 28.
 Package atveryend Info: Executing hook `AtVeryEndDocument' on input line 514.
 Package atveryend Info: Executing hook `AtEndAfterFileList' on input line 514.
 Package rerunfilecheck Info: File `memoria.out' has not changed.
-(rerunfilecheck)             Checksum: 7F4F75F714D9352944F7B72608F21B46;2312.
+(rerunfilecheck)             Checksum: 5EDBDCB6B39C72E9E4A4DB70B8D4AC44;2312.
 
 
 LaTeX Font Warning: Some font shapes were not available, defaults substituted.
-
-
-LaTeX Warning: There were undefined references.
 
 runsystem(del memoria.pyg)...executed.
 
  ) 
 Here is how much of TeX's memory you used:
- 14692 strings out of 493333
- 224345 string characters out of 3139165
- 418778 words of memory out of 3000000
+ 14695 strings out of 493333
+ 224429 string characters out of 3139165
+ 418901 words of memory out of 3000000
  17782 multiletter control sequences out of 15000+200000
  14819 words of font info for 52 fonts, out of 3000000 for 9000
  1141 hyphenation exceptions out of 8191
@@ -3073,9 +3059,9 @@ TeX 2.9/fonts/type1/public/amsfonts/cm/cmss10.pfb><C:/Program Files/MiKTeX 2.9/
 fonts/type1/public/amsfonts/cm/cmssbx10.pfb><C:/Program Files/MiKTeX 2.9/fonts/
 type1/public/amsfonts/cm/cmti10.pfb><C:/Program Files/MiKTeX 2.9/fonts/type1/pu
 blic/amsfonts/cm/cmtt10.pfb>
-Output written on memoria.pdf (45 pages, 777892 bytes).
+Output written on memoria.pdf (45 pages, 778766 bytes).
 PDF statistics:
- 908 PDF objects out of 1000 (max. 8388607)
- 158 named destinations out of 1000 (max. 500000)
+ 914 PDF objects out of 1000 (max. 8388607)
+ 161 named destinations out of 1000 (max. 500000)
  289 words of extra memory for PDF output out of 10000 (max. 10000000)
 

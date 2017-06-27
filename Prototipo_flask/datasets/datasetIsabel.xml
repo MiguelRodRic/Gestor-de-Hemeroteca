@@ -1,6 +1,6 @@
 <root>
 	<dataset topic='VientreAlquiler'>
-		<noticias clase='aFavor'>
+		<noticias clase='A Favor'>
 			<noticia>
 				<fecha>11-2-2017</fecha>
 				<autor>EDUARDO MENDICUTTI</autor>
@@ -74,7 +74,7 @@
 				<link>http://www.elmundo.es/sociedad/2017/03/05/58bbe43cca4741c1428b4579.html</link>
 			</noticia>
 		</noticias>
-		<noticias clase='enContra'>
+		<noticias clase='En Contra'>
 			<noticia>
 				<fecha>25-3-2017</fecha>
 				<autor>Judith Bosch</autor>

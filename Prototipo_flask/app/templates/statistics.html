@@ -89,6 +89,8 @@
         };
 
         function loadChart(filter){
+            $('#chart').remove();
+            $('#container').append('<canvas id="chart" width="500px" height="600px"> </canvas>');
             var barData;
             if(filter == "autores"){
                 barData = AutoresbarData;
@@ -115,6 +117,8 @@
                 $('#fechasinfo').hide();
                 $('#fuentesinfo').show();
             }
+
+
             // get bar chart canvas
             var mychart = document.getElementById("chart").getContext("2d");
             

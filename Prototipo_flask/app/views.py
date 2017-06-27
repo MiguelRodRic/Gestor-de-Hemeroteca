@@ -473,9 +473,6 @@ def newdataset():
 def savenewdataset():
     """Back-end para la pestaña de resultados de lectura de PDF"""
     nds = Corpus()
-    del NOMBRES_ARCHIVOS[:]
-    del nds.noticias[:]
-    lookForFile(PATHDATASET, '.xml')
     mostrar = True
     #get all the links from the xml
     if request.method == 'POST':
@@ -487,6 +484,9 @@ def savenewdataset():
                         'publishDate':noticia['fecha'], 'text':noticia['texto'],
                         'link':noticia['link'], 'source':'XML',
                         'tag':{'Machismo':'', 'VientreAlquiler':''}})
+                    tag_to_update = 'tag.' + noticia['tag'].split(' - ')[0]
+                    etiquetada = DB.noticias.update_one({'_id':insertada.inserted_id},
+                        {'$set':{tag_to_update:noticia['tag'].split(' - ')[1]}})
                     insertadas.append(insertada.inserted_id)
             if len(insertadas) == 0:
                 mensaje = 'No se han introducido nuevas noticias'
@@ -495,6 +495,9 @@ def savenewdataset():
             return render_template('savenewdataset.html', title='Nuevo Corpus',
                 mensaje=mensaje, nds=nds)
     else:
+        del NOMBRES_ARCHIVOS[:]
+        del nds.noticias[:]
+        lookForFile(PATHDATASET, '.xml')
         for nombre in NOMBRES_ARCHIVOS:
             noticias_fichero = scanNewsXML(nombre)
             for noticia in noticias_fichero:

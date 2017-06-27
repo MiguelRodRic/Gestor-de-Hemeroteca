@@ -173,3 +173,29 @@ Del mismo modo, podemos observar de forma breve la evolución de \emph{forms} a 
 
 
 Cabe destacar que, aunque sigue habiendo margen de mejora, era imposible obtener un 10/10 con esta herramienta, pues es conflictiva en algunos aspectos. Por poner un ejemplo, evalúa con mala nota las líneas con más de 100 columnas de código, pero si se introduce un salto de línea para dividir la longitud, penaliza que haya un salto de línea inapropiado.
+
+\subsection{Pruebas de precisión de clasificadores}
+
+Aparte de las pruebas expuestas en el apartado ``Aspectos Relevantes'' de la memoria, se realizaron pruebas adicionales fuera del entorno de la aplicación web, para comparar la precisión que obtenían los dos clasificadores candidatos: \emph{Naive Bayes} y el \emph{Random Forest}. 
+
+Las pruebas de precisión se dividieron en dos etapas. Primero, se usó como conjunto de entrenamiento el corpus de noticias relacionadas con el debate del vientre de alquiler, que habían sido facilitadas por María Isabel Menéndez, y que tenían etiquetas ya aplicadas. Como este corpus está formado por 24 noticias y podría parecer escaso en según que contextos, se realizó una segunda tanda de pruebas en las que se usaban las mismas noticias, pero divididas en párrafos, para poder aumentar el corpus de manera considerable.
+
+En el caso del \emph{Random Forest}, a lo largo de las pruebas se fue variando el número de árboles que se usaban en la clasificación, para ver cómo afectaba al porcentaje de aciertos de los resultados. 
+
+A continuación vemos los resultados para la clasificación de las noticias enteras:
+
+\imagen{ChartPercentage1}{Resultados de las pruebas usando noticias enteras}
+
+Se puede observar que el clasificador \emph{Random Forest} obtiene, en términos generales, mucho mejores resultados que el \emph{Naive Bayes}. El hecho de que se obtenga un 100\% en la mayoría de casos seguramente sea debido al reducido tamaño del corpus pues, como veremos más adelante, cuando hay más instancias en el conjunto el clasificador rinde algo peor.
+
+También hay que mencionar que, aunque los resultados sean muy buenos, incluso en los casos con pocos árboles, la varianza aumenta considerablemente, y cuando hay pocos árboles el porcentaje de aciertos varía de forma notable de una ejecución a otra. El clasificador \emph{Naive Bayes}, además de tener un peor resultado, no tiene ese factor de aleatoriedad, lo cual juega en su contra, pues no hay ningún margen de mejora al repetir la prueba sucesivamente.
+
+En esta imagen se ven los resultados para los casos en los que se han dividido las noticias en párrafos:
+
+\imagen{ChartPercentage2}{Resultados de las pruebas usando párrafos}
+
+Lo primero que se advierte es que los distintos \emph{Random Forest} han dejado de acertar todas las predicciones. Además, no hay una progresión lógica que relacione el número de árboles con la precisión de los resultados aunque, en general, si que haya mejores porcentajes de acierto en los ``bosques'' con más árboles. Sigue siendo recomendable usar un número elevado de los mismos para evitar esas variaciones en los porcentajes que se dan con más frecuencia en los casos con árboles más escasos.
+
+Respecto al \emph{Naive Bayes}, ha mejorado muy ligeramente el porcentaje de aciertos en comparación con la otra gráfica, pero sigue sin obtener la misma precisión que su competidor, incluso en los casos más exagerados (Como los casos con 3 y 5 árboles).
+
+Si combinamos los resultados obtenidos aquí, con los vistos en la memoria, queda demostrado que, aunque se sacrifique algo de rendimiento, usar un \emph{Random Forest} para las funcionalidades relacionadas con el \emph{machine learning} es lo más adecuado.

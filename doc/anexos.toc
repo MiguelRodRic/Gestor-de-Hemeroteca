@@ -47,20 +47,21 @@
 \contentsline {section}{\numberline {D.5}Pruebas del sistema}{47}{section.Alph4.5}
 \contentsline {subsection}{Pruebas de funcionalidad}{47}{section*.71}
 \contentsline {subsection}{Calidad del c\IeC {\'o}digo}{48}{section*.72}
-\contentsline {appendix}{\chapternumberline {E}Documentaci\IeC {\'o}n de usuario}{52}{appendix.Alph5}
-\contentsline {section}{\numberline {E.1}Introducci\IeC {\'o}n}{52}{section.Alph5.1}
-\contentsline {section}{\numberline {E.2}Requisitos de usuarios}{52}{section.Alph5.2}
-\contentsline {subsection}{Software}{52}{section*.80}
-\contentsline {subsection}{Hardware}{53}{section*.81}
-\contentsline {section}{\numberline {E.3}Instalaci\IeC {\'o}n}{53}{section.Alph5.3}
-\contentsline {section}{\numberline {E.4}Manual del usuario}{54}{section.Alph5.4}
-\contentsline {subsection}{Consulta de noticias}{54}{section*.82}
-\contentsline {subsection}{Etiquetado y Explicaci\IeC {\'o}n}{55}{section*.85}
-\contentsline {subsection}{Lectura de Noticias}{56}{section*.87}
-\contentsline {subsubsection}{Lectura de PDF}{56}{section*.88}
-\contentsline {subsubsection}{Lectura de RSS}{57}{section*.91}
-\contentsline {subsubsection}{Lectura de Dataset}{58}{section*.94}
-\contentsline {subsection}{Creaci\IeC {\'o}n de nuevos Conjuntos de datos}{60}{section*.98}
-\contentsline {subsection}{Estad\IeC {\'\i }sticas de las noticias}{61}{section*.100}
-\contentsline {subsection}{Consideraciones adicionales}{62}{section*.102}
-\contentsline {chapter}{Bibliograf\'{\i }a}{63}{section*.104}
+\contentsline {subsection}{Pruebas de precisi\IeC {\'o}n de clasificadores}{51}{section*.80}
+\contentsline {appendix}{\chapternumberline {E}Documentaci\IeC {\'o}n de usuario}{54}{appendix.Alph5}
+\contentsline {section}{\numberline {E.1}Introducci\IeC {\'o}n}{54}{section.Alph5.1}
+\contentsline {section}{\numberline {E.2}Requisitos de usuarios}{54}{section.Alph5.2}
+\contentsline {subsection}{Software}{54}{section*.83}
+\contentsline {subsection}{Hardware}{55}{section*.84}
+\contentsline {section}{\numberline {E.3}Instalaci\IeC {\'o}n}{55}{section.Alph5.3}
+\contentsline {section}{\numberline {E.4}Manual del usuario}{56}{section.Alph5.4}
+\contentsline {subsection}{Consulta de noticias}{56}{section*.85}
+\contentsline {subsection}{Etiquetado y Explicaci\IeC {\'o}n}{57}{section*.88}
+\contentsline {subsection}{Lectura de Noticias}{58}{section*.90}
+\contentsline {subsubsection}{Lectura de PDF}{58}{section*.91}
+\contentsline {subsubsection}{Lectura de RSS}{59}{section*.94}
+\contentsline {subsubsection}{Lectura de Dataset}{60}{section*.97}
+\contentsline {subsection}{Creaci\IeC {\'o}n de nuevos Conjuntos de datos}{62}{section*.101}
+\contentsline {subsection}{Estad\IeC {\'\i }sticas de las noticias}{63}{section*.103}
+\contentsline {subsection}{Consideraciones adicionales}{64}{section*.105}
+\contentsline {chapter}{Bibliograf\'{\i }a}{65}{section*.107}

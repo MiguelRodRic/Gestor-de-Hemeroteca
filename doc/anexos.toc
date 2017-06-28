@@ -64,4 +64,5 @@
 \contentsline {subsection}{Creaci\IeC {\'o}n de nuevos Conjuntos de datos}{62}{section*.101}
 \contentsline {subsection}{Estad\IeC {\'\i }sticas de las noticias}{63}{section*.103}
 \contentsline {subsection}{Consideraciones adicionales}{64}{section*.105}
-\contentsline {chapter}{Bibliograf\'{\i }a}{65}{section*.107}
+\contentsline {subsection}{M\IeC {\'a}quina virtual del programador}{64}{section*.106}
+\contentsline {chapter}{Bibliograf\'{\i }a}{66}{section*.108}
